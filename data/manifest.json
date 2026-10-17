@@ -1,0 +1,63 @@
+{
+ "course": "CHEM 1110",
+ "tests": [
+  {
+   "id": "T1",
+   "title": "Test 1",
+   "sub": "",
+   "items": []
+  },
+  {
+   "id": "T2",
+   "title": "Test 2",
+   "sub": "HW 07–12",
+   "items": [
+    {
+     "num": "07",
+     "title": "HW 07",
+     "subtitle": "Ch. 3 — Waves, Energy & the Bohr Model",
+     "quizzes": [
+      {
+       "slug": "hw07",
+       "label": "Quiz",
+       "count": 28
+      }
+     ],
+     "qa": null
+    },
+    {
+     "num": "08",
+     "title": "HW 08",
+     "subtitle": "Ch. 3 — Electron Configurations",
+     "quizzes": [
+      {
+       "slug": "hw08",
+       "label": "Quiz",
+       "count": 28
+      }
+     ],
+     "qa": null
+    },
+    {
+     "num": "09",
+     "title": "HW 09",
+     "subtitle": "Ch. 4 — Nomenclature, Periodic Table & Trends",
+     "quizzes": [
+      {
+       "slug": "hw09",
+       "label": "Quiz",
+       "count": 61
+      }
+     ],
+     "qa": null
+    }
+   ]
+  },
+  {
+   "id": "T3",
+   "title": "Test 3",
+   "sub": "",
+   "items": []
+  }
+ ]
+}

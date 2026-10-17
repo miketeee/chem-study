@@ -1,0 +1,2240 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chem Test 2 Navigator</title>
+<meta name="description" content="Flowchart study aid for CHEM 1110 Test 2 (HW 7–12): pick the question type, follow the steps from the notes, check your answer.">
+<style>
+:root{
+  --bg:#f6f4ee; --card:#ffffff; --ink:#1b1d22; --muted:#5d6370; --line:#e4e0d5; --soft:#f0ede4;
+  --accent:#2457c5; --accent-soft:#e7eefc; --ok:#1c6b3c; --ok-bg:#e6f5ec; --bad:#a12a2a; --bad-bg:#fcebea;
+  --warn-bg:#fff5df; --warn-ink:#6f4a00;
+  --light:#c26a12; --elec:#6a4bc4; --table:#11808a; --name:#b23a6b; --bond:#2f7d32;
+  --radius:14px; --shadow:0 1px 2px rgba(20,20,30,.05),0 4px 16px rgba(20,20,30,.05);
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#131519; --card:#1c1f25; --ink:#e9eaee; --muted:#9ba1ad; --line:#2e323a; --soft:#23272e;
+    --accent:#7aa2ff; --accent-soft:#1e2a45; --ok:#8fe0ae; --ok-bg:#15301f; --bad:#f4a3a3; --bad-bg:#3a1c1c;
+    --warn-bg:#352a12; --warn-ink:#f1cf86;
+    --light:#f0a052; --elec:#a891ff; --table:#4cc3cc; --name:#f07aa8; --bond:#7cd07f;
+    --shadow:none;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#131519; --card:#1c1f25; --ink:#e9eaee; --muted:#9ba1ad; --line:#2e323a; --soft:#23272e;
+  --accent:#7aa2ff; --accent-soft:#1e2a45; --ok:#8fe0ae; --ok-bg:#15301f; --bad:#f4a3a3; --bad-bg:#3a1c1c;
+  --warn-bg:#352a12; --warn-ink:#f1cf86;
+  --light:#f0a052; --elec:#a891ff; --table:#4cc3cc; --name:#f07aa8; --bond:#7cd07f; --shadow:none;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--accent)}
+code{font-family:var(--mono);font-size:.92em;background:var(--soft);padding:1px 5px;border-radius:5px}
+header.top{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .in{max-width:820px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:10px}
+.brand{font-weight:700;text-decoration:none;color:var(--ink);letter-spacing:-.01em;display:flex;align-items:center;gap:8px}
+.brand .mark{width:26px;height:26px;border-radius:8px;background:var(--accent);color:#fff;display:grid;place-items:center;font-size:13px}
+header.top nav{margin-left:auto;display:flex;gap:6px}
+.btn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:7px 14px;font:inherit;font-size:14px;text-decoration:none;cursor:pointer}
+.btn:hover{border-color:var(--accent)}
+.btn.ghost{background:transparent}
+main{max-width:820px;margin:0 auto;padding:18px 16px 60px}
+.hero{padding:18px 2px 8px}
+.eyebrow{margin:0 0 6px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{font-size:clamp(24px,5vw,32px);line-height:1.2;margin:0 0 8px;letter-spacing:-.02em;text-wrap:balance}
+.lede{margin:0;color:var(--muted);max-width:60ch}
+.search{margin:16px 0 8px}
+.search input{width:100%}
+.group{margin:22px 0}
+.group h2{font-size:14px;letter-spacing:.06em;text-transform:uppercase;margin:0 0 10px;color:var(--tc,var(--muted));display:flex;align-items:center;gap:8px}
+.group h2::before{content:"";width:10px;height:10px;border-radius:3px;background:var(--tc,var(--muted))}
+.tag-light{--tc:var(--light)} .tag-elec{--tc:var(--elec)} .tag-table{--tc:var(--table)} .tag-name{--tc:var(--name)} .tag-bond{--tc:var(--bond)}
+.opts{display:grid;gap:8px}
+.opt{display:grid;grid-template-columns:1fr auto;grid-template-areas:"t c" "h c";align-items:center;gap:2px 12px;padding:13px 16px;border:1px solid var(--line);border-left:4px solid var(--tc,var(--accent));background:var(--card);border-radius:12px;text-decoration:none;color:var(--ink);box-shadow:var(--shadow);transition:transform .08s,border-color .15s}
+.opt:hover{border-color:var(--tc,var(--accent));transform:translateY(-1px)}
+.opt:focus-visible{outline:3px solid var(--accent-soft);outline-offset:2px}
+.opt-t{grid-area:t;font-weight:600}
+.opt-h{grid-area:h;font-size:13px;color:var(--muted)}
+.chev{grid-area:c;color:var(--tc,var(--accent));font-weight:700}
+.trail{display:flex;flex-wrap:wrap;align-items:center;gap:4px 6px;font-size:13px;margin:4px 0 14px}
+.crumb{text-decoration:none;padding:3px 10px;border-radius:999px;background:var(--soft);color:var(--ink);max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+a.crumb:hover{background:var(--accent-soft)}
+.crumb.here{background:var(--accent);color:#fff}
+.crumb.muted{background:transparent;color:var(--tc);font-weight:700;padding:3px 2px}
+.sep{color:var(--muted)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);margin-bottom:16px}
+.node{border-top:5px solid var(--tc,var(--accent))}
+.steps{margin:10px 0 0;padding-left:22px}
+.steps li{margin:8px 0;padding-left:4px}
+.watch{margin-top:16px;background:var(--warn-bg);color:var(--warn-ink);border-radius:10px;padding:12px 14px}
+.watch strong{display:block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px}
+.watch p{margin:4px 0}
+.notes-link{margin:14px 0 0;font-size:14px}
+.verdict{display:inline-block;font-weight:800;letter-spacing:.06em;padding:4px 12px;border-radius:8px;margin:0 0 6px}
+.v-polar{color:var(--bad)} .verdict.v-polar{background:var(--bad-bg)}
+.v-non{color:var(--ok)} .verdict.v-non{background:var(--ok-bg)}
+.navrow{display:flex;gap:8px;flex-wrap:wrap}
+.tool .eyebrow{color:var(--accent)}
+.field{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--muted);min-width:0}
+.field span{font-weight:600}
+input,select,textarea{font:inherit;font-size:16px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 12px;min-width:0;width:100%}
+textarea{resize:vertical}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+input[readonly]{background:var(--soft)}
+.grid2,.grid3,.grid4{display:grid;gap:10px;margin-bottom:8px}
+.grid2{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.grid3{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.grid4{grid-template-columns:repeat(auto-fit,minmax(130px,1fr))}
+fieldset.side{border:1px solid var(--line);border-radius:12px;padding:10px 12px 12px;margin:0;display:grid;gap:8px}
+legend{font-size:13px;font-weight:700;color:var(--muted);padding:0 4px}
+.hint{font-size:13px;color:var(--muted);margin:6px 0}
+.center{text-align:center}
+.res{margin-top:12px;border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--bg)}
+.res p{margin:8px 0}
+.res-ok{border-color:color-mix(in srgb,var(--ok) 40%,var(--line))}
+.res-bad{border-color:color-mix(in srgb,var(--bad) 45%,var(--line));background:var(--bad-bg);color:var(--bad)}
+.ans{display:flex;flex-direction:column;gap:2px;margin-bottom:6px}
+.ans-l{font-size:13px;font-weight:700;color:var(--muted)}
+.ans-v{font-size:clamp(20px,4.5vw,26px);font-weight:700;letter-spacing:-.01em;line-height:1.25;word-break:break-word}
+.ans-s{font-size:13px;color:var(--muted)}
+.duo{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.duo .ans{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.why{margin:6px 0;padding-left:20px}
+.why li{margin:5px 0}
+.checks{list-style:none;padding:0;margin:8px 0}
+.checks li{padding:6px 10px;border-radius:8px;margin:4px 0}
+.checks .pass{background:var(--ok-bg);color:var(--ok)}
+.checks .fail{background:var(--bad-bg);color:var(--bad);font-weight:600}
+.res-bad .checks .pass{color:var(--ok)}
+.lbl{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:14px 0 6px!important}
+.stats{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.stats span{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:5px 10px;font-size:14px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.chip{font:inherit;font-size:13px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:4px 11px;cursor:pointer}
+button.chip:hover{border-color:var(--accent)}
+.chip.static{cursor:default;font-size:15px;font-weight:600}
+.chip.pri{background:var(--accent);color:#fff;border-color:var(--accent)}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;margin-bottom:10px;background:var(--bg);flex-wrap:wrap}
+.seg button{font:inherit;font-size:14px;border:0;background:transparent;color:var(--muted);padding:6px 12px;border-radius:999px;cursor:pointer}
+.seg button.on{background:var(--card);color:var(--ink);box-shadow:var(--shadow);font-weight:600;outline:1px solid var(--line)}
+.orbs{display:flex;flex-wrap:wrap;gap:14px;margin:4px 0}
+.orb{display:flex;flex-direction:column;align-items:center}
+.boxes{display:flex}
+.bx{width:34px;height:34px;border:1.5px solid var(--ink);display:grid;place-items:center;font-size:17px;letter-spacing:-2px;margin-left:-1.5px;background:var(--card)}
+.bx:first-child{margin-left:0}
+.orb-l{font-size:13px;margin-top:3px;color:var(--muted);font-weight:600}
+.full{font-size:14px;color:var(--muted);word-break:break-word}
+.cmp{font-weight:600;padding:6px 10px;border-radius:8px}
+.cmp-ok{background:var(--ok-bg);color:var(--ok)} .cmp-bad{background:var(--bad-bg);color:var(--bad)}
+.rankline{font-size:clamp(18px,4vw,22px);font-weight:700}
+.rankline span{color:var(--muted);font-weight:400;margin:0 4px}
+.twocol{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.rank{margin:4px 0;padding-left:0;list-style:none}
+.spectrum{display:flex;flex-wrap:wrap;gap:4px;margin-top:10px}
+.spectrum span{font-size:12px;padding:3px 8px;border-radius:6px;background:var(--soft);color:var(--muted)}
+.spectrum span.on{background:var(--accent);color:#fff;font-weight:700}
+.lewisbox{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px}
+svg.lewis{display:block;width:100%;max-width:340px;max-height:280px;margin:0 auto;color:var(--ink)}
+svg.lewis line{stroke:currentColor;stroke-width:2;stroke-linecap:round}
+svg.lewis .at{font:600 16px system-ui,sans-serif;fill:currentColor}
+svg.lewis .dot{fill:currentColor}
+svg.lewis .fc{font:700 10px system-ui,sans-serif;fill:var(--accent)}
+svg.lewis .br{fill:none;stroke:currentColor;stroke-width:1.6}
+svg.lewis .chg{font:600 13px system-ui,sans-serif;fill:currentColor}
+.dotwrap{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.dotsvg{width:120px;height:120px;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:12px}
+.geo{margin-top:6px}
+hr{border:0;border-top:1px solid var(--line);margin:18px 0}
+.notes section{border-top:1px solid var(--line);padding-top:6px;margin-top:10px;scroll-margin-top:70px;border-radius:8px}
+.notes h3{font-size:16px;margin:8px 0 4px}
+.notes ul{margin:4px 0 8px;padding-left:20px}
+.notes li{margin:3px 0}
+.notes section.flash{animation:flash 2s ease}
+@keyframes flash{0%,40%{background:var(--accent-soft)}100%{background:transparent}}
+
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600}
+.btn.primary:hover{filter:brightness(1.08)}
+.btn.small{padding:4px 10px;font-size:13px}
+.dim{color:var(--muted);font-weight:400}
+.mono{font-family:var(--mono)}
+.drillcta{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:14px 0 4px;padding:14px 16px;border-radius:12px;background:var(--accent);color:#fff;text-decoration:none;box-shadow:var(--shadow)}
+.drillcta b{display:block;font-size:17px}
+.drillcta small{display:block;opacity:.9;font-size:13px}
+.drillcta .chev{color:#fff}
+.drillgrid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));margin-top:10px}
+.dcard{border-top:5px solid var(--tc);display:flex;flex-direction:column;gap:6px;margin:0}
+.dcard h2{font-size:18px;margin:0 0 6px}
+.dcard .btn.primary{align-self:flex-start;margin-top:10px}
+.dcard .seg{display:grid;grid-template-columns:repeat(3,1fr);border-radius:12px;width:100%}
+.dcard .seg button{border-radius:9px;font-size:13px;padding:7px 6px;line-height:1.25}
+.togs{display:grid;gap:6px}
+.togs.inline{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.tog{display:flex;align-items:flex-start;gap:10px;padding:8px 10px;border:1px solid var(--line);border-radius:10px;cursor:pointer;background:var(--bg)}
+.tog input{width:18px;height:18px;margin:2px 0 0;accent-color:var(--accent);flex:none}
+.tog span{font-size:14px;font-weight:600;color:var(--ink)}
+.tog small{display:block;font-weight:400;color:var(--muted);font-size:12px}
+.ref summary{cursor:pointer;font-weight:600}
+.refc{display:grid;gap:10px;margin-top:10px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.refrow{border:1px solid var(--line);border-radius:10px;padding:8px 12px;background:var(--bg)}
+.refrow p{margin:0 0 4px}
+.refrow ul{margin:0;padding-left:18px;font-size:14px}
+.scorebar{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;margin:0 0 12px;font-size:14px}
+.scorebar .btn{margin-left:auto}
+.dq{border-top:5px solid var(--accent)}
+.again{color:var(--bad)}
+.qprompt{font-size:15px;color:var(--muted);margin:0 0 4px;font-weight:600}
+.qbig{font-size:clamp(26px,7vw,40px);font-weight:700;letter-spacing:-.01em;line-height:1.2;margin:2px 0 6px;word-break:break-word}
+.qbig.mono{font-family:inherit}
+.mc{display:grid;gap:8px;margin-top:14px;grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
+.mc button{font:inherit;font-size:15px;text-align:left;display:flex;gap:10px;align-items:center;padding:11px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);cursor:pointer;min-height:48px}
+.mc button:hover:not(:disabled){border-color:var(--accent)}
+.mc button .k{flex:none;width:22px;height:22px;border-radius:6px;display:grid;place-items:center;font-size:12px;font-weight:700;background:var(--soft);color:var(--muted)}
+.mc button:disabled{cursor:default;opacity:.55}
+.mc button.right{opacity:1;border-color:var(--ok);background:var(--ok-bg);color:var(--ok);font-weight:700}
+.mc button.wrong{opacity:1;border-color:var(--bad);background:var(--bad-bg);color:var(--bad);font-weight:700}
+.ta{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.ta input{flex:1 1 220px;font-size:18px}
+.ta input.ok{border-color:var(--ok);background:var(--ok-bg)}
+.ta input.bad{border-color:var(--bad);background:var(--bad-bg)}
+.ansv{font-size:18px}
+#nextq{margin-top:6px}
+.kbd{display:none}
+@media (pointer:fine){.kbd{display:inline}}
+.lwd summary{cursor:pointer;font-size:14px;color:var(--accent);margin:6px 0}
+@media (max-width:520px){ header.top nav .btn{padding:6px 10px;font-size:13px} .mc{grid-template-columns:1fr 1fr} .mc button{font-size:14px;padding:10px} }
+footer{max-width:820px;margin:0 auto;padding:0 16px 30px;color:var(--muted);font-size:13px}
+@media (max-width:520px){
+  .card{padding:16px}
+  header.top .brand .full-name{display:none}
+  .crumb{max-width:78vw}
+}
+@media (prefers-reduced-motion: reduce){ .opt{transition:none} .notes section.flash{animation:none} }
+</style>
+</head>
+<body>
+<header class="top"><div class="in">
+  <a class="brand" href="../index.html" title="Back to Chem Study Hub"><span class="mark">Ch</span><span>Test 2 <span class="full-name">Navigator</span></span></a>
+  <nav><a class="btn" href="#/">Start</a><a class="btn" href="#/drill">Drill</a><a class="btn" href="#/notes">Notes</a><button class="btn" id="theme" type="button" aria-label="Toggle dark mode">◐</button></nav>
+</div></header>
+<main id="app"></main>
+<footer>Built from your one-page notes and the HW 7–12 / Quiz 3–4 question styles. The checkers follow the class rules (how the test grades), not every real-world exception.</footer>
+<script>
+/* ================= CHEM ENGINE (follows CHEM 1110 class rules) ================= */
+var EL_RAW = `H,hydrogen,1,1,2.20
+He,helium,18,1,
+Li,lithium,1,2,0.98
+Be,beryllium,2,2,1.57
+B,boron,13,2,2.04
+C,carbon,14,2,2.55
+N,nitrogen,15,2,3.04
+O,oxygen,16,2,3.44
+F,fluorine,17,2,3.98
+Ne,neon,18,2,
+Na,sodium,1,3,0.93
+Mg,magnesium,2,3,1.31
+Al,aluminum,13,3,1.61
+Si,silicon,14,3,1.90
+P,phosphorus,15,3,2.19
+S,sulfur,16,3,2.58
+Cl,chlorine,17,3,3.16
+Ar,argon,18,3,
+K,potassium,1,4,0.82
+Ca,calcium,2,4,1.00
+Sc,scandium,3,4,1.36
+Ti,titanium,4,4,1.54
+V,vanadium,5,4,1.63
+Cr,chromium,6,4,1.66
+Mn,manganese,7,4,1.55
+Fe,iron,8,4,1.83
+Co,cobalt,9,4,1.88
+Ni,nickel,10,4,1.91
+Cu,copper,11,4,1.90
+Zn,zinc,12,4,1.65
+Ga,gallium,13,4,1.81
+Ge,germanium,14,4,2.01
+As,arsenic,15,4,2.18
+Se,selenium,16,4,2.55
+Br,bromine,17,4,2.96
+Kr,krypton,18,4,3.00
+Rb,rubidium,1,5,0.82
+Sr,strontium,2,5,0.95
+Y,yttrium,3,5,1.22
+Zr,zirconium,4,5,1.33
+Nb,niobium,5,5,1.6
+Mo,molybdenum,6,5,2.16
+Tc,technetium,7,5,1.9
+Ru,ruthenium,8,5,2.2
+Rh,rhodium,9,5,2.28
+Pd,palladium,10,5,2.20
+Ag,silver,11,5,1.93
+Cd,cadmium,12,5,1.69
+In,indium,13,5,1.78
+Sn,tin,14,5,1.96
+Sb,antimony,15,5,2.05
+Te,tellurium,16,5,2.1
+I,iodine,17,5,2.66
+Xe,xenon,18,5,2.6
+Cs,cesium,1,6,0.79
+Ba,barium,2,6,0.89
+La,lanthanum,3,6,1.10
+Ce,cerium,0,6,1.12
+Pr,praseodymium,0,6,1.13
+Nd,neodymium,0,6,1.14
+Pm,promethium,0,6,
+Sm,samarium,0,6,1.17
+Eu,europium,0,6,
+Gd,gadolinium,0,6,1.20
+Tb,terbium,0,6,
+Dy,dysprosium,0,6,1.22
+Ho,holmium,0,6,1.23
+Er,erbium,0,6,1.24
+Tm,thulium,0,6,1.25
+Yb,ytterbium,0,6,
+Lu,lutetium,0,6,1.27
+Hf,hafnium,4,6,1.3
+Ta,tantalum,5,6,1.5
+W,tungsten,6,6,2.36
+Re,rhenium,7,6,1.9
+Os,osmium,8,6,2.2
+Ir,iridium,9,6,2.20
+Pt,platinum,10,6,2.28
+Au,gold,11,6,2.54
+Hg,mercury,12,6,2.00
+Tl,thallium,13,6,1.62
+Pb,lead,14,6,2.33
+Bi,bismuth,15,6,2.02
+Po,polonium,16,6,2.0
+At,astatine,17,6,2.2
+Rn,radon,18,6,
+Fr,francium,1,7,0.7
+Ra,radium,2,7,0.9`;
+
+var EL = {}, ELZ = [], EL_BY_NAME = {};
+EL_RAW.trim().split('\n').forEach(function (line, i) {
+  var f = line.split(',');
+  var o = { Z: i + 1, sym: f[0], name: f[1], group: +f[2], period: +f[3], en: f[4] === '' ? null : +f[4] };
+  EL[o.sym] = o; ELZ[o.Z] = o; EL_BY_NAME[o.name] = o;
+});
+EL_BY_NAME.aluminium = EL.Al; EL_BY_NAME.sulphur = EL.S; EL_BY_NAME.caesium = EL.Cs;
+
+var METALLOIDS = { B: 1, Si: 1, Ge: 1, As: 1, Sb: 1, Te: 1 };
+var NONMETALS = { H: 1, He: 1, C: 1, N: 1, O: 1, F: 1, Ne: 1, P: 1, S: 1, Cl: 1, Ar: 1, Se: 1, Br: 1, Kr: 1, I: 1, Xe: 1, At: 1, Rn: 1 };
+var NOBLE_Z = [2, 10, 18, 36, 54, 86];
+
+function kindOf(e) { if (METALLOIDS[e.sym]) return 'metalloid'; if (NONMETALS[e.sym]) return 'nonmetal'; return 'metal'; }
+function isMetal(e) { return kindOf(e) === 'metal'; }
+function posGroup(e) { return e.group === 0 ? 3 : e.group; }
+function blockOf(e) { if (e.group === 0) return 'f'; if (e.sym === 'He' || e.group <= 2) return 's'; if (e.group <= 12) return 'd'; return 'p'; }
+function familyOf(e) {
+  if (e.sym === 'H') return 'hydrogen (nonmetal — sits in column 1 but is NOT an alkali metal)';
+  if (e.group === 1) return 'alkali metal';
+  if (e.group === 2) return 'alkaline earth metal';
+  if (e.group === 0 || e.Z === 57) return 'lanthanide (inner transition metal)';
+  if (e.group >= 3 && e.group <= 12) return 'transition metal';
+  if (e.group === 17) return 'halogen';
+  if (e.group === 18) return 'noble (inert) gas';
+  return 'main-group ' + kindOf(e);
+}
+function aGroup(e) { if (e.group === 1 || e.group === 2) return e.group + 'A'; if (e.group >= 13) return (e.group - 10) + 'A'; return null; }
+function valenceOf(e) { if (e.sym === 'He') return 2; if (e.group === 1 || e.group === 2) return e.group; if (e.group >= 13) return e.group - 10; return null; }
+function stateOf(e) { if (/^(H|N|O|F|Cl|He|Ne|Ar|Kr|Xe|Rn)$/.test(e.sym)) return 'gas'; if (e.sym === 'Br' || e.sym === 'Hg') return 'liquid'; return 'solid'; }
+function typicalCharge(e) {
+  if (e.sym === 'H') return '+1 with nonmetals (covalent), −1 with metals (hydride)';
+  if (e.group === 1) return '+1';
+  if (e.group === 2) return '+2';
+  if (e.sym === 'Al') return '+3';
+  if (e.group === 18) return '0 (noble gases don\'t form ions)';
+  if (e.group >= 3 && e.group <= 12 || e.group === 0) return 'varies (+1, +2, +3…) → Roman numeral in names';
+  if (kindOf(e) === 'metal') return 'varies (metal) → Roman numeral in names';
+  if (e.group === 14) return 'usually bonds covalently (±4 is rare)';
+  if (e.group === 13) return 'bonds covalently (B)';
+  if (e.group === 15) return '−3';
+  if (e.group === 16) return '−2';
+  if (e.group === 17) return '−1';
+  return '—';
+}
+
+/* ---------- small helpers ---------- */
+var SUP = { '0': '⁰', '1': '¹', '2': '²', '3': '³', '4': '⁴', '5': '⁵', '6': '⁶', '7': '⁷', '8': '⁸', '9': '⁹', '+': '⁺', '-': '⁻' };
+function sup(s) { return String(s).split('').map(function (c) { return SUP[c] || c; }).join(''); }
+function chargeStr(q) { if (!q) return ''; var m = Math.abs(q); return sup((m === 1 ? '' : m) + (q > 0 ? '+' : '-')); }
+function speciesLabel(sym, q) { return sym + chargeStr(q); }
+function gcd(a, b) { a = Math.abs(a); b = Math.abs(b); while (b) { var t = b; b = a % b; a = t; } return a; }
+function lcm(a, b) { return a / gcd(a, b) * b; }
+var ROMAN = ['', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII'];
+var PREFIX = ['', 'mono', 'di', 'tri', 'tetra', 'penta', 'hexa', 'hepta', 'octa', 'nona', 'deca'];
+
+/* ---------- numbers & sig figs ---------- */
+var SUPREV = { '⁰': '0', '¹': '1', '²': '2', '³': '3', '⁴': '4', '⁵': '5', '⁶': '6', '⁷': '7', '⁸': '8', '⁹': '9', '⁺': '+', '⁻': '-' };
+function parseNumber(str) {
+  if (str == null) return null;
+  var s = String(str).trim().replace(/[()]/g, '').replace(/[−–]/g, '-').replace(/[⁰-⁹⁺⁻¹²³]/g, function (c) { return SUPREV[c] || c; });
+  s = s.replace(/\s+/g, '').replace(/[×X*]/g, 'x').replace(/,/g, '');
+  var m = s.match(/^([+-]?(?:\d+\.?\d*|\.\d+))(?:(?:x10\^?|e)([+-]?\d+))?$/i);
+  if (!m) return null;
+  var mant = m[1], exp = m[2] ? +m[2] : 0;
+  return { value: parseFloat(mant) * Math.pow(10, exp), sf: sigFigs(mant) };
+}
+function sigFigs(mant) {
+  var m = mant.replace(/^[+-]/, '');
+  if (m.indexOf('.') >= 0) { var d = m.replace('.', '').replace(/^0+/, ''); return Math.max(d.length, 1); }
+  var t = m.replace(/^0+/, '').replace(/0+$/, ''); return Math.max(t.length, 1);
+}
+function fmtSci(v, sf) {
+  if (!isFinite(v)) return { html: '—', typed: '—' };
+  if (v === 0) return { html: '0', typed: '0' };
+  var parts = v.toExponential(Math.max(sf, 1) - 1).split('e');
+  var e = +parts[1];
+  return { html: parts[0] + ' × 10<sup>' + e + '</sup>', typed: parts[0] + 'x10^' + e, mant: parts[0], exp: e };
+}
+
+/* ---------- LIGHT ---------- */
+var H_PLANCK = 6.626e-34, C_LIGHT = 3.00e8;
+var UNITS = {
+  lambda: { m: 1, cm: 1e-2, mm: 1e-3, 'µm': 1e-6, nm: 1e-9, pm: 1e-12 },
+  nu: { 'Hz (s⁻¹)': 1, kHz: 1e3, MHz: 1e6, GHz: 1e9 },
+  E: { J: 1, kJ: 1e3 }
+};
+var QNAME = { lambda: 'wavelength λ', nu: 'frequency ν', E: 'energy E' };
+var QSYM = { lambda: 'λ', nu: 'ν', E: 'E' };
+var BASEU = { lambda: 'm', nu: 'Hz', E: 'J' };
+function lightCalc(given, gUnit, valueStr, find, fUnit) {
+  var n = parseNumber(valueStr);
+  if (!n) return { error: 'Could not read that number. Try forms like 3.40x10^-9, 3.40e-9, or 2.73×10⁻².' };
+  if (given === find) return { error: 'Pick a different quantity to find.' };
+  var steps = [];
+  var gSI = n.value * UNITS[given][gUnit];
+  var shown = fmtSci(n.value, n.sf).html;
+  if (UNITS[given][gUnit] !== 1) {
+    steps.push('Convert to base units first: ' + shown + ' ' + gUnit + ' = <b>' + fmtSci(gSI, n.sf).html + ' ' + BASEU[given] + '</b> (1 ' + gUnit + ' = ' + fmtSci(UNITS[given][gUnit], 1).html + ' ' + BASEU[given] + ')');
+  } else steps.push('Units already OK: ' + shown + ' ' + BASEU[given] + '.');
+  var usesC = false, ans, formula;
+  var key = given + '>' + find;
+  switch (key) {
+    case 'lambda>nu': ans = C_LIGHT / gSI; formula = 'No E → λν = c, so ν = c / λ'; usesC = true; break;
+    case 'nu>lambda': ans = C_LIGHT / gSI; formula = 'No E → λν = c, so λ = c / ν'; usesC = true; break;
+    case 'nu>E': ans = H_PLANCK * gSI; formula = 'E with ν → E = hν'; break;
+    case 'E>nu': ans = gSI / H_PLANCK; formula = 'E with ν → E = hν, so ν = E / h'; break;
+    case 'lambda>E': ans = H_PLANCK * C_LIGHT / gSI; formula = 'E with λ → E = hc / λ'; usesC = true; break;
+    case 'E>lambda': ans = H_PLANCK * C_LIGHT / gSI; formula = 'E with λ → E = hc / λ, so λ = hc / E'; usesC = true; break;
+  }
+  steps.push('Pick the formula: <b>' + formula + '</b> (h = 6.626 × 10<sup>−34</sup> J·s' + (usesC ? ', c = 3.00 × 10<sup>8</sup> m/s' : '') + ')');
+  var sf = Math.min(n.sf, usesC ? 3 : 4);
+  steps.push('Result in base units: ' + fmtSci(ans, sf).html + ' ' + BASEU[find]);
+  var out = ans / UNITS[find][fUnit];
+  if (UNITS[find][fUnit] !== 1) steps.push('Convert to the unit asked for: ÷ ' + fmtSci(UNITS[find][fUnit], 1).html + ' → ' + fmtSci(out, sf).html + ' ' + fUnit);
+  steps.push('Sig figs: your given value has ' + n.sf + '; ' + (usesC ? 'c has 3' : 'h has 4') + ' → answer gets <b>' + sf + '</b>.');
+  var f = fmtSci(out, sf);
+  return { steps: steps, answerHTML: f.html + ' ' + fUnit.replace(' (s⁻¹)', ''), typed: f.typed + ' ' + fUnit.replace(' (s⁻¹)', ''), sf: sf };
+}
+
+var SPECTRUM = [
+  { k: 'radio', lo: 0, hi: 3e9 }, { k: 'microwave', lo: 3e9, hi: 3e11 }, { k: 'infrared', lo: 3e11, hi: 4.0e14 },
+  { k: 'visible', lo: 4.0e14, hi: 7.9e14 }, { k: 'ultraviolet', lo: 7.9e14, hi: 3e16 }, { k: 'X-ray', lo: 3e16, hi: 3e19 }, { k: 'gamma', lo: 3e19, hi: Infinity }
+];
+function regionOfNu(nu) { for (var i = 0; i < SPECTRUM.length; i++) if (nu >= SPECTRUM[i].lo && nu < SPECTRUM[i].hi) return SPECTRUM[i].k; return 'gamma'; }
+/* side: {mode:'region'|'lambda'|'nu'|'E', region, value, unit} -> representative frequency */
+function sideToNu(side) {
+  if (side.mode === 'region') {
+    var idx = SPECTRUM.findIndex(function (r) { return r.k === side.region; });
+    return { nu: null, rank: idx, label: side.region };
+  }
+  var n = parseNumber(side.value); if (!n) return { error: 'Could not read "' + side.value + '"' };
+  var v = n.value * UNITS[side.mode][side.unit], nu;
+  if (side.mode === 'nu') nu = v; else if (side.mode === 'lambda') nu = C_LIGHT / v; else nu = v / H_PLANCK;
+  var reg = regionOfNu(nu);
+  return { nu: nu, rank: SPECTRUM.findIndex(function (r) { return r.k === reg; }), label: fmtSci(n.value, n.sf).html + ' ' + side.unit.replace(' (s⁻¹)', ''), region: reg };
+}
+function compareWaves(a, b) {
+  var A = sideToNu(a), B = sideToNu(b);
+  if (A.error || B.error) return { error: A.error || B.error };
+  var cmp;
+  if (A.nu != null && B.nu != null) cmp = A.nu === B.nu ? 0 : (A.nu > B.nu ? 1 : -1);
+  else cmp = A.rank === B.rank ? 0 : (A.rank > B.rank ? 1 : -1);
+  return { A: A, B: B, cmp: cmp };
+}
+
+var RH = 2.18e-18;
+function parseTransitions(str) {
+  var re = /(\d+)\s*(?:-+>|→|to|,\s*to)\s*(\d+)/gi, m, out = [];
+  while ((m = re.exec(str))) out.push({ from: +m[1], to: +m[2] });
+  return out;
+}
+function transitionInfo(t) {
+  var dE = RH * (1 / (t.to * t.to) - 1 / (t.from * t.from)); // + = absorbed
+  var mag = Math.abs(dE);
+  return { t: t, type: t.to > t.from ? 'absorption' : (t.to < t.from ? 'emission' : 'none'), dE: dE, mag: mag, lambdaNm: mag ? H_PLANCK * C_LIGHT / mag * 1e9 : Infinity };
+}
+
+/* ---------- QUANTUM NUMBERS ---------- */
+var LLETTER = ['s', 'p', 'd', 'f'];
+function parseL(v) { v = String(v).trim().toLowerCase(); var i = LLETTER.indexOf(v); if (i >= 0) return i; if (/^-?\d+$/.test(v)) return +v; return NaN; }
+function parseHalf(v) {
+  var s = String(v).trim().replace(/[−–]/g, '-').replace(/½/g, '1/2').replace(/\s/g, '');
+  if (/^\+?1\/2$/.test(s) || /^\+?0?\.5$/.test(s)) return 0.5;
+  if (/^-1\/2$/.test(s) || /^-0?\.5$/.test(s)) return -0.5;
+  var x = parseFloat(s); return isNaN(x) ? NaN : x;
+}
+function checkQN(nS, lS, mlS, msS) {
+  var n = +String(nS).trim(), l = parseL(lS), ml = +String(mlS).trim().replace(/[−–]/g, '-'), ms = parseHalf(msS);
+  var r = [];
+  r.push({ ok: Number.isInteger(n) && n >= 1, txt: 'n = ' + nS + ' → must be a whole number 1, 2, 3… (no 0).' });
+  r.push({ ok: Number.isInteger(l) && l >= 0 && l <= n - 1, txt: 'ℓ = ' + lS + (Number.isInteger(l) && l <= 3 && l >= 0 ? ' (' + LLETTER[l] + ')' : '') + ' → must be 0 to n−1' + (Number.isInteger(n) && n >= 1 ? ' = 0–' + (n - 1) : '') + '. It can never equal n.' });
+  r.push({ ok: Number.isInteger(ml) && Number.isInteger(l) && Math.abs(ml) <= l, txt: 'mℓ = ' + mlS + ' → must be a whole number from −ℓ to +ℓ' + (Number.isInteger(l) && l >= 0 ? ' (−' + l + ' to +' + l + ')' : '') + '.' });
+  r.push({ ok: ms === 0.5 || ms === -0.5, txt: 'ms = ' + msS + ' → must be +½ or −½. Nothing else.' });
+  return { checks: r, allowed: r.every(function (c) { return c.ok; }) };
+}
+function subshellInfo(str) {
+  var s = String(str).trim().toLowerCase().replace(/\s/g, '');
+  var m = s.match(/^(\d+)([spdfghi])$/);
+  if (m) {
+    var n = +m[1], l = 'spdfghi'.indexOf(m[2]);
+    var exists = l <= n - 1 && l <= 3;
+    return { kind: 'sub', label: n + m[2], n: n, l: l, exists: exists, orbitals: exists ? 2 * l + 1 : 0, electrons: exists ? 2 * (2 * l + 1) : 0 };
+  }
+  m = s.match(/^(?:n=)?(\d+)$/);
+  if (m) {
+    var nn = +m[1], subs = [];
+    for (var k = 0; k < Math.min(nn, 4); k++) subs.push(nn + LLETTER[k] + ' (' + (2 * k + 1) + ' orb, ' + (4 * k + 2) + ' e)');
+    return { kind: 'shell', n: nn, orbitals: nn * nn, electrons: 2 * nn * nn, subs: subs };
+  }
+  return { error: 'Type a subshell like 3p or 2f, or a shell like n=4.' };
+}
+
+/* ---------- ELECTRON CONFIGURATIONS (class rules) ---------- */
+var ORDER = ['1s', '2s', '2p', '3s', '3p', '4s', '3d', '4p', '5s', '4d', '5p', '6s', '4f', '5d', '6p', '7s', '5f', '6d', '7p'];
+var CAP = { s: 2, p: 6, d: 10, f: 14 };
+function subN(sub) { return +sub[0]; }
+function subL(sub) { return 'spdf'.indexOf(sub[1]); }
+function aufbau(ne) {
+  var cfg = {}, left = ne;
+  for (var i = 0; i < ORDER.length && left > 0; i++) { var c = Math.min(CAP[ORDER[i][1]], left); cfg[ORDER[i]] = c; left -= c; }
+  return cfg;
+}
+function neutralConfig(Z) {
+  var cfg = aufbau(Z), e = ELZ[Z], note = null;
+  if (e && (e.group === 6 || e.group === 11) && e.period >= 4) {
+    var dSub = (e.period - 1) + 'd', sSub = e.period + 's';
+    if ((cfg[dSub] === 4 || cfg[dSub] === 9) && cfg[sSub] === 2) {
+      cfg[sSub] = 1; cfg[dSub] += 1;
+      note = 'Exception (d⁴/d⁹ rule): one ' + sSub + ' electron jumps into ' + dSub + ' to make it ' + (cfg[dSub] === 5 ? 'half-filled (d⁵)' : 'full (d¹⁰)') + '.';
+    }
+  }
+  return { cfg: cfg, note: note };
+}
+function removalOrderKey(sub) { return subN(sub) * 10 + subL(sub); }
+function ionConfig(Z, q) {
+  var base = neutralConfig(Z), cfg = Object.assign({}, base.cfg), ne = Z - q, steps = [];
+  if (ne < 0) return { error: 'That charge removes more electrons than the atom has.' };
+  if (q > 0) {
+    for (var k = 0; k < q; k++) {
+      var best = null;
+      Object.keys(cfg).forEach(function (s) { if (cfg[s] > 0 && (best === null || removalOrderKey(s) > removalOrderKey(best))) best = s; });
+      if (!best) break;
+      cfg[best]--; steps.push(best);
+      if (cfg[best] === 0) delete cfg[best];
+    }
+  } else if (q < 0) {
+    for (var j = 0; j < -q; j++) {
+      for (var i = 0; i < ORDER.length; i++) { var s2 = ORDER[i]; if ((cfg[s2] || 0) < CAP[s2[1]]) { cfg[s2] = (cfg[s2] || 0) + 1; steps.push(s2); break; } }
+    }
+  }
+  return { cfg: cfg, neutral: base.cfg, note: base.note, removed: q > 0 ? steps : [], added: q < 0 ? steps : [], electrons: ne };
+}
+function cfgString(cfg, skip) {
+  return ORDER.filter(function (s) { return cfg[s] > 0 && !(skip && skip[s]); }).map(function (s) { return s + sup(cfg[s]); }).join(' ');
+}
+function cfgHTML(cfg, skip) {
+  return ORDER.filter(function (s) { return cfg[s] > 0 && !(skip && skip[s]); }).map(function (s) { return s + '<sup>' + cfg[s] + '</sup>'; }).join(' ');
+}
+function nobleCore(cfg) {
+  for (var i = NOBLE_Z.length - 1; i >= 0; i--) {
+    var ncfg = aufbau(NOBLE_Z[i]), ok = true;
+    for (var s in ncfg) if (cfg[s] !== ncfg[s]) { ok = false; break; }
+    if (ok) return { Z: NOBLE_Z[i], sym: ELZ[NOBLE_Z[i]].sym, subs: ncfg };
+  }
+  return null;
+}
+function unpairedIn(sub, count) { var boxes = CAP[sub[1]] / 2; return count <= boxes ? count : 2 * boxes - count; }
+function boxesFor(sub, count) {
+  var nb = CAP[sub[1]] / 2, b = [];
+  for (var i = 0; i < nb; i++) b.push(0);
+  for (var k = 0; k < count; k++) b[k % nb]++;
+  return b; // each 0,1,2
+}
+function analyzeSpecies(sym, q) {
+  var e = EL[sym]; if (!e) return { error: '"' + sym + '" isn\'t an element symbol.' };
+  var r = ionConfig(e.Z, q); if (r.error) return r;
+  var cfg = r.cfg, core = nobleCore(cfg);
+  var skip = core ? core.subs : null;
+  var unp = 0, byL = { s: 0, p: 0, d: 0, f: 0 }, maxN = 0;
+  ORDER.forEach(function (s) { if (cfg[s]) { unp += unpairedIn(s, cfg[s]); byL[s[1]] += cfg[s]; maxN = Math.max(maxN, subN(s)); } });
+  var valence = 0; ORDER.forEach(function (s) { if (cfg[s] && subN(s) === maxN) valence += cfg[s]; });
+  // diagram subs: species non-core + neutral non-core that were emptied
+  var nCore = nobleCore(r.neutral);
+  var diag = ORDER.filter(function (s) {
+    var inSp = cfg[s] > 0 && !(skip && skip[s]);
+    var inNeutral = r.neutral[s] > 0 && !(nCore && nCore.subs[s]) && !(skip && skip[s]);
+    return inSp || inNeutral;
+  }).map(function (s) { return { sub: s, count: cfg[s] || 0, boxes: boxesFor(s, cfg[s] || 0) }; });
+  return {
+    el: e, q: q, cfg: cfg, electrons: r.electrons, full: cfgString(cfg), fullHTML: cfgHTML(cfg),
+    core: core, shortHTML: core ? '[' + core.sym + '] ' + cfgHTML(cfg, core.subs) : cfgHTML(cfg),
+    shortText: core ? '[' + core.sym + '] ' + cfgString(cfg, core.subs) : cfgString(cfg),
+    unpaired: unp, magnetic: unp > 0 ? 'paramagnetic' : 'diamagnetic', byL: byL, valence: valence, maxN: maxN,
+    core_e: r.electrons - valence, note: r.note, removed: r.removed, added: r.added, neutral: r.neutral, diagram: diag
+  };
+}
+function parseConfigString(str) {
+  var s = String(str).replace(/[⁰-⁹]/g, function (c) { return SUPREV[c]; }).replace(/[\^,]/g, ' ');
+  var map = {}, coreSym = null, m, any = false;
+  var bm = s.match(/\[\s*([A-Z][a-z]?)\s*\]/);
+  if (bm) { coreSym = bm[1]; if (!EL[coreSym] || EL[coreSym].group !== 18) return { error: 'The bracket must hold a noble gas like [Ar] or [Kr].' }; s = s.replace(bm[0], ' '); }
+  var re = /(\d)\s*([spdf])\s*(\d{0,2})/gi;
+  while ((m = re.exec(s))) { var sub = m[1] + m[2].toLowerCase(); var c = m[3] === '' ? 1 : +m[3]; if (c > CAP[sub[1]]) return { error: sub + ' can hold at most ' + CAP[sub[1]] + ' electrons.' }; map[sub] = c; any = true; }
+  if (!any && !coreSym) return { error: 'Type something like [Kr] 5s0 4d9 or 2s2 2p2.' };
+  var assumed = null;
+  if (!coreSym && !map['1s'] && map['1s'] !== 0) {
+    var cands = Object.keys(map).map(function (sb) { var n = subN(sb), l = sb[1]; var p = l === 'd' ? n : (l === 'f' ? n + 1 : n - 1); return p; });
+    var per = Math.min.apply(null, cands);
+    if (per >= 1) { coreSym = ELZ[NOBLE_Z[per - 1]].sym; assumed = coreSym; }
+  }
+  var full = {};
+  if (coreSym) { var cc = aufbau(EL[coreSym].Z); for (var k in cc) full[k] = cc[k]; }
+  for (var k2 in map) if (map[k2] > 0) full[k2] = map[k2];
+  return { cfg: full, core: coreSym, assumedCore: assumed };
+}
+function identifyConfig(str) {
+  var p = parseConfigString(str); if (p.error) return p;
+  var target = p.cfg, total = 0; for (var s in target) total += target[s];
+  var matches = [];
+  for (var Z = 1; Z <= 88; Z++) for (var q = -3; q <= 7; q++) {
+    if (Z - q !== total) continue;
+    var r = ionConfig(Z, q); if (r.error) continue;
+    var same = true, keys = {};
+    Object.keys(r.cfg).forEach(function (k) { if (r.cfg[k]) keys[k] = 1; });
+    Object.keys(target).forEach(function (k) { if (target[k]) keys[k] = 1; });
+    for (var k in keys) if ((r.cfg[k] || 0) !== (target[k] || 0)) { same = false; break; }
+    if (same) matches.push({ sym: ELZ[Z].sym, q: q, label: speciesLabel(ELZ[Z].sym, q), Z: Z });
+  }
+  matches.sort(function (a, b) { return Math.abs(a.q) - Math.abs(b.q); });
+  return { total: total, cfg: target, assumedCore: p.assumedCore, matches: matches };
+}
+
+/* ---------- SPECIES (single atom/ion) ---------- */
+function normCharge(s) { return String(s).replace(/[⁰-⁹⁺⁻]/g, function (c) { return SUPREV[c]; }).replace(/[−–]/g, '-').replace(/\^/g, '').replace(/\s+/g, ''); }
+function parseSpecies(str) {
+  var s = normCharge(str);
+  var m = s.match(/^([A-Z][a-z]?)(?:(\d*)([+-])|([+-])(\d*))?$/);
+  if (!m) {
+    if (/^[A-Za-z]{1,2}/.test(s) && /^[A-Z]{2}/.test(s)) return { error: '"' + str + '" — symbols are a capital + lowercase letter (Li, not LI).' };
+    return { error: 'Couldn\'t read "' + str + '". Use forms like Na+, O2-, Se2-, Cl.' };
+  }
+  if (!EL[m[1]]) return { error: '"' + m[1] + '" isn\'t an element symbol.' };
+  var q = 0;
+  if (m[3]) q = (m[2] ? +m[2] : 1) * (m[3] === '+' ? 1 : -1);
+  if (m[4]) q = (m[5] ? +m[5] : 1) * (m[4] === '+' ? 1 : -1);
+  return { sym: m[1], q: q, el: EL[m[1]], e: EL[m[1]].Z - q, label: speciesLabel(m[1], q) };
+}
+function parseSpeciesList(str) {
+  return String(str).split(/[,;\n]+|\s{2,}|\s+(?=[A-Z])/).map(function (t) { return t.trim(); }).filter(Boolean).map(parseSpecies);
+}
+
+/* ---------- TRENDS (class rules: direction + count blocks) ---------- */
+function distFrom(e, refP, refG) { return 1.01 * Math.abs(e.period - refP) + Math.abs(posGroup(e) - refG); }
+function trendCompare(prop, A, B) {
+  // returns >0 if A has the larger value of the property, with reason
+  var a = A.el, b = B.el;
+  if (prop === 'size') {
+    if (a.sym === b.sym && A.q !== B.q) return { v: B.q - A.q, why: 'same element: more electrons = bigger (anion > atom > cation)' };
+    if (A.e === B.e && a.sym !== b.sym) return { v: b.Z - a.Z, why: 'isoelectronic (' + A.e + ' e⁻ each): fewer protons pull less → bigger' };
+    if ((A.q || B.q)) {
+      // different elements, different electron counts: use energy levels (row) then trend
+      var sa = analyzeSpecies(a.sym, A.q), sb = analyzeSpecies(b.sym, B.q);
+      if (sa.maxN !== sb.maxN) return { v: sa.maxN - sb.maxN, why: 'more occupied energy levels (n=' + Math.max(sa.maxN, sb.maxN) + ' vs ' + Math.min(sa.maxN, sb.maxN) + ') → bigger' };
+      if (A.q !== B.q) return { v: B.q - A.q, why: 'same outer level: the more negative species is bigger' };
+    }
+    var da = distFrom(a, 7, 1), db = distFrom(b, 7, 1);
+    return { v: db - da, why: reasonDir(a, b, 'bottom-left (toward Cs/Fr)', da, db, 'size') };
+  }
+  var refP = prop === 'IE' ? 1 : 2, refG = prop === 'IE' ? 18 : 17;
+  // class exceptions
+  if (a.period === b.period && prop === 'IE' && ((a.group === 15 && b.group === 16) || (a.group === 16 && b.group === 15)))
+    return { v: a.group === 15 ? 1 : -1, why: 'EXCEPTION: N-column beats O-column for IE (N is half-filled p³)' };
+  if (a.period === b.period && prop === 'EA' && ((a.group === 14 && b.group === 15) || (a.group === 15 && b.group === 14)))
+    return { v: a.group === 14 ? 1 : -1, why: 'EXCEPTION: C-column beats N-column for EA (N would lose its half-filled p³)' };
+  var d1 = distFrom(a, refP, refG), d2 = distFrom(b, refP, refG);
+  return { v: d2 - d1, why: reasonDir(a, b, prop === 'IE' ? 'top-right (toward He/F)' : 'top-right (toward F)', d1, d2, prop) };
+}
+function reasonDir(a, b, dirTxt, da, db, prop) {
+  var win = da <= db ? a : b, lose = da <= db ? b : a;
+  if (a.period === b.period) return 'same row: ' + win.sym + ' is closer to the ' + dirTxt + ' corner';
+  if (posGroup(a) === posGroup(b)) return 'same column: ' + win.sym + ' is ' + (win.period < lose.period ? 'higher up' : 'lower down') + ' → closer to the ' + dirTxt + ' corner';
+  return 'diagonal: count blocks — ' + win.sym + ' is ' + Math.round(Math.min(da, db)) + ' blocks from the ' + dirTxt.split(' (')[0] + ' corner vs ' + Math.round(Math.max(da, db)) + ' for ' + lose.sym + ' (up/down beats sideways on ties)';
+}
+function rankTrend(prop, list) {
+  var errors = [], items = [], excluded = [];
+  list.forEach(function (x) {
+    if (x.error) { errors.push(x.error); return; }
+    if ((prop === 'EA' || prop === 'EN') && x.el.group === 18) { excluded.push(x.label + ' (noble gases are left out of ' + prop + ')'); return; }
+    if ((prop === 'EN' || prop === 'EA') && x.el.sym === 'H') { excluded.push('H (hydrogen doesn\'t follow the trend neatly)'); return; }
+    if (prop !== 'size' && x.q) { excluded.push(x.label + ' (trend compares neutral atoms — drop the charge)'); return; }
+    items.push(x);
+  });
+  items.sort(function (A, B) { return -trendCompare(prop, A, B).v; });
+  var reasons = [];
+  for (var i = 0; i + 1 < items.length; i++) reasons.push({ a: items[i].label, b: items[i + 1].label, why: trendCompare(prop, items[i], items[i + 1]).why });
+  return { order: items, reasons: reasons, errors: errors, excluded: excluded };
+}
+
+/* ---------- FORMULA PARSER ---------- */
+var SUBREV = { '₀': '0', '₁': '1', '₂': '2', '₃': '3', '₄': '4', '₅': '5', '₆': '6', '₇': '7', '₈': '8', '₉': '9' };
+function parseFormula(raw) {
+  var s = String(raw || '').trim().replace(/\((aq|s|l|g)\)/gi, '').replace(/[−–]/g, '-').replace(/[₀-₉]/g, function (c) { return SUBREV[c]; });
+  var charge = 0, supPart = '';
+  s = s.replace(/[⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻]+\s*$/, function (m) { supPart = m.split('').map(function (c) { return SUPREV[c]; }).join(''); return ''; });
+  var mag = null, sign = null, m;
+  if (supPart) { m = supPart.match(/^(\d*)([+-])$/) || supPart.match(/^([+-])(\d*)$/); if (m) { if (/\d/.test(m[1]) || m[1] === '') { mag = m[1]; sign = m[2]; } else { sign = m[1]; mag = m[2]; } } }
+  else if ((m = s.match(/\^\s*(\d*)\s*([+-])\s*$/))) { mag = m[1]; sign = m[2]; s = s.slice(0, m.index); }
+  else if ((m = s.match(/\^\s*([+-])\s*(\d*)\s*$/))) { sign = m[1]; mag = m[2]; s = s.slice(0, m.index); }
+  else if ((m = s.match(/\s+(\d*)\s*([+-])\s*$/))) { mag = m[1]; sign = m[2]; s = s.slice(0, m.index); }
+  else if ((m = s.match(/([+-])\s*$/))) { mag = ''; sign = m[1]; s = s.slice(0, m.index); }
+  if (sign) charge = (mag ? +mag : 1) * (sign === '+' ? 1 : -1);
+  s = s.replace(/\s+/g, '');
+  if (!s) return { error: 'Type a formula like CaCl2, Fe2(SO4)3, or SO4^2-.' };
+  var pos = 0;
+  function group() {
+    var items = [];
+    while (pos < s.length) {
+      var c = s[pos];
+      if (c === '(' || c === '[') {
+        pos++; var g = group();
+        if (s[pos] !== ')' && s[pos] !== ']') throw new Error('Missing a closing parenthesis.');
+        pos++; var num = ''; while (/\d/.test(s[pos] || '')) num += s[pos++];
+        items.push({ t: 'g', items: g, n: num ? +num : 1 });
+      } else if (c === ')' || c === ']') return items;
+      else if (/[A-Z]/.test(c)) {
+        var sym = c; pos++;
+        if (/[a-z]/.test(s[pos] || '')) { sym += s[pos]; pos++; }
+        if (!EL[sym]) {
+          if (sym.length === 1 && /[A-Z]/.test(s[pos] || '') && EL[sym + s[pos].toLowerCase()]) throw new Error('"' + sym + s[pos] + '" isn\'t valid — element symbols are a capital + lowercase letter. Did you mean ' + sym + s[pos].toLowerCase() + '?');
+          throw new Error('"' + sym + '" isn\'t an element symbol.');
+        }
+        var n2 = ''; while (/\d/.test(s[pos] || '')) n2 += s[pos++];
+        items.push({ t: 'e', sym: sym, n: n2 ? +n2 : 1 });
+      } else if (/[a-z]/.test(c)) throw new Error('Unexpected lowercase "' + c + '" — element symbols start with a capital letter.');
+      else throw new Error('Unexpected character "' + c + '".');
+    }
+    return items;
+  }
+  try {
+    var items = group();
+    if (pos < s.length) throw new Error('Unmatched ")".');
+    var warn = null;
+    (function scan(its) { its.forEach(function (it) { if (it.t === 'g') scan(it.items); else if (it.n >= 13) warn = 'A subscript of ' + it.n + ' looks odd — if that includes a charge, write it as SO4^2- or SO4 2-.'; }); })(items);
+    return { items: items, charge: charge, warn: warn };
+  } catch (e) { return { error: e.message }; }
+}
+function comp(items, mult, acc) {
+  mult = mult || 1; acc = acc || {};
+  items.forEach(function (it) { if (it.t === 'e') acc[it.sym] = (acc[it.sym] || 0) + it.n * mult; else comp(it.items, it.n * mult, acc); });
+  return acc;
+}
+function compKey(c) { return Object.keys(c).sort().map(function (k) { return k + c[k]; }).join(''); }
+function itemsHTML(items) {
+  return items.map(function (it) {
+    if (it.t === 'e') return it.sym + (it.n > 1 ? '<sub>' + it.n + '</sub>' : '');
+    return '(' + itemsHTML(it.items) + ')' + (it.n > 1 ? '<sub>' + it.n + '</sub>' : '');
+  }).join('');
+}
+function itemsText(items) {
+  return items.map(function (it) { if (it.t === 'e') return it.sym + (it.n > 1 ? it.n : ''); return '(' + itemsText(it.items) + ')' + (it.n > 1 ? it.n : ''); }).join('');
+}
+function formulaHTML(P) { return itemsHTML(P.items) + (P.charge ? '<sup>' + (Math.abs(P.charge) > 1 ? Math.abs(P.charge) : '') + (P.charge > 0 ? '+' : '−') + '</sup>' : ''); }
+
+/* ---------- POLYATOMIC IONS ---------- */
+var POLY_RAW = [
+  ['NH4', 1, 'ammonium'], ['H3O', 1, 'hydronium'],
+  ['OH', -1, 'hydroxide'], ['CN', -1, 'cyanide'], ['SCN', -1, 'thiocyanate'], ['NO3', -1, 'nitrate'], ['NO2', -1, 'nitrite'],
+  ['HCO3', -1, 'hydrogen carbonate', ['bicarbonate']], ['HSO4', -1, 'hydrogen sulfate', ['bisulfate']], ['HSO3', -1, 'hydrogen sulfite', ['bisulfite']],
+  ['H2PO4', -1, 'dihydrogen phosphate'], ['H2PO3', -1, 'dihydrogen phosphite'], ['MnO4', -1, 'permanganate'], ['C2H3O2', -1, 'acetate'],
+  ['ClO4', -1, 'perchlorate'], ['ClO3', -1, 'chlorate'], ['ClO2', -1, 'chlorite'], ['ClO', -1, 'hypochlorite'],
+  ['BrO4', -1, 'perbromate'], ['BrO3', -1, 'bromate'], ['BrO2', -1, 'bromite'], ['BrO', -1, 'hypobromite'],
+  ['IO4', -1, 'periodate'], ['IO3', -1, 'iodate'], ['IO2', -1, 'iodite'], ['IO', -1, 'hypoiodite'],
+  ['SO4', -2, 'sulfate'], ['SO3', -2, 'sulfite'], ['CO3', -2, 'carbonate'], ['C2O4', -2, 'oxalate'], ['CrO4', -2, 'chromate'], ['Cr2O7', -2, 'dichromate'],
+  ['HPO4', -2, 'hydrogen phosphate'], ['HPO3', -2, 'hydrogen phosphite'], ['S2O3', -2, 'thiosulfate'], ['SiO3', -2, 'silicate'],
+  ['PO4', -3, 'phosphate'], ['PO3', -3, 'phosphite'], ['AsO4', -3, 'arsenate']
+];
+var POLY = POLY_RAW.map(function (r) { var P = parseFormula(r[0]); return { f: r[0], items: P.items, charge: r[1], name: r[2], alt: r[3] || [], key: compKey(comp(P.items)) }; });
+var POLY_BY_KEY = {}; POLY.forEach(function (p) { POLY_BY_KEY[p.key] = p; });
+var POLY_BY_NAME = {}; POLY.forEach(function (p) { POLY_BY_NAME[p.name] = p; p.alt.forEach(function (a) { POLY_BY_NAME[a] = p; }); });
+
+var IDE = { H: 'hydride', B: 'boride', C: 'carbide', N: 'nitride', O: 'oxide', F: 'fluoride', Si: 'silicide', P: 'phosphide', S: 'sulfide', Cl: 'chloride', Ge: 'germanide', As: 'arsenide', Se: 'selenide', Br: 'bromide', Sb: 'antimonide', Te: 'telluride', I: 'iodide', At: 'astatide' };
+var IDE_REV = {}; Object.keys(IDE).forEach(function (k) { IDE_REV[IDE[k]] = k; });
+var MONO_Q = { H: -1, B: -3, C: -4, Si: -4, Ge: -4, N: -3, P: -3, As: -3, Sb: -3, O: -2, S: -2, Se: -2, Te: -2, F: -1, Cl: -1, Br: -1, I: -1, At: -1 };
+function fixedCation(e) { if (e.group === 1 && e.sym !== 'H') return 1; if (e.group === 2) return 2; if (e.sym === 'Al') return 3; return null; }
+function prefixed(n, word) {
+  var p = PREFIX[n] || (n + '-');
+  if (/^o/.test(word) && /[ao]$/.test(p)) p = p.slice(0, -1);
+  return p + word;
+}
+function acidNameFor(anionName) {
+  if (/\s/.test(anionName)) return null;
+  var binRoots = { chloride: 'chlor', bromide: 'brom', fluoride: 'fluor', iodide: 'iod', sulfide: 'sulfur', selenide: 'selen', cyanide: 'cyan' };
+  if (/ide$/.test(anionName)) return binRoots[anionName] ? 'hydro' + binRoots[anionName] + 'ic acid' : null;
+  var special = { sulfate: 'sulfuric', sulfite: 'sulfurous', phosphate: 'phosphoric', phosphite: 'phosphorous', thiosulfate: 'thiosulfuric' };
+  if (special[anionName]) return special[anionName] + ' acid';
+  if (/ate$/.test(anionName)) return anionName.slice(0, -3) + 'ic acid';
+  if (/ite$/.test(anionName)) return anionName.slice(0, -3) + 'ous acid';
+  return null;
+}
+function acidAnions() {
+  var list = ['F', 'Cl', 'Br', 'I', 'S', 'Se'].map(function (s) { return { name: IDE[s], charge: MONO_Q[s], items: [{ t: 'e', sym: s, n: 1 }], poly: false }; });
+  POLY.forEach(function (p) { if (p.charge < 0 && p.name !== 'hydroxide' && !/\s/.test(p.name)) list.push({ name: p.name, charge: p.charge, items: p.items, poly: true }); });
+  return list;
+}
+
+function nameFromFormula(raw) {
+  var P = parseFormula(raw); if (P.error) return { error: P.error };
+  var items = P.items, notes = [], C = comp(items), syms = Object.keys(C);
+  if (P.warn) notes.push(P.warn);
+  if (P.charge) {
+    var pk = POLY_BY_KEY[compKey(C)];
+    if (pk && pk.charge === P.charge) return { name: pk.name + (pk.charge > 0 ? '' : ''), type: 'polyatomic ion', why: ['Matches the polyatomic ion chart: ' + pk.f + ' (' + (pk.charge > 0 ? '+' : '') + pk.charge + ') = ' + pk.name + '.'], notes: notes };
+    if (syms.length === 1 && C[syms[0]] === 1) {
+      var el = EL[syms[0]];
+      if (P.charge > 0) return { name: el.name + ' ion', type: 'cation', why: ['Cations keep the element name.'], notes: notes };
+      if (IDE[el.sym]) return { name: IDE[el.sym] + ' ion', type: 'anion', why: ['Monatomic anions: root + ide.'], notes: notes };
+    }
+    return { error: 'That ion isn\'t on the class polyatomic chart.' };
+  }
+  var special = { H2O: 'water (dihydrogen monoxide)', NH3: 'ammonia (nitrogen trihydride)', CH4: 'methane', H2O2: 'hydrogen peroxide' };
+  var plain = itemsText(items);
+  if (special[plain]) return { name: special[plain], type: 'covalent (common name)', why: ['This one is normally called by its common name.'], notes: notes };
+  if (syms.length === 1) return { name: EL[syms[0]].name, type: 'element', why: ['Only one element — it\'s just the element.'], notes: notes };
+  var hasMetal = syms.some(function (s) { return isMetal(EL[s]); });
+
+  // ACID
+  if (items[0].t === 'e' && items[0].sym === 'H' && !hasMetal && items.length > 1) {
+    var k = items[0].n, rest = items.slice(1), rc = comp(rest), rkey = compKey(rc), anion = null;
+    var rs = Object.keys(rc);
+    if (rs.length === 1 && rc[rs[0]] === 1 && MONO_Q[rs[0]] && rs[0] !== 'O' && rs[0] !== 'H') anion = { name: IDE[rs[0]], charge: MONO_Q[rs[0]], poly: false };
+    else if (POLY_BY_KEY[rkey] && POLY_BY_KEY[rkey].charge < 0) anion = { name: POLY_BY_KEY[rkey].name, charge: POLY_BY_KEY[rkey].charge, poly: true };
+    if (anion) {
+      var an = acidNameFor(anion.name);
+      if (an) {
+        var why = ['Starts with H (and no metal) → it\'s an acid.'];
+        if (anion.poly) why.push('The part after H is the polyatomic ion ' + anion.name + ' (' + anion.charge + ').', /ate$/.test(anion.name) ? '-ate → -ic acid (no "hydro").' : (/ite$/.test(anion.name) ? '-ite → -ous acid (no "hydro").' : 'H + one "-ide" group → hydro___ic acid.'));
+        else why.push('H + one element (no oxygen) → hydro + root + ic acid.');
+        if (k !== -anion.charge) notes.push('Charge check: ' + anion.name + ' is ' + anion.charge + ', so it needs ' + (-anion.charge) + ' H — the formula has ' + k + '.');
+        why.push('Number of H = size of the anion charge (' + (-anion.charge) + ').');
+        return { name: an, type: 'acid', why: why, notes: notes.concat(['Don\'t include (aq) in the name.']) };
+      }
+    }
+  }
+
+  // IONIC
+  var cat = null, rest2 = null;
+  if (items[0].t === 'g') { var gk = compKey(comp(items[0].items)); if (POLY_BY_KEY[gk] && POLY_BY_KEY[gk].charge > 0) { cat = { poly: POLY_BY_KEY[gk], n: items[0].n }; rest2 = items.slice(1); } }
+  else if (items[0].sym === 'N' && items[0].n === 1 && items[1] && items[1].t === 'e' && items[1].sym === 'H' && items[1].n === 4 && items.length > 2) { cat = { poly: POLY_BY_KEY[compKey({ N: 1, H: 4 })], n: 1 }; rest2 = items.slice(2); }
+  else if (items[0].t === 'e' && isMetal(EL[items[0].sym])) { cat = { el: EL[items[0].sym], n: items[0].n }; rest2 = items.slice(1); }
+  if (cat) {
+    if (!rest2.length) return { error: 'Only a cation — nothing to name it with.' };
+    var anion2 = null, aCount = 1;
+    if (rest2.length === 1 && rest2[0].t === 'g') { var pk2 = POLY_BY_KEY[compKey(comp(rest2[0].items))]; if (pk2 && pk2.charge < 0) { anion2 = { name: pk2.name, charge: pk2.charge, poly: true, f: pk2.f }; aCount = rest2[0].n; } }
+    else if (rest2.length === 1 && rest2[0].t === 'e' && MONO_Q[rest2[0].sym]) { anion2 = { name: IDE[rest2[0].sym], charge: MONO_Q[rest2[0].sym], poly: false }; aCount = rest2[0].n; }
+    else { var pk3 = POLY_BY_KEY[compKey(comp(rest2))]; if (pk3 && pk3.charge < 0) { anion2 = { name: pk3.name, charge: pk3.charge, poly: true, f: pk3.f }; aCount = 1; } }
+    if (!anion2) return { error: 'Couldn\'t match the part after the metal to an element or a polyatomic ion from the chart.' };
+    var totalNeg = -anion2.charge * aCount;
+    var why2 = [], catName, roman = '';
+    if (cat.poly) { catName = cat.poly.name; why2.push('Starts with ' + cat.poly.f + '⁺ (' + cat.poly.name + ') → ionic, name it like a column-1 metal (no numeral, no prefixes).'); if (cat.n * cat.poly.charge !== totalNeg) notes.push('Charges don\'t balance — double-check the formula.'); }
+    else {
+      catName = cat.el.name;
+      var fx = fixedCation(cat.el);
+      if (fx) {
+        why2.push(cat.el.sym + ' is ' + (cat.el.sym === 'Al' ? 'aluminum (acts like columns 1–2)' : 'in column ' + cat.el.group) + ' → charge is always +' + fx + ' → no Roman numeral, no prefixes.');
+        if (fx * cat.n !== totalNeg) notes.push('Charges don\'t balance: ' + cat.n + '×(+' + fx + ') vs ' + aCount + '×(' + anion2.charge + '). Check the formula.');
+      } else {
+        var qm = totalNeg / cat.n;
+        if (!Number.isInteger(qm) || qm < 1 || qm > 8) return { error: 'The metal charge comes out to ' + qm + ' — that formula doesn\'t balance to a whole-number charge.' };
+        roman = ROMAN[qm];
+        why2.push(cat.el.sym + ' is a ' + (cat.el.group >= 3 && cat.el.group <= 12 ? 'transition (middle) metal' : 'metal with more than one possible charge') + ' → needs a Roman numeral.');
+        why2.push('Find its charge from the anion: ' + (cat.n > 1 ? cat.n + 'x' : 'x') + ' + ' + aCount + '×(' + anion2.charge + ') = 0 → x = +' + qm + ' → (' + roman + ').');
+      }
+    }
+    why2.push(anion2.poly ? 'Second part is the polyatomic ion ' + anion2.f + ' → copy its name from the chart: ' + anion2.name + ' (no -ide added).' : 'Second part is one element → root + ide: ' + anion2.name + '.');
+    var nm = catName + (roman ? ' (' + roman + ')' : '') + ' ' + anion2.name;
+    if (roman) notes.push('eLearn also accepts ' + catName + '(' + roman + ') ' + anion2.name + '. Use capital I\'s in the numeral.');
+    return { name: nm, type: 'ionic', why: why2, notes: notes };
+  }
+
+  // COVALENT
+  if (!hasMetal) {
+    if (items.length === 2 && items[0].t === 'e' && items[1].t === 'e' && IDE[items[1].sym]) {
+      var a = items[0], b = items[1];
+      var first = (a.n === 1 ? '' : PREFIX[a.n]) + EL[a.sym].name, second = prefixed(b.n, IDE[b.sym]);
+      return { name: first + ' ' + second, type: 'covalent', why: ['Both are nonmetals → covalent → use prefixes on both.', a.n === 1 ? 'Only one ' + a.sym + ' and it\'s FIRST → no "mono".' : a.n + ' ' + a.sym + ' → ' + PREFIX[a.n] + '.', b.n + ' ' + b.sym + ' → ' + PREFIX[b.n] + (b.n === 1 ? ' (second element DOES get mono)' : '') + '; second word ends in -ide' + (/^o/.test(IDE[b.sym]) && /[ao]$/.test(PREFIX[b.n]) ? ' (drop the a/o before "oxide")' : '') + '.'], notes: notes };
+    }
+    return { error: 'This has more than two nonmetal parts — it isn\'t one of the naming patterns from class.' };
+  }
+  return { error: 'Two metals together isn\'t one of the class naming patterns.' };
+}
+
+function parsePrefixedWord(word, table) {
+  if (table[word]) return { n: 1, key: word, prefix: '' };
+  var pf = [['mono', 1], ['mon', 1], ['di', 2], ['tri', 3], ['tetra', 4], ['tetr', 4], ['penta', 5], ['pent', 5], ['hexa', 6], ['hex', 6], ['hepta', 7], ['hept', 7], ['octa', 8], ['oct', 8], ['nona', 9], ['non', 9], ['deca', 10], ['dec', 10]];
+  for (var i = 0; i < pf.length; i++) { var p = pf[i][0]; if (word.indexOf(p) === 0 && table[word.slice(p.length)]) return { n: pf[i][1], key: word.slice(p.length), prefix: p }; }
+  return null;
+}
+function buildIonic(cation, qc, anion, qa) {
+  var L = lcm(qc, -qa), nc = L / qc, na = L / -qa;
+  function part(obj, n) {
+    if (obj.poly) { return { html: n > 1 ? '(' + itemsHTML(obj.items) + ')<sub>' + n + '</sub>' : itemsHTML(obj.items), text: n > 1 ? '(' + itemsText(obj.items) + ')' + n : itemsText(obj.items) }; }
+    return { html: obj.sym + (n > 1 ? '<sub>' + n + '</sub>' : ''), text: obj.sym + (n > 1 ? n : '') };
+  }
+  var c = part(cation, nc), a = part(anion, na);
+  return { html: c.html + a.html, text: c.text + a.text, nc: nc, na: na };
+}
+function formulaFromName(raw) {
+  var s = String(raw).toLowerCase().replace(/\(aq\)/g, '').replace(/\s+/g, ' ').trim();
+  if (!s) return { error: 'Type a name like magnesium nitrate or iron (III) oxide.' };
+  var why = [], notes = [];
+  if (/ acid$/.test(s) || s === 'acid') {
+    var list = acidAnions();
+    for (var i = 0; i < list.length; i++) {
+      var an = acidNameFor(list[i].name);
+      if (an === s) {
+        var k = -list[i].charge;
+        var html = 'H' + (k > 1 ? '<sub>' + k + '</sub>' : '') + itemsHTML(list[i].items), text = 'H' + (k > 1 ? k : '') + itemsText(list[i].items);
+        why.push(/^hydro/.test(s) ? '"hydro___ic acid" → H + one element (' + list[i].name + ', ' + list[i].charge + ').' : (/ous acid$/.test(s) ? '"-ous acid" came from an -ite ion → ' + list[i].name + ' (' + list[i].charge + ').' : '"-ic acid" (no hydro) came from an -ate ion → ' + list[i].name + ' (' + list[i].charge + ').'));
+        why.push('Number of H = size of the charge → ' + k + ' H.');
+        return { html: html, text: text, why: why, notes: ['Written as an acid: H goes first. Add (aq) only if asked.'] };
+      }
+    }
+    return { error: 'Couldn\'t match that acid name. Remember: hydro___ic acid = H + element; ___ic acid = -ate ion; ___ous acid = -ite ion.' };
+  }
+  // cation
+  var catNames = Object.keys(EL_BY_NAME).filter(function (n) { return isMetal(EL_BY_NAME[n]); }).concat(['ammonium']).sort(function (a, b) { return b.length - a.length; });
+  var cname = null;
+  for (var j = 0; j < catNames.length; j++) { var cn = catNames[j]; if (s === cn || s.indexOf(cn + ' ') === 0 || s.indexOf(cn + '(') === 0) { cname = cn; break; } }
+  if (cname) {
+    var rest = s.slice(cname.length).trim(), roman = null;
+    var rm = rest.match(/^\(?\s*(viii|vii|vi|iv|v|i{1,3})\s*\)?\s+(.*)$/);
+    if (rm) { roman = ROMAN.indexOf(rm[1].toUpperCase()); rest = rm[2]; }
+    var anion = null;
+    if (POLY_BY_NAME[rest] && POLY_BY_NAME[rest].charge < 0) { var p = POLY_BY_NAME[rest]; anion = { poly: true, items: p.items, charge: p.charge, f: p.f, name: p.name }; }
+    else if (IDE_REV[rest]) { anion = { poly: false, sym: IDE_REV[rest], charge: MONO_Q[IDE_REV[rest]], name: rest }; }
+    if (!anion) return { error: 'Couldn\'t match "' + rest + '" to an -ide name or a polyatomic ion from the chart. Check spelling.' };
+    var cation, qc;
+    if (cname === 'ammonium') { var pa = POLY_BY_NAME.ammonium; cation = { poly: true, items: pa.items }; qc = 1; why.push('Ammonium = NH₄⁺ (+1).'); }
+    else {
+      var el = EL_BY_NAME[cname], fx = fixedCation(el);
+      cation = { poly: false, sym: el.sym };
+      if (fx) { qc = fx; why.push(el.name + ' → ' + (el.sym === 'Al' ? 'Al is always +3' : 'column ' + el.group + ' → always +' + fx) + '.'); if (roman) notes.push(el.name + ' never takes a Roman numeral — leave it off.'); }
+      else {
+        if (!roman) return { error: el.name + ' is a transition/variable metal — the name needs a Roman numeral like ' + el.name + ' (II) to know its charge.' };
+        qc = roman; why.push('Roman numeral (' + ROMAN[roman] + ') → ' + el.sym + ' is +' + roman + '.');
+      }
+    }
+    why.push(anion.poly ? anion.name + ' is a polyatomic ion from the chart: ' + anion.f + ' (' + anion.charge + ').' : anion.name + ' → ' + anion.sym + ' (' + anion.charge + ').');
+    var b = buildIonic(cation, qc, anion, anion.charge);
+    why.push('Make it neutral: cross and drop, then reduce → ' + b.nc + ' cation' + (b.nc > 1 ? 's' : '') + ', ' + b.na + ' anion' + (b.na > 1 ? 's' : '') + '.' + (anion.poly && b.na > 1 ? ' More than one polyatomic ion → parentheses.' : ''));
+    return { html: b.html, text: b.text, why: why, notes: notes };
+  }
+  // covalent
+  var words = s.split(' ');
+  if (words.length === 2) {
+    var nmTable = {}; Object.keys(EL_BY_NAME).forEach(function (n) { if (!isMetal(EL_BY_NAME[n])) nmTable[n] = EL_BY_NAME[n]; });
+    var w1 = parsePrefixedWord(words[0], nmTable), w2 = parsePrefixedWord(words[1], IDE_REV);
+    if (w1 && w2) {
+      var s1 = nmTable[w1.key].sym, s2 = IDE_REV[w2.key];
+      why.push('Two nonmetals → covalent → the prefixes ARE the subscripts.');
+      why.push(words[0] + ' → ' + w1.n + ' ' + s1 + (w1.prefix ? '' : ' (no prefix on the first element = 1)') + '; ' + words[1] + ' → ' + w2.n + ' ' + s2 + '.');
+      if (w1.prefix === 'mono' || w1.prefix === 'mon') notes.push('Heads-up: the first element never gets "mono" in a correct name.');
+      var html2 = s1 + (w1.n > 1 ? '<sub>' + w1.n + '</sub>' : '') + s2 + (w2.n > 1 ? '<sub>' + w2.n + '</sub>' : '');
+      return { html: html2, text: s1 + (w1.n > 1 ? w1.n : '') + s2 + (w2.n > 1 ? w2.n : ''), why: why, notes: notes };
+    }
+  }
+  return { error: 'Couldn\'t read that name. Check spelling (fluorine, phosphorus, sulfur), and make sure it follows a class pattern.' };
+}
+
+/* ---------- VALENCE COUNT ---------- */
+function valenceCount(raw) {
+  var P = parseFormula(raw); if (P.error) return { error: P.error };
+  var C = comp(P.items), lines = [], total = 0;
+  for (var s in C) {
+    var v = valenceOf(EL[s]);
+    if (v == null) return { error: s + ' is a transition metal — valence counting in class uses main-group (tall column) elements only.' };
+    lines.push(s + ': column → ' + v + ' × ' + C[s] + ' = ' + v * C[s]); total += v * C[s];
+  }
+  if (P.charge) { lines.push((P.charge < 0 ? 'Charge ' + P.charge + ' → ADD ' + (-P.charge) : 'Charge +' + P.charge + ' → SUBTRACT ' + P.charge) + ' electron' + (Math.abs(P.charge) > 1 ? 's' : '')); total -= P.charge; }
+  return { total: total, lines: lines, odd: total % 2 === 1, P: P };
+}
+
+/* ---------- LEWIS ENGINE ---------- */
+var GEOM = {
+  '2,0': ['linear', 'linear', '180°'], '2,1': ['linear', 'linear', '180°'],
+  '3,0': ['trigonal planar', 'trigonal planar', '120°'], '3,1': ['trigonal planar', 'bent', '<120°'], '3,2': ['trigonal planar', 'linear', '180°'],
+  '4,0': ['tetrahedral', 'tetrahedral', '109.5°'], '4,1': ['tetrahedral', 'trigonal pyramidal', '<109.5°'], '4,2': ['tetrahedral', 'bent', '<109.5°'], '4,3': ['tetrahedral', 'linear', '180°'],
+  '5,0': ['trigonal bipyramidal', 'trigonal bipyramidal', '90°, 120°, 180°'], '5,1': ['trigonal bipyramidal', 'seesaw (see-saw)', '90°, 120°, 180°'], '5,2': ['trigonal bipyramidal', 'T-shaped', '90°, 180°'], '5,3': ['trigonal bipyramidal', 'linear', '180°'],
+  '6,0': ['octahedral', 'octahedral', '90°, 180°'], '6,1': ['octahedral', 'square pyramidal', '90°, 180°'], '6,2': ['octahedral', 'square planar', '90°, 180°'], '6,3': ['octahedral', 'T-shaped (rare — not tested)', '90°, 180°'], '6,4': ['octahedral', 'linear (rare — not tested)', '180°']
+};
+var HYB = { 2: 'sp', 3: 'sp²', 4: 'sp³', 5: 'sp³d', 6: 'sp³d²' };
+function geometry(regions, lp) {
+  var g = GEOM[regions + ',' + lp];
+  if (!g) return null;
+  return { regions: regions, lp: lp, eg: g[0], mg: g[1], angles: g[2], hyb: HYB[regions] };
+}
+function lewis(raw) {
+  var P = parseFormula(raw); if (P.error) return { error: P.error };
+  var C = comp(P.items), syms = Object.keys(C), nAtoms = 0;
+  for (var s in C) nAtoms += C[s];
+  if (nAtoms > 12) return { error: 'That\'s bigger than the structures this tool draws (max 12 atoms).' };
+  var totalE = 0;
+  for (var s1 in C) { var v = valenceOf(EL[s1]); if (v == null) return { error: s1 + ' isn\'t a main-group (tall-column) element — this tool only draws those.' }; totalE += v * C[s1]; }
+  totalE -= P.charge;
+  if (totalE <= 0) return { error: 'No electrons left after the charge — check the charge.' };
+  var atoms = [];
+  syms.forEach(function (sy) { for (var k = 0; k < C[sy]; k++) atoms.push({ el: sy, E: EL[sy], lp: 0, rad: 0, nb: [] }); });
+  var edges = [], centers = [], diatomic = false, notes = [];
+  function addEdge(a, b) { edges.push({ a: a, b: b, o: 1 }); atoms[a].nb.push(edges.length - 1); atoms[b].nb.push(edges.length - 1); }
+  function nbrs(i) { return atoms[i].nb.map(function (ei) { var e = edges[ei]; return e.a === i ? e.b : e.a; }); }
+  if (atoms.length === 1) return { error: 'That\'s one atom — use the dot-symbol tool.' };
+  var nonH = syms.filter(function (x) { return x !== 'H'; });
+  var startsH = P.items[0].t === 'e' && P.items[0].sym === 'H';
+  if (atoms.length === 2) { addEdge(0, 1); diatomic = true; }
+  else {
+    var singles = nonH.filter(function (x) { return C[x] === 1; });
+    if (singles.length) {
+      var ENv = function (x) { var e = EL[x].en; return e == null ? 99 : e; };
+      var cs = singles.slice().sort(function (a, b) { return ENv(a) - ENv(b); })[0];
+      var ci = atoms.findIndex(function (a) { return a.el === cs; });
+      centers = [ci];
+      var others = atoms.map(function (_, i) { return i; }).filter(function (i) { return i !== ci; });
+      var Hs = others.filter(function (i) { return atoms[i].el === 'H'; }), heavy = others.filter(function (i) { return atoms[i].el !== 'H'; });
+      var oT = heavy.filter(function (i) { return atoms[i].el === 'O'; });
+      heavy.forEach(function (i) { addEdge(ci, i); });
+      if (startsH && oT.length && atoms[ci].el !== 'O') { Hs.forEach(function (h, k) { if (k < oT.length) addEdge(oT[k], h); else addEdge(ci, h); }); notes.push('Written like an acid (H first) → H atoms go on the oxygens.'); }
+      else Hs.forEach(function (h) { addEdge(ci, h); });
+      if (nonH[0] !== cs && P.items[0].sym !== 'H') notes.push('Central atom = ' + cs + ' (least electronegative atom that appears once).');
+    } else if (C[nonH[0]] === 2) {
+      var cc = atoms.map(function (a, i) { return i; }).filter(function (i) { return atoms[i].el === nonH[0]; });
+      centers = cc; addEdge(cc[0], cc[1]);
+      var rest = atoms.map(function (_, i) { return i; }).filter(function (i) { return cc.indexOf(i) < 0; });
+      rest.forEach(function (i, k) { addEdge(cc[k % 2], i); });
+      notes.push('Two central atoms (' + nonH[0] + '–' + nonH[0] + '); the other atoms are split between them.');
+    } else if (nonH.length === 1 && C[nonH[0]] === 3 && !C.H) {
+      centers = [1]; addEdge(1, 0); addEdge(1, 2);
+      notes.push('Three of the same atom: the middle one is central.');
+    } else return { error: 'This tool draws molecules with one central atom (like SF4, CO3 2-) or two of the same (like C2H2). This one is outside that.' };
+  }
+  function tgt(a) { return a.el === 'H' ? 2 : a.el === 'Be' ? 4 : a.el === 'B' ? 6 : 8; }
+  function bsum(i) { return atoms[i].nb.reduce(function (t, ei) { return t + edges[ei].o; }, 0); }
+  function eAround(i) { return 2 * atoms[i].lp + 2 * bsum(i) + atoms[i].rad; }
+  function fc(i) { var a = atoms[i]; return valenceOf(a.E) - 2 * a.lp - a.rad - bsum(i); }
+  var rem = totalE - 2 * edges.length;
+  if (rem < 0) return { error: 'Not enough electrons for even single bonds — check the formula and charge.' };
+  // fill outer atoms first
+  atoms.forEach(function (a, i) {
+    if (centers.indexOf(i) >= 0 || a.el === 'H') return;
+    var need = Math.max(0, (tgt(a) - 2 * bsum(i)) / 2), give = Math.min(need, Math.floor(rem / 2));
+    a.lp += give; rem -= 2 * give;
+  });
+  // leftovers on central atom(s)
+  var k2 = 0;
+  var sink = centers.length ? centers : [atoms.length - 1];
+  while (rem >= 2) { atoms[sink[k2 % sink.length]].lp++; rem -= 2; k2++; }
+  var odd = false;
+  if (rem === 1) { atoms[sink[0]].rad = 1; rem = 0; odd = true; notes.push('Odd number of electrons — one unpaired electron is left over (these are rare and very reactive). Double-check your count.'); }
+  // fix short atoms with multiple bonds
+  for (var iter = 0; iter < 60; iter++) {
+    var changed = false;
+    var orderI = centers.concat(atoms.map(function (_, i) { return i; }).filter(function (i) { return centers.indexOf(i) < 0; }));
+    for (var oi = 0; oi < orderI.length && !changed; oi++) {
+      var i = orderI[oi], a = atoms[i];
+      if (a.el === 'H' || eAround(i) >= tgt(a) - a.rad) continue;
+      var best = null;
+      a.nb.forEach(function (ei) {
+        var e = edges[ei], j = e.a === i ? e.b : e.a, b = atoms[j];
+        if (b.el === 'H' || b.lp < 1 || e.o >= 3) return;
+        var sc = [fc(j), -b.lp, e.o];
+        if (!best || sc[0] < best.sc[0] || (sc[0] === best.sc[0] && (sc[1] < best.sc[1] || (sc[1] === best.sc[1] && sc[2] < best.sc[2])))) best = { ei: ei, j: j, sc: sc };
+      });
+      if (best) { atoms[best.j].lp--; edges[best.ei].o++; changed = true; }
+    }
+    if (!changed) break;
+  }
+  // formal-charge fix for row 3+ central atoms (class rule)
+  var fcFixed = false;
+  centers.forEach(function (ci2) {
+    if (atoms[ci2].E.period < 3) return;
+    for (var t = 0; t < 8 && fc(ci2) > 0; t++) {
+      var cand = null;
+      atoms[ci2].nb.forEach(function (ei) { var e = edges[ei], j = e.a === ci2 ? e.b : e.a; if (atoms[j].el === 'H' || atoms[j].lp < 1 || fc(j) >= 0 || e.o >= 3) return; if (!cand || fc(j) < fc(cand.j) || (atoms[j].el === 'O' && atoms[cand.j].el !== 'O')) cand = { ei: ei, j: j }; });
+      if (!cand) break;
+      atoms[cand.j].lp--; edges[cand.ei].o++; fcFixed = true;
+    }
+  });
+  if (fcFixed) notes.push('Row-3+ central atom: lone pairs from O moved into double bonds until the central atom\'s formal charge is 0 (class rule).');
+  atoms.forEach(function (a, i) { if (a.E.period === 2 && a.el !== 'H' && eAround(i) > 8) notes.push(a.el + ' is in row 2 and can\'t go over 8 — check the formula/charge.'); if (a.el !== 'H' && eAround(i) < tgt(a) && !odd) notes.push(a.el + ' ends up short of ' + tgt(a) + ' electrons.'); });
+  // summaries
+  var fcs = atoms.map(function (_, i) { return fc(i); });
+  var sgl = 0, dbl = 0, tpl = 0, pi = 0;
+  edges.forEach(function (e) { if (e.o === 1) sgl++; else if (e.o === 2) dbl++; else tpl++; pi += e.o - 1; });
+  var lpTotal = atoms.reduce(function (t, a) { return t + a.lp; }, 0);
+  var atomInfo = atoms.map(function (a, i) {
+    var reg = a.nb.length + a.lp + a.rad;
+    return { i: i, el: a.el, lp: a.lp, rad: a.rad, bonds: a.nb.map(function (ei) { return edges[ei].o; }), regions: reg, fc: fcs[i], geom: a.el !== 'H' && reg >= 2 ? geometry(reg, a.lp + a.rad) : null, hyb: a.el !== 'H' && HYB[reg] ? HYB[reg] : null };
+  });
+  // resonance
+  var resonance = false;
+  centers.forEach(function (ci3) {
+    var byEl = {};
+    atoms[ci3].nb.forEach(function (ei) { var e = edges[ei], j = e.a === ci3 ? e.b : e.a; if (atoms[j].nb.length !== 1) return; (byEl[atoms[j].el] = byEl[atoms[j].el] || {})[e.o] = 1; });
+    for (var el in byEl) if (Object.keys(byEl[el]).length > 1) resonance = true;
+  });
+  // polarity (class flowchart)
+  var polarity = null, polSteps = [];
+  function outerLabel(j, from) { var a = atoms[j]; var subs = nbrs(j).filter(function (x) { return x !== from; }).map(function (x) { return atoms[x].el; }).sort().join(''); return a.el + (subs ? '(' + subs + ')' : ''); }
+  if (diatomic) {
+    polarity = atoms[0].el === atoms[1].el ? 'nonpolar' : 'polar';
+    polSteps.push(atoms[0].el === atoms[1].el ? 'Two identical atoms → nonpolar.' : 'Two different atoms → uneven sharing → polar.');
+  } else if (centers.length === 1) {
+    var c0 = centers[0], labels = nbrs(c0).map(function (j) { return outerLabel(j, c0); });
+    var same = labels.every(function (l) { return l === labels[0]; });
+    var g0 = atomInfo[c0].geom;
+    polSteps.push('Are all outer atoms the same? ' + (same ? 'YES (' + labels[0] + ')' : 'NO (' + Array.from(new Set(labels)).join(', ') + ') → POLAR'));
+    if (!same) polarity = 'polar';
+    else {
+      var clp = atoms[c0].lp + atoms[c0].rad;
+      polSteps.push('Lone pairs on the central atom? ' + (clp ? 'YES (' + clp + ')' : 'NO → NONPOLAR'));
+      if (!clp) polarity = 'nonpolar';
+      else {
+        var lin = g0 && /^(linear|square planar)$/.test(g0.mg);
+        polSteps.push('Is it linear or square planar? ' + (lin ? 'YES → NONPOLAR' : 'NO (' + (g0 ? g0.mg : '?') + ') → POLAR'));
+        polarity = lin ? 'nonpolar' : 'polar';
+      }
+    }
+    if (P.charge) polSteps.push('(It\'s an ion — polarity questions are usually about neutral molecules.)');
+  } else {
+    var A0 = centers[0], A1 = centers[1];
+    var sub0 = nbrs(A0).filter(function (x) { return x !== A1; }).map(function (x) { return atoms[x].el; }).sort().join('');
+    var sub1 = nbrs(A1).filter(function (x) { return x !== A0; }).map(function (x) { return atoms[x].el; }).sort().join('');
+    if (sub0 === sub1 && atoms[A0].lp === 0 && atoms[A1].lp === 0) { polarity = 'nonpolar'; polSteps.push('Both halves are identical and neither central atom has lone pairs → symmetric → nonpolar.'); }
+    else { polarity = 'likely polar'; polSteps.push('The halves differ or have lone pairs → likely polar (two-center molecules go beyond the class flowchart).'); }
+  }
+  // description of central atom
+  function describe(ci4) {
+    var bb = atoms[ci4].nb.map(function (ei) { return edges[ei].o; }), c = { 1: 0, 2: 0, 3: 0 };
+    bb.forEach(function (o) { c[o]++; });
+    var parts = [];
+    var wd = ['no', 'one', 'two', 'three', 'four', 'five', 'six'];
+    if (c[1]) parts.push(wd[c[1]] + ' single bond' + (c[1] > 1 ? 's' : ''));
+    if (c[2]) parts.push(wd[c[2]] + ' double bond' + (c[2] > 1 ? 's' : ''));
+    if (c[3]) parts.push(wd[c[3]] + ' triple bond' + (c[3] > 1 ? 's' : ''));
+    var lp = atoms[ci4].lp;
+    return 'The central ' + atoms[ci4].el + ' has ' + parts.join(', ') + (lp ? ' and ' + wd[lp] + ' lone pair' + (lp > 1 ? 's' : '') : ' and no lone pairs') + (atoms[ci4].rad ? ' (plus one unpaired electron)' : '') + '.';
+  }
+  return {
+    P: P, totalE: totalE, atoms: atoms, edges: edges, centers: centers, diatomic: diatomic, atomInfo: atomInfo,
+    single: sgl, double: dbl, triple: tpl, sigma: edges.length, pi: pi, lpTotal: lpTotal, resonance: resonance,
+    polarity: polarity, polSteps: polSteps, notes: notes, odd: odd,
+    description: centers.map(describe),
+    centerInfo: centers.map(function (ci5) { return atomInfo[ci5]; })
+  };
+}
+function avgBondOrder(raw, s1, s2) {
+  var L = lewis(raw); if (L.error) return { error: raw + ': ' + L.error };
+  var orders = L.edges.filter(function (e) { var a = L.atoms[e.a].el, b = L.atoms[e.b].el; return (a === s1 && b === s2) || (a === s2 && b === s1); }).map(function (e) { return e.o; });
+  if (!orders.length) return { error: raw + ' has no ' + s1 + '–' + s2 + ' bond.' };
+  var avg = orders.reduce(function (t, x) { return t + x; }, 0) / orders.length;
+  return { raw: raw, L: L, orders: orders, avg: avg, resonance: L.resonance && new Set(orders).size > 1 };
+}
+
+/* ---------- misc ---------- */
+function enBond(s1, s2) {
+  var a = EL[s1], b = EL[s2];
+  if (!a || !b) return { error: 'Type two element symbols (like C and Cl).' };
+  if (a.en == null || b.en == null) return { error: 'No class electronegativity value for ' + (a.en == null ? a.sym : b.sym) + ' (noble gases are left out).' };
+  var d = Math.abs(a.en - b.en), type = d < 0.4 ? 'nonpolar covalent' : (d <= 1.8 ? 'polar covalent' : 'ionic');
+  var mixed = (isMetal(a) && !isMetal(b)) || (isMetal(b) && !isMetal(a));
+  return { a: a, b: b, d: Math.round(d * 100) / 100, type: type, neg: a.en === b.en ? null : (a.en > b.en ? a : b), pos: a.en === b.en ? null : (a.en > b.en ? b : a), mixed: mixed };
+}
+function diatomicCandidates(total, same) {
+  var pool = ['H', 'B', 'C', 'N', 'O', 'F', 'Si', 'P', 'S', 'Cl', 'Se', 'Br', 'I'], out = [];
+  for (var i = 0; i < pool.length; i++) for (var j = same ? i : i + 1; j < pool.length; j++) {
+    if (same && j !== i) continue;
+    var v = valenceOf(EL[pool[i]]) + valenceOf(EL[pool[j]]);
+    if (v === total) out.push(same ? pool[i] + '₂' : pool[i] + pool[j]);
+  }
+  return out;
+}
+function dotSymbol(sym, q) {
+  var e = EL[sym]; if (!e) return { error: 'Not an element symbol.' };
+  var v = valenceOf(e); if (v == null) return { error: sym + ' is a transition metal — dot symbols in class are for tall-column elements.' };
+  var n = v - q; if (n < 0) return { error: 'That charge removes more than the valence electrons.' };
+  if (n > 8) return { error: 'More than 8 dots — check the charge.' };
+  var pairs = n <= 4 ? 0 : n - 4, singles = n <= 4 ? n : 8 - n;
+  if (sym === 'H' || sym === 'He') { pairs = n === 2 ? 1 : 0; singles = n === 1 ? 1 : 0; }
+  return { e: e, v: v, n: n, pairs: pairs, singles: singles, q: q };
+}
+function fcManual(V, dots, lines) { return V - dots - lines; }
+
+
+/* ================= FLOWCHART CONTENT ================= */
+var GROUPS = [
+  { name: 'Light & energy', tag: 'light', ids: ['light_calc', 'light_compare', 'trans', 'bohr'] },
+  { name: 'Electrons', tag: 'elec', ids: ['qn', 'config', 'identify', 'config_count', 'iso'] },
+  { name: 'Periodic table & trends', tag: 'table', ids: ['classify', 'trends', 'letters'] },
+  { name: 'Naming & formulas', tag: 'name', ids: ['name', 'formula', 'ioncount', 'bondtype'] },
+  { name: 'Lewis structures & shapes', tag: 'bond', ids: ['valence', 'dot', 'lewis', 'fc', 'resonance', 'shape', 'hyb', 'polar', 'enbond', 'sigpi', 'bondlen', 'diatomic'] }
+];
+
+var NODES = {
+  /* ---------- LIGHT ---------- */
+  light_calc: { title: 'Calculate wavelength, frequency, or energy', hint: 'λν = c, E = hν, E = hc/λ',
+    q: 'Does the problem give or ask for ENERGY (E)?', opts: ['light_Ev', 'light_El', 'light_c'] },
+  light_Ev: { title: 'Yes — energy with frequency (ν / Hz)', notes: 'light',
+    steps: ['E and ν → use <b>E = hν</b> (h = 6.626 × 10<sup>−34</sup> J·s).', 'Units going IN: ν must be in Hz (s<sup>−1</sup>); E must be in J. Convert kJ → J (× 1000) first.', 'Solving for ν? Rearrange: <b>ν = E / h</b>.', 'The answer comes OUT in J (or Hz). If the question wants kJ, divide by 1000 at the end.', 'Sig figs match your given value (h has 4). Write it in scientific notation.'],
+    watch: ['Read the unit the question asks for (J vs kJ) — HW 7 #9 and #10 were marked wrong for answering in J when kJ was asked.'],
+    tool: 'light', preset: { given: 'nu', gUnit: 'Hz (s⁻¹)', find: 'E', fUnit: 'J', value: '8.6x10^8' } },
+  light_El: { title: 'Yes — energy with wavelength (λ)', notes: 'light',
+    steps: ['E and λ → use <b>E = hc / λ</b>.', 'λ must be in <b>meters</b>. nm → m: × 10<sup>−9</sup>. cm → m: × 10<sup>−2</sup>.', 'Solving for λ? Rearrange: <b>λ = hc / E</b> (comes out in m; convert to nm by × 10<sup>9</sup> if asked).', 'Energy always comes out in <b>J</b>.', 'Sig figs: match the given value (c has 3).'],
+    watch: ['Quiz 3 #5: 2.73 × 10<sup>−2</sup> nm has to become 2.73 × 10<sup>−11</sup> m BEFORE plugging in. The answer is 7.28 × 10<sup>−15</sup> <b>J</b>, not Hz.'],
+    tool: 'light', preset: { given: 'lambda', gUnit: 'nm', find: 'E', fUnit: 'J', value: '2.73x10^-2' } },
+  light_c: { title: 'No — only wavelength and frequency', notes: 'light',
+    steps: ['No E anywhere → use <b>λν = c</b> (c = 3.00 × 10<sup>8</sup> m/s).', 'ν = c / λ, or λ = c / ν.', 'λ must be in <b>m</b> and ν in <b>Hz</b> going in. Convert nm/cm first.', 'Wavelength answers come out in m — convert to nm or cm if the question asks.', 'Sig figs: match the given value (max 3 because of c).'],
+    watch: ['HW 7 #6: a frequency → wavelength in <b>cm</b> needs the last conversion step (m → cm, × 100).'],
+    tool: 'light', preset: { given: 'lambda', gUnit: 'm', find: 'nu', fUnit: 'Hz (s⁻¹)', value: '3.40x10^-9' } },
+  light_compare: { title: 'Compare waves (high/low energy, frequency, wavelength)', hint: 'radio → gamma', notes: 'light',
+    steps: ['Spectrum from LOW to HIGH energy: radio → microwave → infrared → visible (red ~700 nm → violet ~400 nm) → UV → X-ray → gamma.', 'High energy = high frequency = <b>short</b> wavelength. They move together; wavelength goes the opposite way.', 'Comparing two numbers? Look at the exponent first: 10<sup>−9</sup> is tiny, 10<sup>5</sup> is big.', 'Amplitude is the wave height (brightness), not the energy of each photon.'],
+    watch: ['HW 7 #1: 1.0 × 10<sup>−9</sup> Hz is a LOW frequency compared to 1.0 × 10<sup>5</sup> Hz — negative exponents are small.'],
+    tool: 'spectrum' },
+  trans: { title: 'Electron jumps: absorption vs. emission, rank by energy or wavelength', hint: 'e.g. 6→2 vs 6→5', notes: 'bohr',
+    steps: ['<b>Emission</b> = electron drops, high n → low n (energy released). <b>Absorption</b> = low n → high n.', 'Levels get CLOSER together as n grows, so jumps that land on n = 1 are the biggest.', 'Bigger jump = more energy = higher frequency = <b>shorter</b> wavelength.', 'Longest wavelength = the smallest jump (like 4→3 or 6→5).', 'If asked for the energy of a level in hydrogen: E<sub>n</sub> = −2.18 × 10<sup>−18</sup> J / n².'],
+    watch: ['"4→3" and "3→4" are the same size jump — one is emission, the other absorption.'],
+    tool: 'trans' },
+  bohr: { title: 'True/false on Bohr, the quantum model, and spectra', notes: 'bohr',
+    steps: ['Bohr: electrons move in fixed orbits with quantized energies; jumps have no in-between.', 'Quantum model: electrons are wave AND particle. Orbitals are probability regions — electrons stay IN a shape, they don\'t follow an exact path.', 'Heisenberg: you can\'t know an electron\'s exact position and speed at the same time → that\'s why we use orbitals.', 'Heated gas → <b>line</b> (discrete) spectrum. White light / rainbow → <b>continuous</b> spectrum.', 'Hydrogen has one electron, so it\'s the simplest system to study.', 'Brightness comes from how many atoms are emitting, not from each photon\'s energy.', 'An electron given so much energy that it leaves the atom = ionization.'],
+    watch: ['"Orbit" = Bohr path. "Orbital" = quantum probability region. Don\'t swap them.'] },
+
+  /* ---------- ELECTRONS ---------- */
+  qn: { title: 'Quantum numbers: allowed set? how many orbitals or electrons? does it exist?', hint: 'n, ℓ, mℓ, ms · 3p · 2f', q: 'Which kind of quantum-number question is it?', opts: ['qn_set', 'qn_count'] },
+  qn_set: { title: 'Is this set of 4 numbers (n, ℓ, mℓ, ms) allowed?', notes: 'qn',
+    steps: ['n = 1, 2, 3… — never 0.', 'ℓ = 0 up to n − 1 (s = 0, p = 1, d = 2, f = 3). ℓ can never equal n.', 'mℓ = any whole number from −ℓ to +ℓ.', 'ms = +½ or −½ only.', 'These questions always have exactly one number that breaks a rule — check each one.'],
+    tool: 'qnset' },
+  qn_count: { title: 'How many orbitals/electrons? Does this subshell exist?', notes: 'qn',
+    steps: ['FIRST decide: is it asking for <b>ORBITALS</b> or <b>ELECTRONS</b>? Read it twice.', 's = 1 orbital / 2 e⁻ · p = 3 / 6 · d = 5 / 10 · f = 7 / 14.', 'Any single orbital holds at most 2 electrons (e.g. "electrons in a 3d orbital" = 2).', 'Subshells that exist: 1s | 2s 2p | 3s 3p 3d | 4+ all four. 1p, 2d, 1f, 2f, 3f don\'t exist → "0 = not possible".', 'A whole shell n: n² orbitals and 2n² electrons (2, 8, 18, 32).'],
+    watch: ['Quiz 3 #10: "orbitals in a 3p subshell" = 3 (not 6) and "orbitals in a 4d subshell" = 5 (not 10).'],
+    tool: 'subshell' },
+  config: { title: 'Write an electron configuration (atom or ion)', hint: '[Ar] 4s² 3d³', q: 'Is it a neutral atom, a positive ion, or a negative ion?', opts: ['config_atom', 'config_cation', 'config_anion'] },
+  config_atom: { title: 'Neutral atom', notes: 'config',
+    steps: ['Find the element. Read the periodic table left → right, top → bottom, filling as you go.', 'Row number = n for s and p. The d block is one row behind: <b>d = row − 1</b> (4s then 3d).', 'The superscript is the TOTAL in that subshell (2p⁶, not 2p¹ 2p¹…).', 'Shortcut: in the d block, the ones digit of the atomic number = number of d electrons (Co 27 → d⁷, Zn 30 → d¹⁰).', 'Exceptions (d⁴ and d⁹): <b>Cr, Mo, W → ns¹ (n−1)d⁵</b>; <b>Cu, Ag, Au → ns¹ (n−1)d¹⁰</b>.', 'Noble-gas shorthand: bracket the noble gas before it ([He], [Ne], [Ar], [Kr], [Xe]) and write the rest.'],
+    tool: 'config', preset: { sp: 'Mn' } },
+  config_cation: { title: 'Positive ion (cation)', notes: 'config',
+    steps: ['Write the NEUTRAL atom first (including any exception).', 'Remove electrons from the <b>highest n</b> first. <b>4s leaves before 3d.</b> For p-block metals: take p, then s.', 'Never write a ⁰ superscript — just drop that subshell.', 'Then check: total electrons = atomic number − charge.'],
+    watch: ['Quiz 3 #1: V⁺ is [Ar] 4s¹ 3d³ — the electron comes out of 4s, not 3d. ([Ar] 4s² 3d² was marked wrong.)'],
+    tool: 'config', preset: { sp: 'V+' } },
+  config_anion: { title: 'Negative ion (anion)', notes: 'config',
+    steps: ['Write the NEUTRAL atom first.', 'ADD one electron per negative charge into the next open spots (usually the p subshell).', 'Nonmetals usually end up with a noble-gas configuration (Cl⁻ = [Ar]).', 'Check: total electrons = atomic number + |charge|.'],
+    tool: 'config', preset: { sp: 'P2-' } },
+  identify: { title: 'Identify the atom or ion from a configuration or orbital diagram', hint: 'which ion has 5s⁰ 4d⁹?', notes: 'config',
+    steps: ['Count the electrons shown. A "valence level" diagram leaves out the core — add the noble gas before it.', 'Neutral atom? Total electrons = atomic number → that\'s the element.', 'Ion? Electrons ≠ protons. Test each answer choice: write its neutral config, then add/remove electrons (highest n leaves first).', 'An EMPTY s box with d electrons usually means a transition-metal cation (the s electrons left first).', 'Several ions can share a configuration — the tool lists them all; pick the one that\'s in your choices.'],
+    tool: 'identify' },
+  config_count: { title: 'Unpaired electrons, para/diamagnetic, electrons in s/p orbitals, valence e⁻', hint: 'Hund\'s rule counting', notes: 'config',
+    steps: ['Write the configuration (use the config tool below).', 'Draw boxes for the last subshells. Hund: one arrow per box first, then pair (↑↓).', 'Any unpaired electron → <b>paramagnetic</b>. All paired → <b>diamagnetic</b>. Shortcut for neutral atoms: end of a block (He, column 2, column 12, noble gases) is diamagnetic.', 'Valence electrons = ALL electrons in the highest n. Core = everything else.', 'Electrons in "all s orbitals": add every s superscript — watch exceptions (Cu has 4s¹ → 1s²+2s²+3s²+4s¹ = 7).'],
+    watch: ['Quiz 3 #6: K is 4s¹ → one unpaired → paramagnetic, NOT diamagnetic.'],
+    tool: 'config', preset: { sp: 'Br+' } },
+  iso: { title: 'Isoelectronic? (same number of electrons)', notes: 'config',
+    steps: ['Electrons = atomic number − charge (a + charge removes electrons, a − charge adds them).', 'Same electron count = isoelectronic.', 'Example family (10 e⁻): N³⁻, O²⁻, F⁻, Ne, Na⁺, Mg²⁺.', 'Bonus (size): in an isoelectronic set, more protons → smaller.'],
+    watch: ['Quiz 3 #6: F⁺ (8 e⁻) vs Mg²⁻ (14 e⁻) → FALSE. Spell TRUE/FALSE carefully ("FASLE" was marked wrong).'],
+    tool: 'iso' },
+
+  /* ---------- TABLE & TRENDS ---------- */
+  classify: { title: 'Classify an element (family, metal/nonmetal, block, period, state)', hint: 'Ca → alkaline earth metal', notes: 'table',
+    steps: ['Column = group/family (has a name). Row = period (has a number).', 'Column 1 alkali metals (not H) · 2 alkaline earth · 3–12 transition metals · 17 halogens · 18 noble/inert gases · bottom rows lanthanides/actinides (inner transition).', 'Stair step: metals on the left, nonmetals on the right (+ H). Metalloids sit on the step: B, Si, Ge, As, Sb, Te.', 'Blocks: s = columns 1–2 (+He), p = 13–18, d = 3–12, f = the bottom rows.', 'Same column → similar properties.', 'Gases: H, N, O, F, Cl, noble gases. Liquids: Br, Hg. Everything else is solid.'],
+    watch: ['Calcium is NOT a transition metal (column 2). Air is not an element.'],
+    tool: 'element' },
+  letters: { title: 'Mystery-letter periodic chart questions', hint: 'letters placed on a blank chart', notes: 'table',
+    steps: ['Find the letter\'s row (period) and column (group).', 'Name its family from the column (1 alkali, 2 alkaline earth, 3–12 transition, 17 halogen, 18 noble gas) and its block (s, p, d).', 'Left of the stair step = metal; right = nonmetal.', 'For "largest/smallest/highest" questions, apply the trend directions to the positions — the letters act like real elements in those spots.', 'Diamagnetic spots: end of a block → column 2, column 12, column 18 (and He).'],
+    watch: ['"D is an alkali earth metal" — D sat in column 1 (alkali), so FALSE. Read the column carefully.'],
+    tool: 'element', preset: { mode: 'pos' } },
+  trends: { title: 'Rank or compare size, ionization energy, electron affinity, electronegativity', hint: 'the "E / F" rule', q: 'Which property is the question about?', opts: ['trend_size', 'trend_ie', 'trend_ea', 'trend_en'] },
+  trend_size: { title: 'Size (atomic or ionic radius)', notes: 'trends',
+    steps: ['No "E" in "radius" → increases <b>AWAY from F</b>: down and to the left (Cs/Fr are biggest).', 'Down a column is a stronger change than across a row. If it\'s close, count blocks to Cs.', 'Same element: anion > neutral atom > cation ("cats are cute and small").', 'Isoelectronic set: more protons pull harder → smaller (P³⁻ > Cl⁻ > K⁺ > Ca²⁺).'],
+    watch: ['Quiz 4 #7: O²⁺ and C both have 6 e⁻, but O has more protons → O²⁺ is smaller, not the same size.'],
+    tool: 'trend', preset: { prop: 'size', list: 'Se, Cl-, Br, Se2-, Cl' } },
+  trend_ie: { title: 'Ionization energy (cost to remove an electron)', notes: 'trends',
+    steps: ['"E" in the name → increases <b>TOWARD F</b> (up and to the right). He is the highest.', 'Noble gases <b>DO</b> count for ionization energy.', 'Exception: <b>O &lt; N</b> (N is half-filled). The same flip happens down those two columns.', '2nd IE (removing from a +1 ion) is always bigger than the 1st.'],
+    watch: ['Quiz 4 #15: highest IE among Mg, F, Si, S, Ne is <b>Ne</b> — noble gases count here.'],
+    tool: 'trend', preset: { prop: 'IE', list: 'Mg, F, Si, S, Ne' } },
+  trend_ea: { title: 'Electron affinity (desire to gain an electron)', notes: 'trends',
+    steps: ['"E" in the name → increases <b>TOWARD F</b> (up and right). Lowest is bottom-left.', 'Think absolute value — ignore the + and − signs.', 'Leave out the noble gases.', 'Exception: <b>C &gt; N</b> (N would lose its half-filled p³).'],
+    watch: ['Quiz 4 #10: lowest EA among S, C, Si, F, Mg is Mg — farthest from F.'],
+    tool: 'trend', preset: { prop: 'EA', list: 'S, C, Si, F, Mg' } },
+  trend_en: { title: 'Electronegativity (pull on shared electrons)', notes: 'trends',
+    steps: ['"E" in the name → increases <b>TOWARD F</b>. F is the highest (4.0).', 'Leave out the noble gases.', 'Up beats sideways: O is more electronegative than Cl.'],
+    tool: 'trend', preset: { prop: 'EN', list: 'Ga, P, As, Ge' } },
+
+  /* ---------- NAMING ---------- */
+  name: { title: 'Name a compound from its formula', hint: 'Fe2O3 → iron (III) oxide', q: 'Look at the START of the formula. What is it?', opts: ['name_acid', 'name_fixed', 'name_tm', 'name_cov'] },
+  name_acid: { title: 'Starts with H (an acid)', notes: 'naming',
+    steps: ['H written first (or the word "acid") → acid naming.', 'H + ONE element (no oxygen): <b>hydro</b> + root + <b>ic acid</b> (HCl → hydrochloric acid; HCN → hydrocyanic acid).', 'H + a polyatomic ion: <b>-ate → -ic acid</b>, <b>-ite → -ous acid</b>, and NO "hydro" (HClO₃ chlorate → chloric acid; HClO₂ chlorite → chlorous acid).', 'Don\'t write (aq) in the name.'],
+    tool: 'name', preset: { f: 'HClO2' } },
+  name_fixed: { title: 'A metal from column 1, column 2, Al — or NH₄⁺', notes: 'naming',
+    steps: ['Write the metal\'s name exactly (these charges never change: col 1 = +1, col 2 = +2, Al = +3).', 'Second word: one element → root + <b>ide</b> (chloride, oxide, phosphide). A polyatomic ion → copy its name from the chart (no -ide).', 'NO Roman numerals and NO prefixes.', 'Spelling counts — fluorine has a "u" before the "o"; potassium, not "potassiym".'],
+    watch: ['Quiz 4 #4: K₂CO₃ = potassium carbonate — the only miss was a typo.'],
+    tool: 'name', preset: { f: 'K2CO3' } },
+  name_tm: { title: 'A transition (middle-of-table) metal', notes: 'naming',
+    steps: ['These metals can have different charges → the name needs a <b>Roman numeral</b> = the metal\'s charge.', 'Find the charge from the anion: (anion charge × number of anions) ÷ number of metals. Example Ti₂O₃: 2x − 6 = 0 → x = 3 → titanium (III) oxide.', 'Use capital I\'s (III), not lowercase L\'s.', 'Second word is the same as usual (-ide or the polyatomic name). NEVER prefixes.'],
+    tool: 'name', preset: { f: 'Cr2(SO4)3' } },
+  name_cov: { title: 'A nonmetal (two nonmetals → covalent)', notes: 'naming',
+    steps: ['Both elements are nonmetals → covalent → use prefixes on both.', 'Prefixes: mono, di, tri, tetra, penta, hexa, hepta, octa, nona, deca.', 'NEVER "mono" on the first element — but ALWAYS use it on the second (carbon monoxide).', 'Second word ends in -ide. Drop the a/o before "oxide" (pentoxide, monoxide).', 'No Roman numerals, ever.'],
+    tool: 'name', preset: { f: 'P2O5' } },
+  formula: { title: 'Write a formula from a name', hint: 'magnesium nitrate → Mg(NO₃)₂', q: 'What kind of name is it?', opts: ['formula_acid', 'formula_fixed', 'formula_tm', 'formula_cov'] },
+  formula_acid: { title: 'It ends in "acid"', notes: 'naming',
+    steps: ['hydro___ic acid → H + one element (hydrochloric → HCl).', '___ic acid (no hydro) → the -ate ion; ___ous acid → the -ite ion.', 'Number of H = size of the anion\'s charge (sulfate −2 → H₂SO₄).'],
+    tool: 'formula', preset: { n: 'sulfuric acid' } },
+  formula_fixed: { title: 'Metal with no Roman numeral (col 1, col 2, Al, ammonium)', notes: 'naming',
+    steps: ['Charges: col 1 = +1, col 2 = +2, Al = +3, ammonium NH₄⁺ = +1.', 'Anion charge: N-column −3, O-column −2, halogens −1, or read the polyatomic ion from the chart.', 'Cross and drop the charges, then <b>reduce</b> to the lowest ratio.', 'More than one polyatomic ion → parentheses: Mg(NO₃)₂.', 'Element symbols are a capital + lowercase letter: Li, not LI.'],
+    watch: ['Quiz 4 #3: lithium phosphite = Li₃PO₃ — typing "LI" cost the point.'],
+    tool: 'formula', preset: { n: 'lithium phosphite' } },
+  formula_tm: { title: 'Metal with a Roman numeral', notes: 'naming',
+    steps: ['The Roman numeral IS the metal\'s charge: iron (III) → Fe³⁺.', 'Get the anion\'s charge (O²⁻, Cl⁻, or from the polyatomic chart).', 'Cross and drop, then reduce: Fe³⁺ + O²⁻ → Fe₂O₃. Ti⁴⁺ + O²⁻ → Ti₂O₄ → TiO₂.', 'Parentheses only when there is more than one polyatomic ion.'],
+    tool: 'formula', preset: { n: 'iron (III) oxide' } },
+  formula_cov: { title: 'It has prefixes (two nonmetals)', notes: 'naming',
+    steps: ['The prefixes ARE the subscripts: dinitrogen pentoxide → N₂O₅.', 'No prefix on the first element = 1.', 'Do NOT reduce covalent formulas and do NOT use charges.'],
+    tool: 'formula', preset: { n: 'dinitrogen pentoxide' } },
+  ioncount: { title: 'How many ions combine? (X²⁺ + Y⁴⁻, cross and drop)', hint: 'total ions in the formula', notes: 'naming',
+    steps: ['Write each charge above its ion.', 'Cross and drop: each ion\'s charge becomes the OTHER ion\'s subscript.', 'Reduce to the lowest ratio (X₄Y₂ → X₂Y).', 'Total ions = the subscripts added together (a polyatomic ion counts as one ion).'],
+    watch: ['Quiz 4 #1: X²⁺ + Y⁴⁻ → X₄Y₂ → reduce → X₂Y = <b>3</b> ions.'],
+    tool: 'ioncount' },
+  bondtype: { title: 'Ionic or covalent? What should the name look like?', notes: 'ionic',
+    steps: ['Metal + nonmetal → <b>ionic</b>: electrons are transferred, + and − attract (Coulomb: bigger charges and smaller ions stick harder). Ionic compounds dissolve in water and conduct electricity.', 'Nonmetal + nonmetal → <b>covalent</b>: electrons are shared through orbital overlap. They don\'t dissolve in water or conduct.', 'H is odd: covalent with nonmetals, ionic with metals.', 'What the name looks like: col 1 / col 2 / Al → no numeral, no prefix; transition metal → Roman numeral, no prefix; two nonmetals → prefixes. Never both.'],
+    watch: ['Quiz 4 #17: two nonmetals → covalent, so "generally ionic" is FALSE.'],
+    tool: 'name', preset: { f: 'SeF4' } },
+
+  /* ---------- BONDING ---------- */
+  valence: { title: 'Count total valence electrons', hint: 'H₂PO₃⁻ → 26', notes: 'lewis',
+    steps: ['Each atom: its tall-column count (1–8).', 'Multiply by how many of that atom there are.', 'Negative charge → ADD that many electrons. Positive charge → SUBTRACT.', 'An odd total is rare — recheck your count and the charge.'],
+    watch: ['Quiz 4 #11: H₂PO₃⁻ = 2(1) + 5 + 3(6) + 1 = 26.'],
+    tool: 'valence', preset: { f: 'H2PO3-' } },
+  dot: { title: 'Dot symbol for one atom or ion (pairs vs. singles)', hint: 'S → 2 pairs + 2 singles', notes: 'lewis',
+    steps: ['Number of dots = valence electrons (column count), adjusted for any charge.', 'Put ONE dot on each of the 4 sides first, then start pairing.', 'Stop at 8.', 'Ions go in [brackets] with the charge outside.'],
+    watch: ['Quiz 4 #9: sulfur has 6 → 4 singles, then pair 2 of them → two pairs and two single electrons.'],
+    tool: 'dot', preset: { sp: 'S' } },
+  lewis: { title: 'Draw a Lewis structure / describe the central atom', hint: 'bonds + lone pairs', notes: 'lewis',
+    steps: ['Count total valence electrons (add for −, subtract for +).', 'Least electronegative atom in the center (usually the first one written) — <b>never H</b>.', 'Draw single bonds to every outer atom (each line = 2 e⁻).', 'Give the <b>central atom 8 first</b>, then fill the outer atoms. Check your count matches the total.', 'Extra electrons → pairs on the central atom (only row 3+ can go over 8).', 'Short on electrons → slide lone pairs into double bonds, then triple.', 'Octet exceptions: H = 2 (one bond), Be = 4, B = 6. C, N, O, F are strictly 8.', 'Row-3+ central atoms: fix formal charge so the central atom is 0 (SO₂ → O=S=O).'],
+    tool: 'lewis', preset: { f: 'SO3^2-' } },
+  fc: { title: 'Formal charge, or pick the better structure', notes: 'lewis',
+    steps: ['FC = valence − dots − lines (count each bond line once for that atom).', 'Best structure: formal charges as close to 0 as possible; any negative FC on the more electronegative atom.', 'The formal charges add up to the overall charge.', 'Row-3+ central atoms: make double bonds until the central atom\'s FC is 0 (SO₃²⁻ and PO₄³⁻ get one double bond; SO₂ gets two).'],
+    watch: ['HW 11 #7 (COCl₂): the better structure is the one where every formal charge is 0.'],
+    tool: 'fc' },
+  resonance: { title: 'Does it have resonance?', notes: 'lewis',
+    steps: ['Draw the structure with formal charge fixed first.', 'Could the double bond sit on a different, identical outer atom? → resonance.', 'Resonance: CO₃²⁻, SO₃²⁻, PO₄³⁻, NO₂⁻. No resonance: CO₂, SO₂ (after the FC fix), CH₂O, C₂H₂.'],
+    tool: 'lewis', preset: { f: 'CO3^2-' } },
+  shape: { title: 'Name the shape: electron geometry, molecular geometry, bond angle', hint: 'count regions', q: 'Which name or number is it asking for?', opts: ['shape_eg', 'shape_mg', 'shape_angle'] },
+  shape_eg: { title: 'Electron geometry (the family name)', notes: 'shapes',
+    steps: ['Draw the Lewis structure.', 'Count REGIONS on the central atom: each bonded atom = 1 (single, double, or triple bond all count as 1), each lone pair = 1.', '2 → linear · 3 → trigonal planar · 4 → tetrahedral · 5 → trigonal bipyramidal · 6 → octahedral.', 'Only these 5 names are possible for electron geometry. Lone pairs don\'t change it.'],
+    tool: 'vsepr', preset: { f: 'BrF3' } },
+  shape_mg: { title: 'Molecular geometry (the shape you see)', notes: 'shapes',
+    steps: ['Start from the electron geometry (count regions).', 'No lone pairs → molecular name = electron name.', '3 regions: 1 LP → bent.', '4 regions: 1 LP → trigonal pyramidal; 2 LP → bent.', '5 regions (lone pairs go on the triangle): 1 LP → seesaw; 2 LP → T-shaped; 3 LP → linear.', '6 regions (lone pairs go opposite): 1 LP → square pyramidal; 2 LP → square planar.'],
+    tool: 'vsepr', preset: { f: 'SF4' } },
+  shape_angle: { title: 'Bond angle', notes: 'shapes',
+    steps: ['Linear 180° · trigonal planar 120° · tetrahedral 109.5° · trigonal bipyramidal 90°, 120°, 180° · octahedral 90°, 180°.', 'Lone pairs on a trigonal planar or tetrahedral family squeeze the angle: pick "<b>&lt; 120°</b>" or "<b>&lt; 109.5°</b>".', 'Seesaw keeps 90/120/180. T-shaped loses the 120 (90, 180). Linear from 5 regions = 180 only.', 'Square pyramidal and square planar: 90° and 180°.'],
+    watch: ['Tests list both "109.5°" and "< 109.5°" — bent and trigonal pyramidal get the "<" one.'],
+    tool: 'vsepr', preset: { f: 'H2O' } },
+  hyb: { title: 'Hybridization', hint: 'sp, sp², sp³, sp³d, sp³d²', notes: 'shapes',
+    steps: ['Count regions on the atom asked about (bonded atoms + lone pairs; a double or triple bond still counts as 1).', 'Count the letters: s·p = 2 → sp; s·p·p = 3 → sp²; s·p·p·p = 4 → sp³; + d = 5 → sp³d; + d·d = 6 → sp³d².', 'Works for ANY atom, not just the center: a C=O oxygen has 1 bond + 2 lone pairs = 3 → sp².', 'A triple bond + one lone pair = 2 regions → sp (NOT sp³).'],
+    tool: 'vsepr', preset: { f: 'PF5' } },
+  polar: { title: 'Is the molecule polar or nonpolar?', hint: 'the class flowchart', q: 'Draw the Lewis structure first. Are ALL the outer atoms the same element?', opts: ['polar_diff', 'polar_q2', 'polar_tool'] },
+  polar_diff: { title: 'No — the outer atoms are different', notes: 'polarity',
+    steps: ['Different outer atoms → the pull is uneven → <b>POLAR</b>. You\'re done.', 'Examples: CH₂Cl₂, KrOF₄, HCN, CH₂O.'],
+    result: 'polar', tool: 'lewis', preset: { f: 'CH2Cl2' } },
+  polar_q2: { title: 'Yes — all outer atoms are the same', q: 'Does the CENTRAL atom have any lone pairs?', opts: ['polar_nonpolar1', 'polar_q3'] },
+  polar_nonpolar1: { title: 'No lone pairs on the central atom', notes: 'polarity',
+    steps: ['Same outer atoms + no lone pairs on the center → symmetric → <b>NONPOLAR</b>.', 'Examples: CO₂, CF₄, PCl₅, BH₃, XeF₆²⁺.'],
+    result: 'nonpolar', tool: 'lewis', preset: { f: 'PCl5' } },
+  polar_q3: { title: 'Yes, the central atom has lone pairs', q: 'Is the molecular geometry linear or square planar?', opts: ['polar_nonpolar2', 'polar_yes2'] },
+  polar_nonpolar2: { title: 'Yes — linear or square planar', notes: 'polarity',
+    steps: ['The lone pairs sit opposite each other and cancel → <b>NONPOLAR</b>.', 'Examples: XeF₂ (linear), XeF₄ / ICl₄⁻ (square planar).'],
+    result: 'nonpolar', tool: 'lewis', preset: { f: 'XeF2' } },
+  polar_yes2: { title: 'No — some other shape', notes: 'polarity',
+    steps: ['Lone pairs make one side heavier → <b>POLAR</b>.', 'Examples: H₂O (bent), NF₃ / PCl₃ (trigonal pyramidal), SF₄ (seesaw), BrF₃ (T-shaped), SO₂ (bent).'],
+    result: 'polar', tool: 'lewis', preset: { f: 'SF4' } },
+  polar_tool: { title: 'Not sure — let the tool draw it and walk the flowchart', notes: 'polarity',
+    steps: ['Type the formula below. The tool draws the Lewis structure, then answers the three flowchart questions in order.'],
+    tool: 'lewis', preset: { f: 'SO2' } },
+  enbond: { title: 'Bond polarity: which end is δ−? polar vs. nonpolar bond?', hint: 'ΔEN', notes: 'ionic',
+    steps: ['Look up both electronegativities (F is highest; up and right is higher).', 'ΔEN &lt; 0.4 → nonpolar covalent · 0.4 – 1.8 → polar covalent · &gt; 1.8 → ionic.', 'The more electronegative atom gets δ⁻; the other gets δ⁺ (in Cl–P, Cl is δ⁻).', 'A metal + nonmetal pair is ionic in class regardless.'],
+    watch: ['HW 11 #14 flipped the charges — "P δ⁻, Cl δ⁺" is FALSE.'],
+    tool: 'enbond' },
+  sigpi: { title: 'Count sigma (σ) and pi (π) bonds', hint: 'every bond has exactly one σ', notes: 'sigpi',
+    steps: ['Every bond (single, double, or triple) contains exactly <b>one σ</b>.', 'Double = 1σ + 1π. Triple = 1σ + 2π.', 'Count left → right so you don\'t miss any C–H bonds.', 'σ = head-on overlap directly between the nuclei. π = side-by-side overlap above and below the axis.'],
+    watch: ['Most common mistake: counting both bonds in a double bond as π.'],
+    tool: 'sigpi' },
+  bondlen: { title: 'Rank bond length or strength', hint: 'CO < CO₂ < CO₃²⁻', notes: 'sigpi',
+    steps: ['Bond order: single 1, double 2, triple 3.', 'Higher order → <b>shorter</b> and <b>stronger</b> (braided rope). Single is longest and weakest.', 'Resonance averages the bonds: CO₃²⁻ ≈ 1.33, CO₂ = 2, CO = 3 → length CO &lt; CO₂ &lt; CO₃²⁻, strength the reverse.', 'Ions like FO⁺ vs FO⁻: draw both — the one with fewer electrons often ends up with the extra bond.'],
+    tool: 'bondlen', preset: { list: 'CO, CO2, CO3^2-', bond: 'C-O' } },
+  diatomic: { title: 'Which molecule matches this dot picture?', hint: 'count the dots', notes: 'lewis',
+    steps: ['Count every dot, plus 2 for each bond line.', 'Same letter on both atoms (X–X) = same element. Different letters (X–Y) = different elements.', 'Match the total to the valence counts: H₂ = 2, N₂ / CO = 10, O₂ / SO = 12, halogens = 14.'],
+    tool: 'diatomic' }
+};
+
+/* ================= NOTES SHEET ================= */
+var NOTES_HTML = `
+<section id="n-light"><h3>Light</h3><ul>
+<li>c = λν · E = hν · E = hc/λ. h = 6.626×10⁻³⁴ J·s, c = 3.00×10⁸ m/s</li>
+<li>E &amp; ν → E = hν · E &amp; λ → E = hc/λ · no E → λν = c</li>
+<li>Units IN: λ in <b>m</b>, ν in <b>Hz (s⁻¹)</b>, E in <b>J</b>. Convert first (nm = 10⁻⁹ m, cm = 10⁻² m, kJ = 10³ J)</li>
+<li>Answers need sig figs + scientific notation</li>
+<li>Low → high E: radio → micro → IR → visible (red 700 nm → violet 400 nm) → UV → X-ray → gamma</li>
+<li>High E = high ν = SHORT λ. Brightness = number of atoms, not energy</li></ul></section>
+<section id="n-bohr"><h3>Bohr / quantum</h3><ul>
+<li>Bohr: fixed orbits, quantized energies, jumps with no in-between</li>
+<li>Quantum: wave AND particle; orbitals = probability regions; electrons stay IN shapes, not on paths</li>
+<li>Heisenberg: can't know position and speed at once → orbitals</li>
+<li>Heated gas = line spectrum · rainbow = continuous</li>
+<li>Emission high n → low n (−E) · absorption low → high (+E) · electron knocked out = ionization energy</li>
+<li>Levels get CLOSER as n rises. Bigger jump = more E, higher ν, shorter λ (4→1 biggest; 4→3 smallest; 4→3 &lt; 3→2 &lt; 2→1)</li>
+<li>Hydrogen: Eₙ = −2.18×10⁻¹⁸ J / n²</li></ul></section>
+<section id="n-qn"><h3>Quantum numbers</h3><ul>
+<li>n = 1, 2, 3… (never 0) · ℓ = 0 to n−1 (s0 p1 d2 f3) · mℓ = −ℓ to +ℓ · ms = ±½ only</li>
+<li>ℓ can never equal n: (4, 4, …) not allowed</li>
+<li>Exist: 1s | 2s 2p | 3s 3p 3d | then all four. No 1p, 1d, 2d, 1f, 2f, 3f → "0 = not possible"</li>
+<li><b>ORBITALS or ELECTRONS? read it twice.</b> s 1/2e · p 3/6e · d 5/10e · f 7/14e · any orbital max 2e</li>
+<li>Max e per shell: n=1 → 2, 2 → 8, 3 → 18, 4 → 32 (2n²)</li></ul></section>
+<section id="n-config"><h3>Configurations</h3><ul>
+<li>Aufbau (build) lowest first · Pauli ↑↓ never ↑↑ · Hund (bus rule) one per box before pairing</li>
+<li>Read table left → right, top → bottom. Row = n for s/p; d = row − 1. Blocks: s = cols 1–2 (+He), p right, d middle</li>
+<li>Superscripts = TOTAL in that subshell</li>
+<li>Order: 1s 2s 2p 3s 3p 4s 3d 4p 5s 4d 5p 6s 4f 5d 6p 7s</li>
+<li>Ones-digit trick: ones digit of atomic # = number of d electrons (Sc 21 = d¹, Co 27 = d⁷, Zn 30 = d¹⁰)</li>
+<li>Exceptions (d⁴/d⁹): Cr, Mo, W → ns¹(n−1)d⁵ · Cu, Ag, Au → ns¹(n−1)d¹⁰</li>
+<li>Cations: remove from HIGHEST n first — <b>4s leaves before 3d</b>; p-block: p then s. No ⁰ superscripts. Anions: add</li>
+<li>Valence = ALL e in highest n; core = the rest</li>
+<li>Isoelectronic = same # of electrons (N³⁻, O²⁻, F⁻, Ne, Na⁺, Mg²⁺ = 10)</li>
+<li>Paramagnetic = ≥1 unpaired · diamagnetic = all paired. Neutral end-of-block (He, col 2, col 12, noble gases) = dia</li></ul></section>
+<section id="n-table"><h3>Periodic table</h3><ul>
+<li>Column = group/family (named) · row = period (numbered)</li>
+<li>1 alkali (not H) · 2 alkaline earth · middle transition (Ca is NOT) · 2nd from right halogens · right noble/inert gases · bottom rows inner transition</li>
+<li>Metals left of stair step · nonmetals right (+H) · metalloids on step (B, Si, Ge, As, Sb, Te)</li>
+<li>Same column → similar properties</li></ul></section>
+<section id="n-trends"><h3>Trends — no E in the name → away from F; E in the name → toward F</h3><ul>
+<li>Radius: bigger down and left (Cs/Fr biggest). Down beats across; count blocks to Cs if close</li>
+<li>Cations smaller ("cats are small") · anions bigger · isoelectronic: more protons → smaller (P³⁻ &gt; Cl⁻ &gt; K⁺ &gt; Ca²⁺)</li>
+<li>IE up and right, He highest, <b>noble gases count</b>. 1st &lt; 2nd &lt; 3rd. Exception <b>O &lt; N</b></li>
+<li>EA up and right (absolute value). Exception <b>C &gt; N</b></li>
+<li>EN up and right, F highest, O &gt; Cl. EA and EN leave out noble gases</li></ul></section>
+<section id="n-ionic"><h3>Ionic vs. covalent</h3><ul>
+<li>Ionic = metal + nonmetal: transfer, lattice, dissolves in water, conducts. Coulomb: bigger charges + smaller ions = stronger</li>
+<li>Covalent = nonmetal + nonmetal: shared pair by orbital overlap; one lowest-energy distance. Doesn't dissolve/conduct</li>
+<li>H is odd: covalent with nonmetals, ionic with metals</li>
+<li>Charges: col 1 +1, col 2 +2, Al +3, skip C column, N col −3, O col −2, halogens −1, noble 0, transition varies</li>
+<li>ΔEN &lt; 0.4 nonpolar · 0.4–1.8 polar · &gt; 1.8 ionic; more EN atom is δ⁻</li></ul></section>
+<section id="n-naming"><h3>Formulas &amp; naming</h3><ul>
+<li>Charges sum to 0, positive ion first. Cross and drop, then <b>reduce</b> (Ca₂S₂ → CaS). A 1 in the mix = already simplest</li>
+<li>Polyatomic ions stay together; ( ) only if more than one: Ca(NO₃)₂</li>
+<li>First element col 1/2/Al: name + root-ide. No numerals, no prefixes</li>
+<li>Transition metal: name (Roman numeral) root-ide. Ti₂O₃: 2x − 6 = 0 → (III). Capital I, not lowercase L</li>
+<li>Nonmetal first: prefixes on both. Never mono on the first; always on the second. Drop a/o before oxide</li>
+<li>Never prefix + numeral together. Polyatomic: copy name from chart</li>
+<li>Acids: hydro___ic = H + element (HCN hydrocyanic) · -ate → -ic · -ite → -ous (no hydro) · # H = charge · no (aq)</li>
+<li>Spelling: fluorine, phosphorus. Symbols: capital + lowercase (Li, not LI)</li></ul></section>
+<section id="n-lewis"><h3>Lewis structures</h3><ul>
+<li>Valence = column count; +e⁻ for negative charge, −e⁻ for positive. Odd total → recheck</li>
+<li>Atom dots: one per side, then pair, stop at 8. Ions in [brackets], charge outside</li>
+<li>1 line = 2 e⁻. Single/double/triple = 2/4/6 e⁻</li>
+<li>Steps: count → least EN atom central (first written, never H) → single bonds → center gets 8 first → outer atoms → check count</li>
+<li>Extra e⁻ → pairs on central atom (row 3+ only). Short → slide lone pairs into double, then triple bonds</li>
+<li>H = 2, Be = 4, B = 6. C, N, O, F strictly 8. Trick: 3 lone pairs + 1 line = 8</li>
+<li>FC = valence − dots − lines. Closest to 0 wins; FCs sum to the charge</li>
+<li>Resonance = double bond could sit in more than one spot (CO₃²⁻, SO₃²⁻, PO₄³⁻). Not CO₂, SO₂, CH₂O, C₂H₂</li>
+<li>Diatomics: 14 dots → halogen; 12 → O₂/SO</li></ul></section>
+<section id="n-shapes"><h3>Shapes (regions = bonded atoms + lone pairs)</h3><ul>
+<li><b>2</b> linear, sp, 180°</li>
+<li><b>3</b> trigonal planar, sp², 120° · 1 LP bent (&lt;120°)</li>
+<li><b>4</b> tetrahedral, sp³, 109.5° · 1 LP trigonal pyramidal (&lt;109.5°) · 2 LP bent (&lt;109.5°)</li>
+<li><b>5</b> trigonal bipyramidal, sp³d, 90/120/180° (LPs on triangle) · 1 LP seesaw (90/120/180) · 2 LP T-shaped (90/180) · 3 LP linear (180)</li>
+<li><b>6</b> octahedral, sp³d², 90/180° (LPs opposite) · 1 LP square pyramidal · 2 LP square planar</li>
+<li>Tetrahedral and octahedral are named for faces (4 and 8), not bonds</li>
+<li>Hybridization = count letters in s·p·p·p·d·d</li></ul></section>
+<section id="n-polarity"><h3>Polarity flowchart</h3><ul>
+<li>Outer atoms all the same? No → polar</li>
+<li>Yes → lone pairs on the center? No → nonpolar</li>
+<li>Yes → linear or square planar? Yes → nonpolar · No → polar</li></ul></section>
+<section id="n-sigpi"><h3>σ / π bonds</h3><ul>
+<li>Every bond has exactly 1 σ (the framework). Double = 1σ + 1π. Triple = 1σ + 2π</li>
+<li>σ = head-on between nuclei · π = side overlap above/below the axis</li>
+<li>Length: single &gt; double &gt; triple · strength: triple &gt; double &gt; single</li>
+<li>Valence bond theory: bonds form from overlap of half-filled orbitals</li></ul></section>`;
+
+/* ================= UI ================= */
+function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+var PARENT = {};
+Object.keys(NODES).forEach(function (id) { (NODES[id].opts || []).forEach(function (c) { PARENT[c] = id; }); });
+var GROUP_OF = {};
+GROUPS.forEach(function (g) { g.ids.forEach(function (id) { GROUP_OF[id] = g; }); });
+function topOf(id) { while (PARENT[id]) id = PARENT[id]; return id; }
+function chain(id) { var c = []; while (id) { c.unshift(id); id = PARENT[id]; } return c; }
+
+var app;
+function go(hash) { if (location.hash === hash) render(); else location.hash = hash; }
+function render() {
+  var h = location.hash.replace(/^#\/?/, '');
+  window.scrollTo(0, 0);
+  if (h === 'notes' || h.indexOf('notes/') === 0) return renderNotes(h.split('/')[1]);
+  if (h.indexOf('node/') === 0 && NODES[h.slice(5)]) return renderNode(h.slice(5));
+  if (h === 'drill' || h.indexOf('drill/') === 0) return renderDrill(h);
+  renderHome();
+}
+function crumbsHTML(id) {
+  var c = chain(id), g = GROUP_OF[c[0]];
+  var parts = ['<a href="#/" class="crumb">Start</a>'];
+  if (g) parts.push('<span class="crumb muted tag-' + g.tag + '">' + esc(g.name) + '</span>');
+  c.forEach(function (x, i) {
+    var t = NODES[x].title;
+    if (i < c.length - 1) parts.push('<a href="#/node/' + x + '" class="crumb">' + esc(t) + '</a>');
+    else parts.push('<span class="crumb here">' + esc(t) + '</span>');
+  });
+  return '<nav class="trail" aria-label="Your path">' + parts.join('<span class="sep">›</span>') + '</nav>';
+}
+function renderHome() {
+  var html = '<section class="hero"><p class="eyebrow">CHEM 1110 · Test 2 · HW 7–12</p><h1>What is your question asking you to do?</h1><p class="lede">Pick the kind of question. You\'ll walk the steps from your notes, then check your own answer.</p></section>';
+  html += '<a class="drillcta" href="#/drill"><span><b>Drill mode</b><small>Memorize naming, shapes, bond angles, and hybridization with quick-fire questions</small></span><span class="chev">→</span></a>';
+  html += '<div class="search"><input id="q" type="search" placeholder="Filter question types (e.g. hybridization, acid, unpaired)" aria-label="Filter question types"></div>';
+  GROUPS.forEach(function (g) {
+    html += '<section class="group tag-' + g.tag + '"><h2>' + esc(g.name) + '</h2><div class="opts">';
+    g.ids.forEach(function (id) { var n = NODES[id]; html += optBtn(id, n); });
+    html += '</div></section>';
+  });
+  app.innerHTML = html;
+  var q = document.getElementById('q');
+  q.addEventListener('input', function () {
+    var v = q.value.toLowerCase().trim();
+    app.querySelectorAll('.group').forEach(function (sec) {
+      var any = false;
+      sec.querySelectorAll('.opt').forEach(function (b) { var ok = !v || b.textContent.toLowerCase().indexOf(v) >= 0 || (b.dataset.kw || '').indexOf(v) >= 0; b.hidden = !ok; if (ok) any = true; });
+      sec.hidden = !any;
+    });
+  });
+}
+function kwFor(id) {
+  var n = NODES[id], s = (n.title + ' ' + (n.hint || '') + ' ' + (n.q || '')).toLowerCase();
+  (n.opts || []).forEach(function (c) { s += ' ' + kwFor(c); });
+  if (n.steps) s += ' ' + n.steps.join(' ').replace(/<[^>]+>/g, '').toLowerCase();
+  return s;
+}
+function optBtn(id, n) {
+  return '<a class="opt" href="#/node/' + id + '" data-kw="' + esc(kwFor(id)) + '"><span class="opt-t">' + esc(n.title) + '</span>' + (n.hint ? '<span class="opt-h">' + esc(n.hint) + '</span>' : '') + '<span class="chev" aria-hidden="true">→</span></a>';
+}
+function renderNode(id) {
+  var n = NODES[id], g = GROUP_OF[topOf(id)];
+  var html = crumbsHTML(id);
+  html += '<div class="card node tag-' + (g ? g.tag : '') + '">';
+  if (n.opts) {
+    html += '<p class="eyebrow">' + (PARENT[id] ? 'Next question' : 'Flowchart') + '</p><h1>' + esc(n.q) + '</h1><div class="opts">';
+    n.opts.forEach(function (c) { html += optBtn(c, NODES[c]); });
+    html += '</div>';
+  } else {
+    html += '<p class="eyebrow">Steps from your notes</p><h1>' + esc(n.title) + '</h1>';
+    if (n.result) html += '<p class="verdict ' + (n.result === 'polar' ? 'v-polar' : 'v-non') + '">' + (n.result === 'polar' ? 'POLAR' : 'NONPOLAR') + '</p>';
+    html += '<ol class="steps">' + n.steps.map(function (s) { return '<li>' + s + '</li>'; }).join('') + '</ol>';
+    if (n.watch) html += '<div class="watch"><strong>Watch out</strong>' + n.watch.map(function (w) { return '<p>' + w + '</p>'; }).join('') + '</div>';
+    if (n.notes) html += '<p class="notes-link"><a href="#/notes/' + n.notes + '">Open this part of your notes →</a></p>';
+  }
+  html += '</div>';
+  if (n.tool && TOOLS[n.tool]) html += '<section class="card tool"><p class="eyebrow">Check my work</p><div id="tool"></div></section>';
+  html += '<div class="navrow"><a class="btn ghost" href="#/">← Start over</a>' + (PARENT[id] ? '<a class="btn ghost" href="#/node/' + PARENT[id] + '">Back one step</a>' : '') + '</div>';
+  app.innerHTML = html;
+  if (n.tool && TOOLS[n.tool]) TOOLS[n.tool](document.getElementById('tool'), n.preset || {});
+}
+function renderNotes(sec) {
+  app.innerHTML = '<nav class="trail"><a href="#/" class="crumb">Start</a><span class="sep">›</span><span class="crumb here">Notes sheet</span></nav><article class="card notes"><p class="eyebrow">Your one-page notes</p><h1>Notes sheet</h1>' + NOTES_HTML + '</article>';
+  if (sec) { var el = document.getElementById('n-' + sec); if (el) { el.classList.add('flash'); setTimeout(function () { el.scrollIntoView({ block: 'start' }); }, 0); } }
+}
+
+/* ---------- tool helpers ---------- */
+function field(label, inner, cls) { return '<label class="field ' + (cls || '') + '"><span>' + label + '</span>' + inner + '</label>'; }
+function sel(name, opts, val) { return '<select data-k="' + name + '">' + opts.map(function (o) { var v = Array.isArray(o) ? o[0] : o, t = Array.isArray(o) ? o[1] : o; return '<option value="' + esc(v) + '"' + (String(v) === String(val) ? ' selected' : '') + '>' + esc(t) + '</option>'; }).join('') + '</select>'; }
+function inp(name, val, ph, extra) { return '<input data-k="' + name + '" value="' + esc(val || '') + '" placeholder="' + esc(ph || '') + '" autocomplete="off" autocapitalize="off" spellcheck="false" ' + (extra || '') + '>'; }
+function val(root, k) { var e = root.querySelector('[data-k="' + k + '"]'); return e ? e.value : ''; }
+function wire(root, fn) {
+  var out = root.querySelector('.out');
+  function run() { try { out.innerHTML = fn(); } catch (e) { out.innerHTML = bad('Something went wrong: ' + esc(e.message)); } }
+  root.querySelectorAll('input,select').forEach(function (e) { e.addEventListener(e.tagName === 'SELECT' || e.type === 'checkbox' ? 'change' : 'input', run); });
+  var b = root.querySelector('.go'); if (b) b.addEventListener('click', run);
+  run();
+}
+function bad(msg) { return '<div class="res res-bad">' + msg + '</div>'; }
+function box(inner, cls) { return '<div class="res ' + (cls || '') + '">' + inner + '</div>'; }
+function bigAns(label, html, sub) { return '<div class="ans"><span class="ans-l">' + label + '</span><span class="ans-v">' + html + '</span>' + (sub ? '<span class="ans-s">' + sub + '</span>' : '') + '</div>'; }
+function list(items) { return '<ul class="why">' + items.map(function (x) { return '<li>' + x + '</li>'; }).join('') + '</ul>'; }
+function yourAnswerRow(ph) { return field('Your answer (optional)', inp('mine', '', ph || 'type yours to compare'), 'mine'); }
+function normAns(s) { return String(s || '').toLowerCase().replace(/\s+/g, ' ').replace(/\s*\(\s*/g, ' (').replace(/\s*\)\s*/g, ') ').trim(); }
+function compareMine(root, correct, alts) {
+  var m = val(root, 'mine'); if (!m) return '';
+  var ok = [correct].concat(alts || []).some(function (c) { return normAns(c) === normAns(m); });
+  return ok ? '<p class="cmp cmp-ok">✓ Your answer matches.</p>' : '<p class="cmp cmp-bad">✗ Yours: <b>' + esc(m) + '</b> — compare it with the answer above (check spelling, capitals, and parentheses).</p>';
+}
+
+/* ---------- TOOLS ---------- */
+var TOOLS = {};
+TOOLS.light = function (root, p) {
+  var q = [['lambda', 'wavelength λ'], ['nu', 'frequency ν'], ['E', 'energy E']];
+  var unitOpts = function (k) { return Object.keys(UNITS[k]); };
+  root.innerHTML = '<div class="grid2">' + field('Given', sel('given', q, p.given)) + field('Value', inp('value', p.value, 'e.g. 3.40x10^-9')) + field('Unit', '<select data-k="gUnit"></select>') + field('Find', sel('find', q, p.find)) + field('Answer unit', '<select data-k="fUnit"></select>') + '</div><p class="hint">Numbers: 3.40x10^-9, 3.40e-9, or 3.40×10⁻⁹ all work.</p><div class="out"></div>';
+  function fillUnits(which, keyK, keep) {
+    var s = root.querySelector('[data-k="' + which + '"]'), k = val(root, keyK), cur = keep || s.value;
+    s.innerHTML = unitOpts(k).map(function (u) { return '<option' + (u === cur ? ' selected' : '') + '>' + u + '</option>'; }).join('');
+  }
+  fillUnits('gUnit', 'given', p.gUnit); fillUnits('fUnit', 'find', p.fUnit);
+  root.querySelector('[data-k="given"]').addEventListener('change', function () { fillUnits('gUnit', 'given'); });
+  root.querySelector('[data-k="find"]').addEventListener('change', function () { fillUnits('fUnit', 'find'); });
+  wire(root, function () {
+    var r = lightCalc(val(root, 'given'), val(root, 'gUnit'), val(root, 'value'), val(root, 'find'), val(root, 'fUnit'));
+    if (r.error) return bad(esc(r.error));
+    return box(bigAns('Answer', r.answerHTML, 'type it as: <code>' + esc(r.typed) + '</code>') + '<ol class="why">' + r.steps.map(function (s) { return '<li>' + s + '</li>'; }).join('') + '</ol>');
+  });
+};
+TOOLS.spectrum = function (root) {
+  var modes = [['region', 'a region name'], ['nu', 'a frequency'], ['lambda', 'a wavelength'], ['E', 'an energy']];
+  var regions = SPECTRUM.map(function (r) { return r.k; });
+  function side(k, def) {
+    return '<fieldset class="side"><legend>Wave ' + k + '</legend>' + field('Given as', sel(k + 'm', modes, def.m)) + '<div class="sidebody" data-side="' + k + '"></div></fieldset>';
+  }
+  root.innerHTML = '<div class="grid2">' + side('A', { m: 'region' }) + side('B', { m: 'region' }) + '</div><div class="out"></div>';
+  function body(k, init) {
+    var m = val(root, k + 'm'), b = root.querySelector('[data-side="' + k + '"]');
+    if (m === 'region') b.innerHTML = field('Region', sel(k + 'r', regions, init || (k === 'A' ? 'X-ray' : 'radio')));
+    else b.innerHTML = field('Value', inp(k + 'v', k === 'A' ? '1.0x10^-9' : '1.0x10^5')) + field('Unit', sel(k + 'u', Object.keys(UNITS[m])));
+    b.querySelectorAll('input,select').forEach(function (e) { e.addEventListener('input', run); e.addEventListener('change', run); });
+  }
+  var out = root.querySelector('.out');
+  function run() {
+    function get(k) { var m = val(root, k + 'm'); return m === 'region' ? { mode: 'region', region: val(root, k + 'r') } : { mode: m, value: val(root, k + 'v'), unit: val(root, k + 'u') }; }
+    var r = compareWaves(get('A'), get('B'));
+    if (r.error) { out.innerHTML = bad(esc(r.error)); return; }
+    var la = 'A (' + r.A.label + (r.A.region ? ' → ' + r.A.region : '') + ')', lb = 'B (' + r.B.label + (r.B.region ? ' → ' + r.B.region : '') + ')';
+    if (r.cmp === 0) { out.innerHTML = box('<p>Same ' + (r.A.nu == null || r.B.nu == null ? 'region' : 'wave') + ' — no difference in energy, frequency, or wavelength.</p>'); return; }
+    var hi = r.cmp > 0 ? la : lb, lo = r.cmp > 0 ? lb : la;
+    out.innerHTML = box(list(['<b>Higher energy:</b> ' + hi, '<b>Higher frequency:</b> ' + hi, '<b>Longer wavelength:</b> ' + lo, 'Rule: high energy = high frequency = SHORT wavelength.']) + '<div class="spectrum">' + SPECTRUM.map(function (s) { var on = s.k === (r.A.region || r.A.label) || s.k === (r.B.region || r.B.label); return '<span class="' + (on ? 'on' : '') + '">' + s.k + '</span>'; }).join('') + '</div><p class="hint">← low energy · long λ &nbsp;&nbsp;|&nbsp;&nbsp; high energy · short λ →</p>');
+  }
+  ['A', 'B'].forEach(function (k) { body(k); root.querySelector('[data-k="' + k + 'm"]').addEventListener('change', function () { body(k); run(); }); });
+  run();
+};
+TOOLS.trans = function (root) {
+  root.innerHTML = field('Transitions (one per line or comma-separated)', '<textarea data-k="t" rows="3" spellcheck="false">6->5, 6->2, 6->1, 6->4, 6->3</textarea>') + '<p class="hint">Use 4->1, 4→1, or "4 to 1".</p><div class="out"></div>';
+  wire(root, function () {
+    var ts = parseTransitions(val(root, 't')); if (!ts.length) return bad('Type transitions like 4->1, 3->2.');
+    var info = ts.map(transitionInfo), sorted = info.slice().sort(function (a, b) { return a.mag - b.mag; });
+    var rows = info.map(function (x) { return '<li><b>' + x.t.from + ' → ' + x.t.to + '</b>: ' + (x.type === 'none' ? 'no jump' : x.type + (x.type === 'emission' ? ' (going down, releases energy)' : ' (going up, absorbs energy)')) + (x.mag ? ' · |ΔE| = ' + fmtSci(x.mag, 3).html + ' J · λ ≈ ' + Math.round(x.lambdaNm) + ' nm' : '') + '</li>'; }).join('');
+    var rank = sorted.filter(function (x) { return x.mag; }).map(function (x, i) { return '<li>' + (i + 1) + '. ' + x.t.from + '→' + x.t.to + '</li>'; }).join('');
+    return box('<ul class="why">' + rows + '</ul><div class="twocol"><div><p class="lbl">Lowest → highest ENERGY (and frequency)</p><ol class="rank">' + rank + '</ol></div><div><p class="lbl">Longest wavelength</p><p>' + (sorted[0] && sorted[0].mag ? sorted[0].t.from + '→' + sorted[0].t.to + ' (smallest jump)' : '—') + '</p><p class="lbl">Shortest wavelength</p><p>' + (sorted.length ? sorted[sorted.length - 1].t.from + '→' + sorted[sorted.length - 1].t.to + ' (biggest jump)' : '—') + '</p></div></div><p class="hint">Uses Eₙ = −2.18×10⁻¹⁸ J/n². Absorption picks: anything going UP (low → high).</p>');
+  });
+};
+TOOLS.qnset = function (root) {
+  root.innerHTML = '<div class="grid4">' + field('n', inp('n', '4')) + field('ℓ (number or s/p/d/f)', inp('l', '3')) + field('mℓ', inp('ml', '-2')) + field('ms', inp('ms', '+1/2')) + '</div><div class="out"></div>';
+  wire(root, function () {
+    var r = checkQN(val(root, 'n'), val(root, 'l'), val(root, 'ml'), val(root, 'ms'));
+    return box(bigAns('Verdict', r.allowed ? 'Allowed' : 'NOT allowed') + '<ul class="checks">' + r.checks.map(function (c) { return '<li class="' + (c.ok ? 'pass' : 'fail') + '">' + (c.ok ? '✓ ' : '✗ ') + esc(c.txt) + '</li>'; }).join('') + '</ul>', r.allowed ? 'res-ok' : 'res-bad');
+  });
+};
+TOOLS.subshell = function (root) {
+  root.innerHTML = field('Subshell or shell', inp('s', '3p', '3p, 4d, 2f, or n=4')) + '<div class="chips">' + ['1s', '2p', '3p', '3d', '4d', '4f', '2f', '1p', '8s', 'n=3', 'n=4'].map(function (x) { return '<button type="button" class="chip" data-v="' + x + '">' + x + '</button>'; }).join('') + '</div><div class="out"></div>';
+  root.querySelectorAll('.chip').forEach(function (c) { c.addEventListener('click', function () { root.querySelector('[data-k="s"]').value = c.dataset.v; root.querySelector('[data-k="s"]').dispatchEvent(new Event('input')); }); });
+  wire(root, function () {
+    var r = subshellInfo(val(root, 's')); if (r.error) return bad(r.error);
+    if (r.kind === 'shell') return box('<div class="duo">' + bigAns('Orbitals in n = ' + r.n, r.orbitals, 'n²') + bigAns('Electrons in n = ' + r.n, r.electrons, '2n²') + '</div><p>Subshells: ' + r.subs.join(' · ') + '</p>');
+    if (!r.exists) return box(bigAns(r.label, 'Does not exist', 'answer "0 = not possible"') + '<p>Energy level ' + r.n + ' only has ' + LLETTER.slice(0, Math.min(r.n, 4)).map(function (x) { return r.n + x; }).join(', ') + '. ℓ must be less than n.</p>', 'res-bad');
+    return box('<div class="duo">' + bigAns('ORBITALS in ' + r.label, r.orbitals) + bigAns('ELECTRONS in ' + r.label, r.electrons, 'filled') + '</div><p class="hint">Read the question: orbitals or electrons? One orbital (any kind) holds max 2.</p>');
+  });
+};
+function orbitalBoxes(diag) {
+  return '<div class="orbs">' + diag.map(function (d) {
+    return '<div class="orb"><div class="boxes">' + d.boxes.map(function (b) { return '<span class="bx">' + (b === 2 ? '↑↓' : b === 1 ? '↑' : '&nbsp;') + '</span>'; }).join('') + '</div><div class="orb-l">' + d.sub + '</div></div>';
+  }).join('') + '</div>';
+}
+TOOLS.config = function (root, p) {
+  root.innerHTML = '<div class="grid2">' + field('Atom or ion', inp('sp', p.sp || 'V+', 'Mn, V+, Cd3+, P2-')) + yourAnswerRow('e.g. [Ar] 4s2 3d3') + '</div><div class="out"></div>';
+  wire(root, function () {
+    var s = parseSpecies(val(root, 'sp')); if (s.error) return bad(esc(s.error));
+    var a = analyzeSpecies(s.sym, s.q); if (a.error) return bad(esc(a.error));
+    var steps = [];
+    steps.push(s.el.name + ' (Z = ' + s.el.Z + '), ' + (s.q ? 'charge ' + (s.q > 0 ? '+' : '') + s.q + ' → ' : '') + a.electrons + ' electrons.');
+    if (s.q) steps.push('Neutral first: ' + (nobleCore(a.neutral) ? '[' + nobleCore(a.neutral).sym + '] ' + cfgHTML(a.neutral, nobleCore(a.neutral).subs) : cfgHTML(a.neutral)) + '.');
+    if (a.note) steps.push(a.note);
+    if (a.removed.length) steps.push('Remove ' + a.removed.length + ' from the highest n first: ' + a.removed.join(', ') + '.');
+    if (a.added.length) steps.push('Add ' + a.added.length + ' into the next open spot(s): ' + a.added.join(', ') + '.');
+    if (s.el.group === 0) steps.push('Heads-up: f-block elements have extra exceptions the class doesn\'t test.');
+    var shortTxt = a.core && !a.shortText.replace('[' + a.core.sym + ']', '').trim() ? '[' + a.core.sym + '] (same as ' + ELZ[a.core.Z].name + ')' : a.shortHTML;
+    var mineCmp = '';
+    var m = val(root, 'mine');
+    if (m) {
+      var pc = parseConfigString(m);
+      if (pc.error) mineCmp = '<p class="cmp cmp-bad">Couldn\'t read your config: ' + esc(pc.error) + '</p>';
+      else { var same = true, keys = {}; Object.keys(pc.cfg).concat(Object.keys(a.cfg)).forEach(function (k) { keys[k] = 1; }); for (var k in keys) if ((pc.cfg[k] || 0) !== (a.cfg[k] || 0)) same = false; mineCmp = same ? '<p class="cmp cmp-ok">✓ Your configuration matches.</p>' : '<p class="cmp cmp-bad">✗ Yours doesn\'t match — compare subshell by subshell (did an electron leave the wrong subshell?).</p>'; }
+    }
+    var dTM = s.el.group >= 3 && s.el.group <= 12;
+    return box(bigAns('Noble-gas shorthand', shortTxt) + '<p class="full">Full: ' + (a.fullHTML || '(no electrons)') + '</p>' + mineCmp +
+      '<p class="lbl">Orbital diagram (valence level)</p>' + orbitalBoxes(a.diagram) +
+      '<div class="stats"><span><b>' + a.unpaired + '</b> unpaired → ' + a.magnetic + '</span><span><b>' + a.valence + '</b> valence e⁻ (n = ' + a.maxN + ')' + (dTM && s.q ? '*' : '') + '</span><span><b>' + a.core_e + '</b> core e⁻</span><span>e⁻ in s: <b>' + a.byL.s + '</b> · p: <b>' + a.byL.p + '</b> · d: <b>' + a.byL.d + '</b>' + (a.byL.f ? ' · f: <b>' + a.byL.f + '</b>' : '') + '</span></div>' +
+      (dTM && s.q ? '<p class="hint">*Class valence questions use main-group atoms; for transition-metal ions this counts every electron in the highest n.</p>' : '') +
+      '<p class="lbl">How to get there</p>' + list(steps));
+  });
+};
+TOOLS.identify = function (root) {
+  root.innerHTML = field('Configuration or diagram (type what you see)', inp('c', '5s0 4d9', '[Kr] 5s0 4d9 · 2s2 2p2 · 4s0 3d3')) + '<p class="hint">For an empty box write a 0 (like 5s0). If you leave off the [core], the tool adds the noble gas before it.</p><div class="out"></div>';
+  wire(root, function () {
+    var r = identifyConfig(val(root, 'c')); if (r.error) return bad(esc(r.error));
+    var neutral = r.matches.filter(function (m) { return m.q === 0; });
+    return box((r.assumedCore ? '<p class="hint">Assumed core: [' + r.assumedCore + ']</p>' : '') + '<p>Total electrons: <b>' + r.total + '</b> → a neutral atom with ' + r.total + ' electrons is <b>' + (ELZ[r.total] ? ELZ[r.total].name + ' (' + ELZ[r.total].sym + ')' : '—') + '</b>' + (neutral.length ? '' : ', but its real configuration looks different, so this is an ion') + '.</p>' +
+      (r.matches.length ? '<p class="lbl">Species with exactly this configuration (by class rules)</p><div class="chips">' + r.matches.map(function (m) { return '<span class="chip static' + (m.q === 0 ? ' pri' : '') + '">' + m.label + '</span>'; }).join('') + '</div><p class="hint">Pick the one that appears in your answer choices.</p>' : '<p>No atom or ion matches exactly — recount the electrons or check which subshells are empty.</p>'));
+  });
+};
+TOOLS.iso = function (root) {
+  root.innerHTML = field('Atoms / ions (comma-separated)', inp('l', 'F+, Mg2-, O+, C-', 'N3-, O2-, F-, Ne, Na+')) + '<div class="out"></div>';
+  wire(root, function () {
+    var L = parseSpeciesList(val(root, 'l')), errs = L.filter(function (x) { return x.error; });
+    if (errs.length) return bad(errs.map(function (e) { return esc(e.error); }).join('<br>'));
+    var groups = {}; L.forEach(function (x) { (groups[x.e] = groups[x.e] || []).push(x.label); });
+    return box(list(L.map(function (x) { return '<b>' + x.label + '</b>: ' + x.el.Z + (x.q ? (x.q > 0 ? ' − ' + x.q : ' + ' + (-x.q)) : '') + ' = <b>' + x.e + '</b> electrons'; })) + '<p class="lbl">Isoelectronic groups</p>' + Object.keys(groups).map(function (k) { return '<p>' + (groups[k].length > 1 ? '✓ ' : '· ') + groups[k].join(', ') + ' — ' + k + ' e⁻' + (groups[k].length > 1 ? ' (isoelectronic)' : '') + '</p>'; }).join(''));
+  });
+};
+TOOLS.element = function (root, p) {
+  var mode = p.mode || 'sym';
+  root.innerHTML = '<div class="seg"><button type="button" data-m="sym">By symbol / name</button><button type="button" data-m="pos">By row &amp; column</button></div><div class="grid2 body"></div><div class="out"></div>';
+  var body = root.querySelector('.body'), out = root.querySelector('.out');
+  function setMode(m) {
+    mode = m;
+    root.querySelectorAll('.seg button').forEach(function (b) { b.classList.toggle('on', b.dataset.m === m); });
+    body.innerHTML = m === 'sym' ? field('Element', inp('e', 'Ca', 'Ca, calcium, F…')) : field('Row (period)', sel('r', [1, 2, 3, 4, 5, 6, 7], 3)) + field('Column (group 1–18)', sel('c', Array.from({ length: 18 }, function (_, i) { return i + 1; }), 16));
+    body.querySelectorAll('input,select').forEach(function (e) { e.addEventListener('input', run); e.addEventListener('change', run); });
+    run();
+  }
+  function run() {
+    var e;
+    if (mode === 'sym') { var v = val(root, 'e').trim(); e = EL[v] || EL_BY_NAME[v.toLowerCase()] || EL[v.charAt(0).toUpperCase() + v.slice(1).toLowerCase()]; if (!e) { out.innerHTML = bad('Type a symbol (Ca) or a name (calcium).'); return; } }
+    else { var r = +val(root, 'r'), c = +val(root, 'c'); e = Object.keys(EL).map(function (k) { return EL[k]; }).find(function (x) { return x.period === r && x.group === c; }); if (!e) { out.innerHTML = bad('That spot is empty on the main chart (rows 1–3 skip the middle).'); return; } }
+    var ag = aGroup(e);
+    out.innerHTML = box(bigAns(e.name + ' (' + e.sym + ')', familyOf(e)) + '<div class="stats"><span>Row (period) <b>' + e.period + '</b></span><span>Column <b>' + (e.group || '— (f-block)') + '</b>' + (ag ? ' · ' + ag : '') + '</span><span><b>' + blockOf(e) + '</b>-block</span><span><b>' + kindOf(e) + '</b></span><span>' + stateOf(e) + ' at room temp</span>' + (valenceOf(e) != null ? '<span><b>' + valenceOf(e) + '</b> valence e⁻</span>' : '') + '</div><p>Typical ion charge: ' + typicalCharge(e) + '</p><p class="hint">Neutral config: ' + analyzeSpecies(e.sym, 0).shortHTML + ' · atomic # ' + e.Z + '</p>');
+  }
+  root.querySelectorAll('.seg button').forEach(function (b) { b.addEventListener('click', function () { setMode(b.dataset.m); }); });
+  setMode(mode);
+};
+TOOLS.trend = function (root, p) {
+  var props = [['size', 'Size (atomic / ionic radius)'], ['IE', 'Ionization energy'], ['EA', 'Electron affinity'], ['EN', 'Electronegativity']];
+  root.innerHTML = '<div class="grid2">' + field('Property', sel('prop', props, p.prop || 'size')) + field('Atoms / ions (comma-separated)', inp('l', p.list || '', 'Se, Cl-, Br, Se2-, Cl')) + '</div><div class="out"></div>';
+  wire(root, function () {
+    var prop = val(root, 'prop'), r = rankTrend(prop, parseSpeciesList(val(root, 'l')));
+    if (r.errors.length) return bad(r.errors.map(esc).join('<br>'));
+    var word = prop === 'size' ? ['Largest', 'Smallest'] : ['Highest', 'Lowest'];
+    var dirTxt = prop === 'size' ? 'No "E" → grows AWAY from F (down and left).' : '"E" in the name → grows TOWARD F (up and right).';
+    if (!r.order.length) return box('<p>Nothing to rank.</p>' + (r.excluded.length ? '<p class="hint">Left out: ' + r.excluded.join('; ') + '</p>' : ''));
+    return box('<p class="hint">' + dirTxt + '</p><div class="duo">' + bigAns(word[0], r.order[0].label) + bigAns(word[1], r.order[r.order.length - 1].label) + '</div><p class="rankline">' + r.order.map(function (x) { return x.label; }).join(' <span>&gt;</span> ') + '</p>' + (r.reasons.length ? '<p class="lbl">Why each step</p>' + list(r.reasons.map(function (x) { return '<b>' + x.a + ' &gt; ' + x.b + '</b>: ' + esc(x.why); })) : '') + (r.excluded.length ? '<p class="hint">Left out: ' + r.excluded.map(esc).join('; ') + '</p>' : '') + '<p class="hint">Follows the class trend rules (direction + exceptions), which is what the test grades — real measured values have a few extra wiggles.</p>');
+  });
+};
+TOOLS.name = function (root, p) {
+  root.innerHTML = '<div class="grid2">' + field('Formula', inp('f', p.f || '', 'Fe2O3, Mg(NO3)2, HClO2, SO4^2-')) + yourAnswerRow('your name for it') + '</div><p class="hint">Case matters: Co (cobalt) ≠ CO (carbon + oxygen).</p><div class="out"></div>';
+  wire(root, function () {
+    var r = nameFromFormula(val(root, 'f')); if (r.error) return bad(esc(r.error));
+    var P = parseFormula(val(root, 'f'));
+    var alts = [r.name.replace(' (', '(')];
+    return box(bigAns(P.items ? formulaHTML(P) : '', esc(r.name), r.type) + compareMine(root, r.name, alts) + '<p class="lbl">Why</p>' + list(r.why.map(esc)) + (r.notes && r.notes.length ? '<p class="hint">' + r.notes.map(esc).join('<br>') + '</p>' : ''));
+  });
+};
+TOOLS.formula = function (root, p) {
+  root.innerHTML = '<div class="grid2">' + field('Name', inp('n', p.n || '', 'magnesium nitrate, iron (III) oxide')) + yourAnswerRow('e.g. Mg(NO3)2') + '</div><div class="out"></div>';
+  wire(root, function () {
+    var r = formulaFromName(val(root, 'n')); if (r.error) return bad(esc(r.error));
+    return box(bigAns('Formula', r.html, 'type it as: <code>' + esc(r.text) + '</code>') + (val(root, 'mine') ? (val(root, 'mine').replace(/\s/g, '') === r.text ? '<p class="cmp cmp-ok">✓ Matches (capitals and all).</p>' : '<p class="cmp cmp-bad">✗ Yours: <b>' + esc(val(root, 'mine')) + '</b>' + (val(root, 'mine').replace(/\s/g, '').toLowerCase() === r.text.toLowerCase() ? ' — only the capitalization is off. Symbols are capital + lowercase.' : '') + '</p>') : '') + '<p class="lbl">Why</p>' + list(r.why.map(esc)) + (r.notes && r.notes.length ? '<p class="hint">' + r.notes.map(esc).join('<br>') + '</p>' : ''));
+  });
+};
+TOOLS.ioncount = function (root) {
+  root.innerHTML = '<div class="grid2">' + field('Cation charge (+)', sel('a', [1, 2, 3, 4, 5, 6], 2)) + field('Anion charge (−)', sel('b', [1, 2, 3, 4], 4)) + '</div><div class="out"></div>';
+  wire(root, function () {
+    var a = +val(root, 'a'), b = +val(root, 'b'), g = gcd(a, b), nx = b / g, ny = a / g;
+    return box(bigAns('Total ions', nx + ny, 'X' + (nx > 1 ? '<sub>' + nx + '</sub>' : '') + 'Y' + (ny > 1 ? '<sub>' + ny + '</sub>' : '')) + list(['Charges: X<sup>' + a + '+</sup> and Y<sup>' + b + '−</sup>.', 'Cross and drop → X<sub>' + b + '</sub>Y<sub>' + a + '</sub>.', g > 1 ? 'Reduce (÷ ' + g + ') → X<sub>' + nx + '</sub>Y<sub>' + ny + '</sub>.' : 'Already the lowest ratio.', 'Check: ' + nx + '(+' + a + ') + ' + ny + '(−' + b + ') = 0 ✓', 'Total ions = ' + nx + ' + ' + ny + ' = <b>' + (nx + ny) + '</b>.']));
+  });
+};
+TOOLS.valence = function (root, p) {
+  root.innerHTML = '<div class="grid2">' + field('Formula (with charge)', inp('f', p.f || '', 'H2PO3-, SO4^2-, NH4+')) + yourAnswerRow('your count') + '</div><p class="hint">Charges: SO4^2-, SO4 2-, NH4+, or SO₄²⁻.</p><div class="out"></div>';
+  wire(root, function () {
+    var r = valenceCount(val(root, 'f')); if (r.error) return bad(esc(r.error));
+    var m = val(root, 'mine');
+    return box(bigAns('Total valence electrons', r.total, formulaHTML(r.P)) + (m ? (+m === r.total ? '<p class="cmp cmp-ok">✓ Matches.</p>' : '<p class="cmp cmp-bad">✗ Yours: ' + esc(m) + '</p>') : '') + list(r.lines.map(esc)) + (r.odd ? '<p class="hint">Odd total — rare in nature. Double-check the charge.</p>' : '') + (r.P.warn ? '<p class="hint">' + esc(r.P.warn) + '</p>' : ''));
+  });
+};
+TOOLS.dot = function (root, p) {
+  root.innerHTML = field('Atom or ion', inp('s', p.sp || 'S', 'S, N, Cl-, Mg2+')) + '<div class="out"></div>';
+  wire(root, function () {
+    var s = parseSpecies(val(root, 's')); if (s.error) return bad(esc(s.error));
+    var d = dotSymbol(s.sym, s.q); if (d.error) return bad(esc(d.error));
+    return box('<div class="dotwrap">' + dotSVG(d) + '<div>' + bigAns('Arrangement', (d.pairs ? d.pairs + ' pair' + (d.pairs > 1 ? 's' : '') : '') + (d.pairs && d.singles ? ' + ' : '') + (d.singles ? d.singles + ' single electron' + (d.singles > 1 ? 's' : '') : '') + (!d.pairs && !d.singles ? 'no dots' : '')) + list([s.el.sym + ' is in column ' + (aGroup(s.el) || s.el.group) + ' → ' + d.v + ' valence electrons' + (s.q ? ', charge ' + (s.q > 0 ? '+' : '') + s.q + ' → ' + d.n + ' dots' : '') + '.', 'One on each of the 4 sides first, then pair.', s.q ? 'Ion → put it in [brackets] with the charge outside.' : 'Stop at 8.']) + '</div></div>');
+  });
+};
+function dotSVG(d) {
+  var sides = [0, 0, 0, 0]; // top right bottom left
+  for (var i = 0; i < d.n; i++) sides[i % 4]++;
+  var cx = 60, cy = 60, out = '';
+  var pos = [[0, -22], [22, 0], [0, 22], [-22, 0]];
+  sides.forEach(function (c, i) {
+    var p = pos[i], perp = i % 2 === 0 ? [1, 0] : [0, 1];
+    if (c === 1) out += '<circle cx="' + (cx + p[0]) + '" cy="' + (cy + p[1]) + '" r="3.2"/>';
+    if (c === 2) out += '<circle cx="' + (cx + p[0] - perp[0] * 5) + '" cy="' + (cy + p[1] - perp[1] * 5) + '" r="3.2"/><circle cx="' + (cx + p[0] + perp[0] * 5) + '" cy="' + (cy + p[1] + perp[1] * 5) + '" r="3.2"/>';
+  });
+  var br = d.q ? '<path d="M28 26 h-6 v68 h6 M92 26 h6 v68 h-6" fill="none" stroke="currentColor" stroke-width="2"/><text x="102" y="24" font-size="14">' + chargeStr(d.q) + '</text>' : '';
+  return '<svg class="dotsvg" viewBox="0 0 120 120" role="img" aria-label="dot symbol"><g fill="currentColor"><text x="60" y="67" text-anchor="middle" font-size="22" font-weight="600">' + d.e.sym + '</text>' + out + br + '</g></svg>';
+}
+
+/* ---------- LEWIS DRAWING ---------- */
+function drawLewis(L) {
+  var A = L.atoms, E = L.edges, pos = [], lpAngles = A.map(function () { return []; });
+  var deg = function (a) { return a * Math.PI / 180; };
+  var at = function (p, ang, r) { return { x: p.x + r * Math.cos(deg(ang)), y: p.y + r * Math.sin(deg(ang)) }; };
+  var nb = function (i) { return A[i].nb.map(function (ei) { var e = E[ei]; return e.a === i ? e.b : e.a; }); };
+  function spread(n) { if (n === 1) return [0]; if (n === 2) return [-60, 60]; if (n === 3) return [-90, 0, 90]; if (n === 4) return [-90, -30, 30, 90]; return [-100, -50, 0, 50, 100].slice(0, n); }
+  function placeOuter(i, parent, ang) {
+    var kids = nb(i).filter(function (j) { return j !== parent; }), m = A[i].lp + A[i].rad, offs = spread(kids.length + m);
+    var kidSlots = [], lpSlots = [];
+    if (kids.length === 1 && offs.length === 3) { kidSlots = [0]; lpSlots = [-90, 90]; }
+    else { offs.forEach(function (o, k) { if (k < kids.length) kidSlots.push(o); else lpSlots.push(o); }); }
+    kids.forEach(function (j, k) { pos[j] = at(pos[i], ang + kidSlots[k], A[j].el === 'H' ? 40 : 58); placeOuter(j, i, ang + kidSlots[k]); });
+    lpAngles[i] = lpSlots.map(function (o) { return ang + o; });
+  }
+  function interleave(k, m) { var n = k + m, lp = {}; for (var j = 0; j < m; j++) lp[Math.round(j * n / m)] = 1; var slots = []; for (var s = 0; s < n; s++) slots.push(lp[s] ? 'L' : 'N'); var cntL = slots.filter(function (x) { return x === 'L'; }).length; for (var s2 = 0; cntL < m && s2 < n; s2++) if (slots[s2] === 'N') { slots[s2] = 'L'; cntL++; } return slots; }
+  if (L.diatomic) {
+    pos[0] = { x: -32, y: 0 }; pos[1] = { x: 32, y: 0 };
+    [[0, 180], [1, 0]].forEach(function (pr) { var i = pr[0], a0 = pr[1], m = A[i].lp + A[i].rad; lpAngles[i] = spread(m).map(function (o) { return a0 + (m === 3 ? o : o); }); });
+  } else if (L.centers.length === 1) {
+    var c = L.centers[0]; pos[c] = { x: 0, y: 0 };
+    var ns = nb(c), m = A[c].lp + A[c].rad, n = ns.length + m, slots = interleave(ns.length, m), k = 0;
+    slots.forEach(function (s, idx) { var ang = -90 + idx * 360 / n; if (s === 'L') lpAngles[c].push(ang); else { var j = ns[k++]; pos[j] = at(pos[c], ang, A[j].el === 'H' ? 46 : 62); placeOuter(j, c, ang); } });
+  } else {
+    var c0 = L.centers[0], c1 = L.centers[1];
+    pos[c0] = { x: -31, y: 0 }; pos[c1] = { x: 31, y: 0 };
+    [[c0, c1, 180], [c1, c0, 0]].forEach(function (t) {
+      var ci = t[0], other = t[1], base = t[2], ns2 = nb(ci).filter(function (j) { return j !== other; }), m2 = A[ci].lp + A[ci].rad, n2 = ns2.length + m2, sl = interleave(ns2.length, m2), kk = 0;
+      sl.forEach(function (s, idx) { var ang = base - 90 + (idx + 1) * 180 / (n2 + 1); if (s === 'L') lpAngles[ci].push(ang); else { var j = ns2[kk++]; pos[j] = at(pos[ci], ang, A[j].el === 'H' ? 44 : 60); placeOuter(j, ci, ang); } });
+    });
+  }
+  var svg = '', minX = 1e9, minY = 1e9, maxX = -1e9, maxY = -1e9;
+  function grow(p, r) { minX = Math.min(minX, p.x - r); maxX = Math.max(maxX, p.x + r); minY = Math.min(minY, p.y - r); maxY = Math.max(maxY, p.y + r); }
+  E.forEach(function (e) {
+    var p1 = pos[e.a], p2 = pos[e.b], dx = p2.x - p1.x, dy = p2.y - p1.y, len = Math.hypot(dx, dy), ux = dx / len, uy = dy / len, px = -uy, py = ux;
+    var offs = e.o === 1 ? [0] : e.o === 2 ? [-3.6, 3.6] : [-6, 0, 6];
+    offs.forEach(function (o) { svg += '<line x1="' + (p1.x + ux * 12 + px * o).toFixed(1) + '" y1="' + (p1.y + uy * 12 + py * o).toFixed(1) + '" x2="' + (p2.x - ux * 12 + px * o).toFixed(1) + '" y2="' + (p2.y - uy * 12 + py * o).toFixed(1) + '"/>'; });
+  });
+  A.forEach(function (a, i) {
+    var p = pos[i]; grow(p, 16);
+    svg += '<text x="' + p.x.toFixed(1) + '" y="' + (p.y + 5.5).toFixed(1) + '" text-anchor="middle" class="at">' + a.el + '</text>';
+    lpAngles[i].forEach(function (ang, k) {
+      var q = at(p, ang, 17), px = -Math.sin(deg(ang)), py = Math.cos(deg(ang));
+      var single = a.rad && k === lpAngles[i].length - 1;
+      if (single) svg += '<circle cx="' + q.x.toFixed(1) + '" cy="' + q.y.toFixed(1) + '" r="2.3" class="dot"/>';
+      else svg += '<circle cx="' + (q.x + px * 3.6).toFixed(1) + '" cy="' + (q.y + py * 3.6).toFixed(1) + '" r="2.3" class="dot"/><circle cx="' + (q.x - px * 3.6).toFixed(1) + '" cy="' + (q.y - py * 3.6).toFixed(1) + '" r="2.3" class="dot"/>';
+      grow(q, 8);
+    });
+    var f = L.atomInfo[i].fc;
+    if (f) svg += '<text x="' + (p.x + 11).toFixed(1) + '" y="' + (p.y - 10).toFixed(1) + '" class="fc">' + (f > 0 ? '+' : '−') + (Math.abs(f) > 1 ? Math.abs(f) : '') + '</text>';
+  });
+  var pad = 14; minX -= pad; minY -= pad; maxX += pad; maxY += pad;
+  if (L.P.charge) {
+    svg += '<path d="M' + (minX + 6) + ' ' + minY + ' h-6 v' + (maxY - minY) + ' h6 M' + (maxX - 6) + ' ' + minY + ' h6 v' + (maxY - minY) + ' h-6" class="br"/>';
+    svg += '<text x="' + (maxX + 4) + '" y="' + (minY + 8) + '" class="chg">' + chargeStr(L.P.charge) + '</text>';
+    maxX += 22; minX -= 4;
+  }
+  return '<svg class="lewis" viewBox="' + minX.toFixed(0) + ' ' + (minY - 4).toFixed(0) + ' ' + (maxX - minX).toFixed(0) + ' ' + (maxY - minY + 8).toFixed(0) + '" role="img" aria-label="Lewis structure">' + svg + '</svg>';
+}
+function lewisReport(L, opts) {
+  opts = opts || {};
+  var html = '<div class="lewisbox">' + drawLewis(L) + '<p class="hint center">small ± marks = formal charge (only shown when not 0)</p></div>';
+  html += '<div class="stats"><span><b>' + L.totalE + '</b> valence e⁻</span><span><b>' + L.single + '</b> single · <b>' + L.double + '</b> double · <b>' + L.triple + '</b> triple</span><span><b>' + L.lpTotal + '</b> lone pairs total</span><span><b>' + L.sigma + '</b> σ · <b>' + L.pi + '</b> π</span><span>Resonance: <b>' + (L.resonance ? 'yes' : 'no') + '</b></span></div>';
+  L.description.forEach(function (d) { html += '<p>' + esc(d) + '</p>'; });
+  L.centerInfo.forEach(function (ci) {
+    if (!ci.geom) return;
+    html += '<div class="geo"><p class="lbl">Central ' + ci.el + ': ' + ci.regions + ' regions (' + (ci.regions - ci.geom.lp) + ' atom' + (ci.regions - ci.geom.lp > 1 ? 's' : '') + ' + ' + ci.geom.lp + ' lone pair' + (ci.geom.lp === 1 ? '' : 's') + ')</p><div class="stats"><span>Electron geometry: <b>' + ci.geom.eg + '</b></span><span>Molecular geometry: <b>' + ci.geom.mg + '</b></span><span>Bond angle: <b>' + ci.geom.angles + '</b></span><span>Hybridization: <b>' + ci.geom.hyb + '</b></span></div></div>';
+  });
+  var others = L.atomInfo.filter(function (a) { return L.centers.indexOf(a.i) < 0 && a.el !== 'H' && a.hyb; });
+  if (others.length && !opts.brief) html += '<p class="hint">Outer atoms: ' + others.map(function (a) { return a.el + ' ' + a.regions + ' regions → ' + a.hyb; }).join(' · ') + '</p>';
+  if (L.polarity) html += '<p class="lbl">Polarity flowchart</p>' + list(L.polSteps.map(esc)) + '<p>Result: <b class="' + (/non/.test(L.polarity) ? 'v-non' : 'v-polar') + '">' + L.polarity.toUpperCase() + '</b></p>';
+  if (L.notes.length) html += '<p class="hint">' + L.notes.map(esc).join('<br>') + '</p>';
+  return html;
+}
+TOOLS.lewis = function (root, p) {
+  root.innerHTML = field('Formula (with charge)', inp('f', p.f || '', 'SF4, CO3^2-, C2H2, XeF2')) + '<div class="chips">' + ['BeF2', 'BH3', 'NF3', 'H2O', 'CH2O', 'C2H2', 'CO2', 'CO3^2-', 'SO3^2-', 'SO2', 'PO4^3-', 'PCl5', 'SF4', 'BrF3', 'XeF2', 'KrOF4', 'XeF6^2+', 'PCl4-'].map(function (x) { return '<button type="button" class="chip" data-v="' + x + '">' + x + '</button>'; }).join('') + '</div><div class="out"></div>';
+  root.querySelectorAll('.chip').forEach(function (c) { c.addEventListener('click', function () { var i = root.querySelector('[data-k="f"]'); i.value = c.dataset.v; i.dispatchEvent(new Event('input')); }); });
+  wire(root, function () { var L = lewis(val(root, 'f')); if (L.error) return bad(esc(L.error)); return box(lewisReport(L)); });
+};
+TOOLS.vsepr = function (root, p) {
+  root.innerHTML = '<div class="seg"><button type="button" data-m="f">From a formula</button><button type="button" data-m="r">I already counted regions</button></div><div class="body"></div><div class="out"></div>';
+  var body = root.querySelector('.body'), out = root.querySelector('.out'), mode = 'f';
+  function setMode(m) {
+    mode = m; root.querySelectorAll('.seg button').forEach(function (b) { b.classList.toggle('on', b.dataset.m === m); });
+    body.innerHTML = m === 'f' ? field('Formula', inp('f', p.f || 'SF4', 'SF4, H2O, CO2')) : '<div class="grid3">' + field('Regions on the atom', sel('r', [2, 3, 4, 5, 6], 5)) + field('…of which lone pairs', sel('lp', [0, 1, 2, 3], 1)) + field('Outer atoms all the same?', sel('same', [['y', 'yes'], ['n', 'no']], 'y')) + '</div>';
+    body.querySelectorAll('input,select').forEach(function (e) { e.addEventListener('input', run); e.addEventListener('change', run); });
+    run();
+  }
+  function run() {
+    if (mode === 'f') { var L = lewis(val(root, 'f')); out.innerHTML = L.error ? bad(esc(L.error)) : box(lewisReport(L, { brief: false })); return; }
+    var r = +val(root, 'r'), lp = +val(root, 'lp');
+    if (lp >= r) { out.innerHTML = bad('Lone pairs must be fewer than the regions (at least… well, atoms need to be attached!).'); return; }
+    var g = geometry(r, lp); if (!g) { out.innerHTML = bad('That combination isn\'t in the class chart.'); return; }
+    var same = val(root, 'same') === 'y', pol = !same ? 'POLAR (different outer atoms)' : (!lp ? 'NONPOLAR (same atoms, no lone pairs)' : (/^(linear|square planar)$/.test(g.mg) ? 'NONPOLAR (lone pairs cancel: ' + g.mg + ')' : 'POLAR (lone pairs, ' + g.mg + ')'));
+    out.innerHTML = box('<div class="stats"><span>Electron geometry: <b>' + g.eg + '</b></span><span>Molecular geometry: <b>' + g.mg + '</b></span><span>Bond angle: <b>' + g.angles + '</b></span><span>Hybridization: <b>' + g.hyb + '</b></span></div><p>Polarity: <b>' + pol + '</b></p><p class="hint">' + r + ' regions → count the letters s·p·p·p·d·d: ' + g.hyb + '.</p>');
+  }
+  root.querySelectorAll('.seg button').forEach(function (b) { b.addEventListener('click', function () { setMode(b.dataset.m); }); });
+  setMode('f');
+};
+TOOLS.fc = function (root) {
+  root.innerHTML = '<p class="lbl">Manual: one atom in your drawing</p><div class="grid4">' + field('Element', inp('el', 'O', 'O')) + field('Dots (lone-pair electrons)', inp('d', '6', '6')) + field('Lines (bonds to it)', inp('l', '1', '1')) + field('Valence (auto)', '<input data-k="v" readonly tabindex="-1">') + '</div><div class="out"></div><hr><p class="lbl">Or draw a whole structure</p><div class="lw"></div>';
+  wire(root, function () {
+    var e = EL[val(root, 'el').trim()], V = e ? valenceOf(e) : null;
+    root.querySelector('[data-k="v"]').value = V == null ? '?' : V;
+    if (V == null) return bad('Type a main-group element symbol.');
+    var d = +val(root, 'd'), l = +val(root, 'l');
+    if (isNaN(d) || isNaN(l)) return bad('Dots and lines must be numbers.');
+    var f = fcManual(V, d, l);
+    return box(bigAns('Formal charge', (f > 0 ? '+' : '') + f) + '<p>FC = valence − dots − lines = ' + V + ' − ' + d + ' − ' + l + ' = <b>' + f + '</b></p>');
+  });
+  TOOLS.lewis(root.querySelector('.lw'), { f: 'SO2' });
+};
+TOOLS.enbond = function (root) {
+  root.innerHTML = '<div class="grid2">' + field('Atom 1', inp('a', 'P', 'P')) + field('Atom 2', inp('b', 'Cl', 'Cl')) + '</div><div class="out"></div>';
+  wire(root, function () {
+    var r = enBond(val(root, 'a').trim(), val(root, 'b').trim()); if (r.error) return bad(esc(r.error));
+    return box(bigAns(r.a.sym + '–' + r.b.sym, r.type, 'ΔEN = |' + r.a.en + ' − ' + r.b.en + '| = ' + r.d) + (r.neg ? '<p><b>δ⁻ on ' + r.neg.sym + '</b> (more electronegative) · δ⁺ on ' + r.pos.sym + '</p>' : '<p>Same electronegativity → electrons shared evenly.</p>') + (r.mixed ? '<p class="hint">Metal + nonmetal → the class calls this ionic.</p>' : '') + '<p class="hint">&lt; 0.4 nonpolar · 0.4–1.8 polar · &gt; 1.8 ionic</p>');
+  });
+};
+TOOLS.sigpi = function (root) {
+  root.innerHTML = '<p class="lbl">Count from a drawing</p><div class="grid3">' + field('Single bonds', inp('s', '5', '0')) + field('Double bonds', inp('d', '1', '0')) + field('Triple bonds', inp('t', '0', '0')) + '</div><div class="out"></div><hr><p class="lbl">Or from a formula</p><div class="lw"></div>';
+  wire(root, function () {
+    var s = +val(root, 's') || 0, d = +val(root, 'd') || 0, t = +val(root, 't') || 0;
+    return box('<div class="duo">' + bigAns('σ bonds', s + d + t, 'one per bond') + bigAns('π bonds', d + 2 * t, 'double 1, triple 2') + '</div><p>σ = ' + s + ' + ' + d + ' + ' + t + ' = ' + (s + d + t) + ' · π = ' + d + ' + 2×' + t + ' = ' + (d + 2 * t) + '</p>');
+  });
+  TOOLS.lewis(root.querySelector('.lw'), { f: 'C2H2' });
+};
+TOOLS.bondlen = function (root, p) {
+  root.innerHTML = '<div class="grid2">' + field('Species (comma-separated)', inp('l', p.list || 'CO, CO2, CO3^2-', 'CO, CO2, CO3^2-')) + field('Bond', inp('b', p.bond || 'C-O', 'C-O')) + '</div><div class="out"></div>';
+  wire(root, function () {
+    var bond = val(root, 'b').split(/[-–—=≡ ]+/).filter(Boolean);
+    if (bond.length !== 2 || !EL[bond[0]] || !EL[bond[1]]) return bad('Type the bond like C-O or F-O.');
+    var rs = val(root, 'l').split(',').map(function (x) { return x.trim(); }).filter(Boolean).map(function (x) { return avgBondOrder(x, bond[0], bond[1]); });
+    var errs = rs.filter(function (r) { return r.error; }); if (errs.length) return bad(errs.map(function (e) { return esc(e.error); }).join('<br>'));
+    var byLen = rs.slice().sort(function (a, b) { return b.avg - a.avg; });
+    return box('<p class="lbl">Shortest → longest (strongest → weakest)</p><p class="rankline">' + byLen.map(function (r) { return esc(r.raw) + ' (' + (Math.round(r.avg * 100) / 100) + ')'; }).join(' <span>&lt;</span> ') + '</p>' + list(rs.map(function (r) { return '<b>' + esc(r.raw) + '</b>: ' + bond.join('–') + ' bond orders ' + r.orders.join(', ') + (r.resonance ? ' → resonance averages to ' + (Math.round(r.avg * 100) / 100) : ' → order ' + r.avg); })) + '<p class="hint">Higher bond order = shorter and stronger.</p>');
+  });
+};
+TOOLS.diatomic = function (root) {
+  root.innerHTML = '<div class="grid2">' + field('Total electrons in the picture (dots + 2 per line)', inp('n', '12', '12')) + field('Letters', sel('same', [['n', 'X–Y (different)'], ['y', 'X–X (same)']], 'n')) + '</div><div class="out"></div>';
+  wire(root, function () {
+    var n = +val(root, 'n'); if (!n) return bad('Type the total count.');
+    var common = { 'H₂': 1, 'N₂': 1, 'O₂': 1, 'F₂': 1, 'Cl₂': 1, 'Br₂': 1, 'I₂': 1, CO: 1, NO: 1, OS: 1, HF: 1, HCl: 1, HBr: 1, HI: 1, ClF: 1, CN: 1, BrCl: 1, ICl: 1 };
+    var c = diatomicCandidates(n, val(root, 'same') === 'y').map(function (x) { return x === 'OS' ? 'SO' : x; }).sort(function (a, b) { return (common[b] || (b === 'SO' ? 1 : 0)) - (common[a] || (a === 'SO' ? 1 : 0)); });
+    return box(c.length ? '<p class="lbl">Diatomics with ' + n + ' valence electrons (common ones highlighted)</p><div class="chips">' + c.map(function (x) { return '<span class="chip static' + (common[x] || x === 'SO' ? ' pri' : '') + '">' + x + '</span>'; }).join('') + '</div><p class="hint">Match against your answer choices.</p>' : '<p>No common diatomic has ' + n + ' valence electrons — recount (each line is 2).</p>');
+  });
+};
+
+/* ---------- boot ---------- */
+if (typeof window !== 'undefined') {
+  window.addEventListener('hashchange', render);
+  document.addEventListener('DOMContentLoaded', function () { app = document.getElementById('app'); render(); });
+}
+
+/* ================= DRILL MODE ================= */
+function rnd(a) { return a[Math.floor(Math.random() * a.length)]; }
+function shuffle(a) { a = a.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)), t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+var LS = {
+  get: function (k, d) { try { var v = localStorage.getItem('drill_' + k); return v ? JSON.parse(v) : d; } catch (e) { return d; } },
+  set: function (k, v) { try { localStorage.setItem('drill_' + k, JSON.stringify(v)); } catch (e) { } }
+};
+
+/* ---------- pools ---------- */
+var DR_FIXED = ['Li', 'Na', 'K', 'Rb', 'Cs', 'Mg', 'Ca', 'Sr', 'Ba', 'Al', 'NH4'];
+var DR_MONO = ['F', 'Cl', 'Br', 'I', 'O', 'S', 'Se', 'N', 'P'];
+var DR_POLY = ['OH', 'CN', 'NO3', 'NO2', 'HCO3', 'HSO4', 'HSO3', 'MnO4', 'C2H3O2', 'ClO4', 'ClO3', 'ClO2', 'ClO', 'SO4', 'SO3', 'CO3', 'C2O4', 'CrO4', 'Cr2O7', 'HPO4', 'H2PO4', 'PO4', 'PO3'];
+var DR_TM = { Fe: [2, 3], Cu: [1, 2], Co: [2, 3], Cr: [2, 3], Mn: [2, 3, 4], Ti: [2, 3, 4], Ni: [2, 3], Sn: [2, 4], Pb: [2, 4], V: [2, 3], Ru: [2, 3] };
+var DR_COV = ['CO', 'CO2', 'NO', 'NO2', 'N2O', 'N2O3', 'N2O4', 'N2O5', 'P2O5', 'P4O10', 'PCl3', 'PCl5', 'PBr3', 'SO2', 'SO3', 'SF4', 'SF6', 'SeF4', 'CCl4', 'CS2', 'SiCl4', 'SiBr4', 'SiO2', 'NF3', 'NCl3', 'ClF3', 'BrF5', 'IF7', 'ICl3', 'XeF2', 'XeF4', 'OF2', 'Cl2O', 'Cl2O7', 'SeO2', 'P2S5', 'BF3', 'S2Cl2'];
+var DR_ACID = ['HF', 'HCl', 'HBr', 'HI', 'H2S', 'HCN', 'HNO3', 'HNO2', 'H2SO4', 'H2SO3', 'H3PO4', 'H3PO3', 'HClO4', 'HClO3', 'HClO2', 'HClO', 'HBrO3', 'HBrO', 'HIO4', 'H2CO3', 'HC2H3O2', 'H2C2O4'];
+var DR_MOL = ['BeF2', 'CO2', 'HCN', 'BH3', 'BCl3', 'CH2O', 'SO2', 'SO3', 'NO2-', 'CO3^2-', 'CF4', 'CH4', 'SiBr4', 'NH4+', 'NF3', 'PCl3', 'H2O', 'OF2', 'SO3^2-', 'PO4^3-', 'CH2Cl2', 'PCl5', 'SF4', 'SeBr4', 'PCl4-', 'BrF3', 'ClF3', 'XeF2', 'I3-', 'SF6', 'XeF6^2+', 'KrOF4', 'BrF5', 'XeF4', 'ICl4-'];
+var DR_COMBOS = [[2, 0], [3, 0], [3, 1], [4, 0], [4, 1], [4, 2], [5, 0], [5, 1], [5, 2], [5, 3], [6, 0], [6, 1], [6, 2]];
+var ASK = {
+  eg: { label: 'Electron geometry', opts: ['linear', 'trigonal planar', 'tetrahedral', 'trigonal bipyramidal', 'octahedral'], get: function (g) { return g.eg; } },
+  mg: { label: 'Molecular geometry', opts: ['linear', 'bent', 'trigonal planar', 'trigonal pyramidal', 'tetrahedral', 'seesaw', 'T-shaped', 'trigonal bipyramidal', 'square pyramidal', 'square planar', 'octahedral'], get: function (g) { return cleanMG(g.mg); } },
+  angle: { label: 'Bond angle(s)', opts: ['180°', '120°', '<120°', '109.5°', '<109.5°', '90°, 120°, 180°', '90°, 180°'], get: function (g) { return g.angles; } },
+  hyb: { label: 'Hybridization', opts: ['sp', 'sp²', 'sp³', 'sp³d', 'sp³d²'], get: function (g) { return g.hyb; } }
+};
+function cleanMG(s) { return s.replace(' (see-saw)', ''); }
+function polyF(f) { for (var i = 0; i < POLY.length; i++) if (POLY[i].f === f) return POLY[i]; return null; }
+function lpWord(n) { return n + ' lone pair' + (n === 1 ? '' : 's'); }
+
+/* ---------- spec generators (a spec can rebuild the same question later) ---------- */
+function genIonicFormula(kind) {
+  var cat, qc, a;
+  if (kind === 'fixed') {
+    var c = rnd(DR_FIXED);
+    if (c === 'NH4') { cat = { poly: true, items: polyF('NH4').items }; qc = 1; }
+    else { cat = { poly: false, sym: c }; qc = fixedCation(EL[c]); }
+  } else { var m = rnd(Object.keys(DR_TM)); qc = rnd(DR_TM[m]); cat = { poly: false, sym: m }; }
+  a = Math.random() < 0.5 ? rnd(DR_MONO) : rnd(DR_POLY);
+  if (cat.poly && (a === 'N' || a === 'P')) a = rnd(DR_POLY);
+  var an = DR_POLY.indexOf(a) >= 0 ? { poly: true, items: polyF(a).items, charge: polyF(a).charge } : { poly: false, sym: a, charge: MONO_Q[a] };
+  return buildIonic(cat, qc, an, an.charge).text;
+}
+function genSpec(set) {
+  var gens = [];
+  if (set.mode !== 'shapes') {
+    var dirs = set.dir === 'both' ? ['toName', 'toFormula'] : [set.dir];
+    if (set.nFixed) gens.push(function () { return { t: 'name', f: genIonicFormula('fixed'), dir: rnd(dirs) }; });
+    if (set.nTM) gens.push(function () { return { t: 'name', f: genIonicFormula('tm'), dir: rnd(dirs) }; });
+    if (set.nCov) gens.push(function () { return { t: 'name', f: rnd(DR_COV), dir: rnd(dirs) }; });
+    if (set.nAcid) gens.push(function () { return { t: 'name', f: rnd(DR_ACID), dir: rnd(dirs) }; });
+  }
+  if (set.mode !== 'naming') {
+    var asks = Object.keys(ASK).filter(function (k) { return set.asks[k]; });
+    if (!asks.length) asks = ['mg'];
+    if (set.sRL) gens.push(function () { var c = rnd(DR_COMBOS); return { t: 'rl', r: c[0], l: c[1], ask: rnd(asks) }; });
+    if (set.sRev) gens.push(function () { var c = rnd(DR_COMBOS.filter(function (x) { var mg = cleanMG(geometry(x[0], x[1]).mg); return mg !== 'linear' && mg !== 'bent'; })); return { t: 'rev', r: c[0], l: c[1] }; });
+    if (set.sMol) gens.push(function () { var ak = asks.slice(); if (set.pol) ak.push('pol'); return { t: 'mol', f: rnd(DR_MOL), ask: rnd(ak) }; });
+  }
+  if (!gens.length) return null;
+  return rnd(gens)();
+}
+function specKey(s) { return JSON.stringify(s); }
+
+/* ---------- build a question from a spec ---------- */
+function chartLine(g) {
+  var base = '<b>' + g.regions + ' regions</b> → electron geometry <b>' + g.eg + '</b> · <b>' + g.hyb + '</b>';
+  var mg = cleanMG(g.mg);
+  base += g.lp ? ' · with ' + lpWord(g.lp) + ' → <b>' + mg + '</b>' : ' · no lone pairs → same name';
+  base += ' · angles <b>' + g.angles + '</b>';
+  return base;
+}
+function angleTip(g) {
+  if (/^</.test(g.angles)) return 'Lone pairs on a ' + g.eg + ' family squeeze the angle → pick the "<" option.';
+  if (g.regions === 5 && g.lp === 2) return 'T-shaped loses the 120° (no triangle left): 90°, 180°.';
+  if (g.regions === 5 && g.lp === 3) return 'Linear from 5 regions: only 180° is left.';
+  if (g.regions === 5 && g.lp === 1) return 'Seesaw keeps all three: 90°, 120°, 180°.';
+  return null;
+}
+function makeQ(spec) {
+  if (spec.t === 'name') {
+    var r = nameFromFormula(spec.f); if (r.error) return null;
+    var P = parseFormula(spec.f);
+    if (spec.dir === 'toName') return { spec: spec, type: 'text', tag: 'Naming', prompt: 'Name this compound', big: formulaHTML(P), answer: r.name, answerHTML: esc(r.name), why: r.why, kind: r.type, ph: 'type the name', check: checkName };
+    var fr = formulaFromName(r.name);
+    return { spec: spec, type: 'text', tag: 'Formulas', prompt: 'Write the formula', big: esc(r.name), answer: spec.f, answerHTML: formulaHTML(P), why: fr.error ? r.why : fr.why, kind: r.type, ph: 'e.g. Mg(NO3)2', check: checkFormula, mono: true };
+  }
+  if (spec.t === 'rl') {
+    var g = geometry(spec.r, spec.l), A = ASK[spec.ask];
+    var tip = spec.ask === 'angle' ? angleTip(g) : (spec.ask === 'hyb' ? spec.r + ' regions → count letters s·p·p·p·d·d → ' + g.hyb : null);
+    return { spec: spec, type: 'mc', tag: 'Shapes', prompt: A.label + '?', big: spec.r + ' regions <span class="dim">·</span> ' + lpWord(spec.l), sub: 'on the central atom', opts: A.opts, answer: A.get(g), why: [chartLine(g)].concat(tip ? [tip] : []) };
+  }
+  if (spec.t === 'rev') {
+    var g2 = geometry(spec.r, spec.l), mg = cleanMG(g2.mg);
+    var lbl = function (c) { return c[0] + ' regions, ' + lpWord(c[1]); };
+    var wrong = shuffle(DR_COMBOS.filter(function (c) { return !(c[0] === spec.r && c[1] === spec.l); })).slice(0, 5);
+    var opts = shuffle(wrong.map(lbl).concat([lbl([spec.r, spec.l])]));
+    return { spec: spec, type: 'mc', tag: 'Shapes (reverse)', prompt: 'How many regions and lone pairs make this shape?', big: mg, sub: 'molecular geometry', opts: opts, answer: lbl([spec.r, spec.l]), why: [chartLine(g2)] };
+  }
+  if (spec.t === 'mol') {
+    var L = lewis(spec.f); if (L.error || !L.centerInfo.length || !L.centerInfo[0].geom) return null;
+    var ci = L.centerInfo[0], g3 = ci.geom, ask = spec.ask, opts2, ans, label;
+    if (ask === 'pol') { opts2 = ['polar', 'nonpolar']; ans = /non/.test(L.polarity) ? 'nonpolar' : 'polar'; label = 'Polar or nonpolar?'; }
+    else { opts2 = ASK[ask].opts; ans = ASK[ask].get(g3); label = ASK[ask].label + (ask === 'hyb' ? ' of the central ' + ci.el : '') + '?'; }
+    var why = [L.description[0] + ' That\'s ' + ci.regions + ' regions (' + (ci.regions - g3.lp) + ' atoms + ' + lpWord(g3.lp) + ').', chartLine(g3)];
+    if (ask === 'angle' && angleTip(g3)) why.push(angleTip(g3));
+    if (ask === 'pol') why = why.concat(L.polSteps.map(esc));
+    return { spec: spec, type: 'mc', tag: 'Real molecules', prompt: label, big: formulaHTML(L.P), sub: L.totalE + ' valence e⁻ — draw it first', opts: opts2, answer: ans, why: why, lewisL: L };
+  }
+  return null;
+}
+
+/* ---------- answer checking ---------- */
+function normName(s) { return String(s || '').toLowerCase().replace(/aluminium/g, 'aluminum').replace(/sulphur/g, 'sulfur').replace(/\s+/g, ' ').replace(/\s*\(\s*/g, '(').replace(/\s*\)\s*/g, ') ').trim(); }
+function lev(a, b) {
+  var m = a.length, n = b.length, d = [];
+  for (var i = 0; i <= m; i++) { d[i] = [i]; }
+  for (var j = 0; j <= n; j++) d[0][j] = j;
+  for (i = 1; i <= m; i++) for (j = 1; j <= n; j++) d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+  return d[m][n];
+}
+function altNames(name) {
+  var alts = [name];
+  POLY.forEach(function (p) { p.alt.forEach(function (a) { if (name.indexOf(p.name) >= 0) alts.push(name.replace(p.name, a)); }); });
+  if (/^water/.test(name)) alts.push('water', 'dihydrogen monoxide');
+  return alts;
+}
+function checkName(q, u) {
+  var n = normName(u);
+  if (!n) return { ok: false, msg: 'Type a name first.' };
+  if (altNames(q.answer).some(function (a) { return normName(a) === n; })) return { ok: true };
+  var a = normName(q.answer), hints = [];
+  var ansHasNum = /\(/.test(a), userHasNum = /\(/.test(n);
+  var stripNum = function (s) { return s.replace(/\([ivxl]+\)\s*/g, '').replace(/\s+/g, ' ').trim(); };
+  if (ansHasNum && !userHasNum) hints.push('Transition metal → it needs a Roman numeral for the metal\'s charge.');
+  else if (!ansHasNum && userHasNum) hints.push(q.kind === 'covalent' ? 'Two nonmetals → prefixes, never a Roman numeral.' : 'Columns 1–2, Al, and NH₄⁺ never get a Roman numeral.');
+  else if (ansHasNum && stripNum(a) === stripNum(n)) hints.push('Right pattern, wrong Roman numeral. Get the metal charge from the anion.');
+  if (/\bl+\)/.test(n) || /\([il]*l[il]*\)/.test(n)) hints.push('Roman numerals use capital I, not lowercase L.');
+  if (q.kind !== 'covalent' && /\b(mono|di|tri|tetra|penta|hexa)/.test(n) && !/\b(mono|di|tri|tetra|penta|hexa)/.test(a.replace('dihydrogen', '').replace('hydrogen', ''))) hints.push('Ionic names don\'t use prefixes.');
+  if (q.kind === 'covalent' && /^mono/.test(n)) hints.push('Never "mono" on the FIRST element.');
+  if (q.kind === 'covalent' && /\bmono/.test(a) && !/\bmono/.test(n)) hints.push('The SECOND element does get "mono".');
+  if (q.kind === 'acid') {
+    if (/hydro/.test(n) && !/hydro/.test(a)) hints.push('Only H + a single element gets "hydro". Polyatomic acids drop it.');
+    if (!/hydro/.test(n) && /hydro/.test(a)) hints.push('H + one element (no oxygen) → hydro___ic acid.');
+    if (/ic acid/.test(n) && /ous acid/.test(a)) hints.push('-ite → -ous acid.');
+    if (/ous acid/.test(n) && /ic acid/.test(a)) hints.push('-ate → -ic acid.');
+  }
+  if (!hints.length && lev(n, a) <= 3) hints.push('Close. Check the spelling letter by letter.');
+  return { ok: false, msg: hints.join(' ') };
+}
+function checkFormula(q, u) {
+  var raw = String(u || '').trim();
+  if (!raw) return { ok: false, msg: 'Type a formula first.' };
+  var ans = q.answer, P = parseFormula(raw);
+  if (P.error) {
+    if (raw.replace(/\s/g, '').toLowerCase() === ans.toLowerCase()) return { ok: false, msg: 'Only the capitals are off. Symbols are a capital + lowercase letter (Li, not LI).' };
+    return { ok: false, msg: P.error };
+  }
+  var t = itemsText(P.items);
+  if (t === ans) return { ok: true };
+  var A = comp(parseFormula(ans).items), B = comp(P.items), ka = compKey(A), kb = compKey(B);
+  if (ka === kb) return { ok: false, msg: 'Right atoms and counts, but the way it\'s written is off. Check the parentheses and put the positive ion first.' };
+  var ks = Object.keys(A), ratio = null, mult = ks.length === Object.keys(B).length && ks.every(function (k) { if (!B[k]) return false; var r = B[k] / A[k]; if (ratio === null) ratio = r; return r === ratio; });
+  if (mult && ratio > 1 && Number.isInteger(ratio)) return { ok: false, msg: 'Not reduced. Divide the subscripts down to the lowest ratio.' };
+  if (/\d{2,}/.test(raw.replace(/\(.*?\)\d?/g, '')) && /[A-Z][a-z]?\d?O\d\d/.test(raw)) return { ok: false, msg: 'Looks like parentheses are missing around the polyatomic ion.' };
+  return { ok: false, msg: 'Check the charges: cross and drop, then reduce.' };
+}
+
+/* ---------- session state ---------- */
+var DRILL = {
+  set: LS.get('set', { mode: 'naming', nFixed: true, nTM: true, nCov: true, nAcid: true, dir: 'both', sRL: true, sRev: true, sMol: true, asks: { eg: true, mg: true, angle: true, hyb: true }, pol: true }),
+  run: null
+};
+function newRun(mode) {
+  DRILL.set.mode = mode; LS.set('set', DRILL.set);
+  DRILL.run = { mode: mode, n: 0, right: 0, streak: 0, queue: [], misses: [], q: null, answered: false, lastKey: null };
+}
+function savedMisses() { return LS.get('misses', []); }
+function addSavedMiss(spec) { var m = savedMisses(), k = specKey(spec); if (m.some(function (x) { return specKey(x) === k; })) return; m.unshift(spec); LS.set('misses', m.slice(0, 80)); }
+function removeSavedMiss(spec) { var k = specKey(spec); LS.set('misses', savedMisses().filter(function (x) { return specKey(x) !== k; })); }
+
+function nextQ() {
+  var R = DRILL.run, q = null, tries = 0;
+  var due = R.queue.findIndex(function (x) { return x.due <= R.n; });
+  if (due >= 0) { q = makeQ(R.queue[due].spec); q.retry = true; R.queue.splice(due, 1); }
+  else if (R.mode === 'misses') {
+    var m = savedMisses();
+    if (!m.length) { R.q = null; return; }
+    var cands = m.filter(function (s) { return specKey(s) !== R.lastKey; });
+    q = makeQ(rnd(cands.length ? cands : m));
+  }
+  while (!q && tries++ < 30) { var s = genSpec(Object.assign({}, DRILL.set, { mode: R.mode })); if (!s) break; if (specKey(s) === R.lastKey) continue; q = makeQ(s); }
+  R.q = q; R.answered = false;
+  if (q) R.lastKey = specKey(q.spec);
+}
+
+/* ---------- rendering ---------- */
+function renderDrill(h) {
+  var parts = h.split('/');
+  if (parts[1] === 'go' && parts[2]) { newRun(parts[2]); nextQ(); history.replaceState(null, '', '#/drill/run'); return renderDrillRun(); }
+  if (parts[1] === 'run' && DRILL.run) return renderDrillRun();
+  renderDrillSetup();
+}
+function tog(key, label, on, sub) { return '<label class="tog"><input type="checkbox" data-t="' + key + '"' + (on ? ' checked' : '') + '><span>' + label + (sub ? '<small>' + sub + '</small>' : '') + '</span></label>'; }
+function renderDrillSetup() {
+  var S = DRILL.set, mc = savedMisses().length, best = LS.get('best', 0);
+  var html = '<nav class="trail"><a href="#/" class="crumb">Start</a><span class="sep">›</span><span class="crumb here">Drill</span></nav>';
+  html += '<section class="hero"><p class="eyebrow">Memorize</p><h1>Drill naming and shapes</h1><p class="lede">Quick-fire questions. Anything you miss comes back a few questions later, and it\'s saved to your miss list until you get it right.' + (best ? ' Best streak: <b>' + best + '</b>.' : '') + '</p></section>';
+  html += '<div class="drillgrid">';
+  html += '<section class="card dcard tag-name"><h2>Naming &amp; formulas</h2><div class="togs">' + tog('nFixed', 'Columns 1–2, Al, NH₄⁺', S.nFixed, 'name + ide / polyatomic') + tog('nTM', 'Transition metals', S.nTM, 'Roman numerals') + tog('nCov', 'Two nonmetals', S.nCov, 'prefixes') + tog('nAcid', 'Acids', S.nAcid, 'hydro-ic, -ic, -ous') + '</div><p class="lbl">Direction</p><div class="seg" data-dir>' + [['toName', 'Formula → name'], ['toFormula', 'Name → formula'], ['both', 'Both']].map(function (d) { return '<button type="button" data-d="' + d[0] + '" class="' + (S.dir === d[0] ? 'on' : '') + '">' + d[1] + '</button>'; }).join('') + '</div><a class="btn primary" href="#/drill/go/naming">Start naming drill →</a></section>';
+  html += '<section class="card dcard tag-bond"><h2>Shapes, angles &amp; hybridization</h2><div class="togs">' + tog('sRL', 'Regions + lone pairs → answer', S.sRL, '"4 regions, 1 lone pair"') + tog('sRev', 'Shape → regions', S.sRev, 'reverse: seesaw = ?') + tog('sMol', 'Real molecules', S.sMol, 'SF₄, BrF₃, CO₃²⁻…') + '</div><p class="lbl">Ask me for</p><div class="togs inline">' + tog('a_eg', 'Electron geometry', S.asks.eg) + tog('a_mg', 'Molecular geometry', S.asks.mg) + tog('a_angle', 'Bond angles', S.asks.angle) + tog('a_hyb', 'Hybridization', S.asks.hyb) + tog('pol', 'Polarity (real molecules)', S.pol) + '</div><a class="btn primary" href="#/drill/go/shapes">Start shapes drill →</a></section>';
+  html += '</div><div class="navrow"><a class="btn" href="#/drill/go/mixed">Mixed: both drills</a>' + (mc ? '<a class="btn" href="#/drill/go/misses">Practice my misses (' + mc + ')</a><button type="button" class="btn ghost" id="clearMiss">Clear miss list</button>' : '') + '</div>';
+  html += '<details class="card ref"><summary>Shapes chart (reference)</summary>' + refChart() + '</details>';
+  app.innerHTML = html;
+  app.querySelectorAll('.tog input').forEach(function (i) {
+    i.addEventListener('change', function () {
+      var k = i.dataset.t;
+      if (k.indexOf('a_') === 0) DRILL.set.asks[k.slice(2)] = i.checked; else DRILL.set[k] = i.checked;
+      LS.set('set', DRILL.set);
+    });
+  });
+  app.querySelectorAll('[data-dir] button').forEach(function (b) { b.addEventListener('click', function () { DRILL.set.dir = b.dataset.d; LS.set('set', DRILL.set); app.querySelectorAll('[data-dir] button').forEach(function (x) { x.classList.toggle('on', x === b); }); }); });
+  var cm = document.getElementById('clearMiss'); if (cm) cm.addEventListener('click', function () { LS.set('misses', []); renderDrillSetup(); });
+}
+function refChart() {
+  var rows = [[2, [0]], [3, [0, 1]], [4, [0, 1, 2]], [5, [0, 1, 2, 3]], [6, [0, 1, 2]]];
+  return '<div class="refc">' + rows.map(function (r) {
+    var g0 = geometry(r[0], 0);
+    return '<div class="refrow"><p><b>' + r[0] + ' regions</b> — ' + g0.eg + ' · ' + g0.hyb + '</p><ul>' + r[1].map(function (lp) { var g = geometry(r[0], lp); return '<li>' + lp + ' LP → <b>' + cleanMG(g.mg) + '</b> <span class="dim">' + g.angles + '</span></li>'; }).join('') + '</ul></div>';
+  }).join('') + '</div>';
+}
+function renderDrillRun() {
+  var R = DRILL.run, q = R.q, best = LS.get('best', 0);
+  var title = { naming: 'Naming drill', shapes: 'Shapes drill', mixed: 'Mixed drill', misses: 'Practicing misses' }[R.mode];
+  var html = '<nav class="trail"><a href="#/" class="crumb">Start</a><span class="sep">›</span><a href="#/drill" class="crumb">Drill</a><span class="sep">›</span><span class="crumb here">' + title + '</span></nav>';
+  html += '<div class="scorebar"><span><b>' + R.right + '</b> / ' + R.n + ' right</span><span>Streak <b>' + R.streak + '</b></span><span>Best <b>' + Math.max(best, R.streak) + '</b></span><span class="dim">' + (R.queue.length ? R.queue.length + ' coming back' : '') + '</span><a class="btn ghost small" href="#/drill">Settings</a></div>';
+  if (!q) {
+    html += '<div class="card"><h1>' + (R.mode === 'misses' ? 'Miss list cleared' : 'Nothing to drill') + '</h1><p class="lede">' + (R.mode === 'misses' ? 'You\'ve answered every saved miss correctly.' : 'Turn on at least one category in Settings.') + '</p><div class="navrow"><a class="btn" href="#/drill">Back to Drill settings</a></div></div>';
+    app.innerHTML = html; return;
+  }
+  html += '<div class="card dq"><p class="eyebrow">' + esc(q.tag) + (q.retry ? ' · <span class="again">again</span>' : '') + '</p><p class="qprompt">' + esc(q.prompt) + '</p><div class="qbig' + (q.type === 'text' && q.tag === 'Naming' ? ' mono' : '') + '">' + q.big + '</div>' + (q.sub ? '<p class="hint">' + esc(q.sub) + '</p>' : '');
+  if (q.type === 'mc') html += '<div class="mc">' + q.opts.map(function (o, i) { return '<button type="button" data-o="' + esc(o) + '"><span class="k">' + (i < 9 ? i + 1 : '') + '</span>' + esc(o) + '</button>'; }).join('') + '</div>';
+  else html += '<form class="ta" autocomplete="off"><input id="ans" placeholder="' + esc(q.ph) + '" autocapitalize="off" autocorrect="off" spellcheck="false"' + (q.mono ? ' class="mono"' : '') + '><button class="btn primary" type="submit">Check</button><button class="btn ghost" type="button" id="idk">Show me</button></form>';
+  html += '<div id="fb"></div></div>';
+  if (R.misses.length) html += '<details class="card ref"><summary>Missed this round (' + R.misses.length + ')</summary><ul class="why">' + R.misses.map(function (m) { return '<li>' + m.big + ' → <b>' + m.ans + '</b></li>'; }).join('') + '</ul></details>';
+  app.innerHTML = html;
+  if (q.type === 'mc') {
+    app.querySelectorAll('.mc button').forEach(function (b) { b.addEventListener('click', function () { if (!R.answered) grade(b.dataset.o === q.answer, b.dataset.o); }); });
+  } else {
+    var inp2 = document.getElementById('ans');
+    if (window.matchMedia('(pointer:fine)').matches) inp2.focus();
+    app.querySelector('form.ta').addEventListener('submit', function (e) { e.preventDefault(); if (R.answered) { advance(); return; } var r = q.check(q, inp2.value); if (!r.ok && /first\.$/.test(r.msg || '')) { showFb('<p class="cmp cmp-bad">' + esc(r.msg) + '</p>'); return; } grade(r.ok, inp2.value, r.msg); });
+    document.getElementById('idk').addEventListener('click', function () { if (!R.answered) grade(false, '', 'Skipped.'); });
+  }
+}
+function showFb(h) { document.getElementById('fb').innerHTML = h; }
+function grade(ok, given, msg) {
+  var R = DRILL.run, q = R.q;
+  R.answered = true; R.n++;
+  if (ok) {
+    R.right++; R.streak++;
+    if (R.streak > LS.get('best', 0)) LS.set('best', R.streak);
+    removeSavedMiss(q.spec);
+  } else {
+    R.streak = 0;
+    R.queue.push({ spec: q.spec, due: R.n + 3 });
+    addSavedMiss(q.spec);
+    R.misses.push({ big: q.big, ans: q.answerHTML || esc(q.answer) });
+  }
+  if (q.type === 'mc') {
+    app.querySelectorAll('.mc button').forEach(function (b) {
+      b.disabled = true;
+      if (b.dataset.o === q.answer) b.classList.add('right');
+      else if (b.dataset.o === given) b.classList.add('wrong');
+    });
+  } else { var i = document.getElementById('ans'); i.readOnly = true; i.classList.add(ok ? 'ok' : 'bad'); }
+  var fb = '<div class="res ' + (ok ? 'res-ok' : '') + '">' + (ok ? '<p class="verdict v-non">Correct</p>' : '<p class="verdict v-polar">' + (given === '' ? 'Answer' : 'Not quite') + '</p>' + (msg && msg !== 'Skipped.' ? '<p><b>' + esc(msg) + '</b></p>' : '') + '<p>Answer: <b class="ansv">' + (q.answerHTML || esc(q.answer)) + '</b>' + (q.tag === 'Formulas' ? ' <span class="dim">(type it as ' + esc(q.answer) + ')</span>' : '') + '</p>') + '<ul class="why">' + q.why.map(function (w) { return '<li>' + w + '</li>'; }).join('') + '</ul>' + (q.lewisL ? '<details class="lwd"' + (ok ? '' : ' open') + '><summary>Show the Lewis structure</summary><div class="lewisbox">' + drawLewis(q.lewisL) + '</div></details>' : '') + (ok ? '' : '<p class="hint">This one will come back in a few questions.</p>') + '<button type="button" class="btn primary" id="nextq">Next →</button> <span class="hint kbd">or press Enter</span></div>';
+  showFb(fb);
+  document.getElementById('nextq').addEventListener('click', advance);
+  var sb = app.querySelector('.scorebar'); if (sb) sb.innerHTML = '<span><b>' + R.right + '</b> / ' + R.n + ' right</span><span>Streak <b>' + R.streak + '</b></span><span>Best <b>' + LS.get('best', 0) + '</b></span><span class="dim">' + (R.queue.length ? R.queue.length + ' coming back' : '') + '</span><a class="btn ghost small" href="#/drill">Settings</a>';
+  if (q.type === 'mc' && window.matchMedia('(pointer:fine)').matches) document.getElementById('nextq').focus();
+}
+function advance() { nextQ(); renderDrillRun(); window.scrollTo(0, 0); }
+document.addEventListener('keydown', function (e) {
+  if (!DRILL.run || location.hash.indexOf('#/drill/run') !== 0) return;
+  var R = DRILL.run, q = R.q; if (!q) return;
+  if (e.target && e.target.tagName === 'INPUT') return;
+  if (R.answered && e.key === 'Enter') { e.preventDefault(); advance(); return; }
+  if (!R.answered && q.type === 'mc' && /^[1-9]$/.test(e.key)) { var b = app.querySelectorAll('.mc button')[+e.key - 1]; if (b) b.click(); }
+});
+
+
+(function(){var b=document.getElementById('theme');var r=document.documentElement;try{var s=localStorage.getItem('theme');if(s)r.dataset.theme=s;}catch(e){}b.addEventListener('click',function(){var dark=r.dataset.theme?r.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;r.dataset.theme=dark?'light':'dark';try{localStorage.setItem('theme',r.dataset.theme);}catch(e){}});})();
+</script>
+</body>
+</html>

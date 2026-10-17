@@ -1,0 +1,420 @@
+{
+ "slug": "hw07",
+ "test": "T2",
+ "title": "HW 07",
+ "subtitle": "Ch. 3 — Waves, Energy & the Bohr Model",
+ "questions": [
+  {
+   "id": "hw07-q01",
+   "n": 1,
+   "type": "match",
+   "q": "Match each comparison to the correct answer (not all terms are used).",
+   "items": [
+    "A wave with frequency 1.0×10⁻⁹ Hz — is it high or low frequency vs. a wave at 1.0×10⁵ Hz?",
+    "Compared to radio waves, are x-rays high or low energy?",
+    "Compared to radio waves, are x-rays high or low frequency?",
+    "Compared to radio waves, are x-rays short or long wavelength?"
+   ],
+   "opts": [
+    "high",
+    "low",
+    "short",
+    "long"
+   ],
+   "correct": [
+    1,
+    0,
+    0,
+    2
+   ],
+   "test": "T2"
+  },
+  {
+   "id": "hw07-q02",
+   "n": 2,
+   "type": "multi",
+   "q": "Select the correct statements below.",
+   "opts": [
+    "Gamma ray energy is higher energy than visible light.",
+    "Gamma ray energy is higher frequency than visible light.",
+    "Gamma ray energy has a longer wavelength than visible light."
+   ],
+   "correct": [
+    0,
+    1
+   ],
+   "note": "Gamma rays have shorter wavelength than visible light, not longer — higher energy and frequency always mean shorter wavelength.",
+   "test": "T2"
+  },
+  {
+   "id": "hw07-q03",
+   "n": 3,
+   "type": "calc",
+   "q": "Light was measured to have a frequency of 5.73×10¹⁵ Hz. What is the wavelength of the light (in m)?",
+   "given": "λν = c &nbsp;&middot;&nbsp; c = 3.00×10⁸ m/s",
+   "unit": "m",
+   "answerValue": 5.24e-08,
+   "answerDisplay": "5.24×10⁻⁸",
+   "test": "T2"
+  },
+  {
+   "id": "hw07-q04",
+   "n": 4,
+   "type": "calc",
+   "q": "Light was measured to have a wavelength of 3.9×10¹¹ m. What is the frequency of the light (in Hz)?",
+   "given": "λν = c &nbsp;&middot;&nbsp; c = 3.00×10⁸ m/s",
+   "unit": "Hz",
+   "answerValue": 0.00077,
+   "answerDisplay": "7.7×10⁻⁴",
+   "test": "T2"
+  },
+  {
+   "id": "hw07-q05",
+   "n": 5,
+   "type": "single",
+   "q": "What is the wavelength (in nm) of infrared radiation that has a frequency of 9.76×10¹³ s⁻¹? (1 m = 10⁹ nm, c = 3.00×10⁸ m/s)",
+   "opts": [
+    "3.25×10⁻⁴ nm",
+    "2.93×10¹³ nm",
+    "3.07×10⁻⁶ nm",
+    "3.25×10⁵ nm",
+    "3.07×10³ nm"
+   ],
+   "correct": 4,
+   "test": "T2"
+  },
+  {
+   "id": "hw07-q06",
+   "n": 6,
+   "type": "single",
+   "q": "If the frequency is observed to be 1.00×10¹² Hz for a signal from electromagnetic radiation, what is the wavelength in cm? (c = 3.00×10⁸ m/s)",
+   "opts": [
+    "0.0300 cm",
+    "3.34 cm",
+    "3000 cm",
+    "0.000300 cm",
+    "3340 cm"
+   ],
+   "correct": 0,
+   "test": "T2"
+  },
+  {
+   "id": "hw07-q07",
+   "n": 7,
+   "type": "calc",
+   "q": "(Bonus) Light was measured to have a wavelength of 9.51×10² nm. What is the frequency of the light (in Hz)?",
+   "tag": "Bonus question",
+   "given": "λν = c &nbsp;&middot;&nbsp; c = 3.00×10⁸ m/s &nbsp;&middot;&nbsp; 1 m = 10⁹ nm",
+   "unit": "Hz",
+   "answerValue": 315000000000000,
+   "answerDisplay": "3.15×10¹⁴",
+   "test": "T2"
+  },
+  {
+   "id": "hw07-q08",
+   "n": 8,
+   "type": "single",
+   "q": "A radio wave has a frequency of 8.6×10⁸ Hz. What is the energy of one photon of this radiation? (h = 6.626×10⁻³⁴ J·s)",
+   "opts": [
+    "2.3×10⁻³⁴ J",
+    "7.7×10⁻¹⁵ J",
+    "5.7×10⁻²⁵ J",
+    "7.7×10⁻⁴³ J",
+    "1.7×10⁻¹⁶ J"
+   ],
+   "correct": 2,
+   "test": "T2"
+  },
+  {
+   "id": "hw07-q09",
+   "n": 9,
+   "type": "calc",
+   "q": "The frequency of a radio wave was measured to be 2.5×10⁸ Hz. What is the energy of the radio wave in kilojoules (kJ)?",
+   "given": "E = hν &nbsp;&middot;&nbsp; h = 6.626×10⁻³⁴ J·s &nbsp;&middot;&nbsp; watch the unit — answer in kJ, not J",
+   "unit": "kJ",
+   "answerValue": 1.7e-28,
+   "answerDisplay": "1.7×10⁻²⁸",
+   "test": "T2"
+  },
+  {
+   "id": "hw07-q10",
+   "n": 10,
+   "type": "calc",
+   "q": "The frequency of a radio wave was measured to be 7.7×10⁸ Hz. What is the energy of the radio wave in kilojoules (kJ)?",
+   "given": "E = hν &nbsp;&middot;&nbsp; h = 6.626×10⁻³⁴ J·s &nbsp;&middot;&nbsp; watch the unit — answer in kJ, not J",
+   "unit": "kJ",
+   "answerValue": 5.1e-28,
+   "answerDisplay": "5.1×10⁻²⁸",
+   "test": "T2"
+  },
+  {
+   "id": "hw07-q11",
+   "n": 11,
+   "type": "single",
+   "q": "A photon has an energy of 4.21×10⁻¹⁵ J. What is its frequency? (h = 6.626×10⁻³⁴ J·s)",
+   "opts": [
+    "2.79×10⁻⁴⁸ s⁻¹",
+    "1.57×10⁻¹⁹ s⁻¹",
+    "2.79×10⁴⁸ s⁻¹",
+    "6.35×10⁻¹⁸ s⁻¹",
+    "6.35×10¹⁸ s⁻¹"
+   ],
+   "correct": 4,
+   "test": "T2"
+  },
+  {
+   "id": "hw07-q12",
+   "n": 12,
+   "type": "calc",
+   "q": "The energy of a wave is 3.95×10⁻²⁵ J. What is the frequency, measured in Hz?",
+   "given": "E = hν &nbsp;&middot;&nbsp; h = 6.626×10⁻³⁴ J·s",
+   "unit": "Hz",
+   "answerValue": 596000000,
+   "answerDisplay": "5.96×10⁸",
+   "test": "T2"
+  },
+  {
+   "id": "hw07-q13",
+   "n": 13,
+   "type": "calc",
+   "q": "Light was measured to have a wavelength of 7.51×10⁻⁹ m. What is the energy (in J) of that light wave?",
+   "given": "E = hc/λ &nbsp;&middot;&nbsp; c = 3.00×10⁸ m/s &nbsp;&middot;&nbsp; h = 6.626×10⁻³⁴ J·s",
+   "unit": "J",
+   "answerValue": 2.65e-17,
+   "answerDisplay": "2.65×10⁻¹⁷",
+   "test": "T2"
+  },
+  {
+   "id": "hw07-q14",
+   "n": 14,
+   "type": "calc",
+   "q": "What is the constant c (speed of light) used throughout the λν = c and E = hc/λ equations, in m/s?",
+   "unit": "m/s",
+   "answerValue": 300000000,
+   "answerDisplay": "3.00×10⁸",
+   "tolerance": 0.005,
+   "test": "T2"
+  },
+  {
+   "id": "hw07-q15",
+   "n": 15,
+   "type": "single",
+   "q": "The Bohr model of the atom describes the locations of the electrons as being in orbit-like paths around the nucleus.",
+   "opts": [
+    "True",
+    "False"
+   ],
+   "correct": 0,
+   "test": "T2"
+  },
+  {
+   "id": "hw07-q16",
+   "n": 16,
+   "type": "single",
+   "q": "Atomic orbitals developed using quantum mechanics describe probabilities of finding the electron, as opposed to exact paths for electrons.",
+   "opts": [
+    "True",
+    "False"
+   ],
+   "correct": 0,
+   "test": "T2"
+  },
+  {
+   "id": "hw07-q17",
+   "n": 17,
+   "type": "single",
+   "q": "If a sample of atoms is heated, it will emit a discrete, or line, spectrum.",
+   "opts": [
+    "True",
+    "False"
+   ],
+   "correct": 0,
+   "test": "T2"
+  },
+  {
+   "id": "hw07-q18",
+   "n": 18,
+   "type": "single",
+   "q": "A rainbow is an example of a continuous spectrum.",
+   "opts": [
+    "True",
+    "False"
+   ],
+   "correct": 0,
+   "test": "T2"
+  },
+  {
+   "id": "hw07-q19",
+   "n": 19,
+   "type": "single",
+   "q": "Which transition of a single electron in a 1-electron system would have the lowest energy?",
+   "opts": [
+    "4 → 1",
+    "5 → 2",
+    "6 → 3"
+   ],
+   "correct": 2,
+   "note": "Energy levels get closer together as n increases, so the smallest gap — and lowest energy — is 6→3.",
+   "test": "T2"
+  },
+  {
+   "id": "hw07-q20",
+   "n": 20,
+   "type": "single",
+   "q": "Which transition of a single electron in a 1-electron system would have the lowest energy?",
+   "opts": [
+    "4 → 1",
+    "4 → 2",
+    "4 → 3"
+   ],
+   "correct": 2,
+   "note": "Adjacent levels have the smallest energy gap.",
+   "test": "T2"
+  },
+  {
+   "id": "hw07-q21",
+   "n": 21,
+   "type": "single",
+   "q": "Which of the following electronic transitions of hydrogen has the highest (largest) frequency and thus releases the largest amount of energy?",
+   "opts": [
+    "5 → 1",
+    "4 → 1",
+    "5 → 4"
+   ],
+   "correct": 0,
+   "note": "The largest jump between energy levels releases the most energy.",
+   "test": "T2"
+  },
+  {
+   "id": "hw07-q22",
+   "n": 22,
+   "type": "single",
+   "q": "Which of the following electronic transitions of hydrogen has the longest wavelength?",
+   "opts": [
+    "4 → 3",
+    "3 → 2",
+    "1 → 4"
+   ],
+   "correct": 0,
+   "note": "Longest wavelength = lowest energy = smallest gap between levels (1→4 is an absorption with a large gap).",
+   "test": "T2"
+  },
+  {
+   "id": "hw07-q23",
+   "n": 23,
+   "type": "single",
+   "q": "Which of the following electronic transitions of hydrogen releases the longest wavelength emission?",
+   "opts": [
+    "5 → 4",
+    "4 → 3",
+    "3 → 2"
+   ],
+   "correct": 0,
+   "note": "Among these emissions, 5→4 has the smallest energy gap and therefore the longest wavelength.",
+   "test": "T2"
+  },
+  {
+   "id": "hw07-q24",
+   "n": 24,
+   "type": "single",
+   "q": "Additional practice for these topics is available at the OpenStax Chemistry (Atoms First 2e) textbook, section 3 exercises (odd problems 3–12 and 17–27), with answer keys linked from each problem number.",
+   "opts": [
+    "True",
+    "False"
+   ],
+   "correct": 0,
+   "test": "T2"
+  },
+  {
+   "id": "hw07-q25",
+   "n": 25,
+   "type": "multi",
+   "q": "Which of the following are true? Select all that apply.",
+   "opts": [
+    "The maximum number of electrons in a 3p orbital is 2.",
+    "1f, 2f, and 3f subshells do not exist and thus cannot contain any electrons.",
+    "The maximum number of electrons that can have the principal quantum number n = 3 if you combine the s, p, and d orbitals is 18."
+   ],
+   "correct": [
+    0,
+    1,
+    2
+   ],
+   "test": "T2"
+  },
+  {
+   "id": "hw07-q26",
+   "n": 26,
+   "type": "single",
+   "q": "Which one of the following would NOT be possible as part of an electron configuration?",
+   "opts": [
+    "5d⁷ with 3 unpaired electrons",
+    "5p³ with 3 unpaired electrons",
+    "5d² with 2 unpaired electrons",
+    "5s² with 1 unpaired electron",
+    "5s¹ with 1 unpaired electron"
+   ],
+   "correct": 3,
+   "note": "A filled s² subshell has both electrons paired — 0 unpaired, never 1.",
+   "test": "T2"
+  },
+  {
+   "id": "hw07-q27",
+   "n": 27,
+   "type": "match",
+   "q": "Match the numbers with the descriptions. Numbers may be used more than once; not all will be used.",
+   "items": [
+    "The number of orbitals in a 5d subshell",
+    "The number of electrons in a filled 6p subshell",
+    "The number of orbitals in a 4p subshell",
+    "The number of electrons in a 3d orbital (one single orbital, not the whole subshell)",
+    "The number of electrons in a 1f subshell",
+    "The number of electrons in a filled 2s subshell",
+    "The number of orbitals in a 3s subshell"
+   ],
+   "opts": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "0 = Not a possible combination"
+   ],
+   "correct": [
+    4,
+    5,
+    2,
+    1,
+    14,
+    1,
+    0
+   ],
+   "test": "T2"
+  },
+  {
+   "id": "hw07-q28",
+   "n": 28,
+   "type": "single",
+   "q": "The maximum number of electrons allowed in the fourth energy level (n = 4) is",
+   "opts": [
+    "two",
+    "sixteen",
+    "eight",
+    "thirty-two",
+    "eighteen"
+   ],
+   "correct": 3,
+   "note": "Max electrons per level = 2n² = 2(4)² = 32",
+   "test": "T2"
+  }
+ ]
+}

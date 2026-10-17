@@ -1,0 +1,605 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap');
+
+:root{
+  /* Chem Study Hub palette: copper-sulfate blue and sodium-flame amber */
+  --paper: #EDF1F2;
+  --paper-raised: #E1E8EA;
+  --ink: #1C2529;
+  --ink-soft: #46545A;
+  --rule: #C2CDD1;
+  --violet: #1F5A7A;
+  --violet-deep: #143F57;
+  --pink: #C7772A;
+  --pink-wash: #F6E3CC;
+  --violet-wash: #DCE8EF;
+  --red: #9A3B3B;
+  --red-wash: #F1DCDA;
+  --sage: #687A80;
+  --good: #2E7D4F;
+  --good-wash: #DDEFE3;
+  --max: 640px;
+  /* colors used by core.css (question widgets, notes, Resources) */
+  --c-accent: var(--violet); --c-accent-soft: var(--violet-wash);
+  --c-good: var(--good); --c-good-soft: var(--good-wash);
+  --c-bad: var(--red); --c-bad-soft: var(--red-wash);
+  --c-line: var(--rule); --c-surface: #F8FAFA; --c-raised: var(--paper-raised);
+  --c-ink: var(--ink); --c-muted: var(--ink-soft); --c-mono: 'IBM Plex Mono', monospace;
+}
+
+*{ box-sizing: border-box; }
+
+html{ -webkit-text-size-adjust: 100%; }
+
+body{
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+a{ color: inherit; }
+
+.wrap{
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 5rem;
+}
+
+/* ---------- Homepage ---------- */
+
+.site-mark{
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--sage);
+  margin: 0 0 0.6rem;
+}
+
+h1.site-title{
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 2.15rem;
+  line-height: 1.15;
+  margin: 0 0 0.5rem;
+}
+
+p.site-lede{
+  color: var(--ink-soft);
+  font-size: 1.02rem;
+  max-width: 34ch;
+  margin: 0 0 2.6rem;
+}
+
+.section-label{
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--ink-soft);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.6rem;
+  margin: 0 0 0.2rem;
+}
+
+.module-list{
+  list-style: none;
+  margin: 0 0 3rem;
+  padding: 0;
+}
+
+.module-list li{
+  border-bottom: 1px solid var(--rule);
+}
+
+.m-row{
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.85rem 0.1rem;
+}
+
+.m-row .num{
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.85rem;
+  color: var(--violet);
+  min-width: 1.6rem;
+}
+
+.m-row .titles{
+  flex: 1;
+  min-width: 0;
+}
+
+.m-row .m-title{
+  font-weight: 600;
+  font-size: 1.02rem;
+}
+
+.m-row .m-sub{
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+}
+
+.quiz-links{
+  display: flex;
+  gap: 0.4rem;
+  flex-shrink: 0;
+}
+
+.quiz-pill{
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  text-decoration: none;
+  color: var(--violet-deep);
+  background: var(--violet-wash);
+  border: 1px solid var(--violet);
+  border-radius: 3px;
+  padding: 0.35rem 0.55rem;
+  white-space: nowrap;
+  transition: background 0.15s ease;
+}
+
+.quiz-pill:hover{
+  background: var(--violet);
+  color: #fff;
+}
+
+.quiz-pill.pill-2{
+  color: #7A4614;
+  background: var(--pink-wash);
+  border-color: var(--pink);
+}
+
+.quiz-pill.pill-2:hover{
+  background: var(--pink);
+  color: #fff;
+}
+
+.quiz-pill.pill-3{
+  color: #7A2E2E;
+  background: var(--red-wash);
+  border-color: var(--red);
+}
+
+.quiz-pill.pill-3:hover{
+  background: var(--red);
+  color: #fff;
+}
+
+.quiz-pill.pill-qa{
+  color: #3F5157;
+  background: #E3E9EB;
+  border-color: var(--sage);
+}
+
+.quiz-pill.pill-qa:hover{
+  background: var(--sage);
+  color: #fff;
+}
+
+@media (max-width: 480px){
+  .m-row{ flex-wrap: wrap; }
+  .quiz-links{ width: calc(100% - 1.6rem - 0.9rem); margin-left: calc(1.6rem + 0.9rem); flex-wrap: wrap; }
+}
+
+.slide-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.9rem;
+}
+
+@media (max-width: 480px){
+  .slide-grid{ grid-template-columns: 1fr; }
+}
+
+.slide-card{
+  display: block;
+  text-decoration: none;
+  background: var(--violet);
+  color: #EEF5F8;
+  padding: 1.4rem 1.2rem;
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+}
+
+.slide-card::before{
+  content: "";
+  position: absolute;
+  top: 0; right: 0;
+  width: 46px; height: 46px;
+  background: var(--pink);
+  clip-path: polygon(100% 0, 0 0, 100% 100%);
+  opacity: 0.9;
+}
+
+.slide-card .s-title{
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 1.15rem;
+  margin: 0 0 0.25rem;
+}
+
+.slide-card .s-sub{
+  font-size: 0.85rem;
+  color: #C9DCE6;
+}
+
+.slide-card .s-count{
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+  color: #C9DCE6;
+  margin-top: 0.8rem;
+  display: block;
+}
+
+footer.note{
+  margin-top: 3rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--rule);
+  color: var(--ink-soft);
+  font-size: 0.82rem;
+}
+
+/* ---------- Quiz page ---------- */
+
+.back-link{
+  display: inline-block;
+  font-size: 0.85rem;
+  color: var(--violet);
+  text-decoration: none;
+  margin-bottom: 1.1rem;
+}
+.back-link:hover{ text-decoration: underline; }
+
+.quiz-head{
+  margin-bottom: 1.4rem;
+}
+
+.quiz-head .site-mark{ margin-bottom: 0.5rem; }
+
+h1.quiz-title{
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 1.7rem;
+  margin: 0 0 0.15rem;
+}
+
+p.quiz-sub{
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.score-bar{
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--paper);
+  padding: 0.85rem 0 0.7rem;
+  margin-bottom: 1.6rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.score-row{
+  display: flex;
+  justify-content: space-between;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  margin-bottom: 0.4rem;
+}
+
+.score-row .num-correct{ color: var(--violet); font-weight: 500; }
+
+.progress-track{
+  height: 6px;
+  background: var(--rule);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-fill{
+  height: 100%;
+  background: linear-gradient(90deg, var(--violet), var(--pink));
+  width: 0%;
+  transition: width 0.25s ease;
+}
+
+.restart-btn{
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--sage);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+  margin-top: 0.5rem;
+}
+
+.question{
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.q-meta{
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--sage);
+  letter-spacing: 0.03em;
+  margin-bottom: 0.45rem;
+}
+
+.q-prompt{
+  font-size: 1.03rem;
+  font-weight: 500;
+  margin: 0 0 0.9rem;
+}
+
+.options{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.option{
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  text-align: left;
+  width: 100%;
+  padding: 0.65rem 0.8rem;
+  background: var(--paper-raised);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.94rem;
+  color: var(--ink);
+}
+
+.option:hover:not(:disabled){
+  border-color: var(--violet);
+}
+
+.option:focus-visible{
+  outline: 2px solid var(--violet);
+  outline-offset: 1px;
+}
+
+.option .letter{
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.82rem;
+  color: var(--violet);
+  flex-shrink: 0;
+}
+
+.option:disabled{ cursor: default; }
+
+.option.correct{
+  background: var(--violet-wash);
+  border-color: var(--violet);
+}
+.option.correct .letter{ color: var(--violet-deep); }
+
+.option.chosen-wrong{
+  background: var(--red-wash);
+  border-color: var(--red);
+}
+.option.chosen-wrong .letter{ color: var(--red); }
+
+.explanation{
+  margin-top: 0.7rem;
+  padding: 0.7rem 0.85rem;
+  background: var(--violet-wash);
+  border-left: 3px solid var(--violet);
+  font-size: 0.9rem;
+  color: var(--ink);
+  border-radius: 0 3px 3px 0;
+}
+
+.reveal-btn{
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--violet);
+  background: var(--violet-wash);
+  border: 1px solid var(--violet);
+  border-radius: 3px;
+  padding: 0.5rem 0.9rem;
+  cursor: pointer;
+}
+.reveal-btn:hover{ background: var(--violet); color: #fff; }
+
+.finish-banner{
+  margin-top: 1.5rem;
+  padding: 1.3rem 1.2rem;
+  background: var(--violet);
+  color: #EEF5F8;
+  border-radius: 3px;
+  display: none;
+}
+.finish-banner.show{ display: block; }
+.finish-banner .f-title{
+  font-family: 'Fraunces', serif;
+  font-size: 1.2rem;
+  margin: 0 0 0.3rem;
+}
+.finish-banner button{
+  margin-top: 0.8rem;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.78rem;
+  background: #EEF5F8;
+  color: var(--violet-deep);
+  border: none;
+  border-radius: 3px;
+  padding: 0.5rem 0.9rem;
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{ transition: none !important; }
+}
+
+/* ---------- Q&A viewer page ---------- */
+
+.qa-wrap{ max-width: 700px; }
+
+#qa-content h1{
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin: 0.3rem 0 1.3rem;
+  line-height: 1.25;
+}
+
+#qa-content h2{
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: var(--violet-deep);
+  margin: 2rem 0 0.9rem;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.4rem;
+}
+
+#qa-content h3{
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--ink);
+  margin: 1.4rem 0 0.5rem;
+}
+
+#qa-content p{
+  margin: 0 0 0.5rem;
+  font-size: 0.96rem;
+}
+
+#qa-content ol{
+  padding-left: 1.3rem;
+  margin: 0;
+}
+
+#qa-content ol > li{
+  margin-bottom: 1.3rem;
+  padding-bottom: 1.1rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+#qa-content ol > li:last-child{
+  border-bottom: none;
+}
+
+#qa-content ul{
+  margin: 0.4rem 0 0.4rem 0.2rem;
+  padding-left: 1rem;
+  list-style: none;
+}
+
+#qa-content ul li{
+  margin-bottom: 0.3rem;
+  font-size: 0.94rem;
+}
+
+#qa-content strong{ color: var(--violet-deep); }
+#qa-content em{ font-style: italic; }
+#qa-content strong em, #qa-content em strong{
+  color: var(--violet);
+}
+
+#qa-content blockquote{
+  margin: 0 0 1.5rem;
+  padding: 0.8rem 1rem;
+  background: var(--pink-wash);
+  border-left: 3px solid var(--pink);
+  border-radius: 0 3px 3px 0;
+  font-size: 0.9rem;
+  color: var(--ink);
+}
+
+#qa-content code{
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.85em;
+  background: var(--paper-raised);
+  padding: 0.1em 0.35em;
+  border-radius: 2px;
+}
+
+#qa-content table{
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.6rem 0 1.2rem;
+  font-size: 0.85rem;
+}
+
+#qa-content th, #qa-content td{
+  border: 1px solid var(--rule);
+  padding: 0.5rem 0.6rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+#qa-content th{
+  background: var(--paper-raised);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  color: var(--sage);
+}
+
+#qa-content hr{
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 1.6rem 0;
+}
+
+/* nested answer bullets inside numbered study-guide questions (Modules 12+) */
+#qa-content ol ul{
+  list-style: disc;
+  padding-left: 1.3rem;
+}
+#qa-content ol ul li::marker{ color: var(--violet-deep); }
+
+/* ---------- Chem hub additions ---------- */
+
+.quiz-pill.pill-off{
+  color: var(--sage);
+  background: transparent;
+  border: 1px dashed var(--rule);
+  cursor: default;
+}
+.quiz-pill.pill-off:hover{ background: transparent; color: var(--sage); }
+
+.quiz-pill .done{ opacity: .75; }
+
+.empty-test{
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  font-style: italic;
+  padding: 0.9rem 0.1rem;
+  margin: 0 0 3rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.slide-card.alt{ background: var(--violet-deep); }
+
+.resume-note{
+  margin: 0 0 1.2rem;
+  padding: 0.7rem 0.85rem;
+  background: var(--pink-wash);
+  border-left: 3px solid var(--pink);
+  border-radius: 0 3px 3px 0;
+  font-size: 0.9rem;
+}
+
+.q-prompt img{ max-width: 100%; height: auto; }
+
+.q-meta .q-tag{
+  color: var(--pink);
+  margin-left: .35rem;
+}
+
+.slide-grid{ margin-bottom: 2.6rem; }
+body{ padding-bottom: 4rem; }

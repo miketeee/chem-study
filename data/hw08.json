@@ -1,0 +1,527 @@
+{
+ "slug": "hw08",
+ "test": "T2",
+ "title": "HW 08",
+ "subtitle": "Ch. 3 — Electron Configurations",
+ "questions": [
+  {
+   "id": "hw08-q01",
+   "n": 1,
+   "type": "match",
+   "q": "Match each atom to its correct electron configuration.",
+   "items": [
+    "Mg",
+    "Be",
+    "Na",
+    "Li"
+   ],
+   "opts": [
+    "[Ne]3s¹",
+    "[Ne]3s²",
+    "[He]2s¹",
+    "[He]2s²"
+   ],
+   "correct": [
+    1,
+    3,
+    0,
+    2
+   ],
+   "test": "T2"
+  },
+  {
+   "id": "hw08-q02",
+   "n": 2,
+   "type": "match",
+   "q": "Match each atom to its correct electron configuration.",
+   "items": [
+    "Si",
+    "P",
+    "S",
+    "Cl"
+   ],
+   "opts": [
+    "[Ne]3s²3p²",
+    "[Ne]3s²3p³",
+    "[Ne]3s²3p⁴",
+    "[Ne]3s²3p⁵"
+   ],
+   "correct": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "test": "T2"
+  },
+  {
+   "id": "hw08-q03",
+   "n": 3,
+   "type": "match",
+   "q": "Match each atom to its correct electron configuration.",
+   "items": [
+    "Sc",
+    "Ti",
+    "V"
+   ],
+   "opts": [
+    "[Ar]4s²3d¹",
+    "[Ar]4s²3d²",
+    "[Ar]4s²3d³"
+   ],
+   "correct": [
+    0,
+    1,
+    2
+   ],
+   "test": "T2"
+  },
+  {
+   "id": "hw08-q04",
+   "n": 4,
+   "type": "match",
+   "q": "Match each ion to its correct electron configuration.",
+   "items": [
+    "Na⁺",
+    "Mg⁺",
+    "Be⁺",
+    "Li⁺"
+   ],
+   "opts": [
+    "[Ne] (or [He]2s²2p⁶)",
+    "[Ne]3s¹",
+    "[He]2s¹",
+    "[He] (or 1s²)"
+   ],
+   "correct": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "test": "T2"
+  },
+  {
+   "id": "hw08-q05",
+   "n": 5,
+   "type": "match",
+   "q": "Match each ion to its correct electron configuration.",
+   "items": [
+    "Cl⁻",
+    "S⁻",
+    "P⁻",
+    "Si⁻"
+   ],
+   "opts": [
+    "[Ar] (or [Ne]3s²3p⁶)",
+    "[Ne]3s²3p³",
+    "[Ne]3s²3p⁴",
+    "[Ne]3s²3p⁵"
+   ],
+   "correct": [
+    0,
+    3,
+    2,
+    1
+   ],
+   "test": "T2"
+  },
+  {
+   "id": "hw08-q06",
+   "n": 6,
+   "type": "match",
+   "q": "Match each ion to its correct electron configuration.",
+   "items": [
+    "Sc⁺",
+    "Ti⁺",
+    "V⁺"
+   ],
+   "opts": [
+    "[Ar]4s¹3d¹",
+    "[Ar]4s¹3d²",
+    "[Ar]4s¹3d³"
+   ],
+   "correct": [
+    0,
+    1,
+    2
+   ],
+   "test": "T2"
+  },
+  {
+   "id": "hw08-q07",
+   "n": 7,
+   "type": "single",
+   "q": "What is the correct electron configuration for <span class='chem'>Sr</span>?",
+   "opts": [
+    "[Kr]4s²",
+    "[Kr]5s²4d¹",
+    "[Kr]5s²",
+    "[Xe]4s²",
+    "[Xe]5s²"
+   ],
+   "correct": 2,
+   "test": "T2"
+  },
+  {
+   "id": "hw08-q08",
+   "n": 8,
+   "type": "single",
+   "q": "What is the correct electron configuration for <span class='chem'>Nb</span>?",
+   "opts": [
+    "[Xe]5s²4d³",
+    "[Kr]4s²4d³",
+    "[Xe]4d⁵",
+    "[Kr]5s⁵",
+    "[Kr]5s²4d³"
+   ],
+   "correct": 4,
+   "note": "Nb follows the standard Aufbau order here — it isn't one of the flagged exceptions (Cu, Ag, Au, Cr, Mo).",
+   "test": "T2"
+  },
+  {
+   "id": "hw08-q09",
+   "n": 9,
+   "type": "single",
+   "q": "Which answer uses the correct noble-gas shorthand for the configuration <span class='chem'>[Kr]5s²4d⁶</span>?",
+   "opts": [
+    "[Kr]5s²4d⁶",
+    "[He]5s²4d⁶",
+    "[Ne]5s²4d⁶",
+    "[Ar]5s²4d⁶",
+    "[Xe]5s²4d⁶"
+   ],
+   "correct": 0,
+   "test": "T2"
+  },
+  {
+   "id": "hw08-q10",
+   "n": 10,
+   "type": "single",
+   "q": "What atom has the valence-level orbital diagram <span class='chem'>2s² 2p¹</span> (2s full, one electron in 2p)?",
+   "opts": [
+    "N",
+    "Li",
+    "Sc",
+    "B",
+    "Al"
+   ],
+   "correct": 3,
+   "test": "T2"
+  },
+  {
+   "id": "hw08-q11",
+   "n": 11,
+   "type": "single",
+   "q": "What atom has the valence-level orbital diagram <span class='chem'>4s² 3d¹</span> (4s full, one electron in 3d)?",
+   "opts": [
+    "Al",
+    "Sc",
+    "Cr",
+    "Ca",
+    "Mo"
+   ],
+   "correct": 1,
+   "test": "T2"
+  },
+  {
+   "id": "hw08-q12",
+   "n": 12,
+   "type": "single",
+   "q": "What atom has the valence-level orbital diagram <span class='chem'>4s² 3d¹⁰ 4p¹</span> (4s and 3d full, one electron in 4p)?",
+   "opts": [
+    "Al",
+    "Tl",
+    "Ga",
+    "Zn",
+    "In"
+   ],
+   "correct": 2,
+   "test": "T2"
+  },
+  {
+   "id": "hw08-q13",
+   "n": 13,
+   "type": "single",
+   "q": "In the ground state of a cobalt (<span class='chem'>Co</span>) atom, how many total electrons are in p orbitals?",
+   "opts": [
+    "36",
+    "6",
+    "18",
+    "24",
+    "12"
+   ],
+   "correct": 4,
+   "note": "2p⁶ + 3p⁶ = 12",
+   "test": "T2"
+  },
+  {
+   "id": "hw08-q14",
+   "n": 14,
+   "type": "single",
+   "q": "How many unpaired electrons are in <span class='chem'>Se</span>?",
+   "opts": [
+    "16",
+    "2",
+    "4",
+    "0",
+    "6"
+   ],
+   "correct": 1,
+   "note": "[Ar]4s²3d¹⁰4p⁴ — Hund's rule gives 2 unpaired.",
+   "test": "T2"
+  },
+  {
+   "id": "hw08-q15",
+   "n": 15,
+   "type": "single",
+   "q": "There are errors in the filling order of every option below except one. Which is the only correctly written configuration for a neutral atom?",
+   "opts": [
+    "1s²2s²2p⁶ 3s²3p⁶ 3d¹⁰ 4s² 4p⁶ 5s²",
+    "1s²2s²2p⁶ 3s²3p⁶ 4s² 3d¹⁰ 4p⁶ 5s³",
+    "1s²2s²2p⁶ 3s²3p⁶ 4s² 3d¹² 4p⁶ 5s² 5d¹⁰ 5p³",
+    "1s²2s²2p⁶ 3s²3p⁶ 4s² 4d¹⁰ 4p⁶ 5s² 5d¹⁰ 5p³",
+    "1s²2s²2p⁷ 3s²3p⁶ 4s² 3d¹⁰ 4p⁶ 5s² 5d¹⁰"
+   ],
+   "correct": 0,
+   "note": "38 electrons total — this is Sr, correctly grouped with no invalid subshells (no 2p⁷, no 3d¹², etc.).",
+   "test": "T2"
+  },
+  {
+   "id": "hw08-q16",
+   "n": 16,
+   "type": "single",
+   "q": "How many unpaired electrons are in <span class='chem'>P²⁻</span>?",
+   "opts": [
+    "3",
+    "1",
+    "2",
+    "0",
+    "5"
+   ],
+   "correct": 1,
+   "note": "P²⁻ = [Ne]3s²3p⁵, isoelectronic with Cl.",
+   "test": "T2"
+  },
+  {
+   "id": "hw08-q17",
+   "n": 17,
+   "type": "single",
+   "q": "What is the correct electron configuration for <span class='chem'>Ag</span>?",
+   "opts": [
+    "[Kr]5s²4d⁹",
+    "[Kr]5s²4d¹⁰",
+    "[Xe]5s²4d⁹",
+    "[Kr]5s¹4d¹⁰",
+    "[Xe]5s¹4d¹⁰"
+   ],
+   "correct": 3,
+   "note": "Exception, like Cu/Au/Cr/Mo — a filled d subshell is extra stable.",
+   "test": "T2"
+  },
+  {
+   "id": "hw08-q18",
+   "n": 18,
+   "type": "single",
+   "q": "What is the correct electron configuration for the ion <span class='chem'>In²⁺</span>?",
+   "opts": [
+    "[Kr]5s²4d¹⁰",
+    "[Kr]5s²4d¹⁰ 5p¹",
+    "[Kr]5s¹4d¹⁰",
+    "[Kr]5s²4d¹⁰ 5p³",
+    "[Kr]5s²4d⁹"
+   ],
+   "correct": 2,
+   "test": "T2"
+  },
+  {
+   "id": "hw08-q19",
+   "n": 19,
+   "type": "single",
+   "q": "What ion has the valence-level orbital diagram <span class='chem'>4s empty, 3d³</span> (three singly-occupied 3d orbitals)?",
+   "opts": [
+    "Mn⁵⁺",
+    "Fe³⁺",
+    "Ca³⁺",
+    "V²⁺",
+    "Sc²⁺"
+   ],
+   "correct": 3,
+   "note": "V²⁺ = [Ar]3d³",
+   "test": "T2"
+  },
+  {
+   "id": "hw08-q20",
+   "n": 20,
+   "type": "single",
+   "q": "What ion has the valence-level orbital diagram <span class='chem'>5s¹, 4d³</span> (three singly-occupied 4d orbitals)?",
+   "opts": [
+    "V⁺",
+    "Mo²⁺",
+    "Nb⁺",
+    "Mn³⁺",
+    "Tc³⁺"
+   ],
+   "correct": 2,
+   "note": "Nb⁺ = [Kr]5s¹4d³",
+   "test": "T2"
+  },
+  {
+   "id": "hw08-q21",
+   "n": 21,
+   "type": "single",
+   "q": "What ion has the valence-level orbital diagram <span class='chem'>5s², 4d¹⁰</span> (both fully filled)?",
+   "opts": [
+    "Sn²⁺",
+    "Ge²⁺",
+    "Cd²⁺",
+    "In²⁺",
+    "Ru⁴⁺"
+   ],
+   "correct": 0,
+   "note": "Sn²⁺ = [Kr]5s²4d¹⁰",
+   "test": "T2"
+  },
+  {
+   "id": "hw08-q22",
+   "n": 22,
+   "type": "single",
+   "q": "What is the correct electron configuration for the ion <span class='chem'>V⁺</span>?",
+   "opts": [
+    "1s²2s²2p⁶ 3s²3p⁶ 4s² 4d²",
+    "1s²2s²2p⁶ 3s²3p⁶ 3d⁴",
+    "1s²2s²2p⁶ 3s²3p⁶ 4s² 3d²",
+    "1s²2s²2p⁶ 3s²3p⁶ 4s¹ 3d³",
+    "1s²2s²2p⁶ 3s²3p⁶ 4s² 3d³"
+   ],
+   "correct": 3,
+   "note": "[Ar]4s¹3d³ — ions lose the 4s electron(s) first.",
+   "test": "T2"
+  },
+  {
+   "id": "hw08-q23",
+   "n": 23,
+   "type": "single",
+   "q": "What is the correct electron configuration for the ion <span class='chem'>Mo²⁺</span>?",
+   "opts": [
+    "[Kr]4d⁶",
+    "[Kr]5s²4d²",
+    "[Kr]5s²4d⁶",
+    "[Kr]4d⁵",
+    "[Kr]4d⁴"
+   ],
+   "correct": 4,
+   "test": "T2"
+  },
+  {
+   "id": "hw08-q24",
+   "n": 24,
+   "type": "single",
+   "q": "How many unpaired electrons are in <span class='chem'>Br²⁺</span>?",
+   "opts": [
+    "0",
+    "5",
+    "1",
+    "3",
+    "2"
+   ],
+   "correct": 3,
+   "note": "Br²⁺ = [Ar]4s²3d¹⁰4p³",
+   "test": "T2"
+  },
+  {
+   "id": "hw08-q25",
+   "n": 25,
+   "type": "multi",
+   "q": "Which of the following are true? Select all that apply.",
+   "opts": [
+    "A paramagnetic element would have unpaired electrons.",
+    "A carbon atom would be paramagnetic.",
+    "A phosphorus atom would be diamagnetic.",
+    "F⁻ is isoelectronic with Mg²⁺.",
+    "Rh²⁺ is isoelectronic with Ag."
+   ],
+   "correct": [
+    0,
+    1,
+    3
+   ],
+   "note": "P is [Ne]3s²3p³ (paramagnetic, not diamagnetic) — and Rh²⁺ (43 e⁻) isn't isoelectronic with neutral Ag (47 e⁻).",
+   "test": "T2"
+  },
+  {
+   "id": "hw08-q26",
+   "n": 26,
+   "type": "match",
+   "q": "Select the number of valence electrons that each atom contains.",
+   "items": [
+    "F",
+    "S",
+    "Na",
+    "C"
+   ],
+   "opts": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8"
+   ],
+   "correct": [
+    6,
+    5,
+    0,
+    3
+   ],
+   "test": "T2"
+  },
+  {
+   "id": "hw08-q27",
+   "n": 27,
+   "type": "match",
+   "q": "Select the number of valence electrons that each ion contains.",
+   "items": [
+    "C²⁻",
+    "S⁻",
+    "F⁻",
+    "Ca⁺"
+   ],
+   "opts": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8"
+   ],
+   "correct": [
+    5,
+    6,
+    7,
+    0
+   ],
+   "test": "T2"
+  },
+  {
+   "id": "hw08-q28",
+   "n": 28,
+   "type": "single",
+   "q": "In the ground state of a silver (<span class='chem'>Ag</span>) atom, how many total electrons are in all the s orbitals combined?",
+   "opts": [
+    "2",
+    "47",
+    "6",
+    "10",
+    "9"
+   ],
+   "correct": 4,
+   "note": "1s² 2s² 3s² 4s² 5s¹ = 9",
+   "test": "T2"
+  }
+ ]
+}

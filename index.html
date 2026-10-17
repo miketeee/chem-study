@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chem Study Hub</title>
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/core.css">
+</head>
+<body>
+  <div class="wrap">
+    <p class="site-mark">CHEM 1110 &middot; SELF-QUIZ</p>
+    <h1 class="site-title">Chem Study Hub</h1>
+    <p class="site-lede">Homework quizzes recreated exactly from the source, a navigator for every question type, and one practice bank that pools them all. Grading is instant, and your place is saved if you leave mid-quiz.</p>
+
+    <p class="section-label">Drill &amp; flowcharts</p>
+    <div class="slide-grid">
+      <a class="slide-card" href="navigator/index.html" style="grid-column:1/-1">
+        <div class="s-title">Chem Navigator</div>
+        <div class="s-sub">"What is your question asking you to do?" Step-by-step flowcharts, check-my-answer tools, and the naming and shapes drill</div>
+        <span class="s-count">Test 2 &middot; HW 07–12</span>
+      </a>
+      <a class="slide-card alt" href="drill/index.html" style="grid-column:1/-1">
+        <div class="s-title">Chem Practice Bank</div>
+        <div class="s-sub">Every homework question in one bank. Filter by test and homework, resume where you left off, review misses, and sync every answer to your Google Sheet</div>
+        <span class="s-count" id="bankCount">&nbsp;</span>
+      </a>
+    </div>
+
+    <div id="tests"><p class="note">Loading…</p></div>
+
+    <footer class="note">Questions match the source homework exactly. To add a homework set, see README.md.</footer>
+  </div>
+  <script src="assets/chem-core.js"></script>
+  <script>
+  (async function () {
+    const box = document.getElementById('tests');
+    let man;
+    try { man = await (await fetch('data/manifest.json')).json(); }
+    catch (e) { box.innerHTML = '<p class="empty-test">Could not load the quiz list. Open this site from GitHub Pages (or a local web server), not as a file.</p>'; return; }
+    let saved = {};
+    try { saved = JSON.parse(localStorage.getItem('chem-hub-quiz-v1') || '{}'); } catch (e) {}
+    const esc = Chem.esc;
+    let total = 0;
+    box.innerHTML = man.tests.map(t => {
+      const head = `<p class="section-label">${esc(t.title)}${t.sub ? ' &mdash; ' + esc(t.sub) : ''}</p>`;
+      if (!t.items.length) return head + `<p class="empty-test">Not added yet.</p>`;
+      return head + '<ul class="module-list">' + t.items.map(it => {
+        const pills = it.quizzes.map((z, k) => {
+          total += z.count;
+          const done = saved[z.slug] ? Object.keys(saved[z.slug].answers || {}).length : 0;
+          const prog = done && done < z.count ? ` <span class="done">&middot; ${done}/${z.count} done</span>` : done === z.count ? ' <span class="done">&middot; done</span>' : '';
+          return `<a class="quiz-pill${k ? ' pill-' + Math.min(k + 1, 3) : ''}" href="quiz/index.html?q=${encodeURIComponent(z.slug)}">${esc(z.label)} &middot; ${z.count}Q${prog}</a>`;
+        }).join('');
+        const qa = it.qa
+          ? `<a class="quiz-pill pill-qa" href="qa/index.html?q=${encodeURIComponent(it.qa)}">Study Guide Q&amp;A</a>`
+          : `<span class="quiz-pill pill-off" title="Not added yet">Study Guide Q&amp;A</span>`;
+        return `<li><div class="m-row"><span class="num">${esc(it.num)}</span><span class="titles"><span class="m-title">${esc(it.title)}</span><br><span class="m-sub">${esc(it.subtitle)}</span></span><span class="quiz-links">${pills}${qa}</span></div></li>`;
+      }).join('') + '</ul>';
+    }).join('');
+    document.getElementById('bankCount').textContent = total + ' questions';
+  })();
+  Chem.resources('assets/');
+  </script>
+</body>
+</html>

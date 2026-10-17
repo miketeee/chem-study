@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chem Practice Bank</title>
+<meta name="description" content="Every CHEM 1110 homework question in one bank, with test and homework filters, resume, missed list, and Google Sheet sync.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../assets/core.css">
+<style>
+/* Layout copied from the CCMA practice bank (same as the Micro Practice Bank); colors from the Chem Study Hub. */
+:root{
+  --bg:#EDF1F2; --surface:#F8FAFA; --ink:#1C2529; --muted:#4F5E64; --line:#CBD5D8;
+  --accent:#1F5A7A; --accent-soft:#DCE8EF; --grid:#E1E8EA; --grid-strong:#C9DCE6; --raised:#E8EEF0;
+  --good:#1d7a4a; --good-soft:#e2f3ea; --bad:#b4322a; --bad-soft:#fbe7e5; --warn:#8a5a00; --warn-soft:#fbf1dc;
+  --display:"Fraunces",Georgia,serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#10151c; --surface:#18202a; --ink:#e6ebf1; --muted:#9aa6b5; --line:#2a3442;
+  --accent:#7FB6D6; --accent-soft:#1C2E3A; --grid:#1d252e; --grid-strong:#24384a; --raised:#1d2631;
+  --good:#5fcf94; --good-soft:#15291f; --bad:#f08a80; --bad-soft:#341b1a; --warn:#e8b65a; --warn-soft:#2e2414; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#10151c; --surface:#18202a; --ink:#e6ebf1; --muted:#9aa6b5; --line:#2a3442;
+  --accent:#7FB6D6; --accent-soft:#1C2E3A; --grid:#1d252e; --grid-strong:#24384a; --raised:#1d2631;
+  --good:#5fcf94; --good-soft:#15291f; --bad:#f08a80; --bad-soft:#341b1a; --warn:#e8b65a; --warn-soft:#2e2414; color-scheme:dark}
+:root{--c-accent:var(--accent);--c-accent-soft:var(--accent-soft);--c-good:var(--good);--c-good-soft:var(--good-soft);--c-bad:var(--bad);--c-bad-soft:var(--bad-soft);--c-line:var(--line);--c-surface:var(--surface);--c-raised:var(--raised);--c-ink:var(--ink);--c-muted:var(--muted);--c-mono:var(--mono)}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--ink);font:16px/1.55 var(--body);padding-inline:16px;padding-block:0 48px}
+.wrap{max-width:720px;margin:0 auto}
+header.strip{margin:0 -16px 24px;padding:22px 16px 18px;border-bottom:1px solid var(--line);
+  background-color:var(--surface);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px),
+    linear-gradient(var(--grid-strong) 1px,transparent 1px),linear-gradient(90deg,var(--grid-strong) 1px,transparent 1px);
+  background-size:8px 8px,8px 8px,40px 40px,40px 40px}
+header .wrap{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap}
+h1{font:700 2.1rem/1.05 var(--display);letter-spacing:-.01em;margin:0;text-wrap:balance}
+h1 small{display:block;font:500 .78rem/1.4 var(--mono);letter-spacing:.06em;color:var(--muted);text-transform:none;margin-top:6px}
+h2{font:700 1.3rem/1.1 var(--display);letter-spacing:0;margin:0 0 12px}
+.label{font:600 .72rem/1 var(--body);letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px}
+.stack{display:grid;gap:20px}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,.opt:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.btn{border:1px solid var(--accent);background:var(--accent);color:var(--surface);border-radius:8px;padding:11px 18px;font-weight:600}
+.btn.ghost{background:transparent;color:var(--accent)}
+.btn.quiet{border-color:var(--line);background:transparent;color:var(--muted);font-weight:500}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 13px;font-size:.88rem}
+.seg button[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent);color:var(--accent);font-weight:600}
+.topics{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:8px}
+.topic{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;text-align:left;border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:9px 11px}
+.topic[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft)}
+.topic .box{width:16px;height:16px;border:1.5px solid var(--muted);border-radius:4px;display:grid;place-items:center;font-size:11px;line-height:1}
+.topic[aria-pressed="true"] .box{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+.topic .nm{font-size:.9rem;min-width:0}
+.topic .ct{font:500 .75rem var(--mono);color:var(--muted)}
+.meter{height:4px;border-radius:2px;background:var(--line);grid-column:2/4;overflow:hidden}
+.meter i{display:block;height:100%;background:var(--good)}
+.summary{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.summary div{border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:var(--surface)}
+.summary b{display:block;font:700 1.6rem/1.1 var(--display)}
+.note{font-size:.88rem;color:var(--muted)}
+/* quiz */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:2;background:var(--bg);padding-block:10px}
+.bar .row{justify-content:space-between}
+.progress{height:8px;border-radius:4px;background:var(--line);overflow:hidden;margin-top:8px}
+.progress i{display:block;height:100%;background:var(--accent);transition:width .25s}
+.qmeta{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:10px}
+.chip{font:600 .72rem/1 var(--body);letter-spacing:.06em;text-transform:uppercase;padding:5px 8px;border-radius:4px;background:var(--accent-soft);color:var(--accent)}
+.qtext{font-size:1.12rem;font-weight:600;line-height:1.45;margin:0 0 12px}
+.qtext img{max-width:100%;height:auto}
+.loading{padding:40px 0;text-align:center}
+.opts{display:grid;gap:8px}
+.opt{display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:start;text-align:left;width:100%;border:1.5px solid var(--line);background:var(--surface);border-radius:8px;padding:11px 12px}
+.opt .k{font:500 .85rem/1.7 var(--mono);color:var(--muted);border:1px solid var(--line);border-radius:5px;text-align:center}
+.opt span:last-child{min-width:0}
+.opt:hover:not(:disabled){border-color:var(--accent)}
+.opt.sel{border-color:var(--accent);background:var(--accent-soft)}
+.opt.right{border-color:var(--good);background:var(--good-soft)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.opt.right .k{background:var(--good);border-color:var(--good);color:var(--surface)}
+.opt.wrong .k{background:var(--bad);border-color:var(--bad);color:var(--surface)}
+.opt:disabled{cursor:default}
+.fb{margin-top:16px;border-radius:8px;padding:14px 16px;border-left:4px solid var(--good);background:var(--good-soft)}
+.fb.bad{border-left-color:var(--bad);background:var(--bad-soft)}
+.fb .verdict{font:700 1.15rem/1 var(--display);letter-spacing:.01em;color:var(--good);margin-bottom:6px}
+.fb.bad .verdict{color:var(--bad)}
+.fb p{margin:6px 0 0}
+.caution{margin-top:10px;font-size:.86rem;padding:8px 10px;border-radius:6px;background:var(--warn-soft);color:var(--warn)}
+.actions{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:18px}
+.hint{font-size:.8rem;color:var(--muted)}
+table{width:100%;border-collapse:collapse;font-size:.92rem}
+td,th{padding:8px 6px;border-bottom:1px solid var(--line);text-align:left}
+th{font:600 .72rem var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+td.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums}
+details{border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:var(--surface)}
+details+details{margin-top:8px}
+summary{cursor:pointer;font-weight:600}
+.confirm{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.pill{display:inline-block;font:600 .72rem/1 var(--body);letter-spacing:.04em;padding:4px 7px;border-radius:999px;white-space:nowrap}
+.pill.ok{background:var(--good-soft);color:var(--good)}.pill.bad{background:var(--bad-soft);color:var(--bad)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--muted);display:inline-block}
+.dot.on{background:var(--good)}.dot.wait{background:var(--warn)}.dot.err{background:var(--bad)}
+.field{display:grid;gap:6px}.field input{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px 12px;width:100%;min-width:0}
+.mrow{display:grid;grid-template-columns:3.2rem 1fr;gap:12px;align-items:start}
+.mrow .count{font:700 1.7rem/1 var(--display);color:var(--bad);text-align:center}
+.mrow .count small{display:block;font:500 .65rem/1.3 var(--body);color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.back{display:inline-block;margin-bottom:10px;font-size:.85rem;color:var(--accent);text-decoration:none}
+.back:hover{text-decoration:underline}
+.mrow details{border:0;padding:0;background:none}
+.mgwrap{margin-top:10px;border:0;padding:0;background:none}.mgroup .gtitle{display:flex;gap:8px;align-items:baseline;flex:1 1 220px;min-width:0}.mgroup h3{overflow-wrap:anywhere}.mgwrap>.stack{margin-top:10px}.mgroup{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:12px 14px;border:1.5px solid var(--line);border-radius:10px;background:var(--surface);cursor:pointer;list-style:none}.mgroup::-webkit-details-marker{display:none}.mgroup:hover{border-color:var(--accent)}.mgroup .chev{color:var(--accent);transition:transform .15s;display:inline-block}.mgwrap[open] .mgroup .chev{transform:rotate(90deg)}.mgroup h3{margin:0;font:600 1.05rem/1.3 var(--display)}.mgroup .gmeta{color:var(--muted);font-size:.86rem}.mgroup .btn{margin-left:auto;padding:5px 12px;font-size:.85rem}
+.misslog{margin:10px 0 0;padding-left:1.3em;font-size:.86rem;display:grid;gap:3px}
+.mrow summary{font-weight:600;line-height:1.4}
+.mmeta{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:6px;font-size:.8rem;color:var(--muted)}
+@media (max-width:480px){.summary{grid-template-columns:1fr 1fr 1fr}.summary b{font-size:1.3rem}h1{font-size:1.7rem}}
+@media (prefers-reduced-motion:reduce){.progress i{transition:none}}
+</style>
+</head>
+<body>
+
+<header class="strip"><div class="wrap">
+  <div><a class="back" href="../index.html">← Chem Study Hub</a> &nbsp; <a class="back" href="../navigator/index.html">Chem Navigator</a>
+  <h1>Chem Practice Bank<small id="bankline"></small></h1></div>
+</div></header>
+
+<main class="wrap">
+  <!-- SETUP -->
+  <p id="loading" class="note loading">Loading questions…</p>
+  <section id="setup" class="stack" hidden>
+    <div id="resumeBox" class="panel" hidden>
+      <div class="row" style="justify-content:space-between">
+        <div><div class="label">Session in progress</div><div id="resumeText" class="mono" style="margin-top:6px"></div></div>
+        <div class="row"><button class="btn" id="resumeBtn">Resume</button><button class="btn quiet" id="discardBtn">Discard</button></div>
+      </div>
+    </div>
+
+    <div class="summary" id="summary"></div>
+
+    <div class="row" style="justify-content:space-between">
+      <button class="btn ghost" id="missedBtn">Missed list</button>
+      <button class="btn quiet" id="syncBtn" aria-expanded="false"><span class="dot" id="syncDot"></span> <span id="syncText">Google Sheet: not connected</span></button>
+    </div>
+    <div class="panel stack" id="syncPanel" hidden>
+      <div><h2 style="margin-bottom:6px">Google Sheet sync</h2>
+        <p class="note" style="margin:0">Every answer is saved here first, then sent to your Sheet. If the connection drops, answers wait and go through on the next try. This only works on your GitHub Pages copy; the claude.ai copy can't contact other websites.</p></div>
+      <div class="field"><label class="label" for="syncUrl">Web app URL</label><input id="syncUrl" type="url" placeholder="https://script.google.com/macros/s/…/exec" autocomplete="off"></div>
+      <div class="field"><label class="label" for="syncKey">Secret phrase</label><input id="syncKey" type="password" placeholder="Same phrase as SECRET in Code.gs" autocomplete="off"></div>
+      <div class="row"><button class="btn" id="syncSave">Connect and sync</button><button class="btn ghost" id="syncNow">Sync now</button><button class="btn quiet" id="syncOff">Disconnect</button></div>
+      <p class="note" id="syncMsg" style="margin:0" role="status"></p>
+    </div>
+
+    <div class="panel stack">
+      <div>
+        <div class="row" style="justify-content:space-between;margin-bottom:10px">
+          <h2 style="margin:0">Homework</h2>
+          <div class="row"><button class="btn quiet" id="allTopics" style="padding:6px 10px">Select all</button><button class="btn quiet" id="noTopics" style="padding:6px 10px">Clear</button></div>
+        </div>
+        <div class="topics" id="topics"></div>
+        <p class="note" style="margin:10px 0 0">Green bar = share of that homework's questions you got right the last time you answered them.</p>
+      </div>
+      <div><div class="label" style="margin-bottom:8px">Test</div><div class="seg" id="examSeg"></div></div>
+      <div><div class="label" style="margin-bottom:8px">Which questions</div><div class="seg" id="modeSeg"></div></div>
+      <div><div class="label" style="margin-bottom:8px">How many</div><div class="seg" id="countSeg"></div></div>
+      <div><div class="label" style="margin-bottom:8px">Order</div><div class="seg" id="orderSeg"></div></div>
+      <div class="row" style="justify-content:space-between">
+        <span id="poolText" class="mono note"></span>
+        <button class="btn" id="startBtn">Start</button>
+      </div>
+    </div>
+
+    <div class="row" style="justify-content:space-between">
+      <p class="note" style="margin:0;max-width:52ch">Every question from the homework quizzes, word for word. Answers you give on the quiz pages count here too, so the missed list covers both.</p>
+      <div id="resetWrap" class="confirm"><button class="btn quiet" id="resetBtn">Reset my progress</button></div>
+    </div>
+  </section>
+
+  <!-- QUIZ -->
+  <section id="quiz" hidden>
+    <div class="bar">
+      <div class="row">
+        <span class="mono" id="qcount"></span>
+        <span class="mono" id="qscore"></span>
+      </div>
+      <div class="progress" role="progressbar" aria-label="Session progress" id="pbar"><i id="pfill"></i></div>
+    </div>
+    <article class="panel" style="margin-top:8px">
+      <div class="qmeta"><span class="chip" id="qtopic"></span><span class="mono note" id="qnum"></span></div>
+      <div class="qtext" id="qtext"></div>
+      <div id="qnotes"></div>
+      <div id="opts"></div>
+      <div class="actions">
+        <button class="btn quiet" id="endBtn">End session</button>
+        <div class="row"><button class="btn" id="nextBtn" hidden>Next</button></div>
+      </div>
+      <p class="hint">Keys: 1–9 or A–I to choose, Enter to check or continue.</p>
+    </article>
+  </section>
+
+  <!-- MISSED -->
+  <section id="missed" class="stack" hidden>
+    <div class="panel">
+      <div class="label">Missed list</div>
+      <p id="missedLead" style="margin:6px 0 0"></p>
+      <div class="label" style="margin-top:14px">Sort by</div><div class="seg" id="missSortSeg" style="margin-top:6px"></div>
+    </div>
+    <div class="row"><button class="btn" id="practiceMissed">Practice these</button><button class="btn ghost" id="missedHome">Back to setup</button></div>
+    <div id="missedList"></div>
+  </section>
+
+  <!-- RESULTS -->
+  <section id="results" class="stack" hidden>
+    <div class="panel">
+      <div class="label">Session complete</div>
+      <div class="row" style="align-items:baseline;gap:14px;margin-top:6px">
+        <span id="rscore" style="font:700 3rem/1 var(--display)"></span><span id="rdetail" class="mono note"></span>
+      </div>
+    </div>
+    <div class="panel"><h2>By topic</h2><div style="overflow-x:auto"><table id="rtable"></table></div></div>
+    <div id="rmissWrap"><h2>Missed questions</h2><div id="rmiss"></div></div>
+    <div class="row"><button class="btn" id="retryBtn">Retry these misses</button><button class="btn ghost" id="homeBtn">Back to setup</button></div>
+  </section>
+</main>
+
+<script src="../assets/chem-core.js"></script>
+<script>
+/* Chem Practice Bank — same app as the CCMA and Micro practice banks, reading every quiz listed in data/manifest.json.
+   New homework added to the manifest shows up here automatically. */
+(async function () {
+const $ = id => document.getElementById(id);
+let loaded;
+try { loaded = await Chem.loadAll('../'); }
+catch (e) { $('loading').textContent = 'Could not load the questions. Open this page from GitHub Pages (or a local web server), not as a file.'; return; }
+
+const BANK = [];
+for (const z of loaded.quizzes) for (const q of z.questions)
+  BANK.push(Object.assign({}, q, { test: z._test.id, testName: z._test.title, hw: z.slug, topic: `${z.title} · ${z.subtitle.replace(/^Ch\. \d+ — /, '')}` }));
+const BYN = Object.fromEntries(BANK.map(q => [q.id, q]));
+const EXAMS = loaded.man.tests.map(t => t.id).filter(t => BANK.some(q => q.test === t));
+const BANKNAME = Object.fromEntries(loaded.man.tests.map(t => [t.id, t.title]));
+const HW_ORDER = Object.fromEntries(loaded.quizzes.map((z, i) => [z.slug, i]));
+const qlabel = q => `${BANKNAME[q.test]} · ${q.topic.split(' · ')[0]} · Q${q.n}`;
+const TOPICS = [...new Set(BANK.map(q => q.topic))];
+const KEY = 'chem-practice-bank-v1';
+const esc = Chem.esc;
+
+let store = { stats: {}, session: null, history: [], pending: [], remote: null, prefs: { topics: TOPICS.slice(), exams: EXAMS.slice(), mode: 'all', count: 'all', order: 'shuffle' } };
+function loadStore() {
+  try { const s = JSON.parse(localStorage.getItem(KEY) || 'null'); if (s) store = Object.assign(store, s); } catch (e) {}
+  store.prefs = Object.assign({ topics: TOPICS.slice(), exams: EXAMS.slice(), mode: 'all', count: 'all', order: 'shuffle' }, store.prefs || {});
+  store.stats = store.stats || {}; store.history = store.history || []; store.pending = store.pending || [];
+}
+loadStore();
+/* topics you've never seen (a newly added homework) start selected */
+const knownTopics = store.prefs.known || store.prefs.topics.slice();
+store.prefs.topics = store.prefs.topics.filter(t => TOPICS.includes(t)).concat(TOPICS.filter(t => !knownTopics.includes(t) && !store.prefs.topics.includes(t)));
+store.prefs.exams = store.prefs.exams.filter(x => EXAMS.includes(x)).concat(EXAMS.filter(x => !(store.prefs.knownExams || store.prefs.exams).includes(x) && !store.prefs.exams.includes(x)));
+store.prefs.known = TOPICS.slice(); store.prefs.knownExams = EXAMS.slice();
+if (store.session && store.session.order.some(x => !BYN[x])) store.session = null;
+/* the quiz pages write answers into this same store, so re-read it before every save to keep theirs */
+function save() {
+  try {
+    const now = JSON.parse(localStorage.getItem(KEY) || 'null');
+    if (now && now.pending) { const have = new Set(store.pending.map(a => a.uid)); for (const a of now.pending) if (!have.has(a.uid) && !sentUids.has(a.uid)) store.pending.push(a); }
+    if (now && now.history && now.history.length > store.history.length) {
+      const mine = new Set(store.history.map(h => h.id + '@' + h.ts));
+      for (const h of now.history) if (!mine.has(h.id + '@' + h.ts)) { store.history.push(h); const st = now.stats && now.stats[h.id]; if (st) store.stats[h.id] = st; }
+      store.history.sort((a, b) => a.ts - b.ts);
+    }
+    localStorage.setItem(KEY, JSON.stringify(store));
+  } catch (e) {}
+}
+const sentUids = new Set();
+window.addEventListener('storage', e => { if (e.key === KEY) { save(); if (!$('setup').hidden) renderSetup(); } });
+
+$('loading').hidden = true; $('setup').hidden = false;
+
+/* ---------- setup ---------- */
+const MODES = [['all','All questions'],['missed','Missed last time'],['new','Not answered yet']];
+const COUNTS = [['all','All'],['10','10'],['25','25'],['50','50'],['100','100']];
+const ORDERS = [['shuffle','Shuffled'],['number','Homework order']];
+function seg(el, items, key) {
+  el.innerHTML = items.map(([v, t]) => `<button type="button" data-v="${v}" aria-pressed="${store.prefs[key] === v}">${t}</button>`).join('');
+  el.onclick = e => { const b = e.target.closest('button'); if (!b) return; store.prefs[key] = b.dataset.v; save(); renderSetup(); };
+}
+function pool() {
+  const p = store.prefs;
+  let qs = BANK.filter(q => p.topics.includes(q.topic) && p.exams.includes(q.test));
+  if (p.mode === 'missed') qs = qs.filter(q => store.stats[q.id] && store.stats[q.id].last === false);
+  if (p.mode === 'new') qs = qs.filter(q => !store.stats[q.id]);
+  return qs;
+}
+function renderSetup() {
+  const st = store.stats, IN = BANK.filter(q => store.prefs.exams.includes(q.test)), seen = IN.filter(q => st[q.id]);
+  const right = seen.filter(q => st[q.id].last).length;
+  $('summary').innerHTML =
+    `<div><span class="label">Answered</span><b class="mono">${seen.length}<span class="note">/${IN.length}</span></b></div>` +
+    `<div><span class="label">Right last time</span><b class="mono">${seen.length ? Math.round(100 * right / seen.length) : 0}%</b></div>` +
+    `<div><span class="label">To review</span><b class="mono">${seen.length - right}</b></div>`;
+  $('topics').innerHTML = TOPICS.filter(t => IN.some(q => q.topic === t)).map(t => {
+    const qs = IN.filter(q => q.topic === t), s = qs.filter(q => st[q.id]), r = s.filter(q => st[q.id].last).length;
+    const on = store.prefs.topics.includes(t);
+    return `<button type="button" class="topic" data-t="${esc(t)}" aria-pressed="${on}"><span class="box">${on ? '✓' : ''}</span><span class="nm">${esc(t)}</span><span class="ct">${r}/${qs.length}</span><span class="meter"><i style="width:${qs.length ? 100 * r / qs.length : 0}%"></i></span></button>`;
+  }).join('') || '<p class="note" style="margin:0">Pick a test below.</p>';
+  $('examSeg').innerHTML = EXAMS.map(x => `<button type="button" data-x="${x}" aria-pressed="${store.prefs.exams.includes(x)}">${esc(BANKNAME[x])} <span class="note">(${BANK.filter(q => q.test === x).length})</span></button>`).join('');
+  seg($('modeSeg'), MODES, 'mode'); seg($('countSeg'), COUNTS, 'count'); seg($('orderSeg'), ORDERS, 'order');
+  const n = pool().length, c = store.prefs.count === 'all' ? n : Math.min(n, +store.prefs.count);
+  $('poolText').textContent = n ? `${c} question${c === 1 ? '' : 's'} in this session` : 'No questions match these settings';
+  $('startBtn').disabled = !n;
+  const s = store.session;
+  $('resumeBox').hidden = !(s && s.i < s.order.length);
+  if (s) $('resumeText').textContent = `Question ${Math.min(s.i + 1, s.order.length)} of ${s.order.length} · ${s.right} right so far`;
+}
+$('topics').onclick = e => {
+  const b = e.target.closest('.topic'); if (!b) return;
+  const t = b.dataset.t, a = store.prefs.topics;
+  store.prefs.topics = a.includes(t) ? a.filter(x => x !== t) : a.concat(t); save(); renderSetup();
+};
+$('examSeg').onclick = e => {
+  const b = e.target.closest('button'); if (!b) return;
+  const x = b.dataset.x, a = store.prefs.exams;
+  store.prefs.exams = a.includes(x) ? a.filter(y => y !== x) : EXAMS.filter(y => a.includes(y) || y === x); save(); renderSetup();
+};
+$('allTopics').onclick = () => { store.prefs.topics = TOPICS.slice(); save(); renderSetup(); };
+$('noTopics').onclick = () => { store.prefs.topics = []; save(); renderSetup(); };
+const byOrder = (a, b) => HW_ORDER[BYN[a].hw] - HW_ORDER[BYN[b].hw] || BYN[a].n - BYN[b].n;
+$('startBtn').onclick = () => {
+  let qs = pool().map(q => q.id);
+  if (store.prefs.order === 'shuffle') shuffle(qs); else qs.sort(byOrder);
+  if (store.prefs.count !== 'all') qs = qs.slice(0, +store.prefs.count);
+  begin(qs);
+};
+$('resumeBtn').onclick = () => show('quiz');
+$('discardBtn').onclick = () => { store.session = null; save(); renderSetup(); };
+function bindReset() { const b = $('resetBtn'); if (b) b.onclick = () => { $('resetWrap').innerHTML = '<span class="note">' + (connected() ? 'Clear this device\'s copy? Your Google Sheet keeps every answer and will refill it.' : 'Clear all scores and the current session?') + '</span><button class="btn quiet" id="rsNo">Keep</button><button class="btn" id="rsYes" style="background:var(--bad);border-color:var(--bad)">Clear</button>'; $('rsNo').onclick = () => { resetMarkup(); }; $('rsYes').onclick = () => { store.stats = {}; store.history = []; store.session = null; store.remote = null; try { localStorage.setItem(KEY, JSON.stringify(store)); } catch (e) {} resetMarkup(); renderSetup(); pull(); }; }; }
+function resetMarkup() { $('resetWrap').innerHTML = '<button class="btn quiet" id="resetBtn">Reset my progress</button>'; bindReset(); }
+bindReset();
+function shuffle(a) { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+
+/* ---------- quiz ---------- */
+let ctl = null;
+function begin(order) { store.session = { order, i: 0, right: 0, results: {} }; save(); show('quiz'); }
+function show(view) {
+  for (const v of ['setup', 'quiz', 'results', 'missed']) $(v).hidden = v !== view;
+  if (view === 'missed') renderMissed();
+  if (view === 'setup') renderSetup();
+  if (view === 'quiz') renderQ();
+  if (view === 'results') renderResults();
+  window.scrollTo(0, 0);
+}
+function cur() { const s = store.session; return BYN[s.order[s.i]]; }
+function bar() {
+  const s = store.session, answered = Object.keys(s.results).length, pct = 100 * answered / s.order.length;
+  $('qscore').textContent = `${s.right}/${answered} right`;
+  $('pfill').style.width = pct + '%'; $('pbar').setAttribute('aria-valuenow', Math.round(pct));
+}
+function renderQ() {
+  const s = store.session;
+  if (s.i >= s.order.length) return show('results');
+  const q = cur(), done = s.results[q.id];
+  $('qcount').textContent = `Question ${s.i + 1} of ${s.order.length}`;
+  bar();
+  $('qtopic').textContent = q.topic.split(' · ')[0] + ' · ' + Chem.TYPE_LABEL[q.type]; $('qnum').textContent = qlabel(q);
+  $('qtext').innerHTML = q.q;
+  $('qnotes').replaceChildren(Chem.notes.widget(q, q.hw));
+  ctl = Chem.mount(q, $('opts'), { saved: done && done.r, onGrade: (r, ok) => graded(q, r, ok) });
+  $('nextBtn').hidden = !done;
+  if (done) nextLabel();
+}
+function graded(q, r, ok) {
+  const s = store.session, picked = Chem.pickedText(q, r);
+  s.results[q.id] = { r, picked, ok }; if (ok) s.right++;
+  const st = store.stats[q.id] || { seen: 0, right: 0 };
+  st.seen++; if (ok) st.right++; st.last = ok; st.lastAt = Date.now(); store.stats[q.id] = st;
+  store.history.push({ id: q.id, picked, ok, ts: Date.now() });  // every answer, kept even after you later get it right
+  queueAttempt(q, picked, ok);
+  save();  // checkpoint after every answer
+  bar();
+  $('nextBtn').hidden = false; nextLabel();
+}
+function nextLabel() {
+  $('nextBtn').textContent = store.session.i + 1 >= store.session.order.length ? 'See results' : 'Next';
+  $('nextBtn').focus({ preventScroll: true });
+}
+$('nextBtn').onclick = () => { store.session.i++; save(); renderQ(); window.scrollTo(0, 0); };
+$('endBtn').onclick = () => { save(); show('setup'); };
+document.addEventListener('keydown', e => {
+  if ($('quiz').hidden || e.metaKey || e.ctrlKey || e.altKey || !ctl) return;
+  const tag = e.target.tagName;
+  if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
+  const k = e.key.toLowerCase();
+  let idx = '123456789'.indexOf(k); if (idx < 0) idx = 'abcdefghi'.indexOf(k);
+  if (idx >= 0 && k.length === 1) { e.preventDefault(); ctl.choose(idx); }
+  else if (e.key === 'Enter') {
+    if (!$('nextBtn').hidden) { e.preventDefault(); $('nextBtn').click(); }
+    else if (!ctl.graded) { e.preventDefault(); ctl.check(); }
+  }
+});
+
+/* ---------- results ---------- */
+let lastMisses = [];
+function renderResults() {
+  const s = store.session, ns = s.order, res = s.results;
+  const n = Object.keys(res).length, r = s.right;
+  $('rscore').textContent = n ? Math.round(100 * r / n) + '%' : '–';
+  $('rdetail').textContent = `${r} of ${n} right`;
+  const rows = TOPICS.map(t => { const q = ns.filter(x => BYN[x].topic === t && res[x]); return [t, q.length, q.filter(x => res[x].ok).length]; }).filter(x => x[1]);
+  $('rtable').innerHTML = '<tr><th>Homework</th><th style="text-align:right">Right</th><th style="text-align:right">Score</th></tr>' +
+    rows.map(([t, a, b]) => `<tr><td>${esc(t)}</td><td class="num">${b}/${a}</td><td class="num">${Math.round(100 * b / a)}%</td></tr>`).join('');
+  lastMisses = ns.filter(x => res[x] && !res[x].ok);
+  $('rmissWrap').hidden = !lastMisses.length; $('retryBtn').hidden = !lastMisses.length;
+  $('rmiss').innerHTML = lastMisses.map(x => { const q = BYN[x];
+    return `<details><summary>${esc(qlabel(q))}. ${esc(Chem.strip(q.q))}</summary><p><strong>Your answer:</strong> ${esc(res[x].picked || '—')}<br><strong>Correct:</strong><br>${Chem.answerHtml(q)}</p>${q.note ? `<p class="note">${q.note}</p>` : ''}</details>`; }).join('');
+}
+$('retryBtn').onclick = () => begin(shuffle(lastMisses.slice()));
+$('homeBtn').onclick = () => { store.session = null; save(); show('setup'); };
+
+/* ---------- Google Sheet sync ----------
+   Every answer goes into store.pending (saved in the browser) before anything is sent,
+   so a crash, reload or dropped connection never loses it; it is removed only after the Sheet confirms it.
+   The URL and secret phrase are shared with the quiz pages (their notes and answers use the same Sheet). */
+const connected = () => Chem.sync.connected();
+function queueAttempt(q, picked, ok) {
+  if (!connected()) return;
+  store.pending.push({ uid: Chem.sync.uid(), id: q.id, exam: 'Practice Bank', n: q.n, topic: BANKNAME[q.test] + ' · ' + q.topic.split(' · ')[0], q: Chem.strip(q.q).slice(0, 300), picked, ok, ts: Date.now(), device: Chem.sync.get().device });
+  save(); flushSoon();
+}
+function rebuildStats() {
+  if (!store.remote) return;
+  const st = {};
+  for (const [id, r] of Object.entries(store.remote)) if (BYN[id]) st[id] = { seen: r.seen, right: r.right, last: r.last, lastAt: r.lastAt };
+  for (const a of store.pending) {
+    const s = st[a.id] || (st[a.id] = { seen: 0, right: 0, last: null, lastAt: 0 });
+    if (a.source === 'baseline') { s.seen += a.seen; s.right += a.right; if (a.ts >= s.lastAt) { s.last = a.ok; s.lastAt = a.ts; } }
+    else { s.seen++; if (a.ok) s.right++; if (a.ts >= s.lastAt) { s.last = a.ok; s.lastAt = a.ts; } }
+  }
+  store.stats = st;
+}
+function setSync(state, text) { $('syncDot').className = 'dot ' + state; $('syncText').textContent = text; }
+function syncLabel() {
+  if (!connected()) return setSync('', 'Google Sheet: not connected');
+  const n = store.pending.length;
+  setSync(n ? 'wait' : 'on', n ? `Google Sheet: ${n} answer${n > 1 ? 's' : ''} waiting` : 'Google Sheet: synced');
+}
+let flushTimer = null, busy = false;
+function flushSoon() { syncLabel(); clearTimeout(flushTimer); flushTimer = setTimeout(flush, 1500); }
+function syncError(e) {
+  const msg = /Wrong secret/.test(e.message) ? 'The secret phrase does not match SECRET in Code.gs.'
+    : "Couldn't reach your Google Sheet. Answers are saved on this device and will send on the next try. (The claude.ai copy of this page can't contact other websites; use your GitHub Pages copy.)";
+  setSync('err', 'Google Sheet: not reachable'); $('syncMsg').textContent = msg;
+}
+async function flush() {
+  if (!connected() || busy) return;
+  busy = true;
+  try {
+    save();
+    if (!store.remote) { const d = await Chem.sync.call('GET'); store.remote = d.stats; }
+    while (store.pending.length) {
+      const batch = store.pending.slice(0, 200);
+      const d = await Chem.sync.call('POST', { attempts: batch });
+      batch.forEach(a => sentUids.add(a.uid));
+      const sent = new Set(batch.map(a => a.uid));
+      store.pending = store.pending.filter(a => !sent.has(a.uid));
+      store.remote = d.stats; save();
+    }
+    await Chem.notes.flush();
+    rebuildStats(); save(); syncLabel();
+    $('syncMsg').textContent = 'Last synced ' + new Date().toLocaleTimeString();
+    if (!$('setup').hidden) renderSetup();
+    if (!$('missed').hidden) renderMissed();
+  } catch (e) { syncError(e); }
+  finally { busy = false; }
+}
+async function pull() {
+  if (!connected()) return syncLabel();
+  try { const d = await Chem.sync.call('GET'); store.remote = d.stats; rebuildStats(); save(); } catch (e) { return syncError(e); }
+  if (!$('setup').hidden) renderSetup();
+  flush();
+}
+$('syncBtn').onclick = () => {
+  const p = $('syncPanel'); p.hidden = !p.hidden; $('syncBtn').setAttribute('aria-expanded', String(!p.hidden));
+  const s = Chem.sync.get(); $('syncUrl').value = s.url; $('syncKey').value = s.key;
+};
+$('syncSave').onclick = () => {
+  const url = $('syncUrl').value.trim(), key = $('syncKey').value.trim();
+  if (!/^https:\/\/script\.google\.com\/.+\/exec/.test(url)) { $('syncMsg').textContent = 'Paste the Web app URL from Apps Script. It starts with https://script.google.com/ and ends with /exec.'; return; }
+  if (!key) { $('syncMsg').textContent = 'Enter the secret phrase you put in Code.gs.'; return; }
+  const s = Chem.sync.get(); Chem.sync.set({ url, key, device: s.device }); store.remote = null;
+  if (!store.baselineSent) {
+    // one-time upload of progress saved in this browser before the Sheet was connected
+    for (const [id, st] of Object.entries(store.stats)) {
+      const q = BYN[id]; if (!q || !st.seen) continue;
+      store.pending.push({ uid: 'base-' + s.device + '-' + id, source: 'baseline', id, exam: 'Before sync', n: q.n, topic: BANKNAME[q.test] + ' · ' + q.topic.split(' · ')[0], q: Chem.strip(q.q).slice(0, 300), seen: st.seen, right: st.right, ok: !!st.last, ts: st.lastAt || Date.now(), device: s.device });
+    }
+    store.baselineSent = true;
+  }
+  save(); $('syncMsg').textContent = 'Connecting…'; flush(); Chem.notes.load();
+};
+$('syncNow').onclick = () => { $('syncMsg').textContent = 'Syncing…'; store.remote = null; flush(); };
+$('syncOff').onclick = () => { const s = Chem.sync.get(); Chem.sync.set({ device: s.device }); save(); syncLabel(); $('syncMsg').textContent = 'Disconnected. Progress stays on this device.'; };
+window.addEventListener('online', flush);
+setInterval(() => { save(); if (store.pending.length) flush(); }, 60000);
+
+/* ---------- missed list: every question you've gotten wrong, here or on the quiz pages ---------- */
+function missedGroups() {
+  const out = [];
+  for (const [id, st] of Object.entries(store.stats)) {
+    const q = BYN[id]; if (!q || !st.seen) continue;
+    const wrong = st.seen - st.right;
+    if (wrong > 0) out.push({ id, wrong, right: st.right, last: st.last, lastAt: st.lastAt || 0 });
+  }
+  return out.sort((a, b) => b.wrong - a.wrong || (a.last === b.last ? 0 : a.last ? 1 : -1) || byOrder(a.id, b.id));
+}
+const OPEN_GROUPS = new Set();   // groups you've expanded this visit; all start collapsed
+const MISS_SORTS = [['count', 'Most missed'], ['module', 'Homework'], ['bank', 'Test'], ['recent', 'Most recent miss']];
+const lastMiss = m => { const l = missLog(m.id); return l.length ? l[l.length - 1].ts : 0; };
+function missSections(ms) {
+  const by = store.prefs.missSort || 'count';
+  if (by === 'recent') return [{ title: '', list: ms.slice().sort((a, b) => lastMiss(b) - lastMiss(a)) }];
+  if (by === 'count') return [{ title: '', list: ms }];
+  const keyOf = m => by === 'module' ? BYN[m.id].topic : BANKNAME[BYN[m.id].test];
+  const order = by === 'module' ? TOPICS : EXAMS.map(x => BANKNAME[x]);
+  const g = {};
+  for (const m of ms) (g[keyOf(m)] = g[keyOf(m)] || []).push(m);
+  return order.filter(k => g[k]).map(k => ({ title: k, list: g[k] }));
+}
+function renderMissed() {
+  const ms = missedGroups(), total = ms.reduce((t, m) => t + m.wrong, 0);
+  if (!store.prefs.missSort) store.prefs.missSort = 'count';
+  $('missSortSeg').innerHTML = MISS_SORTS.map(([v, t]) => `<button type="button" data-v="${v}" aria-pressed="${store.prefs.missSort === v}">${t}</button>`).join('');
+  $('missSortSeg').hidden = $('missSortSeg').previousElementSibling.hidden = !ms.length;
+  $('missedLead').textContent = ms.length
+    ? `${ms.length} question${ms.length > 1 ? 's' : ''} missed, ${total} wrong answer${total > 1 ? 's' : ''} in all. Every wrong answer counts, even if you've since gotten it right. Open a question to see each miss. `
+    : 'Nothing missed yet. Every question you get wrong, here or on a quiz page, shows up here with a count and the date of each miss.';
+  $('practiceMissed').hidden = !ms.length;
+  $('practiceMissed').textContent = `Practice these (${ms.length})`;
+  const row = m => {
+    const q = BYN[m.id], log = missLog(m.id), undated = m.wrong - log.length;
+    return `<div class="panel mrow" style="padding:14px 16px"><div class="count mono">${m.wrong}<small>wrong</small></div><details><summary>${esc(Chem.strip(q.q))}</summary>
+      <ol class="misslog">${log.map(x => `<li><span class="mono">${when(x.ts)}</span> · answered ${esc(x.picked || '?')}</li>`).join('')}${undated > 0 ? `<li class="note">${undated} earlier miss${undated > 1 ? 'es' : ''} without a date</li>` : ''}</ol>
+      <p style="margin:10px 0 4px"><strong>Answer:</strong><br>${Chem.answerHtml(q)}</p>${q.note ? `<p class="note" style="margin:0">${q.note}</p>` : ''}</details>
+      <div class="mmeta" style="grid-column:2"><span class="pill ${m.last ? 'ok' : 'bad'}">Last: ${m.last ? 'right' : 'wrong'}</span><span>${m.right} right</span><span>· ${esc(qlabel(q))}</span></div></div>`;
+  };
+  $('missedList').innerHTML = missSections(ms).map((s, i) => s.title
+    ? `<details class="mgwrap" data-t="${esc(s.title)}"${OPEN_GROUPS.has(s.title) ? ' open' : ''}><summary class="mgroup"><span class="gtitle"><span class="chev" aria-hidden="true">▸</span><h3>${esc(s.title)}</h3></span><span class="gmeta">${s.list.length} question${s.list.length > 1 ? 's' : ''} · ${s.list.reduce((t, m) => t + m.wrong, 0)} wrong</span><button class="btn small" data-g="${i}">Practice this group</button></summary><div class="stack">${s.list.map(row).join('')}</div></details>`
+    : s.list.map(row).join('')).join('');
+}
+$('missSortSeg').onclick = e => { const b = e.target.closest('button'); if (!b) return; store.prefs.missSort = b.dataset.v; save(); renderMissed(); };
+$('missedList').addEventListener('toggle', e => { const d = e.target; if (!d.classList || !d.classList.contains('mgwrap')) return; d.open ? OPEN_GROUPS.add(d.dataset.t) : OPEN_GROUPS.delete(d.dataset.t); }, true);
+$('missedList').addEventListener('click', e => { const b = e.target.closest('button[data-g]'); if (!b) return; e.preventDefault();
+  const s = missSections(missedGroups())[+b.dataset.g]; if (s) begin(shuffle(s.list.map(m => m.id))); });
+/* dated misses for one question: from the Sheet when connected (all devices), plus this device's unsent ones; otherwise this device's history */
+function missLog(id) {
+  let list;
+  if (connected() && store.remote) {
+    list = ((store.remote[id] && store.remote[id].misses) || []).map(([t, p]) => ({ ts: t, picked: p }));
+    for (const a of store.pending) if (a.id === id && !a.source && !a.ok) list.push({ ts: a.ts, picked: a.picked });
+  } else list = (store.history || []).filter(h => h.id === id && !h.ok).map(h => ({ ts: h.ts, picked: h.picked }));
+  return list.sort((a, b) => a.ts - b.ts);
+}
+const when = t => new Date(t).toLocaleString([], { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' });
+$('missedBtn').onclick = () => show('missed');
+$('missedHome').onclick = () => show('setup');
+$('practiceMissed').onclick = () => begin(shuffle(missedGroups().map(m => m.id)));
+
+$('bankline').textContent = `CHEM 1110 · ${EXAMS.map(x => BANKNAME[x]).join(', ')} · ${BANK.length} questions from ${loaded.quizzes.length} homework sets`;
+save();
+renderSetup();
+syncLabel(); pull(); Chem.notes.load();
+Chem.resources('../assets/');
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Study Guide Q&amp;A — Chem Study Hub</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/core.css">
+</head>
+<body>
+  <div class="wrap qa-wrap" id="qa-root">
+    <a class="back-link" href="../index.html">&larr; All quizzes</a>
+    <p class="site-mark">CHEM STUDY HUB &middot; STUDY GUIDE Q&amp;A</p>
+    <div id="qa-content">Loading…</div>
+  </div>
+  <script src="../assets/chem-core.js"></script>
+  <script>
+    Chem.resources('../assets/');
+    const slug = new URLSearchParams(window.location.search).get('q');
+    const content = document.getElementById('qa-content');
+    if (!slug) {
+      content.innerHTML = '<p>No homework specified.</p>';
+    } else {
+      fetch('../data-qa/' + encodeURIComponent(slug) + '.html')
+        .then((r) => { if (!r.ok) throw new Error('missing'); return r.text(); })
+        .then((html) => {
+          content.innerHTML = html;
+          const h1 = content.querySelector('h1');
+          if (h1) document.title = h1.textContent + ' — Chem Study Hub';
+        })
+        .catch(() => {
+          content.innerHTML = '<p>No study guide for this homework yet. <a href="../index.html">Back to all quizzes.</a></p>';
+        });
+    }
+  </script>
+</body>
+</html>
