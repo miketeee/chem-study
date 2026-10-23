@@ -56,8 +56,48 @@
   {
    "id": "T3",
    "title": "Test 3",
-   "sub": "",
-   "items": []
+   "sub": "HW 13–15",
+   "items": [
+    {
+     "num": "13",
+     "title": "HW 13",
+     "subtitle": "Ch. 6 — Empirical & Molecular Formulas, Percent Composition",
+     "quizzes": [
+      {
+       "slug": "hw13",
+       "label": "Quiz",
+       "count": 20
+      }
+     ],
+     "qa": null
+    },
+    {
+     "num": "14",
+     "title": "HW 14",
+     "subtitle": "Ch. 6 — Solutions, Molarity & Dilutions",
+     "quizzes": [
+      {
+       "slug": "hw14",
+       "label": "Quiz",
+       "count": 30
+      }
+     ],
+     "qa": null
+    },
+    {
+     "num": "15",
+     "title": "HW 15",
+     "subtitle": "Ch. 7 — Reaction Types, Balancing & Predicting Products",
+     "quizzes": [
+      {
+       "slug": "hw15",
+       "label": "Quiz",
+       "count": 32
+      }
+     ],
+     "qa": null
+    }
+   ]
   }
  ]
 }

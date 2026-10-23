@@ -1,0 +1,534 @@
+{
+ "slug": "hw14",
+ "test": "T3",
+ "title": "HW 14",
+ "subtitle": "Ch. 6 — Solutions, Molarity & Dilutions",
+ "questions": [
+  {
+   "id": "hw14-q01",
+   "n": 1,
+   "type": "single",
+   "q": "What is the total mass of the solution when 1 gram of salt is dissolved in 20 grams of water?",
+   "opts": [
+    "20 grams",
+    "more than 21 grams",
+    "between 20 and 21 grams",
+    "19 grams",
+    "21 grams"
+   ],
+   "correct": 4,
+   "note": "Mass is conserved: solute + solvent = 1 + 20 = 21 g.",
+   "test": "T3"
+  },
+  {
+   "id": "hw14-q02",
+   "n": 2,
+   "type": "single",
+   "q": "A salt solution can be made more concentrated by boiling off some of the water. Which statement is true about the solution after this process?",
+   "opts": [
+    "The amount of solute remains the same but the amount of solvent decreases.",
+    "The amount of solute and the amount of solvent increase.",
+    "The amount of solute and the amount of solvent decrease.",
+    "The amount of solute remains the same but the amount of solvent increases.",
+    "The amount of solvent remains the same but the amount of solute decreases."
+   ],
+   "correct": 0,
+   "test": "T3"
+  },
+  {
+   "id": "hw14-q03",
+   "n": 3,
+   "type": "single",
+   "q": "The amount of solute in each of the beakers shown below is represented by the number of black dots. The volume is shown on the side. In which beaker does the solute have the smallest concentration?",
+   "opts": [
+    "Beaker 1",
+    "Beaker 2",
+    "Beaker 3",
+    "More than one has the same smallest concentration",
+    "Beaker 4"
+   ],
+   "correct": 2,
+   "tag": "Uses the beaker picture",
+   "given": "<img src=\"../assets/hw14-beakers.jpg\" alt=\"Four beakers, numbered 1 to 4, with dots for solute and liquid filled to different volumes\" style=\"width:100%;max-width:560px;border-radius:8px;background:#fff;padding:6px;\"><div class=\"q-given\">HINT: Count each dot as 1 mol. You should calculate a few to make sure.</div>",
+   "note": "Dots ÷ mL: Beaker 1: 8/10 = 0.8, Beaker 2: 6/10 = 0.6, Beaker 3: 6/15 = 0.4, Beaker 4: 12/20 = 0.6. Beaker 3 is lowest.",
+   "test": "T3"
+  },
+  {
+   "id": "hw14-q04",
+   "n": 4,
+   "type": "multi",
+   "q": "There are different ways of representing molarity. Select all the answers that represent a 1.0 molarity solution.",
+   "opts": [
+    "1.0 molality",
+    "1.0 mol solute ⁄ 1 L solution",
+    "1.0 moles popping out of a tunnel",
+    "1.0 L in a mol",
+    "1.0*",
+    "1.0 molar",
+    "[1.0]",
+    "1.0 M"
+   ],
+   "correct": [
+    1,
+    5,
+    6,
+    7
+   ],
+   "note": "Molarity is mol solute per L solution, written M, \"molar\", or with square brackets. Molality is a different unit.",
+   "test": "T3"
+  },
+  {
+   "id": "hw14-q05",
+   "n": 5,
+   "type": "single",
+   "q": "Solute, Solvent, Solution, Saturation — review the Molarity Defined and Molarity Calculations pages.",
+   "opts": [
+    "I understand."
+   ],
+   "correct": 0,
+   "test": "T3"
+  },
+  {
+   "id": "hw14-q06",
+   "n": 6,
+   "type": "single",
+   "q": "What is the molarity of a solution of potassium bromide if 4.50 moles is dissolved in enough water to make 0.750 L of solution?",
+   "opts": [
+    "6.00 M",
+    "3.38 M",
+    "0.167 M",
+    "3380 M",
+    "0.00600 M"
+   ],
+   "correct": 0,
+   "note": "M = mol ÷ L = 4.50 ÷ 0.750 = 6.00 M.",
+   "test": "T3"
+  },
+  {
+   "id": "hw14-q07",
+   "n": 7,
+   "type": "fill",
+   "q": "What is the molarity of a solution if 42.7 moles is dissolved in enough water to make 7.7 L of solution?",
+   "blanks": [
+    {
+     "label": "",
+     "answer": [
+      "5.5 M",
+      "5.5M",
+      "5.5"
+     ]
+    }
+   ],
+   "given": "Record your answer with the correct number of significant figures.",
+   "note": "42.7 ÷ 7.7 = 5.545. 7.7 L has two sig figs, so 5.5 M.",
+   "test": "T3"
+  },
+  {
+   "id": "hw14-q08",
+   "n": 8,
+   "type": "fill",
+   "q": "What is the molarity of a solution if 0.403 moles is dissolved in enough water to make 997.7 mL of solution? (Pay attention to the volume unit!!)",
+   "blanks": [
+    {
+     "label": "",
+     "answer": [
+      "0.404 M",
+      "0.404M",
+      "0.404"
+     ]
+    }
+   ],
+   "given": "Record your answer with the correct number of significant figures.",
+   "note": "997.7 mL = 0.9977 L. 0.403 ÷ 0.9977 = 0.404 M.",
+   "test": "T3"
+  },
+  {
+   "id": "hw14-q09",
+   "n": 9,
+   "type": "fill",
+   "q": "Calculate the molarity (M) of a solution if 0.395 moles is dissolved in enough water to make 702.0 mL of solution? (Pay attention to the volume unit!!)",
+   "blanks": [
+    {
+     "label": "",
+     "answer": [
+      "0.563 M",
+      "0.563M",
+      "0.563"
+     ]
+    }
+   ],
+   "given": "Record your answer with the correct number of significant figures.",
+   "note": "702.0 mL = 0.7020 L. 0.395 ÷ 0.7020 = 0.563 M.",
+   "test": "T3"
+  },
+  {
+   "id": "hw14-q10",
+   "n": 10,
+   "type": "single",
+   "q": "What is the molarity of a solution prepared by dissolving 1.92 grams of sodium perchlorate (NaClO₄ molar mass = 122.44 g/mol) in enough water to make 125 mL of soln?",
+   "opts": [
+    "0.144 M",
+    "0.0154 M",
+    "0.263 M",
+    "0.125 M",
+    "0.106 M"
+   ],
+   "correct": 3,
+   "note": "1.92 ÷ 122.44 = 0.01568 mol. ÷ 0.125 L = 0.125 M.",
+   "test": "T3"
+  },
+  {
+   "id": "hw14-q11",
+   "n": 11,
+   "type": "fill",
+   "q": "A solution is prepared by dissolving 17.0 g of potassium hydroxide (KOH, molar mass = 56.11 g/mol) in enough water to make 80.0 mL of solution. What is the molarity of this solution?",
+   "blanks": [
+    {
+     "label": "",
+     "answer": [
+      "3.79 M",
+      "3.79M",
+      "3.79"
+     ]
+    }
+   ],
+   "note": "17.0 ÷ 56.11 = 0.303 mol. ÷ 0.0800 L = 3.79 M.",
+   "test": "T3"
+  },
+  {
+   "id": "hw14-q12",
+   "n": 12,
+   "type": "fill",
+   "q": "What is the molarity of a solution prepared by dissolving 4.90 grams of calcium nitrite [Ca(NO₂)₂, molar mass = 132.10 g/mol] in enough water to make a 123.0 mL soln?",
+   "blanks": [
+    {
+     "label": "",
+     "answer": [
+      "0.302 M",
+      "0.302M",
+      "0.302"
+     ]
+    }
+   ],
+   "given": "Enter your answer in decimal form with the correct number of sig figs. Use the proper abbreviation for the units.",
+   "note": "4.90 ÷ 132.10 = 0.03709 mol. ÷ 0.1230 L = 0.302 M.",
+   "test": "T3"
+  },
+  {
+   "id": "hw14-q13",
+   "n": 13,
+   "type": "fill",
+   "q": "A student removed 115.0 mL of a 0.139 M KCl solution? How many moles of KCl are in this sample?",
+   "blanks": [
+    {
+     "label": "",
+     "answer": [
+      "0.0160 mol",
+      "0.0160mol",
+      "0.0160"
+     ]
+    }
+   ],
+   "note": "mol = M × L = 0.139 × 0.1150 = 0.0160 mol.",
+   "test": "T3"
+  },
+  {
+   "id": "hw14-q14",
+   "n": 14,
+   "type": "fill",
+   "q": "A student removed 140.0 mL of a 0.127 M KCl solution? How many moles of NaI are in this sample?",
+   "blanks": [
+    {
+     "label": "",
+     "answer": [
+      "0.0178 mol",
+      "0.0178mol",
+      "0.0178"
+     ]
+    }
+   ],
+   "note": "0.127 × 0.1400 = 0.0178 mol. (The question's mix of KCl and NaI is a typo in the original.)",
+   "test": "T3"
+  },
+  {
+   "id": "hw14-q15",
+   "n": 15,
+   "type": "single",
+   "q": "How many grams of iron(III) nitrate (241.86 g/mol) are needed to prepare 150.0 mL of 0.132 M solution?",
+   "opts": [
+    "0.132 g",
+    "19.8 g",
+    "4.79 g",
+    "0.880 g",
+    "31.9 g"
+   ],
+   "correct": 2,
+   "note": "0.132 × 0.1500 = 0.0198 mol × 241.86 = 4.79 g.",
+   "test": "T3"
+  },
+  {
+   "id": "hw14-q16",
+   "n": 16,
+   "type": "fill",
+   "q": "How many grams of benzoic acid (C₇H₆O₂, molar mass = 122.13 g/mol) are required to make 597.0 mL of a 0.41 M solution?",
+   "blanks": [
+    {
+     "label": "",
+     "answer": [
+      "30 g",
+      "30g",
+      "30"
+     ]
+    }
+   ],
+   "given": "Enter your answer in decimal form with the correct number of sig figs. Use the proper abbreviation for the units.",
+   "note": "0.41 × 0.5970 × 122.13 = 29.9 g. 0.41 has two sig figs, so 30 g.",
+   "test": "T3"
+  },
+  {
+   "id": "hw14-q17",
+   "n": 17,
+   "type": "fill",
+   "q": "How many grams are needed to make 80.0 mL solution of 0.110 M aluminum nitrate [Al(NO₃)₃, molar mass = 213.01 g/mol]?",
+   "blanks": [
+    {
+     "label": "",
+     "answer": [
+      "1.87 g",
+      "1.87g",
+      "1.87"
+     ]
+    }
+   ],
+   "note": "0.110 × 0.0800 × 213.01 = 1.87 g.",
+   "test": "T3"
+  },
+  {
+   "id": "hw14-q18",
+   "n": 18,
+   "type": "fill",
+   "q": "A student needed 0.733 mol of HCl. What volume (in L) of 0.143 M HCl solution would she take in order to get this sample?",
+   "blanks": [
+    {
+     "label": "",
+     "answer": [
+      "5.13 L",
+      "5.13L",
+      "5.13"
+     ]
+    }
+   ],
+   "note": "L = mol ÷ M = 0.733 ÷ 0.143 = 5.13 L.",
+   "test": "T3"
+  },
+  {
+   "id": "hw14-q19",
+   "n": 19,
+   "type": "fill",
+   "q": "A student needed 0.919 mol of KBr. What volume (in L) of 0.187 M KBr solution need to be added to the graduated cylinder?",
+   "blanks": [
+    {
+     "label": "",
+     "answer": [
+      "4.91 L",
+      "4.91L",
+      "4.91"
+     ]
+    }
+   ],
+   "note": "0.919 ÷ 0.187 = 4.91 L.",
+   "test": "T3"
+  },
+  {
+   "id": "hw14-q20",
+   "n": 20,
+   "type": "fill",
+   "q": "A student planned to evaporate a solution so that there was only solid left. They wanted to collect 3.41 g of lithium nitrate (LiNO₃ molar mass = 68.95 g/mol). What volume (in mL) of 0.911 M LiNO₃ solution need to be in the flask to generate the expected amount of LiNO₃?",
+   "blanks": [
+    {
+     "label": "",
+     "answer": [
+      "54.3 mL",
+      "54.3mL",
+      "54.3"
+     ]
+    }
+   ],
+   "given": "Be careful to pay attention to the units!",
+   "note": "3.41 ÷ 68.95 = 0.04946 mol. ÷ 0.911 M = 0.05429 L = 54.3 mL.",
+   "test": "T3"
+  },
+  {
+   "id": "hw14-q21",
+   "n": 21,
+   "type": "fill",
+   "q": "A student planned to evaporate a solution so that there was only solid left. They wanted to collect 1.19 g of sodium fluoride (NaF molar mass = 41.99 g/mol). What volume (in mL) of 0.945 M NaF solution need to be in the flask to generate the expected amount of NaF?",
+   "blanks": [
+    {
+     "label": "",
+     "answer": [
+      "29.9 mL",
+      "29.9mL",
+      "29.9",
+      "30.0 mL",
+      "30.0mL"
+     ]
+    }
+   ],
+   "given": "Be careful to pay attention to the units and report your answer with the correct number of significant figures!",
+   "note": "1.19 ÷ 41.99 = 0.02834 mol. ÷ 0.945 M = 0.02999 L. eLearn accepted 29.9 mL; strict rounding gives 30.0 mL, so both count here.",
+   "test": "T3"
+  },
+  {
+   "id": "hw14-q22",
+   "n": 22,
+   "type": "multi",
+   "q": "If a substance is diluted, what characteristics would you expect?",
+   "opts": [
+    "The solution will either have more volume or less solute.",
+    "The solution will have a darker vibrant color.",
+    "The numerical value of the molarity will go down.",
+    "If it is being created from a concentrated solution, the concentrated solution is put in a volumetric flask and then water is added so that it fills the entire flask to the very top."
+   ],
+   "correct": [
+    0,
+    2
+   ],
+   "note": "A diluted solution is lighter in color, and you fill to the graduation line, not the very top.",
+   "test": "T3"
+  },
+  {
+   "id": "hw14-q23",
+   "n": 23,
+   "type": "single",
+   "q": "When doing dilution calculations, why should the volume units be the same value?",
+   "opts": [
+    "So that the unit will cancel.",
+    "So that you know everything will fit in the any flask",
+    "So that the dilution is faster in the lab."
+   ],
+   "correct": 0,
+   "test": "T3"
+  },
+  {
+   "id": "hw14-q24",
+   "n": 24,
+   "type": "single",
+   "q": "What is the molarity of a solution prepared by diluting 153 mL of 2.6 M acetic acid to 750.0 mL?",
+   "opts": [
+    "1.9 M",
+    "2.6 M",
+    "0.53 M",
+    "0.078 M",
+    "13 M"
+   ],
+   "correct": 2,
+   "note": "M₁V₁ = M₂V₂: 2.6 × 153 ÷ 750.0 = 0.53 M.",
+   "test": "T3"
+  },
+  {
+   "id": "hw14-q25",
+   "n": 25,
+   "type": "fill",
+   "q": "A student prepared a solution by removing 20.0 mL of a 1.69 M HCl solution and transferring it to a 175.0 mL volumetric flask. She then filled the flask to the graduation line with deionized water. What is the concentration of the new solution?",
+   "blanks": [
+    {
+     "label": "",
+     "answer": [
+      "0.193 M",
+      "0.193M",
+      "0.193"
+     ]
+    }
+   ],
+   "note": "1.69 × 20.0 ÷ 175.0 = 0.193 M.",
+   "test": "T3"
+  },
+  {
+   "id": "hw14-q26",
+   "n": 26,
+   "type": "fill",
+   "q": "50.0 mL of a 1.63 M solution was transferred to a 250.0 mL volumetric flask. It was diluted to the graduation line with deionized water. What is the concentration of the new solution?",
+   "blanks": [
+    {
+     "label": "",
+     "answer": [
+      "0.326 M",
+      "0.326M",
+      "0.326"
+     ]
+    }
+   ],
+   "note": "1.63 × 50.0 ÷ 250.0 = 0.326 M.",
+   "test": "T3"
+  },
+  {
+   "id": "hw14-q27",
+   "n": 27,
+   "type": "fill",
+   "q": "How many milliliters (mL) of 10.0 M nitric acid (HNO₃) would be required to prepare 127.0 mL of 0.31 M nitric acid solution?",
+   "blanks": [
+    {
+     "label": "",
+     "answer": [
+      "3.9 mL",
+      "3.9mL",
+      "3.9"
+     ]
+    }
+   ],
+   "given": "Enter your answer in decimal form with the correct number of sig figs. Use the proper abbreviation for the units.",
+   "note": "0.31 × 127.0 ÷ 10.0 = 3.937. 0.31 has TWO sig figs, so 3.9 mL.",
+   "test": "T3"
+  },
+  {
+   "id": "hw14-q28",
+   "n": 28,
+   "type": "fill",
+   "q": "How many milliliters (mL) of a 10.0 M concentrated solution would be required to prepare 179.0 mL of a 0.31 M solution?",
+   "blanks": [
+    {
+     "label": "",
+     "answer": [
+      "5.5 mL",
+      "5.5mL",
+      "5.5"
+     ]
+    }
+   ],
+   "given": "Enter your answer in decimal form with the correct number of sig figs. Use the proper abbreviation for the units.",
+   "note": "0.31 × 179.0 ÷ 10.0 = 5.549, two sig figs: 5.5 mL.",
+   "test": "T3"
+  },
+  {
+   "id": "hw14-q29",
+   "n": 29,
+   "type": "fill",
+   "q": "A student wished to prepare 150.0 mL of a 0.650 M AgNO₃ solution. What volume (in mL) of 1.35 M AgNO₃ would she need to take?",
+   "blanks": [
+    {
+     "label": "",
+     "answer": [
+      "72.2 mL",
+      "72.2mL",
+      "72.2"
+     ]
+    }
+   ],
+   "note": "0.650 × 150.0 ÷ 1.35 = 72.2 mL.",
+   "test": "T3"
+  },
+  {
+   "id": "hw14-q30",
+   "n": 30,
+   "type": "single",
+   "q": "I understand that if I need more practice on this topic I can go to: Ch. 6 Exercises - Chemistry: Atoms First 2e | OpenStax EVEN numbered problems 20-42, which have answers when you click on the number of the problem.",
+   "opts": [
+    "True",
+    "False"
+   ],
+   "correct": 0,
+   "test": "T3"
+  }
+ ]
+}

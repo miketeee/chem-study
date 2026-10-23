@@ -1,0 +1,586 @@
+{
+ "slug": "hw15",
+ "test": "T3",
+ "title": "HW 15",
+ "subtitle": "Ch. 7 — Reaction Types, Balancing & Predicting Products",
+ "questions": [
+  {
+   "id": "hw15-q01",
+   "n": 1,
+   "type": "multi",
+   "q": "Identify which elements should be diatomic and which should not. Then select the elements that have correctly written symbols. Mark the ones that are correct.",
+   "opts": [
+    "nitrogen is N",
+    "oxygen is O₂",
+    "boron is B₂",
+    "potassium is K"
+   ],
+   "correct": [
+    1,
+    3
+   ],
+   "note": "The seven diatomics are H₂, N₂, O₂, F₂, Cl₂, Br₂, I₂ (HOFBrINCl). Nitrogen needs the 2; boron doesn't get one.",
+   "test": "T3"
+  },
+  {
+   "id": "hw15-q02",
+   "n": 2,
+   "type": "multi",
+   "q": "Select only the correctly written elements. There are seven correct answers. (Some will be written as though they are diatomic when they shouldn't be and others will be written as though they aren't diatomic when they should be.)",
+   "opts": [
+    "Na₂",
+    "Ba",
+    "Mg",
+    "C₂",
+    "I₂",
+    "Br₂",
+    "H₂",
+    "Li₂",
+    "Ne₂",
+    "F",
+    "N",
+    "O",
+    "Na",
+    "Si"
+   ],
+   "correct": [
+    1,
+    2,
+    4,
+    5,
+    6,
+    12,
+    13
+   ],
+   "note": "Diatomics need the 2 (I₂, Br₂, H₂); F, N, O are missing theirs. Na₂, C₂, Li₂, Ne₂ aren't diatomic.",
+   "test": "T3"
+  },
+  {
+   "id": "hw15-q03",
+   "n": 3,
+   "type": "single",
+   "q": "Do you remember your naming? Which correctly lists the precipitation reaction between aqueous solutions of copper(II) chlorite and aqueous lithium sulfide producing solid copper (II) sulfide and aqueous lithium chlorite? Make sure you balance it.",
+   "opts": [
+    "Cu(ClO₂)₂ (aq) + Li₂S (aq) → CuS (s) + 2 LiClO₂ (aq)",
+    "Cu₂Cl (aq) + 2 LiSO₃ (aq) → 2 CuSO₃ (s) + 2 LiCl (aq)",
+    "Cu(ClO₂)₂ (aq) + Li₂SO₃ (aq) → CuSO₃ (s) + 2 LiClO₂ (aq)",
+    "CuCl₂ (aq) + 2 LiS (aq) → CuS₂ (s) + 2 LiCl (aq)",
+    "CuCl₂ (aq) + Li₂SO₃ (aq) → CuSO₃ (s) + 2 LiCl (aq)"
+   ],
+   "correct": 0,
+   "note": "Chlorite is ClO₂⁻, so copper(II) chlorite is Cu(ClO₂)₂. Sulfide is S²⁻ (sulfite would be SO₃²⁻), so lithium sulfide is Li₂S.",
+   "test": "T3"
+  },
+  {
+   "id": "hw15-q04",
+   "n": 4,
+   "type": "multi",
+   "q": "Classify the following reaction. More than one answer may apply. 2 HgO (s) → 2 Hg (l) + O₂ (g)",
+   "opts": [
+    "single replacement",
+    "combustion",
+    "synthesis",
+    "decomposition",
+    "double replacement",
+    "precipitation"
+   ],
+   "correct": [
+    3
+   ],
+   "note": "One reactant breaking into simpler pieces is decomposition.",
+   "test": "T3"
+  },
+  {
+   "id": "hw15-q05",
+   "n": 5,
+   "type": "multi",
+   "q": "Classify the following reaction. More than one answer may apply. KCl (aq) + AgNO₃ (aq) → AgCl (s) + KNO₃ (aq)",
+   "opts": [
+    "single replacement",
+    "combustion",
+    "synthesis",
+    "decomposition",
+    "double replacement",
+    "oxidation reduction",
+    "precipitation"
+   ],
+   "correct": [
+    4,
+    6
+   ],
+   "note": "The partners swap (double replacement) and a solid forms (precipitation).",
+   "test": "T3"
+  },
+  {
+   "id": "hw15-q06",
+   "n": 6,
+   "type": "single",
+   "q": "The following equation is unbalanced. You do not need to balance it. Just identify the type of reaction represented by the equation. S(s) + O₂ (g) → SO₂ (g)",
+   "opts": [
+    "synthesis",
+    "single replacement",
+    "decomposition",
+    "double replacement"
+   ],
+   "correct": 0,
+   "note": "Two reactants combine into one product.",
+   "test": "T3"
+  },
+  {
+   "id": "hw15-q07",
+   "n": 7,
+   "type": "single",
+   "q": "The following equation is unbalanced. You do not need to balance it. Just identify the type of reaction represented by the equation. Pb(s) + AgNO₃ (aq) → Pb(NO₃)₂ (aq) + Ag(s)",
+   "opts": [
+    "synthesis",
+    "single replacement",
+    "double replacement",
+    "decomposition"
+   ],
+   "correct": 1,
+   "note": "An element (Pb) replaces another (Ag) in a compound.",
+   "test": "T3"
+  },
+  {
+   "id": "hw15-q08",
+   "n": 8,
+   "type": "single",
+   "q": "FLASHBACK: 1 mol of NaCl contains 6.022×10²³ NaCl compounds. Additionally, 1 mol of NaCl contains 1 mol of Na which means there are 6.022×10²³ Na atoms also.",
+   "opts": [
+    "True",
+    "False"
+   ],
+   "correct": 0,
+   "tag": "Flashback",
+   "test": "T3"
+  },
+  {
+   "id": "hw15-q09",
+   "n": 9,
+   "type": "single",
+   "q": "1 mol of Cl₂ contains 6.022×10²³ Cl₂ molecules. Additionally, 1 mol of Cl₂ contains 1 mol of Cl which means there are 6.022×10²³ Cl atoms also.",
+   "opts": [
+    "True",
+    "False"
+   ],
+   "correct": 1,
+   "note": "Each Cl₂ has two Cl atoms, so 1 mol Cl₂ holds 2 mol Cl (1.204×10²⁴ atoms).",
+   "test": "T3"
+  },
+  {
+   "id": "hw15-q10",
+   "n": 10,
+   "type": "single",
+   "q": "FLASHBACK: Mass is conserved in a chemical reaction because of The Law of Conservation of Mass. That means that the same number of each type of atom must show on each side of the reaction.",
+   "opts": [
+    "True",
+    "False"
+   ],
+   "correct": 0,
+   "tag": "Flashback",
+   "test": "T3"
+  },
+  {
+   "id": "hw15-q11",
+   "n": 11,
+   "type": "single",
+   "q": "The reason that reactions must be balanced with coefficients is because the Law of Conservation of Mass states that the total mass of all the elements in a reaction before and after a reaction will not change. Balancing the reaction ensures that the same number and types of each atom are written on both sides of the reaction, thus ensuring that the mass on both sides will be the same.",
+   "opts": [
+    "True",
+    "False"
+   ],
+   "correct": 0,
+   "test": "T3"
+  },
+  {
+   "id": "hw15-q12",
+   "n": 12,
+   "type": "single",
+   "q": "Which of the following must be the same before and after a chemical reaction?",
+   "opts": [
+    "1) the sum of the masses of all substances involved",
+    "2) the number of molecules of all substances involved",
+    "3) the number of atoms of each type involved",
+    "4) both (1) and (3) must be the same",
+    "5) all of the answers (1), (2), and (3) must be the same"
+   ],
+   "correct": 3,
+   "note": "Mass and atoms are conserved; the number of molecules can change (2 H₂ + O₂ → 2 H₂O goes from 3 to 2).",
+   "test": "T3"
+  },
+  {
+   "id": "hw15-q13",
+   "n": 13,
+   "type": "single",
+   "q": "Choose the response that best answers the question \"Why do we not change subscripts when balancing a chemical equation?\"",
+   "opts": [
+    "We can change subscripts. We can't change coefficients.",
+    "Compounds composed of the same elements and having different subscripts are different substances.",
+    "It's fine to do it once in a while, but don't make a habit of it.",
+    "There's no real reason to, it's just something that is not done.",
+    "We never change subscripts because atoms are neither created nor destroyed. This is part of the law of conservation of matter."
+   ],
+   "correct": 1,
+   "note": "H₂O → H₂O₂ turns water into hydrogen peroxide.",
+   "test": "T3"
+  },
+  {
+   "id": "hw15-q14",
+   "n": 14,
+   "type": "single",
+   "q": "Lithium is a metal that reacts vigorously with oxygen. Which set of coefficients balance the equation? Li + O₂ → Li₂O",
+   "opts": [
+    "1,2,1",
+    "4,1,2",
+    "2,2,1",
+    "1,2,2"
+   ],
+   "correct": 1,
+   "note": "O₂ needs 2 Li₂O, which needs 4 Li.",
+   "test": "T3"
+  },
+  {
+   "id": "hw15-q15",
+   "n": 15,
+   "type": "single",
+   "q": "Solid aluminum will react slowly with gaseous oxygen in the air to produce solid aluminum oxide. Write out this equation and balance it. When this equation is balanced with whole number coefficients, what are the coefficients on aluminum, oxygen, and aluminum oxide, in that order?",
+   "opts": [
+    "4, 6, 2",
+    "2, 3, 2",
+    "1, 3, 2",
+    "4, 3, 2",
+    "2, 3, 1"
+   ],
+   "correct": 3,
+   "note": "4 Al + 3 O₂ → 2 Al₂O₃. O: 2 and 3 meet at 6.",
+   "test": "T3"
+  },
+  {
+   "id": "hw15-q16",
+   "n": 16,
+   "type": "single",
+   "q": "When the following equation is balanced using the smallest possible integers, what is the number in front of the H₂O? Al₂O₃ (s) + H₂SO₄ (aq) → Al₂(SO₄)₃ (aq) + H₂O (l)",
+   "opts": [
+    "3",
+    "6",
+    "9",
+    "2",
+    "1"
+   ],
+   "correct": 0,
+   "note": "3 SO₄ → 3 H₂SO₄ → 6 H → 3 H₂O.",
+   "test": "T3"
+  },
+  {
+   "id": "hw15-q17",
+   "n": 17,
+   "type": "single",
+   "q": "When the following equation is balanced using the smallest possible integers, what is the number in front of the KBr(aq)? Br₂(l) + KI(aq) → I₂(aq) + KBr(aq)",
+   "opts": [
+    "4",
+    "1",
+    "2",
+    "5",
+    "3"
+   ],
+   "correct": 2,
+   "note": "Br₂ has 2 Br → 2 KBr → 2 KI.",
+   "test": "T3"
+  },
+  {
+   "id": "hw15-q18",
+   "n": 18,
+   "type": "fill",
+   "q": "Balance the following equation: ___ H₃PO₄ + ___ NaOH → ___ Na₃PO₄ + ___ H₂O",
+   "blanks": [
+    {
+     "label": "",
+     "answer": "1313"
+    }
+   ],
+   "given": "Enter your four coefficients without spaces or commas. For example, your answer should appear similar to 1423.",
+   "note": "3 Na → 3 NaOH; 3 OH + 3 H → 3 H₂O.",
+   "test": "T3"
+  },
+  {
+   "id": "hw15-q19",
+   "n": 19,
+   "type": "fill",
+   "q": "Balance the following reaction by filling in the blanks below. Na + I₂ → NaI",
+   "blanks": [
+    {
+     "label": "Na",
+     "answer": "2"
+    },
+    {
+     "label": "I₂",
+     "answer": "1"
+    },
+    {
+     "label": "NaI",
+     "answer": "2"
+    }
+   ],
+   "given": "Normally, you would not include a '1', but the program requires something in every blank, so include any \"1\" that is needed.",
+   "test": "T3"
+  },
+  {
+   "id": "hw15-q20",
+   "n": 20,
+   "type": "fill",
+   "q": "Balance the following reaction by filling in the blanks below. P₄ + O₂ → P₂O₃",
+   "blanks": [
+    {
+     "label": "P₄",
+     "answer": "1"
+    },
+    {
+     "label": "O₂",
+     "answer": "3"
+    },
+    {
+     "label": "P₂O₃",
+     "answer": "2"
+    }
+   ],
+   "given": "Normally, you would not include a '1', but the program requires something in every blank, so include any \"1\" that is needed.",
+   "test": "T3"
+  },
+  {
+   "id": "hw15-q21",
+   "n": 21,
+   "type": "fill",
+   "q": "Balance the following reaction by filling in the blanks below. N₄ + F₂ → NF₃",
+   "blanks": [
+    {
+     "label": "N₄",
+     "answer": "1"
+    },
+    {
+     "label": "F₂",
+     "answer": "6"
+    },
+    {
+     "label": "NF₃",
+     "answer": "4"
+    }
+   ],
+   "given": "Normally, you would not include a '1', but the program requires something in every blank, so include any \"1\" that is needed.",
+   "test": "T3"
+  },
+  {
+   "id": "hw15-q22",
+   "n": 22,
+   "type": "fill",
+   "q": "Balance the following reaction by filling in the blanks below. C₂H₆ + O₂ → H₂O + CO₂",
+   "blanks": [
+    {
+     "label": "C₂H₆",
+     "answer": "2"
+    },
+    {
+     "label": "O₂",
+     "answer": "7"
+    },
+    {
+     "label": "H₂O",
+     "answer": "6"
+    },
+    {
+     "label": "CO₂",
+     "answer": "4"
+    }
+   ],
+   "given": "For this one, do not balance it with fractions. Make sure your equation matches this equation — H₂O comes before CO₂. Normally, you would not include a '1', but the program requires something in every blank, so include any \"1\" that is needed.",
+   "test": "T3"
+  },
+  {
+   "id": "hw15-q23",
+   "n": 23,
+   "type": "fill",
+   "q": "Balance the following reaction by filling in the blanks below. C + SO₂ → CS₂ + CO",
+   "blanks": [
+    {
+     "label": "C",
+     "answer": "5"
+    },
+    {
+     "label": "SO₂",
+     "answer": "2"
+    },
+    {
+     "label": "CS₂",
+     "answer": "1"
+    },
+    {
+     "label": "CO",
+     "answer": "4"
+    }
+   ],
+   "given": "Normally, you would not include a '1', but the program requires something in every blank, so include any \"1\" that is needed.",
+   "test": "T3"
+  },
+  {
+   "id": "hw15-q24",
+   "n": 24,
+   "type": "fill",
+   "q": "Balance the following reaction by filling in the blanks below. Pay attention that this combustion reaction has an oxygen in the carbon reactant. C₃H₆O + O₂ → H₂O + CO₂",
+   "blanks": [
+    {
+     "label": "C₃H₆O",
+     "answer": "1"
+    },
+    {
+     "label": "O₂",
+     "answer": "4"
+    },
+    {
+     "label": "H₂O",
+     "answer": "3"
+    },
+    {
+     "label": "CO₂",
+     "answer": "3"
+    }
+   ],
+   "given": "For this one, do not balance it with fractions. Make sure your equation matches this equation — H₂O comes before CO₂. Normally, you would not include a '1', but the program requires something in every blank, so include any \"1\" that is needed.",
+   "test": "T3"
+  },
+  {
+   "id": "hw15-q25",
+   "n": 25,
+   "type": "fill",
+   "q": "Enter the compound formula, including state, of the missing substance (Y) in the balanced equation below. Do not give the coefficient. It will be an aq. Ba(NO₃)₂ + Li₂CO₃(aq) → Y + 2 LiNO₃(aq)",
+   "blanks": [
+    {
+     "label": "",
+     "answer": [
+      "BaCO3 (aq)",
+      "BaCO3(aq)"
+     ]
+    }
+   ],
+   "given": "Enter your answer such as Ca(OH)₂ as Ca(OH)2. Do not try to input subscripts. Put a space between the compound and the state (e.g. \"Ca(OH)2 (s)\").",
+   "note": "Ba²⁺ pairs with CO₃²⁻ → BaCO₃. In real life BaCO₃ is a solid, but this question asks for aq.",
+   "test": "T3"
+  },
+  {
+   "id": "hw15-q26",
+   "n": 26,
+   "type": "single",
+   "q": "When the following equation is balanced using the smallest possible integers, what is the number in front of the KNO₃? Pb(NO₃)₂(aq) + K₂CrO₄(aq) → PbCrO₄(s) + KNO₃(aq)",
+   "opts": [
+    "12",
+    "2",
+    "4",
+    "1",
+    "6"
+   ],
+   "correct": 1,
+   "note": "Pb(NO₃)₂ brings 2 NO₃ → 2 KNO₃.",
+   "test": "T3"
+  },
+  {
+   "id": "hw15-q27",
+   "n": 27,
+   "type": "single",
+   "q": "Predict the products for this reaction: (NH₄)₂CO₃ + Al(NO₃)₃ → (You do not have to balance it.)",
+   "opts": [
+    "(NH₄)₂CO₃ + Al(NO₃)₃",
+    "(NH₄)₂(NO₃)₃ + AlCO₃",
+    "NH₄NO₃ + Al₂(CO₃)₃"
+   ],
+   "correct": 2,
+   "note": "Swap partners, then fix formulas with charges: NH₄⁺ + NO₃⁻ → NH₄NO₃; Al³⁺ + CO₃²⁻ → Al₂(CO₃)₃.",
+   "test": "T3"
+  },
+  {
+   "id": "hw15-q28",
+   "n": 28,
+   "type": "single",
+   "q": "Predict the products for this reaction: Ni(NO₃)₃(aq) + KBr(aq) → (You do not have to balance it.)",
+   "opts": [
+    "Ni(NO₃)₃ + KBr",
+    "K(NO₃)₃ + NiBr",
+    "KNO₃ + NiBr₃"
+   ],
+   "correct": 2,
+   "note": "Ni is 3+ here (it holds three NO₃⁻), so it needs three Br⁻.",
+   "test": "T3"
+  },
+  {
+   "id": "hw15-q29",
+   "n": 29,
+   "type": "single",
+   "q": "Predict the products for this reaction: C₂H₆ + O₂ → (You do not need to balance it.)",
+   "opts": [
+    "H₂O + CO₂",
+    "C₂O₄ + H₂",
+    "C₂H₆O₂"
+   ],
+   "correct": 0,
+   "note": "Hydrocarbon + O₂ is combustion: always CO₂ + H₂O.",
+   "test": "T3"
+  },
+  {
+   "id": "hw15-q30",
+   "n": 30,
+   "type": "single",
+   "q": "Predict the product for this reaction: NaClO₃ + Mg → (You do not need to balance it.)",
+   "opts": [
+    "NaClO₃ + Mg",
+    "Mg(ClO₃)₂ + Na",
+    "MgNa + ClO₃",
+    "NaMgClO₃"
+   ],
+   "correct": 1,
+   "note": "Single replacement: Mg takes Na's place. Mg²⁺ needs two ClO₃⁻.",
+   "test": "T3"
+  },
+  {
+   "id": "hw15-q31",
+   "n": 31,
+   "type": "match",
+   "q": "Match the following reactions with the reaction type. You may use each type more than once.",
+   "items": [
+    "2 HgO (s) → 2 Hg (l) + O₂ (g)",
+    "4 C₂H₅ + 13 O₂ → 8 CO₂ + 10 H₂O",
+    "HCl (aq) + AgNO₃ (aq) → AgCl (s) + HNO₃ (aq)",
+    "2 Na (s) + H₂ (g) → 2 NaH (s)",
+    "K₂O₃ (s) + H₂SO₄ (aq) → K₂(SO₄)₃ (aq) + H₂O (l)",
+    "Mg (s) + 2 NaNO₃ (aq) → Mg(NO₃)₂ (aq) + Na (s)",
+    "Mg(OH)₂ (aq) + 2 HNO₂ (aq) → Mg(NO₂)₂ (aq) + 2 H₂O (l)"
+   ],
+   "opts": [
+    "synthesis",
+    "decomposition",
+    "single replacement",
+    "double replacement",
+    "combustion"
+   ],
+   "correct": [
+    1,
+    4,
+    3,
+    0,
+    3,
+    2,
+    3
+   ],
+   "note": "One reactant = decomposition. One product = synthesis. Lone element swapping in = single replacement. Two compounds swapping partners = double replacement. Fuel + O₂ → CO₂ + H₂O = combustion.",
+   "test": "T3"
+  },
+  {
+   "id": "hw15-q32",
+   "n": 32,
+   "type": "single",
+   "q": "I understand that if I need additional practice I can go to: Ch. 7 Exercises - Chemistry: Atoms First 2e | OpenStax and look at the odd problems #1-9. These problems have answers available to you when you click on the number of the problem in OpenStax.",
+   "opts": [
+    "True",
+    "False"
+   ],
+   "correct": 0,
+   "test": "T3"
+  }
+ ]
+}
