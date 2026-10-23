@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Walkthroughs — Chem Study Hub</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/core.css">
+<style>
+  .wt-legend{display:flex;flex-wrap:wrap;gap:8px 14px;margin:14px 0 4px;font-size:14px;color:var(--ink-soft)}
+  .tag{display:inline-flex;align-items:center;gap:4px;font:500 11px/1 'IBM Plex Mono',monospace;letter-spacing:.03em;text-transform:uppercase;padding:4px 7px;border-radius:999px;white-space:nowrap;vertical-align:1px}
+  .tag.mem{background:var(--pink-wash);color:#7A4310}
+  .tag.chart{background:var(--violet-wash);color:var(--violet-deep)}
+  .tag.both{background:linear-gradient(90deg,var(--pink-wash) 50%,var(--violet-wash) 50%);color:var(--ink)}
+  .tag.math{background:var(--paper-raised);color:var(--ink-soft)}
+  .wt-tabs{display:flex;flex-wrap:wrap;gap:6px;margin:18px 0 6px}
+  .wt-tabs button{font:500 14px 'IBM Plex Sans',sans-serif;border:1px solid var(--rule);background:#F8FAFA;color:var(--ink);padding:7px 12px;border-radius:999px;cursor:pointer}
+  .wt-tabs button[aria-pressed="true"]{background:var(--violet);border-color:var(--violet);color:#fff}
+  .wt-sec{font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--sage);margin:26px 0 8px}
+  details.wt{background:#F8FAFA;border:1px solid var(--rule);border-radius:12px;margin:0 0 10px;overflow:hidden}
+  details.wt[open]{border-color:var(--violet)}
+  details.wt>summary{list-style:none;cursor:pointer;padding:12px 14px;display:flex;gap:10px;align-items:baseline}
+  details.wt>summary::-webkit-details-marker{display:none}
+  .wt-n{font:600 13px 'IBM Plex Mono',monospace;color:var(--violet);min-width:2.6em}
+  .wt-h{flex:1;min-width:0}
+  .wt-q1{display:block;color:var(--ink);font-size:15px;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+  .wt-m{display:block;font-size:12.5px;color:var(--sage);margin-top:2px}
+  .wt-ok{font-size:15px;color:var(--good);min-width:1.2em;text-align:right}
+  .wt-body{padding:0 14px 14px;border-top:1px solid var(--rule)}
+  .wt-body .q-prompt{margin:12px 0 8px}
+  .wt-choices{margin:0 0 10px;padding-left:1.4em;color:var(--ink-soft);font-size:14.5px}
+  .wt-choices li{margin:2px 0}
+  .wt-body img{display:block;width:100%;max-width:560px;background:#fff;border-radius:8px;padding:6px;margin:4px 0 10px}
+  ol.steps{margin:10px 0 0;padding:0;list-style:none;counter-reset:s}
+  ol.steps li{counter-increment:s;position:relative;padding:9px 0 9px 34px;border-top:1px dashed var(--rule);font-size:15px}
+  ol.steps li:first-child{border-top:0}
+  ol.steps li::before{content:counter(s);position:absolute;left:0;top:9px;width:24px;height:24px;border-radius:50%;background:var(--violet-wash);color:var(--violet-deep);font:600 12px/24px 'IBM Plex Mono',monospace;text-align:center}
+  ol.steps .tag{margin-right:6px}
+  .wt-ans{margin:12px 0 0;padding:10px 12px;border-radius:10px;background:var(--good-wash);color:#1C4D31;font-size:15px}
+  .wt-ans b{font-weight:600}
+  details.method{margin:10px 0 0;border-radius:10px;background:var(--paper-raised)}
+  details.method>summary{cursor:pointer;padding:8px 12px;font-size:14px;color:var(--violet-deep);font-weight:500}
+  details.method ol.steps{padding:0 12px 8px}
+  .wt-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:12px}
+  .wt-btn{font:500 14px 'IBM Plex Sans',sans-serif;border:1px solid var(--violet);background:#fff;color:var(--violet);padding:7px 12px;border-radius:8px;cursor:pointer;text-decoration:none}
+  .wt-btn.on{background:var(--good);border-color:var(--good);color:#fff}
+  .memo{background:#F8FAFA;border:1px solid var(--rule);border-radius:12px;padding:4px 14px 12px;margin:0 0 10px}
+  .memo h3{font:600 15px 'IBM Plex Sans',sans-serif;margin:14px 0 4px;color:var(--ink)}
+  .memo ul{margin:0;padding-left:1.2em}
+  .memo li{margin:5px 0;font-size:14.5px}
+  .empty{color:var(--sage);font-size:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="quiz-head">
+    <a class="back-link" href="../index.html">&larr; Chem Study Hub</a>
+    <p class="site-mark">CHEM STUDY HUB &middot; TEST 3</p>
+    <h1 class="quiz-title">Walkthroughs</h1>
+    <p class="quiz-sub" id="sub">Every HW 13–15 problem worked step by step</p>
+  </div>
+  <div class="wt-legend">
+    <span><span class="tag mem">🧠 Memorize</span> a rule you need in your head</span>
+    <span><span class="tag chart">📊 Chart</span> read it off the periodic table, ion chart or problem</span>
+    <span><span class="tag both">🧠📊 Both</span> a memorized rule applied to the chart</span>
+    <span><span class="tag math">Work</span> arithmetic or reasoning</span>
+  </div>
+  <div class="score-bar">
+    <div class="score-row"><span><span id="doneN">0</span>/<span id="totN">0</span> marked "got it"</span><span class="num-correct" id="pct">0%</span></div>
+    <div class="progress-track" role="progressbar" aria-label="Walkthrough progress"><div class="progress-fill" id="pf"></div></div>
+  </div>
+  <div id="resume"></div>
+  <div class="wt-tabs" id="tabs"></div>
+  <div id="list"><p class="note">Loading…</p></div>
+</div>
+<script src="../assets/chem-core.js"></script>
+<script>
+/* Walkthroughs: reads data/walkthroughs.json. Checkpoint/resume: "Got it" marks and the last problem you opened are
+   saved in this browser right away (chem-hub-walkthrough-v1), so a reload or closed tab brings you back to it. */
+(function () {
+  const KEY = 'chem-hub-walkthrough-v1';
+  const WRITE_URL = 'https://miketeee.github.io/chem-write-bank/';
+  const load = () => { try { return JSON.parse(localStorage.getItem(KEY) || 'null') || {}; } catch (e) { return {}; } };
+  const st = Object.assign({ done: {}, last: null, tab: 'all' }, load());
+  const save = () => { try { localStorage.setItem(KEY, JSON.stringify(st)); } catch (e) {} };
+  const esc = Chem.esc, $ = id => document.getElementById(id);
+  const TAG = { mem: ['mem', '🧠 Memorize'], chart: ['chart', '📊 Chart'], both: ['both', '🧠📊 Both'], '': ['math', 'Work'] };
+  const tag = t => { const [c, l] = TAG[t || '']; return `<span class="tag ${c}">${l}</span>`; };
+  const stepsHtml = ss => `<ol class="steps">${ss.map(s => `<li>${tag(s.tag)}${s.html}</li>`).join('')}</ol>`;
+  Chem.resources('../assets/');
+
+  fetch('../data/walkthroughs.json').then(r => r.json()).then(render)
+    .catch(() => { $('list').innerHTML = '<p class="empty">Could not load the walkthroughs. Open this site from GitHub Pages or a local web server.</p>'; });
+
+  function render(D) {
+    const P = D.problems, BY = Object.fromEntries(P.map(p => [p.id, p]));
+    $('totN').textContent = P.length;
+    const tabs = [['all', 'All'], ...D.hws.map(h => ['hw' + h.hw, h.title]), ['memo', '🧠 Memorize list']];
+    const hashId = location.hash.slice(1);
+    if (/^hw\d+$/.test(hashId)) st.tab = hashId;
+    if (BY[hashId]) st.tab = 'hw' + BY[hashId].hw;
+    function drawTabs() {
+      $('tabs').innerHTML = tabs.map(([v, t]) => `<button type="button" data-v="${v}" aria-pressed="${st.tab === v}">${esc(t)}</button>`).join('');
+    }
+    $('tabs').onclick = e => { const b = e.target.closest('button'); if (!b) return; st.tab = b.dataset.v; save(); drawTabs(); drawList(); };
+
+    function progress() {
+      const n = P.filter(p => st.done[p.id]).length, pct = Math.round(100 * n / P.length);
+      $('doneN').textContent = n; $('pct').textContent = pct + '%'; $('pf').style.width = pct + '%';
+    }
+    function card(p) {
+      const m = D.methods[p.method];
+      const choices = p.choices ? `<ol class="wt-choices" type="a">${p.choices.map(c => `<li>${esc(c)}</li>`).join('')}</ol>` : '';
+      const img = p.img ? `<img src="../assets/${esc(p.img)}" alt="Picture for this question">` : '';
+      return `<details class="wt" id="${p.id}" data-id="${p.id}"><summary><span class="wt-n">Q${p.n}</span><span class="wt-h"><span class="wt-q1">${esc(p.q)}</span><span class="wt-m">${esc(m.title)}</span></span><span class="wt-ok">${st.done[p.id] ? '✓' : ''}</span></summary>
+        <div class="wt-body"><p class="q-prompt">${esc(p.q)}</p>${img}${choices}
+        <details class="method"><summary>The method: ${esc(m.title)}</summary>${stepsHtml(m.steps)}</details>
+        ${stepsHtml(p.steps)}
+        <p class="wt-ans">Answer: <b>${esc(p.answer)}</b></p>
+        <div class="wt-row"><button type="button" class="wt-btn${st.done[p.id] ? ' on' : ''}" data-got="${p.id}">${st.done[p.id] ? '✓ Got it' : 'Mark "got it"'}</button>
+        <a class="wt-btn" href="../quiz/index.html?q=hw${p.hw}#q-${p.n - 1}">Try it in the quiz</a>
+        <a class="wt-btn" href="${WRITE_URL}" target="_blank" rel="noopener">Write it out</a></div></div></details>`;
+    }
+    function memo() {
+      const ms = Object.entries(D.methods);
+      const pick = t => ms.map(([k, m]) => [m, m.steps.filter(s => t.includes(s.tag))]).filter(([, s]) => s.length);
+      const block = (title, rows) => `<div class="memo">${rows.map(([m, ss]) => `<h3>HW ${m.hw} · ${esc(m.title)}</h3><ul>${ss.map(s => `<li>${tag(s.tag)}${s.html}</li>`).join('')}</ul>`).join('')}</div>`;
+      return `<p class="wt-sec">Commit to memory</p>${block('', pick(['mem', 'both']))}<p class="wt-sec">Look up on a chart or in the problem</p>${block('', pick(['chart', 'both']))}`;
+    }
+    function drawList() {
+      if (st.tab === 'memo') { $('list').innerHTML = memo(); return; }
+      const hws = D.hws.filter(h => st.tab === 'all' || st.tab === 'hw' + h.hw);
+      $('list').innerHTML = hws.map(h => {
+        const ps = P.filter(p => p.hw === h.hw); let sec = '';
+        return `<p class="section-label">${esc(h.title)} &mdash; ${esc(h.subtitle)}</p>` + ps.map(p => {
+          const head = p.section !== sec ? `<p class="wt-sec">${esc(sec = p.section)}</p>` : '';
+          return head + card(p);
+        }).join('');
+      }).join('');
+    }
+    $('list').addEventListener('toggle', e => {
+      const d = e.target; if (!d.classList || !d.classList.contains('wt') || !d.open) return;
+      st.last = d.dataset.id; save(); history.replaceState(null, '', '#' + d.dataset.id);
+    }, true);
+    $('list').addEventListener('click', e => {
+      const b = e.target.closest('[data-got]'); if (!b) return;
+      const id = b.dataset.got; if (st.done[id]) delete st.done[id]; else st.done[id] = Date.now(); save();
+      b.classList.toggle('on', !!st.done[id]); b.textContent = st.done[id] ? '✓ Got it' : 'Mark "got it"';
+      b.closest('details').querySelector('.wt-ok').textContent = st.done[id] ? '✓' : ''; progress();
+    });
+    drawTabs(); drawList(); progress();
+    const target = BY[hashId] ? hashId : null;
+    if (!target && st.last && BY[st.last]) $('resume').innerHTML = `<p class="resume-note">Last time you were on <a href="#${st.last}" id="resumeLink">HW ${BY[st.last].hw} Q${BY[st.last].n}</a>.</p>`;
+    const openTo = id => { st.tab = 'hw' + BY[id].hw; save(); drawTabs(); drawList(); const d = $(id); if (d) { d.open = true; d.scrollIntoView({ block: 'start' }); } };
+    if (target) openTo(target);
+    const rl = $('resumeLink'); if (rl) rl.onclick = e => { e.preventDefault(); openTo(st.last); };
+  }
+})();
+</script>
+</body>
+</html>

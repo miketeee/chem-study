@@ -69,7 +69,8 @@
        "count": 20
       }
      ],
-     "qa": null
+     "qa": null,
+     "walk": true
     },
     {
      "num": "14",
@@ -82,7 +83,8 @@
        "count": 30
       }
      ],
-     "qa": null
+     "qa": null,
+     "walk": true
     },
     {
      "num": "15",
@@ -95,7 +97,8 @@
        "count": 32
       }
      ],
-     "qa": null
+     "qa": null,
+     "walk": true
     }
    ]
   }

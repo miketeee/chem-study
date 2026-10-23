@@ -20,6 +20,11 @@
         <div class="s-sub">"What is your question asking you to do?" Step-by-step flowcharts, check-my-answer tools, and the naming and shapes drill</div>
         <span class="s-count">Test 2 &middot; HW 07–12</span>
       </a>
+      <a class="slide-card" href="walkthrough/index.html" style="grid-column:1/-1">
+        <div class="s-title">Walkthroughs</div>
+        <div class="s-sub">Every homework problem worked step by step, with each step marked 🧠 memorize or 📊 look up on a chart, plus one Memorize list for the test</div>
+        <span class="s-count">Test 3 &middot; HW 13–15</span>
+      </a>
       <a class="slide-card alt" href="drill/index.html" style="grid-column:1/-1">
         <div class="s-title">Chem Practice Bank</div>
         <div class="s-sub">Every homework question in one bank. Filter by test and homework, resume where you left off, review misses, and sync every answer to your Google Sheet</div>
@@ -55,7 +60,8 @@
         const qa = it.qa
           ? `<a class="quiz-pill pill-qa" href="qa/index.html?q=${encodeURIComponent(it.qa)}">Study Guide Q&amp;A</a>`
           : `<span class="quiz-pill pill-off" title="Not added yet">Study Guide Q&amp;A</span>`;
-        return `<li><div class="m-row"><span class="num">${esc(it.num)}</span><span class="titles"><span class="m-title">${esc(it.title)}</span><br><span class="m-sub">${esc(it.subtitle)}</span></span><span class="quiz-links">${pills}${qa}</span></div></li>`;
+        const walk = it.walk ? `<a class="quiz-pill pill-qa" href="walkthrough/index.html#hw${encodeURIComponent(it.num)}">Walkthrough</a>` : '';
+        return `<li><div class="m-row"><span class="num">${esc(it.num)}</span><span class="titles"><span class="m-title">${esc(it.title)}</span><br><span class="m-sub">${esc(it.subtitle)}</span></span><span class="quiz-links">${pills}${walk}${qa}</span></div></li>`;
       }).join('') + '</ul>';
     }).join('');
     document.getElementById('bankCount').textContent = total + ' questions';

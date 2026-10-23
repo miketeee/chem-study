@@ -15,11 +15,12 @@
   Chem.resources('../assets/');
 
   Promise.all([fetch('../data/' + encodeURIComponent(slug) + '.json').then(r => { if (!r.ok) throw 0; return r.json(); }),
-               fetch('../data/manifest.json').then(r => r.json()).catch(() => null)])
-    .then(([data, man]) => render(data, man))
+               fetch('../data/manifest.json').then(r => r.json()).catch(() => null),
+               fetch('../data/walkthroughs.json').then(r => r.json()).catch(() => null)])
+    .then(([data, man, wt]) => render(data, man, new Set(wt ? wt.problems.map(p => p.id) : [])))
     .catch(() => { root.innerHTML = '<p>Could not load that quiz. <a href="../index.html">Back to all quizzes.</a></p>'; });
 
-  function render(data, man) {
+  function render(data, man, walk) {
     const test = man && man.tests.find(t => t.id === data.test);
     const topic = (test ? test.title + ' · ' : '') + data.title;
     document.title = data.title + ' Quiz — Chem Study Hub';
@@ -46,7 +47,7 @@
     data.questions.forEach((q, i) => {
       const card = document.createElement('div');
       card.className = 'question'; card.id = 'q-' + i;
-      card.innerHTML = `<div class="q-meta">Q${q.n} &middot; ${Chem.TYPE_LABEL[q.type].toUpperCase()}${q.tag ? `<span class="q-tag">${q.tag}</span>` : ''}</div><p class="q-prompt">${q.q}</p>`;
+      card.innerHTML = `<div class="q-meta">Q${q.n} &middot; ${Chem.TYPE_LABEL[q.type].toUpperCase()}${q.tag ? `<span class="q-tag">${q.tag}</span>` : ''}${walk.has(q.id) ? `<a class="q-tag q-walk" href="../walkthrough/index.html#${q.id}">Walkthrough</a>` : ''}</div><p class="q-prompt">${q.q}</p>`;
       card.appendChild(Chem.notes.widget(q, slug));
       const host = document.createElement('div');
       card.appendChild(host);
@@ -68,6 +69,7 @@
       const a = load(QKEY, {}); delete a[slug]; put(QKEY, a); location.hash = ''; location.reload();
     };
     update(false);
+    if (/^#q-\d+$/.test(location.hash)) setTimeout(() => { const el = document.querySelector(location.hash); if (el) el.scrollIntoView({ block: 'start' }); }, 50);
     if (n0 && n0 < total && !location.hash) setTimeout(() => document.getElementById('q-' + firstOpen()).scrollIntoView({ block: 'start' }), 50);
     flush();
 

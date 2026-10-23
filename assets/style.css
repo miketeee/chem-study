@@ -603,3 +603,7 @@ p.quiz-sub{
 
 .slide-grid{ margin-bottom: 2.6rem; }
 body{ padding-bottom: 4rem; }
+
+/* Walkthrough link on quiz questions */
+.q-meta a.q-walk{ text-decoration: none; background: var(--violet-wash); color: var(--violet-deep); }
+.q-meta a.q-walk:hover{ background: var(--violet); color: #fff; }

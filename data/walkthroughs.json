@@ -1,0 +1,2640 @@
+{
+ "test": "T3",
+ "title": "Test 3",
+ "hws": [
+  {
+   "hw": 13,
+   "title": "HW 13",
+   "subtitle": "Ch. 6 — Empirical & Molecular Formulas, Percent Composition"
+  },
+  {
+   "hw": 14,
+   "title": "HW 14",
+   "subtitle": "Ch. 6 — Solutions, Molarity & Dilutions"
+  },
+  {
+   "hw": 15,
+   "title": "HW 15",
+   "subtitle": "Ch. 7 — Reaction Types, Balancing & Predicting Products"
+  }
+ ],
+ "methods": {
+  "emp-id": {
+   "title": "Empirical or molecular?",
+   "hw": 13,
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "<b>Empirical</b> formula = the <b>smallest whole-number ratio</b> of atoms (\"easiest on the eyes\")."
+    },
+    {
+     "tag": "mem",
+     "html": "<b>Molecular</b> formula = a <b>multiple</b> of the empirical one (it can still be divided down)."
+    },
+    {
+     "tag": "mem",
+     "html": "Test: look for one number (2, 3, 5…) that divides <b>every subscript</b>. If one exists → molecular. If none → empirical."
+    },
+    {
+     "tag": "mem",
+     "html": "Pro tip: any subscript of <b>1</b> (written or understood) means it's <b>always empirical</b>."
+    }
+   ]
+  },
+  "atoms-in-moles": {
+   "title": "Atoms of one element in a sample",
+   "hw": 13,
+   "steps": [
+    {
+     "tag": "",
+     "html": "Moles of that element = <b>moles of compound × its subscript</b>."
+    },
+    {
+     "tag": "",
+     "html": "Compare the results; the largest is the answer."
+    }
+   ]
+  },
+  "emp-mass": {
+   "title": "Empirical mass",
+   "hw": 13,
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Reduce the formula to its <b>empirical</b> form first."
+    },
+    {
+     "tag": "chart",
+     "html": "Add the atomic masses from the <b>periodic table</b>, times each subscript."
+    }
+   ]
+  },
+  "mol-from-emp": {
+   "title": "Molecular formula from empirical formula + molar mass",
+   "hw": 13,
+   "steps": [
+    {
+     "tag": "chart",
+     "html": "Find the <b>empirical mass</b> by adding atomic masses from the periodic table."
+    },
+    {
+     "tag": "mem",
+     "html": "<b>Factor = molecular mass ÷ empirical mass</b> (should come out to a whole number)."
+    },
+    {
+     "tag": "mem",
+     "html": "<b>Multiply every subscript</b> by the factor."
+    },
+    {
+     "tag": "",
+     "html": "Optional check: add up the new formula; it should match the given molecular mass."
+    }
+   ]
+  },
+  "pct-comp": {
+   "title": "Percent composition",
+   "hw": 13,
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "<b>% element = (mass of ALL of that element ÷ molar mass of the compound) × 100</b>. Part over whole."
+    },
+    {
+     "tag": "both",
+     "html": "Top: atomic mass (periodic table) <b>× its subscript</b>."
+    },
+    {
+     "tag": "chart",
+     "html": "Bottom: the whole <b>molar mass</b>, every element × its subscript, added up."
+    },
+    {
+     "tag": "",
+     "html": "Divide, × 100, and round the way the problem says."
+    }
+   ]
+  },
+  "emp-from-data": {
+   "title": "Empirical formula from percents or grams",
+   "hw": 13,
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Percents? <b>Assume 100 g</b>, so each percent becomes grams (82.66 % → 82.66 g)."
+    },
+    {
+     "tag": "",
+     "html": "If an element's amount isn't given, get it by <b>subtraction</b> (from 100 % or from the sample mass)."
+    },
+    {
+     "tag": "chart",
+     "html": "Turn each mass into <b>moles</b>: grams ÷ atomic mass from the periodic table. Do it for every element. Never use diatomic masses here."
+    },
+    {
+     "tag": "mem",
+     "html": "<b>Divide every mole value by the smallest one</b>. This is the most-missed step."
+    },
+    {
+     "tag": "mem",
+     "html": "Within <b>0.1</b> of a whole number → round. Ends in <b>.5 → ×2</b>; ends in <b>.33 or .67 → ×3</b>; ends in <b>.25 or .75 → ×4</b>. Multiply every element, not just the odd one."
+    },
+    {
+     "tag": "mem",
+     "html": "Write the formula with the <b>less electronegative element first</b> (C before H before O; H never goes first except in acids)."
+    }
+   ]
+  },
+  "soln-words": {
+   "title": "Solution vocabulary",
+   "hw": 14,
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "<b>Solute</b> = the smaller amount, what gets dissolved. <b>Solvent</b> = the larger amount, what does the dissolving (usually water). <b>Solution</b> = the two mixed evenly (homogeneous)."
+    },
+    {
+     "tag": "mem",
+     "html": "Mass is conserved: <b>solution mass = solute + solvent</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "<b>Dilute</b> = more solvent (or less solute): lighter color, <b>lower molarity</b>. <b>Concentrate</b> = boil off solvent: solute stays the same."
+    },
+    {
+     "tag": "mem",
+     "html": "<b>Unsaturated</b> = more can still dissolve. <b>Saturated</b> = at the limit (solid sits on the bottom). <b>Supersaturated</b> = heated then cooled, holding more than it should."
+    }
+   ]
+  },
+  "molarity-notation": {
+   "title": "How molarity is written",
+   "hw": 14,
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "<b>Molarity = moles of solute ÷ liters of solution</b> (M = n/V)."
+    },
+    {
+     "tag": "mem",
+     "html": "It is written <b>M</b>, \"<b>molar</b>\", <b>mol/L</b>, or with <b>square brackets</b> [ ]. Molality is a different unit."
+    }
+   ]
+  },
+  "molarity": {
+   "title": "Molarity problems (M, moles, grams, volume)",
+   "hw": 14,
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Rewrite any <b>M as mol/L</b> so you can see the two units cancel."
+    },
+    {
+     "tag": "mem",
+     "html": "Volume must be in <b>liters</b>: <b>mL ÷ 1000</b>."
+    },
+    {
+     "tag": "chart",
+     "html": "Grams ↔ moles uses the <b>molar mass</b> (given in the problem or from the periodic table)."
+    },
+    {
+     "tag": "mem",
+     "html": "Factor-label: <b>start with the one-unit number</b> (g, mol, L or mL), then chain the two-unit numbers (M, g/mol) so units cancel."
+    },
+    {
+     "tag": "mem",
+     "html": "<b>Sig figs</b>: answer has as many as the least precise number (for × and ÷). Leading zeros don't count."
+    }
+   ]
+  },
+  "dilution": {
+   "title": "Dilution (M₁V₁ = M₂V₂)",
+   "hw": 14,
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "<b>M₁V₁ = M₂V₂</b> (also written CV = CV). Concentrated on one side, dilute on the other."
+    },
+    {
+     "tag": "",
+     "html": "Numbers joined by \"<b>of</b>\" (e.g. \"20.0 mL <i>of</i> 1.69 M\") go on the <b>same side</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Both volumes in the <b>same unit</b> (both mL or both L)."
+    },
+    {
+     "tag": "",
+     "html": "Divide to isolate the unknown, then round to the right <b>sig figs</b>."
+    }
+   ]
+  },
+  "diatomic": {
+   "title": "Diatomic elements",
+   "hw": 15,
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Seven elements always come in pairs: <b>H₂, N₂, O₂, F₂, Cl₂, Br₂, I₂</b> (\"HOFBrINCl\", the 7 shape on the table plus H)."
+    },
+    {
+     "tag": "mem",
+     "html": "Every other element is written as a <b>single symbol</b> (Na, K, Mg, C, Ne…)."
+    }
+   ]
+  },
+  "name-to-eqn": {
+   "title": "Names → balanced equation",
+   "hw": 15,
+   "steps": [
+    {
+     "tag": "chart",
+     "html": "Polyatomic ions come from the <b>polyatomic ion chart</b> (chlorite ClO₂⁻, sulfite SO₃²⁻, nitrate NO₃⁻…)."
+    },
+    {
+     "tag": "mem",
+     "html": "\"<b>-ide</b>\" means a <b>single element</b> ion (sulfide = S²⁻, chloride = Cl⁻)."
+    },
+    {
+     "tag": "both",
+     "html": "Charges by column: <b>+1, +2</b>, Al <b>+3</b> … <b>−3, −2, −1</b>; Roman numerals give a metal's charge."
+    },
+    {
+     "tag": "mem",
+     "html": "<b>Criss-cross</b> charges so each compound is neutral, then balance with coefficients."
+    }
+   ]
+  },
+  "rxn-type": {
+   "title": "Classifying reactions",
+   "hw": 15,
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "<b>Combustion</b>: fuel + <b>O₂</b> → <b>CO₂ + H₂O</b>. Look for it first."
+    },
+    {
+     "tag": "mem",
+     "html": "<b>Synthesis</b>: only <b>one product</b> (no + on the right)."
+    },
+    {
+     "tag": "mem",
+     "html": "<b>Decomposition</b>: only <b>one reactant</b> (no + on the left)."
+    },
+    {
+     "tag": "mem",
+     "html": "<b>Single replacement</b>: an element <b>by itself</b> on each side, one swaps into a compound."
+    },
+    {
+     "tag": "mem",
+     "html": "<b>Double replacement</b>: two compounds <b>swap partners</b>. If it makes a solid (s) it's also a <b>precipitation</b> reaction."
+    }
+   ]
+  },
+  "conservation": {
+   "title": "Conservation of mass and moles",
+   "hw": 15,
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "<b>Atoms and mass</b> are the same before and after a reaction. The number of <b>molecules can change</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Balance with <b>coefficients only</b>. Changing a subscript makes a <b>different substance</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "1 mol = <b>6.022 × 10²³</b> particles. A subscript multiplies the atoms: 1 mol Cl₂ has <b>2 mol Cl</b>."
+    }
+   ]
+  },
+  "balancing": {
+   "title": "Balancing equations",
+   "hw": 15,
+   "steps": [
+    {
+     "tag": "",
+     "html": "Make a quick <b>count of each atom</b> on both sides."
+    },
+    {
+     "tag": "mem",
+     "html": "Keep a <b>polyatomic ion</b> that appears on both sides as <b>one group</b> (count NO₃ as a unit)."
+    },
+    {
+     "tag": "mem",
+     "html": "Order: <b>everything except H and O first</b>, then <b>H</b>, then <b>O last</b>. Leave lone elements for the end."
+    },
+    {
+     "tag": "mem",
+     "html": "A <b>2 and a 3</b>? Swap them as coefficients. Odd number of O in combustion? <b>Double the fuel</b> and redo."
+    },
+    {
+     "tag": "",
+     "html": "A coefficient multiplies <b>everything</b> in that formula. Recount at the end. eLearn wants a <b>1</b> typed in empty blanks."
+    }
+   ]
+  },
+  "predict": {
+   "title": "Predicting products",
+   "hw": 15,
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "<b>Combustion</b> → always <b>CO₂ + H₂O</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "<b>Double replacement</b>: keep the positives in place and <b>swap the negatives</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "<b>Single replacement</b>: the lone element <b>takes the place</b> of the matching ion (metal replaces metal)."
+    },
+    {
+     "tag": "both",
+     "html": "Rebuild each new formula from its <b>charges</b> (columns + polyatomic chart). Never carry old subscripts over."
+    },
+    {
+     "tag": "",
+     "html": "Then <b>balance</b> with coefficients (only if asked)."
+    }
+   ]
+  }
+ },
+ "problems": [
+  {
+   "id": "hw13-q01",
+   "hw": 13,
+   "n": 1,
+   "section": "Empirical vs Molecular",
+   "method": "emp-id",
+   "q": "Which one of the following is definitely not an empirical formula?",
+   "choices": [
+    "C₄H₁₂N₂O",
+    "C₃H₈O₂",
+    "C₁₂H₁₆O₃",
+    "C₆H₁₂O₄",
+    "C₁₂H₂₂O₁₁"
+   ],
+   "img": null,
+   "answer": "C₆H₁₂O₄",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Empirical = can't be reduced; look for a <b>common factor</b> in each set of subscripts."
+    },
+    {
+     "tag": "",
+     "html": "C₄H₁₂N₂O: O = 1 → <b>empirical</b>. C₃H₈O₂: 3, 8, 2 share nothing → <b>empirical</b>."
+    },
+    {
+     "tag": "",
+     "html": "C₁₂H₁₆O₃: 12, 16, 3 share nothing → <b>empirical</b>. C₁₂H₂₂O₁₁: 11 is prime and doesn't divide 12 → <b>empirical</b>."
+    },
+    {
+     "tag": "",
+     "html": "C₆H₁₂O₄: 6, 12, 4 all divide by <b>2</b> → C₃H₆O₂, so it is <b>molecular</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw13-q02",
+   "hw": 13,
+   "n": 2,
+   "section": "Empirical vs Molecular",
+   "method": "atoms-in-moles",
+   "q": "Which contains the greatest number of carbon atoms?",
+   "choices": [
+    "1.20 moles of carbon dioxide, CO₂",
+    "0.450 moles of Al₂(CO₃)₃",
+    "0.250 moles of glucose, C₆H₁₂O₆",
+    "0.400 moles of C₄H₈O₂S",
+    "0.500 moles of CaC₂"
+   ],
+   "img": null,
+   "answer": "0.400 moles of C₄H₈O₂S",
+   "steps": [
+    {
+     "tag": "",
+     "html": "Moles of C = <b>moles × carbons in the formula</b>."
+    },
+    {
+     "tag": "",
+     "html": "CO₂: 1.20 × 1 = <b>1.20</b> mol C. Al₂(CO₃)₃: 0.450 × <b>3</b> = <b>1.35</b> mol C (the 3 outside the parentheses)."
+    },
+    {
+     "tag": "",
+     "html": "C₆H₁₂O₆: 0.250 × 6 = <b>1.50</b> mol C. C₄H₈O₂S: 0.400 × 4 = <b>1.60</b> mol C. CaC₂: 0.500 × 2 = <b>1.00</b> mol C."
+    },
+    {
+     "tag": "",
+     "html": "Largest: <b>0.400 mol of C₄H₈O₂S</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw13-q03",
+   "hw": 13,
+   "n": 3,
+   "section": "Empirical vs Molecular",
+   "method": "emp-id",
+   "q": "Select the empirical formulas below.",
+   "choices": [
+    "C₅H₁₀",
+    "C₃H₁₀",
+    "C₃H₁₂",
+    "C₂H₉"
+   ],
+   "img": null,
+   "answer": "C₃H₁₀, C₂H₉",
+   "steps": [
+    {
+     "tag": "",
+     "html": "C₅H₁₀: both divide by <b>5</b> → CH₂, so <b>molecular</b>."
+    },
+    {
+     "tag": "",
+     "html": "C₃H₁₀: 3 and 10 share nothing → <b>empirical</b>."
+    },
+    {
+     "tag": "",
+     "html": "C₃H₁₂: both divide by <b>3</b> → CH₄, so <b>molecular</b>."
+    },
+    {
+     "tag": "",
+     "html": "C₂H₉: 2 and 9 share nothing → <b>empirical</b>. Answer: <b>C₃H₁₀ and C₂H₉</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw13-q04",
+   "hw": 13,
+   "n": 4,
+   "section": "Empirical vs Molecular",
+   "method": "emp-id",
+   "q": "Select the empirical formulas below.",
+   "choices": [
+    "C₅H₁₀F₁₅",
+    "C₂H₁₀Cl₅",
+    "C₃H₁₂Br",
+    "C₂H₉N₁₈"
+   ],
+   "img": null,
+   "answer": "C₂H₁₀Cl₅, C₃H₁₂Br, C₂H₉N₁₈",
+   "steps": [
+    {
+     "tag": "",
+     "html": "C₅H₁₀F₁₅: 5, 10, 15 all divide by <b>5</b> → CH₂F₃, so <b>molecular</b>."
+    },
+    {
+     "tag": "",
+     "html": "C₂H₁₀Cl₅: 5 is odd, so 2 can't divide it → <b>empirical</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "C₃H₁₂Br and C₂H₉N₁₈: each has an understood or real subscript that blocks a common factor (Br is <b>1</b>; 9 and 2 share nothing) → <b>empirical</b>."
+    },
+    {
+     "tag": "",
+     "html": "Answer: <b>C₂H₁₀Cl₅, C₃H₁₂Br, C₂H₉N₁₈</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw13-q05",
+   "hw": 13,
+   "n": 5,
+   "section": "Empirical vs Molecular",
+   "method": "emp-mass",
+   "q": "True or false: The empirical mass of C₂H₆ would be 15.04 g/mol.",
+   "choices": null,
+   "img": null,
+   "answer": "True",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Reduce C₂H₆: both divide by 2 → empirical formula <b>CH₃</b>."
+    },
+    {
+     "tag": "chart",
+     "html": "Molar masses (periodic table): C = <b>12.01</b>, H = <b>1.01</b>."
+    },
+    {
+     "tag": "",
+     "html": "12.01 + 3(1.01) = <b>15.04 g/mol</b> → <b>True</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw13-q06",
+   "hw": 13,
+   "n": 6,
+   "section": "Empirical vs Molecular",
+   "method": "mol-from-emp",
+   "q": "The molecular mass of a compound with an empirical formula of SO₂ is 256 g/mol. What is the molecular formula?",
+   "choices": null,
+   "img": null,
+   "answer": "S₄O₈",
+   "steps": [
+    {
+     "tag": "chart",
+     "html": "Molar masses (periodic table): S = <b>32.06</b>, O = <b>16.00</b>. Empirical mass SO₂ = 32.06 + 2(16.00) = <b>64.06 g/mol</b> (≈ 64)."
+    },
+    {
+     "tag": "mem",
+     "html": "Factor = molecular ÷ empirical = 256 ÷ 64 = <b>4</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Multiply every subscript by 4: S₁ × 4, O₂ × 4 → <b>S₄O₈</b> (typed S4O8)."
+    }
+   ]
+  },
+  {
+   "id": "hw13-q07",
+   "hw": 13,
+   "n": 7,
+   "section": "Empirical vs Molecular",
+   "method": "mol-from-emp",
+   "q": "The molecular mass of a compound with an empirical formula of SO₂ is 192 g/mol. What is the molecular formula?",
+   "choices": null,
+   "img": null,
+   "answer": "S₃O₆",
+   "steps": [
+    {
+     "tag": "chart",
+     "html": "Molar masses (periodic table): S = <b>32.06</b>, O = <b>16.00</b>. Empirical mass SO₂ = 32.06 + 2(16.00) = <b>64.06 g/mol</b> (≈ 64)."
+    },
+    {
+     "tag": "mem",
+     "html": "Factor = molecular ÷ empirical = 192 ÷ 64 = <b>3</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Multiply every subscript by 3: S₁ × 3, O₂ × 3 → <b>S₃O₆</b> (typed S3O6)."
+    }
+   ]
+  },
+  {
+   "id": "hw13-q08",
+   "hw": 13,
+   "n": 8,
+   "section": "Empirical vs Molecular",
+   "method": "mol-from-emp",
+   "q": "The molecular mass of a compound with an empirical formula of SO₂ is 128 g/mol. What is the molecular formula?",
+   "choices": null,
+   "img": null,
+   "answer": "S₂O₄",
+   "steps": [
+    {
+     "tag": "chart",
+     "html": "Molar masses (periodic table): S = <b>32.06</b>, O = <b>16.00</b>. Empirical mass SO₂ = 32.06 + 2(16.00) = <b>64.06 g/mol</b> (≈ 64)."
+    },
+    {
+     "tag": "mem",
+     "html": "Factor = molecular ÷ empirical = 128 ÷ 64 = <b>2</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Multiply every subscript by 2: S₁ × 2, O₂ × 2 → <b>S₂O₄</b> (typed S2O4)."
+    }
+   ]
+  },
+  {
+   "id": "hw13-q09",
+   "hw": 13,
+   "n": 9,
+   "section": "Percent Composition",
+   "method": "pct-comp",
+   "q": "What is the percent by mass of hydrogen in C₂H₈O? (Use molar masses with at least 2 decimal places; report to two decimal places.)",
+   "choices": null,
+   "img": null,
+   "answer": "16.80 %",
+   "steps": [
+    {
+     "tag": "chart",
+     "html": "Molar masses (periodic table): C = <b>12.01</b>, H = <b>1.01</b>, O = <b>16.00</b>."
+    },
+    {
+     "tag": "both",
+     "html": "Top (all the H): 8 × 1.01 = <b>8.08</b>."
+    },
+    {
+     "tag": "",
+     "html": "Bottom (whole molar mass): 2(12.01) + 8(1.01) + 16.00 = <b>48.10 g/mol</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "8.08 ÷ 48.10 × 100 = <b>16.80 %</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw13-q10",
+   "hw": 13,
+   "n": 10,
+   "section": "Percent Composition",
+   "method": "pct-comp",
+   "q": "What is the mass percent of phosphorus in sodium phosphite, Na₃PO₃?",
+   "choices": [
+    "18.9 %",
+    "27.8 %",
+    "22.0 %",
+    "14.6 %",
+    "20.9 %"
+   ],
+   "img": null,
+   "answer": "20.9 %",
+   "steps": [
+    {
+     "tag": "chart",
+     "html": "Molar masses (periodic table): Na = <b>22.99</b>, P = <b>30.97</b>, O = <b>16.00</b>."
+    },
+    {
+     "tag": "",
+     "html": "Top: one P = <b>30.97</b>."
+    },
+    {
+     "tag": "",
+     "html": "Bottom: 3(22.99) + 30.97 + 3(16.00) = <b>147.94 g/mol</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "30.97 ÷ 147.94 × 100 = <b>20.9 %</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw13-q11",
+   "hw": 13,
+   "n": 11,
+   "section": "Percent Composition",
+   "method": "pct-comp",
+   "q": "What is the percent composition of Rh in Rh₂Cl₂H₄? (Rh = 102.91, Cl = 35.45, H = 1.01 g/mol; round to the ones place.)",
+   "choices": null,
+   "img": null,
+   "answer": "73 %",
+   "steps": [
+    {
+     "tag": "chart",
+     "html": "Molar masses are <b>given in the problem</b>."
+    },
+    {
+     "tag": "both",
+     "html": "Top (all the Rh): 2 × 102.91 = <b>205.82</b>."
+    },
+    {
+     "tag": "",
+     "html": "Bottom: 205.82 + 2(35.45) + 4(1.01) = <b>280.76 g/mol</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "205.82 ÷ 280.76 × 100 = 73.3 → <b>73 %</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw13-q12",
+   "hw": 13,
+   "n": 12,
+   "section": "Percent Composition",
+   "method": "pct-comp",
+   "q": "What is the percent composition of Cl in Rh₄Cl₃H₃? (Rh = 102.91, Cl = 35.45, H = 1.01 g/mol; round to the ones place.)",
+   "choices": null,
+   "img": null,
+   "answer": "20 %",
+   "steps": [
+    {
+     "tag": "chart",
+     "html": "Molar masses are <b>given in the problem</b>."
+    },
+    {
+     "tag": "both",
+     "html": "Top (all the Cl): 3 × 35.45 = <b>106.35</b>."
+    },
+    {
+     "tag": "",
+     "html": "Bottom: 4(102.91) + 106.35 + 3(1.01) = <b>521.02 g/mol</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "106.35 ÷ 521.02 × 100 = 20.4 → <b>20 %</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw13-q13",
+   "hw": 13,
+   "n": 13,
+   "section": "Percent Composition to Empirical Formula",
+   "method": "emp-from-data",
+   "q": "What is the empirical formula of a compound that contains only cobalt and oxygen if an 8.29 gram sample contains 5.89 grams of cobalt?",
+   "choices": [
+    "CoO",
+    "CoO₂",
+    "Co₂O",
+    "Co₂O₃",
+    "CoO₃"
+   ],
+   "img": null,
+   "answer": "Co₂O₃",
+   "steps": [
+    {
+     "tag": "",
+     "html": "Oxygen by subtraction: 8.29 − 5.89 = <b>2.40 g O</b>."
+    },
+    {
+     "tag": "chart",
+     "html": "Molar masses (periodic table): Co = <b>58.93</b>, O = <b>16.00</b>."
+    },
+    {
+     "tag": "",
+     "html": "Moles: Co 5.89 ÷ 58.93 = <b>0.100</b>; O 2.40 ÷ 16.00 = <b>0.150</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Divide by the smallest (0.100): Co = <b>1</b>, O = <b>1.5</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "1.5 ends in .5 → <b>× 2</b>: Co = 2, O = 3 → <b>Co₂O₃</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw13-q14",
+   "hw": 13,
+   "n": 14,
+   "section": "Percent Composition to Empirical Formula",
+   "method": "emp-from-data",
+   "q": "A 6.341 g sample of a compound is found to have 1.433 grams of nitrogen and no other element except oxygen. What is the empirical formula of the compound?",
+   "choices": [
+    "NO₃",
+    "N₂O₃",
+    "NO₂",
+    "NO",
+    "N₂O₆"
+   ],
+   "img": null,
+   "answer": "NO₃",
+   "steps": [
+    {
+     "tag": "",
+     "html": "Oxygen by subtraction: 6.341 − 1.433 = <b>4.908 g O</b>."
+    },
+    {
+     "tag": "chart",
+     "html": "Molar masses (periodic table): N = <b>14.01</b>, O = <b>16.00</b>."
+    },
+    {
+     "tag": "",
+     "html": "Moles: N 1.433 ÷ 14.01 = <b>0.1023</b>; O 4.908 ÷ 16.00 = <b>0.3068</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Divide by the smallest (0.1023): N = <b>1</b>, O = <b>3.00</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Already whole numbers → <b>NO₃</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw13-q15",
+   "hw": 13,
+   "n": 15,
+   "section": "Percent Composition to Empirical Formula",
+   "method": "emp-from-data",
+   "q": "A hydrocarbon is found to contain 82.66% carbon and no other element except hydrogen. What is the empirical formula?",
+   "choices": [
+    "C₂H₅",
+    "C₄H₅",
+    "CH₅",
+    "CH",
+    "CH₃"
+   ],
+   "img": null,
+   "answer": "C₂H₅",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "<b>Assume 100 g</b>: 82.66 g C. Hydrogen by subtraction: 100 − 82.66 = <b>17.34 g H</b>."
+    },
+    {
+     "tag": "chart",
+     "html": "Molar masses (periodic table): C = <b>12.01</b>, H = <b>1.01</b>."
+    },
+    {
+     "tag": "",
+     "html": "Moles: C 82.66 ÷ 12.01 = <b>6.883</b>; H 17.34 ÷ 1.01 = <b>17.17</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Divide by the smallest (6.883): C = <b>1</b>, H = <b>2.49</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "2.49 ≈ 2.5, ends in .5 → <b>× 2</b>: C = 2, H = 5 → <b>C₂H₅</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw13-q16",
+   "hw": 13,
+   "n": 16,
+   "section": "Percent Composition to Empirical Formula",
+   "method": "emp-from-data",
+   "q": "A hydrocarbon is found to contain 53.3% carbon, 11.2% hydrogen, and no other element except oxygen. What is the empirical formula?",
+   "choices": [
+    "C₂H₅O",
+    "C₄H₇O",
+    "C₃H₈O₃",
+    "C₃H₈O",
+    "C₂H₅O₂"
+   ],
+   "img": null,
+   "answer": "C₂H₅O",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "<b>Assume 100 g</b>: 53.3 g C, 11.2 g H. Oxygen by subtraction: 100 − 53.3 − 11.2 = <b>35.5 g O</b>."
+    },
+    {
+     "tag": "chart",
+     "html": "Molar masses (periodic table): C = <b>12.01</b>, H = <b>1.01</b>, O = <b>16.00</b>."
+    },
+    {
+     "tag": "",
+     "html": "Moles: C <b>4.438</b>; H <b>11.09</b>; O <b>2.219</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Divide by the smallest (2.219): C = <b>2.00</b>, H = <b>5.00</b>, O = <b>1</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Whole numbers; write C, H, then O → <b>C₂H₅O</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw13-q17",
+   "hw": 13,
+   "n": 17,
+   "section": "Percent Composition to Empirical Formula",
+   "method": "emp-from-data",
+   "q": "A hydrocarbon is found to contain 67.6% carbon, 9.94% hydrogen, and no other element except oxygen. What is the empirical formula?",
+   "choices": [
+    "C₂H₅O₂",
+    "C₃H₈O₃",
+    "C₄H₇O",
+    "C₃H₈O",
+    "C₂H₅O"
+   ],
+   "img": null,
+   "answer": "C₄H₇O",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "<b>Assume 100 g</b>: 67.6 g C, 9.94 g H. Oxygen by subtraction: 100 − 67.6 − 9.94 = <b>22.46 g O</b>."
+    },
+    {
+     "tag": "chart",
+     "html": "Molar masses (periodic table): C = <b>12.01</b>, H = <b>1.01</b>, O = <b>16.00</b>."
+    },
+    {
+     "tag": "",
+     "html": "Moles: C <b>5.629</b>; H <b>9.842</b>; O <b>1.404</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Divide by the smallest (1.404): C = <b>4.01</b>, H = <b>7.01</b>, O = <b>1</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "All within 0.1 → round → <b>C₄H₇O</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw13-q18",
+   "hw": 13,
+   "n": 18,
+   "section": "Percent Composition to Empirical Formula",
+   "method": "emp-from-data",
+   "q": "A hydrocarbon is found to contain 82.66% carbon and no other element except hydrogen. What is the empirical formula?",
+   "choices": [
+    "C₂H₅",
+    "CH₅",
+    "CH₃",
+    "C₄H₅",
+    "CH"
+   ],
+   "img": null,
+   "answer": "C₂H₅",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "<b>Assume 100 g</b>: 82.66 g C. Hydrogen by subtraction: 100 − 82.66 = <b>17.34 g H</b>."
+    },
+    {
+     "tag": "chart",
+     "html": "Molar masses (periodic table): C = <b>12.01</b>, H = <b>1.01</b>."
+    },
+    {
+     "tag": "",
+     "html": "Moles: C 82.66 ÷ 12.01 = <b>6.883</b>; H 17.34 ÷ 1.01 = <b>17.17</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Divide by the smallest (6.883): C = <b>1</b>, H = <b>2.49</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "2.49 ≈ 2.5, ends in .5 → <b>× 2</b>: C = 2, H = 5 → <b>C₂H₅</b>."
+    },
+    {
+     "tag": "",
+     "html": "Same numbers as Q15, choices in a <b>different order</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw13-q19",
+   "hw": 13,
+   "n": 19,
+   "section": "Percent Composition to Empirical Formula",
+   "method": "emp-from-data",
+   "q": "A compound was discovered whose composition by mass is 85.6% C and 14.4% H. What is the empirical formula for this compound?",
+   "choices": null,
+   "img": null,
+   "answer": "CH₂",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "<b>Assume 100 g</b>, so the percents become grams: <b>85.6 g C</b> and <b>14.4 g H</b>."
+    },
+    {
+     "tag": "chart",
+     "html": "Molar masses (periodic table): C = <b>12.01</b>, H = <b>1.01</b>."
+    },
+    {
+     "tag": "",
+     "html": "Moles: C 85.6 ÷ 12.01 = <b>7.13</b>; H 14.4 ÷ 1.01 = <b>14.26</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Divide by the smallest (7.13): C = <b>1</b>, H = <b>2.00</b> → <b>CH₂</b> (typed CH2)."
+    }
+   ]
+  },
+  {
+   "id": "hw14-q01",
+   "hw": 14,
+   "n": 1,
+   "section": "Solutions and Molarity",
+   "method": "soln-words",
+   "q": "What is the total mass of the solution when 1 gram of salt is dissolved in 20 grams of water?",
+   "choices": [
+    "20 grams",
+    "more than 21 grams",
+    "between 20 and 21 grams",
+    "19 grams",
+    "21 grams"
+   ],
+   "img": null,
+   "answer": "21 grams",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Mass is conserved: <b>solution = solute + solvent</b>."
+    },
+    {
+     "tag": "",
+     "html": "1 g + 20 g = <b>21 grams</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw14-q02",
+   "hw": 14,
+   "n": 2,
+   "section": "Solutions and Molarity",
+   "method": "soln-words",
+   "q": "A salt solution can be made more concentrated by boiling off some of the water. Which statement is true about the solution after this process?",
+   "choices": [
+    "The amount of solute remains the same but the amount of solvent decreases.",
+    "The amount of solute and the amount of solvent increase.",
+    "The amount of solute and the amount of solvent decrease.",
+    "The amount of solute remains the same but the amount of solvent increases.",
+    "The amount of solvent remains the same but the amount of solute decreases."
+   ],
+   "img": null,
+   "answer": "The amount of solute remains the same but the amount of solvent decreases.",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Boiling removes the <b>solvent</b> (water). The salt (<b>solute</b>) doesn't boil off."
+    },
+    {
+     "tag": "",
+     "html": "So the <b>solute stays the same and the solvent decreases</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw14-q03",
+   "hw": 14,
+   "n": 3,
+   "section": "Solutions and Molarity",
+   "method": "molarity",
+   "q": "The amount of solute in each beaker is represented by the number of black dots; the volume is shown on the side. In which beaker does the solute have the smallest concentration? (Count each dot as 1 mol.)",
+   "choices": [
+    "Beaker 1",
+    "Beaker 2",
+    "Beaker 3",
+    "More than one has the same smallest concentration",
+    "Beaker 4"
+   ],
+   "img": "hw14-beakers.jpg",
+   "answer": "Beaker 3 (6 dots in 15 mL)",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Concentration = <b>amount ÷ volume</b>, so compute dots ÷ mL for each."
+    },
+    {
+     "tag": "",
+     "html": "Beaker 1: 8 ÷ 10 = <b>0.8</b>. Beaker 2: 6 ÷ 10 = <b>0.6</b>."
+    },
+    {
+     "tag": "",
+     "html": "Beaker 3: 6 ÷ 15 = <b>0.4</b>. Beaker 4: 12 ÷ 20 = <b>0.6</b>."
+    },
+    {
+     "tag": "",
+     "html": "Smallest: <b>Beaker 3</b> (the 15 mL beaker with 6 dots)."
+    }
+   ]
+  },
+  {
+   "id": "hw14-q04",
+   "hw": 14,
+   "n": 4,
+   "section": "Solutions and Molarity",
+   "method": "molarity-notation",
+   "q": "There are different ways of representing molarity. Select all the answers that represent a 1.0 molarity solution.",
+   "choices": [
+    "1.0 molality",
+    "1.0 mol solute / 1 L solution",
+    "1.0 moles popping out of a tunnel",
+    "1.0 L in a mol",
+    "1.0*",
+    "1.0 molar",
+    "[1.0]",
+    "1.0 M"
+   ],
+   "img": null,
+   "answer": "1.0 mol solute / 1 L solution, 1.0 molar, [1.0], 1.0 M",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Molarity = <b>mol solute ÷ L solution</b>, so \"1.0 mol solute / 1 L solution\" ✓."
+    },
+    {
+     "tag": "mem",
+     "html": "Also written <b>1.0 molar</b>, <b>[1.0]</b> (square brackets) and <b>1.0 M</b> ✓."
+    },
+    {
+     "tag": "",
+     "html": "<b>Molality</b> is a different unit; \"1.0 L in a mol\" is upside down; the others are made up ✗."
+    }
+   ]
+  },
+  {
+   "id": "hw14-q06",
+   "hw": 14,
+   "n": 6,
+   "section": "Solutions and Molarity",
+   "method": "molarity",
+   "q": "What is the molarity of a solution of potassium bromide if 4.50 moles is dissolved in enough water to make 0.750 L of solution?",
+   "choices": [
+    "6.00 M",
+    "3.38 M",
+    "0.167 M",
+    "3380 M",
+    "0.00600 M"
+   ],
+   "img": null,
+   "answer": "6.00 M",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Molarity formula: <b>M = mol ÷ L</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Volume in liters: <b>0.750 L</b> (already liters)."
+    },
+    {
+     "tag": "",
+     "html": "4.50 mol ÷ 0.750 L = <b>6.00 M</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Sig figs: <b>both have 3, so 6.00 M</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw14-q07",
+   "hw": 14,
+   "n": 7,
+   "section": "Solutions and Molarity",
+   "method": "molarity",
+   "q": "What is the molarity of a solution if 42.7 moles is dissolved in enough water to make 7.7 L of solution? (Correct sig figs.)",
+   "choices": null,
+   "img": null,
+   "answer": "5.5 M",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Molarity formula: <b>M = mol ÷ L</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Volume in liters: <b>7.7 L</b> (already liters)."
+    },
+    {
+     "tag": "",
+     "html": "42.7 mol ÷ 7.7 L = <b>5.545</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Sig figs: <b>7.7 has 2, so 5.5 M</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw14-q08",
+   "hw": 14,
+   "n": 8,
+   "section": "Solutions and Molarity",
+   "method": "molarity",
+   "q": "What is the molarity of a solution if 0.403 moles is dissolved in enough water to make 997.7 mL of solution? (Watch the volume unit; correct sig figs.)",
+   "choices": null,
+   "img": null,
+   "answer": "0.404 M",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Molarity formula: <b>M = mol ÷ L</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Volume in liters: <b>0.9977 L</b> (997.7 mL ÷ 1000)."
+    },
+    {
+     "tag": "",
+     "html": "0.403 mol ÷ 0.9977 L = <b>0.4039</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Sig figs: <b>0.403 has 3, so 0.404 M</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw14-q09",
+   "hw": 14,
+   "n": 9,
+   "section": "Solutions and Molarity",
+   "method": "molarity",
+   "q": "Calculate the molarity (M) of a solution if 0.395 moles is dissolved in enough water to make 702.0 mL of solution. (Watch the volume unit; correct sig figs.)",
+   "choices": null,
+   "img": null,
+   "answer": "0.563 M",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Molarity formula: <b>M = mol ÷ L</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Volume in liters: <b>0.7020 L</b> (702.0 mL ÷ 1000)."
+    },
+    {
+     "tag": "",
+     "html": "0.395 mol ÷ 0.7020 L = <b>0.5627</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Sig figs: <b>0.395 has 3, so 0.563 M</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw14-q10",
+   "hw": 14,
+   "n": 10,
+   "section": "Solutions and Molarity",
+   "method": "molarity",
+   "q": "What is the molarity of a solution prepared by dissolving 1.92 grams of sodium perchlorate (NaClO₄, molar mass = 122.44 g/mol) in enough water to make 125 mL of soln?",
+   "choices": [
+    "0.144 M",
+    "0.0154 M",
+    "0.263 M",
+    "0.125 M",
+    "0.106 M"
+   ],
+   "img": null,
+   "answer": "0.125 M",
+   "steps": [
+    {
+     "tag": "chart",
+     "html": "Molar mass is <b>given</b>: NaClO₄ = <b>122.44 g/mol</b>."
+    },
+    {
+     "tag": "",
+     "html": "Grams → moles: 1.92 g ÷ 122.44 = <b>0.01568 mol</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Volume in liters: <b>125 mL ÷ 1000 = 0.125 L</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "M = mol ÷ L = <b>0.125 M</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw14-q11",
+   "hw": 14,
+   "n": 11,
+   "section": "Solutions and Molarity",
+   "method": "molarity",
+   "q": "A solution is prepared by dissolving 17.0 g of potassium hydroxide (KOH, molar mass = 56.11 g/mol) in enough water to make 80.0 mL of solution. What is the molarity of this solution?",
+   "choices": null,
+   "img": null,
+   "answer": "3.79 M",
+   "steps": [
+    {
+     "tag": "chart",
+     "html": "Molar mass is <b>given</b>: KOH = <b>56.11 g/mol</b>."
+    },
+    {
+     "tag": "",
+     "html": "Grams → moles: 17.0 g ÷ 56.11 = <b>0.3030 mol</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Volume in liters: <b>80.0 mL ÷ 1000 = 0.0800 L</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "M = mol ÷ L = <b>3.79 M (3 sig figs)</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw14-q12",
+   "hw": 14,
+   "n": 12,
+   "section": "Solutions and Molarity",
+   "method": "molarity",
+   "q": "What is the molarity of a solution prepared by dissolving 4.90 grams of calcium nitrite [Ca(NO₂)₂, molar mass = 132.10 g/mol] in enough water to make a 123.0 mL soln? (Decimal form, correct sig figs, proper unit.)",
+   "choices": null,
+   "img": null,
+   "answer": "0.302 M",
+   "steps": [
+    {
+     "tag": "chart",
+     "html": "Molar mass is <b>given</b>: Ca(NO₂)₂ = <b>132.10 g/mol</b>."
+    },
+    {
+     "tag": "",
+     "html": "Grams → moles: 4.90 g ÷ 132.10 = <b>0.03709 mol</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Volume in liters: <b>123.0 mL ÷ 1000 = 0.1230 L</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "M = mol ÷ L = <b>0.302 M (4.90 has 3)</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw14-q13",
+   "hw": 14,
+   "n": 13,
+   "section": "Solutions and Molarity",
+   "method": "molarity",
+   "q": "A student removed 115.0 mL of a 0.139 M KCl solution. How many moles of KCl are in this sample?",
+   "choices": null,
+   "img": null,
+   "answer": "0.0160 mol",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Rewrite molarity as <b>0.139 mol/L</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Start with the one-unit number, the volume in liters: 115.0 mL = <b>0.1150 L</b>."
+    },
+    {
+     "tag": "",
+     "html": "0.1150 L × 0.139 mol/L = <b>0.0160 mol</b> (liters cancel)."
+    }
+   ]
+  },
+  {
+   "id": "hw14-q14",
+   "hw": 14,
+   "n": 14,
+   "section": "Solutions and Molarity",
+   "method": "molarity",
+   "q": "A student removed 140.0 mL of a 0.127 M KCl solution. How many moles of NaI are in this sample?",
+   "choices": null,
+   "img": null,
+   "answer": "0.0178 mol",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Rewrite molarity as <b>0.127 mol/L</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Start with the one-unit number, the volume in liters: 140.0 mL = <b>0.1400 L</b>."
+    },
+    {
+     "tag": "",
+     "html": "0.1400 L × 0.127 mol/L = <b>0.0178 mol</b> (liters cancel)."
+    },
+    {
+     "tag": "",
+     "html": "The KCl/NaI mix-up is a <b>typo</b> in the homework; the math is the same."
+    }
+   ]
+  },
+  {
+   "id": "hw14-q15",
+   "hw": 14,
+   "n": 15,
+   "section": "Solutions and Molarity",
+   "method": "molarity",
+   "q": "How many grams of iron(III) nitrate (241.86 g/mol) are needed to prepare 150.0 mL of 0.132 M solution?",
+   "choices": [
+    "0.132 g",
+    "19.8 g",
+    "4.79 g",
+    "0.880 g",
+    "31.9 g"
+   ],
+   "img": null,
+   "answer": "4.79 g",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Rewrite molarity as <b>0.132 mol/L</b>; volume in liters: 150.0 mL = <b>0.1500 L</b>."
+    },
+    {
+     "tag": "",
+     "html": "Moles: 0.1500 L × 0.132 = <b>0.0198 mol</b>."
+    },
+    {
+     "tag": "chart",
+     "html": "Molar mass is <b>given</b>: <b>241.86 g/mol</b>."
+    },
+    {
+     "tag": "",
+     "html": "Grams: 0.0198 × 241.86 = <b>4.79 g</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw14-q16",
+   "hw": 14,
+   "n": 16,
+   "section": "Solutions and Molarity",
+   "method": "molarity",
+   "q": "How many grams of benzoic acid (C₇H₆O₂, molar mass = 122.13 g/mol) are required to make 597.0 mL of a 0.41 M solution? (Decimal form, correct sig figs, proper unit.)",
+   "choices": null,
+   "img": null,
+   "answer": "30 g",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Rewrite molarity as <b>0.41 mol/L</b>; volume in liters: 597.0 mL = <b>0.5970 L</b>."
+    },
+    {
+     "tag": "",
+     "html": "Moles: 0.5970 L × 0.41 = <b>0.2448 mol</b>."
+    },
+    {
+     "tag": "chart",
+     "html": "Molar mass is <b>given</b>: <b>122.13 g/mol</b>."
+    },
+    {
+     "tag": "",
+     "html": "Grams: 0.2448 × 122.13 = <b>29.9 g</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Sig figs: 0.41 has <b>2</b> → <b>30 g</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw14-q17",
+   "hw": 14,
+   "n": 17,
+   "section": "Solutions and Molarity",
+   "method": "molarity",
+   "q": "How many grams are needed to make 80.0 mL solution of 0.110 M aluminum nitrate [Al(NO₃)₃, molar mass = 213.01 g/mol]?",
+   "choices": null,
+   "img": null,
+   "answer": "1.87 g",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Rewrite molarity as <b>0.110 mol/L</b>; volume in liters: 80.0 mL = <b>0.0800 L</b>."
+    },
+    {
+     "tag": "",
+     "html": "Moles: 0.0800 L × 0.110 = <b>0.00880 mol</b>."
+    },
+    {
+     "tag": "chart",
+     "html": "Molar mass is <b>given</b>: <b>213.01 g/mol</b>."
+    },
+    {
+     "tag": "",
+     "html": "Grams: 0.00880 × 213.01 = <b>1.87 g</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw14-q18",
+   "hw": 14,
+   "n": 18,
+   "section": "Solutions and Molarity",
+   "method": "molarity",
+   "q": "A student needed 0.733 mol of HCl. What volume (in L) of 0.143 M HCl solution would she take in order to get this sample?",
+   "choices": null,
+   "img": null,
+   "answer": "5.13 L",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Rewrite molarity as <b>0.143 mol/L</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Start with the one-unit number: <b>0.733 mol</b>. Divide by molarity so mol cancels."
+    },
+    {
+     "tag": "",
+     "html": "0.733 mol ÷ 0.143 mol/L = <b>5.13 L</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw14-q19",
+   "hw": 14,
+   "n": 19,
+   "section": "Solutions and Molarity",
+   "method": "molarity",
+   "q": "A student needed 0.919 mol of KBr. What volume (in L) of 0.187 M KBr solution needs to be added to the graduated cylinder?",
+   "choices": null,
+   "img": null,
+   "answer": "4.91 L",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Rewrite molarity as <b>0.187 mol/L</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Start with the one-unit number: <b>0.919 mol</b>. Divide by molarity so mol cancels."
+    },
+    {
+     "tag": "",
+     "html": "0.919 mol ÷ 0.187 mol/L = <b>4.91 L</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw14-q20",
+   "hw": 14,
+   "n": 20,
+   "section": "Solutions and Molarity",
+   "method": "molarity",
+   "q": "A student planned to evaporate a solution so that only solid was left. They wanted to collect 3.41 g of lithium nitrate (LiNO₃, molar mass = 68.95 g/mol). What volume (in mL) of 0.911 M LiNO₃ solution needs to be in the flask?",
+   "choices": null,
+   "img": null,
+   "answer": "54.3 mL",
+   "steps": [
+    {
+     "tag": "chart",
+     "html": "Molar mass is <b>given</b>: <b>68.95 g/mol</b>."
+    },
+    {
+     "tag": "",
+     "html": "Grams → moles: 3.41 g ÷ 68.95 = <b>0.04946 mol</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Liters = mol ÷ M: 0.04946 ÷ 0.911 = <b>0.05429 L</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Question wants <b>mL</b>: × 1000 = <b>54.3 mL</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw14-q21",
+   "hw": 14,
+   "n": 21,
+   "section": "Solutions and Molarity",
+   "method": "molarity",
+   "q": "A student planned to evaporate a solution so that only solid was left. They wanted to collect 1.19 g of sodium fluoride (NaF, molar mass = 41.99 g/mol). What volume (in mL) of 0.945 M NaF solution needs to be in the flask? (Correct sig figs.)",
+   "choices": null,
+   "img": null,
+   "answer": "29.9 mL (30.0 mL by strict rounding)",
+   "steps": [
+    {
+     "tag": "chart",
+     "html": "Molar mass is <b>given</b>: <b>41.99 g/mol</b>."
+    },
+    {
+     "tag": "",
+     "html": "Grams → moles: 1.19 g ÷ 41.99 = <b>0.02834 mol</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Liters = mol ÷ M: 0.02834 ÷ 0.945 = <b>0.02999 L</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Question wants <b>mL</b>: × 1000 = <b>29.99 mL</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "3 sig figs → strictly <b>30.0 mL</b>; eLearn accepted <b>29.9 mL</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw14-q22",
+   "hw": 14,
+   "n": 22,
+   "section": "Dilutions",
+   "method": "soln-words",
+   "q": "If a substance is diluted, what characteristics would you expect? (Select all that apply.)",
+   "choices": [
+    "The solution will either have more volume or less solute.",
+    "The solution will have a darker vibrant color.",
+    "The numerical value of the molarity will go down.",
+    "If it is being created from a concentrated solution, the concentrated solution is put in a volumetric flask and then water is added so that it fills the entire flask to the very top."
+   ],
+   "img": null,
+   "answer": "More volume or less solute; molarity goes down",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Diluting means <b>more volume or less solute</b> ✓."
+    },
+    {
+     "tag": "mem",
+     "html": "Molarity = mol ÷ L; bigger L → the <b>molarity goes down</b> ✓."
+    },
+    {
+     "tag": "",
+     "html": "Color gets <b>lighter</b>, not darker ✗. You fill a volumetric flask to the <b>graduation line</b>, not the very top ✗."
+    }
+   ]
+  },
+  {
+   "id": "hw14-q23",
+   "hw": 14,
+   "n": 23,
+   "section": "Dilutions",
+   "method": "dilution",
+   "q": "When doing dilution calculations, why should the volume units be the same?",
+   "choices": [
+    "So that the unit will cancel.",
+    "So that you know everything will fit in any flask.",
+    "So that the dilution is faster in the lab."
+   ],
+   "img": null,
+   "answer": "So that the unit will cancel.",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Volumes sit on both sides of <b>M₁V₁ = M₂V₂</b>; matching units let them <b>cancel</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw14-q24",
+   "hw": 14,
+   "n": 24,
+   "section": "Dilutions",
+   "method": "dilution",
+   "q": "What is the molarity of a solution prepared by diluting 153 mL of 2.6 M acetic acid to 750.0 mL?",
+   "choices": [
+    "1.9 M",
+    "2.6 M",
+    "0.53 M",
+    "0.078 M",
+    "13 M"
+   ],
+   "img": null,
+   "answer": "0.53 M",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Dilution equation: <b>M₁V₁ = M₂V₂</b>."
+    },
+    {
+     "tag": "",
+     "html": "M₁ = <b>2.6 M</b>, V₁ = <b>153 mL</b>, V₂ = <b>750.0 mL</b> (same units ✓)."
+    },
+    {
+     "tag": "",
+     "html": "M₂ = 2.6 × 153 ÷ 750.0 = <b>0.5304</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Sig figs: 2.6 has 2 → <b>0.53 M</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw14-q25",
+   "hw": 14,
+   "n": 25,
+   "section": "Dilutions",
+   "method": "dilution",
+   "q": "A student prepared a solution by removing 20.0 mL of a 1.69 M HCl solution and transferring it to a 175.0 mL volumetric flask, then filled to the line with deionized water. What is the concentration of the new solution?",
+   "choices": null,
+   "img": null,
+   "answer": "0.193 M",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Dilution equation: <b>M₁V₁ = M₂V₂</b>."
+    },
+    {
+     "tag": "",
+     "html": "\"20.0 mL <i>of</i> 1.69 M\" → M₁ = <b>1.69 M</b>, V₁ = <b>20.0 mL</b>; V₂ = <b>175.0 mL</b>."
+    },
+    {
+     "tag": "",
+     "html": "M₂ = 1.69 × 20.0 ÷ 175.0 = <b>0.1931</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Sig figs: 3 → <b>0.193 M</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw14-q26",
+   "hw": 14,
+   "n": 26,
+   "section": "Dilutions",
+   "method": "dilution",
+   "q": "50.0 mL of a 1.63 M solution was transferred to a 250.0 mL volumetric flask and diluted to the line with deionized water. What is the concentration of the new solution?",
+   "choices": null,
+   "img": null,
+   "answer": "0.326 M",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Dilution equation: <b>M₁V₁ = M₂V₂</b>."
+    },
+    {
+     "tag": "",
+     "html": "M₁ = <b>1.63 M</b>, V₁ = <b>50.0 mL</b>, V₂ = <b>250.0 mL</b>."
+    },
+    {
+     "tag": "",
+     "html": "M₂ = 1.63 × 50.0 ÷ 250.0 = <b>0.326 M</b> (3 sig figs)."
+    }
+   ]
+  },
+  {
+   "id": "hw14-q27",
+   "hw": 14,
+   "n": 27,
+   "section": "Dilutions",
+   "method": "dilution",
+   "q": "How many milliliters (mL) of 10.0 M nitric acid (HNO₃) would be required to prepare 127.0 mL of 0.31 M nitric acid solution? (Decimal form, correct sig figs, proper unit.)",
+   "choices": null,
+   "img": null,
+   "answer": "3.9 mL",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Dilution equation: <b>M₁V₁ = M₂V₂</b>."
+    },
+    {
+     "tag": "",
+     "html": "M₁ = <b>10.0 M</b>, V₁ = <b>?</b>; \"127.0 mL <i>of</i> 0.31 M\" → M₂ = <b>0.31 M</b>, V₂ = <b>127.0 mL</b>."
+    },
+    {
+     "tag": "",
+     "html": "V₁ = 0.31 × 127.0 ÷ 10.0 = <b>3.937 mL</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Sig figs: 0.31 has <b>two</b> → <b>3.9 mL</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw14-q28",
+   "hw": 14,
+   "n": 28,
+   "section": "Dilutions",
+   "method": "dilution",
+   "q": "How many milliliters (mL) of a 10.0 M concentrated solution would be required to prepare 179.0 mL of a 0.31 M solution? (Decimal form, correct sig figs, proper unit.)",
+   "choices": null,
+   "img": null,
+   "answer": "5.5 mL",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Dilution equation: <b>M₁V₁ = M₂V₂</b>."
+    },
+    {
+     "tag": "",
+     "html": "M₁ = <b>10.0 M</b>, V₁ = <b>?</b>; M₂ = <b>0.31 M</b>, V₂ = <b>179.0 mL</b>."
+    },
+    {
+     "tag": "",
+     "html": "V₁ = 0.31 × 179.0 ÷ 10.0 = <b>5.549 mL</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Sig figs: two → <b>5.5 mL</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw14-q29",
+   "hw": 14,
+   "n": 29,
+   "section": "Dilutions",
+   "method": "dilution",
+   "q": "A student wished to prepare 150.0 mL of a 0.650 M AgNO₃ solution. What volume (in mL) of 1.35 M AgNO₃ would she need to take?",
+   "choices": null,
+   "img": null,
+   "answer": "72.2 mL",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Dilution equation: <b>M₁V₁ = M₂V₂</b>."
+    },
+    {
+     "tag": "",
+     "html": "Concentrated: M₁ = <b>1.35 M</b>, V₁ = <b>?</b>. Dilute: M₂ = <b>0.650 M</b>, V₂ = <b>150.0 mL</b>."
+    },
+    {
+     "tag": "",
+     "html": "V₁ = 0.650 × 150.0 ÷ 1.35 = <b>72.2 mL</b> (3 sig figs)."
+    }
+   ]
+  },
+  {
+   "id": "hw15-q01",
+   "hw": 15,
+   "n": 1,
+   "section": "Reaction Types",
+   "method": "diatomic",
+   "q": "Identify which elements should be diatomic and which should not. Mark the ones whose symbols are written correctly.",
+   "choices": [
+    "nitrogen is N",
+    "oxygen is O₂",
+    "boron is B₂",
+    "potassium is K"
+   ],
+   "img": null,
+   "answer": "oxygen is O₂; potassium is K",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Diatomics: <b>H₂, N₂, O₂, F₂, Cl₂, Br₂, I₂</b>."
+    },
+    {
+     "tag": "",
+     "html": "Nitrogen is diatomic, so \"N\" is <b>wrong</b> (should be N₂). Oxygen as O₂ is <b>correct</b>."
+    },
+    {
+     "tag": "",
+     "html": "Boron isn't diatomic, so \"B₂\" is <b>wrong</b>. Potassium as K is <b>correct</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw15-q02",
+   "hw": 15,
+   "n": 2,
+   "section": "Reaction Types",
+   "method": "diatomic",
+   "q": "Select only the correctly written elements. There are seven correct answers.",
+   "choices": [
+    "Na₂",
+    "Ba",
+    "Mg",
+    "C₂",
+    "I₂",
+    "Br₂",
+    "H₂",
+    "Li₂",
+    "Ne₂",
+    "F",
+    "N",
+    "O",
+    "Na",
+    "Si"
+   ],
+   "img": null,
+   "answer": "Ba, Mg, I₂, Br₂, H₂, Na, Si",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Diatomics need the 2: <b>I₂, Br₂, H₂</b> ✓; F, N, O are <b>missing their 2</b> ✗."
+    },
+    {
+     "tag": "mem",
+     "html": "Everything else is single: <b>Ba, Mg, Na, Si</b> ✓; Na₂, C₂, Li₂, Ne₂ are <b>not diatomic</b> ✗."
+    }
+   ]
+  },
+  {
+   "id": "hw15-q03",
+   "hw": 15,
+   "n": 3,
+   "section": "Reaction Types",
+   "method": "name-to-eqn",
+   "q": "Which correctly lists the precipitation reaction between aqueous copper(II) chlorite and aqueous lithium sulfide producing solid copper(II) sulfide and aqueous lithium chlorite? Make sure it's balanced.",
+   "choices": [
+    "Cu(ClO₂)₂ (aq) + Li₂S (aq) → CuS (s) + 2 LiClO₂ (aq)",
+    "Cu₂Cl (aq) + 2 LiSO₃ (aq) → 2 CuSO₃ (s) + 2 LiCl (aq)",
+    "Cu(ClO₂)₂ (aq) + Li₂SO₃ (aq) → CuSO₃ (s) + 2 LiClO₂ (aq)",
+    "CuCl₂ (aq) + 2 LiS (aq) → CuS₂ (s) + 2 LiCl (aq)",
+    "CuCl₂ (aq) + Li₂SO₃ (aq) → CuSO₃ (s) + 2 LiCl (aq)"
+   ],
+   "img": null,
+   "answer": "Cu(ClO₂)₂ (aq) + Li₂S (aq) → CuS (s) + 2 LiClO₂ (aq)",
+   "steps": [
+    {
+     "tag": "chart",
+     "html": "Chlorite from the polyatomic chart: <b>ClO₂⁻</b>. Copper(II) = <b>Cu²⁺</b> → copper(II) chlorite = <b>Cu(ClO₂)₂</b>."
+    },
+    {
+     "tag": "both",
+     "html": "Sulfide (\"-ide\") = <b>S²⁻</b>; lithium = <b>Li⁺</b> (column 1) → lithium sulfide = <b>Li₂S</b> (not Li₂SO₃, that's sulfite)."
+    },
+    {
+     "tag": "",
+     "html": "Products: Cu²⁺ + S²⁻ = <b>CuS</b>; Li⁺ + ClO₂⁻ = <b>LiClO₂</b>."
+    },
+    {
+     "tag": "",
+     "html": "2 Li and 2 ClO₂ on the left → <b>2 LiClO₂</b>. Equation: <b>Cu(ClO₂)₂ + Li₂S → CuS + 2 LiClO₂</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw15-q04",
+   "hw": 15,
+   "n": 4,
+   "section": "Reaction Types",
+   "method": "rxn-type",
+   "q": "Classify the reaction (more than one may apply): 2 HgO (s) → 2 Hg (l) + O₂ (g)",
+   "choices": [
+    "single replacement",
+    "combustion",
+    "synthesis",
+    "decomposition",
+    "double replacement",
+    "precipitation"
+   ],
+   "img": null,
+   "answer": "decomposition",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Only <b>one reactant</b> (no + on the left) → <b>decomposition</b>."
+    },
+    {
+     "tag": "",
+     "html": "No fuel making CO₂/H₂O, no swap, no solid formed from solutions → <b>nothing else</b> applies."
+    }
+   ]
+  },
+  {
+   "id": "hw15-q05",
+   "hw": 15,
+   "n": 5,
+   "section": "Reaction Types",
+   "method": "rxn-type",
+   "q": "Classify the reaction (more than one may apply): KCl (aq) + AgNO₃ (aq) → AgCl (s) + KNO₃ (aq)",
+   "choices": [
+    "single replacement",
+    "combustion",
+    "synthesis",
+    "decomposition",
+    "double replacement",
+    "oxidation reduction",
+    "precipitation"
+   ],
+   "img": null,
+   "answer": "double replacement, precipitation",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Two compounds <b>swap partners</b> (K with NO₃, Ag with Cl) → <b>double replacement</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "A <b>solid (s)</b> forms from two solutions → also <b>precipitation</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw15-q06",
+   "hw": 15,
+   "n": 6,
+   "section": "Reaction Types",
+   "method": "rxn-type",
+   "q": "Identify the type of reaction (no need to balance): S(s) + O₂(g) → SO₂(g)",
+   "choices": [
+    "synthesis",
+    "single replacement",
+    "decomposition",
+    "double replacement"
+   ],
+   "img": null,
+   "answer": "synthesis",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Two reactants make <b>one product</b> → <b>synthesis</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw15-q07",
+   "hw": 15,
+   "n": 7,
+   "section": "Reaction Types",
+   "method": "rxn-type",
+   "q": "Identify the type of reaction (no need to balance): Pb(s) + AgNO₃(aq) → Pb(NO₃)₂(aq) + Ag(s)",
+   "choices": [
+    "synthesis",
+    "single replacement",
+    "double replacement",
+    "decomposition"
+   ],
+   "img": null,
+   "answer": "single replacement",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "An element is <b>alone on each side</b> (Pb in, Ag out) → <b>single replacement</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw15-q08",
+   "hw": 15,
+   "n": 8,
+   "section": "Reaction Types",
+   "method": "conservation",
+   "q": "True or false: 1 mol of NaCl contains 6.022×10²³ NaCl units, and 1 mol of NaCl contains 1 mol of Na, so there are 6.022×10²³ Na atoms too.",
+   "choices": null,
+   "img": null,
+   "answer": "True",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "1 mol = <b>6.022 × 10²³</b> of anything."
+    },
+    {
+     "tag": "",
+     "html": "Each NaCl has <b>one Na</b>, so 1 mol NaCl → 1 mol Na → <b>True</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw15-q09",
+   "hw": 15,
+   "n": 9,
+   "section": "Reaction Types",
+   "method": "conservation",
+   "q": "True or false: 1 mol of Cl₂ contains 6.022×10²³ Cl₂ molecules, and 1 mol of Cl₂ contains 1 mol of Cl, so there are 6.022×10²³ Cl atoms too.",
+   "choices": null,
+   "img": null,
+   "answer": "False",
+   "steps": [
+    {
+     "tag": "",
+     "html": "First part is right: 1 mol Cl₂ = <b>6.022 × 10²³ molecules</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "But each Cl₂ has <b>two Cl atoms</b>: 1 mol Cl₂ → <b>2 mol Cl</b> = 1.204 × 10²⁴ atoms → <b>False</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw15-q10",
+   "hw": 15,
+   "n": 10,
+   "section": "Reaction Types",
+   "method": "conservation",
+   "q": "True or false: Mass is conserved in a chemical reaction because of the Law of Conservation of Mass, so the same number of each type of atom must show on each side of the reaction.",
+   "choices": null,
+   "img": null,
+   "answer": "True",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Atoms aren't created or destroyed, so <b>each atom count matches</b> on both sides → <b>True</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw15-q11",
+   "hw": 15,
+   "n": 11,
+   "section": "Balancing Reactions",
+   "method": "conservation",
+   "q": "True or false: Reactions must be balanced with coefficients because the Law of Conservation of Mass says total mass doesn't change; balancing puts the same number and types of atoms on both sides, so the mass on both sides is the same.",
+   "choices": null,
+   "img": null,
+   "answer": "True",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Same atoms on both sides → <b>same mass</b> on both sides → <b>True</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw15-q12",
+   "hw": 15,
+   "n": 12,
+   "section": "Balancing Reactions",
+   "method": "conservation",
+   "q": "Which of the following must be the same before and after a chemical reaction? (1) the sum of the masses, (2) the number of molecules, (3) the number of atoms of each type.",
+   "choices": [
+    "1) the sum of the masses of all substances involved",
+    "2) the number of molecules of all substances involved",
+    "3) the number of atoms of each type involved",
+    "4) both (1) and (3) must be the same",
+    "5) all of the answers (1), (2), and (3) must be the same"
+   ],
+   "img": null,
+   "answer": "4) both (1) and (3) must be the same",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "<b>Mass (1)</b> and <b>atoms of each type (3)</b> are conserved."
+    },
+    {
+     "tag": "",
+     "html": "Molecules (2) can change: 2 H₂ + O₂ → 2 H₂O goes from <b>3 molecules to 2</b>. Answer: <b>both (1) and (3)</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw15-q13",
+   "hw": 15,
+   "n": 13,
+   "section": "Balancing Reactions",
+   "method": "conservation",
+   "q": "Why do we not change subscripts when balancing a chemical equation?",
+   "choices": [
+    "We can change subscripts. We can't change coefficients.",
+    "Compounds composed of the same elements and having different subscripts are different substances.",
+    "It's fine to do it once in a while, but don't make a habit of it.",
+    "There's no real reason to, it's just something that is not done.",
+    "We never change subscripts because atoms are neither created nor destroyed. This is part of the law of conservation of matter."
+   ],
+   "img": null,
+   "answer": "Compounds composed of the same elements and having different subscripts are different substances.",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Subscripts are part of the <b>identity</b> of the substance."
+    },
+    {
+     "tag": "",
+     "html": "Change them and you get a <b>different substance</b>: H₂O (water) → H₂O₂ (hydrogen peroxide)."
+    }
+   ]
+  },
+  {
+   "id": "hw15-q14",
+   "hw": 15,
+   "n": 14,
+   "section": "Balancing Reactions",
+   "method": "balancing",
+   "q": "Lithium reacts vigorously with oxygen. Which set of coefficients balances the equation? Li + O₂ → Li₂O",
+   "choices": [
+    "1,2,1",
+    "4,1,2",
+    "2,2,1",
+    "1,2,2"
+   ],
+   "img": null,
+   "answer": "4, 1, 2",
+   "steps": [
+    {
+     "tag": "",
+     "html": "Count: left Li 1, O <b>2</b>; right Li 2, O <b>1</b>."
+    },
+    {
+     "tag": "",
+     "html": "O first (no H here): 2 O on the left → <b>2 Li₂O</b>. Now the right has <b>4 Li</b>."
+    },
+    {
+     "tag": "",
+     "html": "Fix Li: <b>4 Li</b>. Final: <b>4 Li + O₂ → 2 Li₂O</b> → 4, 1, 2."
+    }
+   ]
+  },
+  {
+   "id": "hw15-q15",
+   "hw": 15,
+   "n": 15,
+   "section": "Balancing Reactions",
+   "method": "balancing",
+   "q": "Solid aluminum reacts slowly with gaseous oxygen to produce solid aluminum oxide. Write and balance the equation. What are the whole-number coefficients on aluminum, oxygen, and aluminum oxide, in that order?",
+   "choices": [
+    "4, 6, 2",
+    "2, 3, 2",
+    "1, 3, 2",
+    "4, 3, 2",
+    "2, 3, 1"
+   ],
+   "img": null,
+   "answer": "4, 3, 2",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Oxygen is diatomic: <b>O₂</b>."
+    },
+    {
+     "tag": "both",
+     "html": "Al³⁺ and O²⁻ criss-cross → <b>Al₂O₃</b>. Unbalanced: Al + O₂ → Al₂O₃."
+    },
+    {
+     "tag": "mem",
+     "html": "O is 2 vs 3: <b>swap them</b> → 3 O₂ and 2 Al₂O₃ (6 O each)."
+    },
+    {
+     "tag": "",
+     "html": "2 Al₂O₃ has 4 Al → <b>4 Al</b>. Final: <b>4 Al + 3 O₂ → 2 Al₂O₃</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw15-q16",
+   "hw": 15,
+   "n": 16,
+   "section": "Balancing Reactions",
+   "method": "balancing",
+   "q": "When Al₂O₃ (s) + H₂SO₄ (aq) → Al₂(SO₄)₃ (aq) + H₂O (l) is balanced with the smallest integers, what is the number in front of H₂O?",
+   "choices": [
+    "3",
+    "6",
+    "9",
+    "2",
+    "1"
+   ],
+   "img": null,
+   "answer": "3",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Treat <b>SO₄</b> as one group: right side has <b>3 SO₄</b> → <b>3 H₂SO₄</b>."
+    },
+    {
+     "tag": "",
+     "html": "That brings in <b>6 H</b> → <b>3 H₂O</b>."
+    },
+    {
+     "tag": "",
+     "html": "Check O (outside SO₄): left 3 (in Al₂O₃), right 3 (in 3 H₂O) ✓. Answer: <b>3</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw15-q17",
+   "hw": 15,
+   "n": 17,
+   "section": "Balancing Reactions",
+   "method": "balancing",
+   "q": "When Br₂(l) + KI(aq) → I₂(aq) + KBr(aq) is balanced with the smallest integers, what is the number in front of KBr?",
+   "choices": [
+    "4",
+    "1",
+    "2",
+    "5",
+    "3"
+   ],
+   "img": null,
+   "answer": "2",
+   "steps": [
+    {
+     "tag": "",
+     "html": "Br₂ has <b>2 Br</b> → <b>2 KBr</b>."
+    },
+    {
+     "tag": "",
+     "html": "That gives 2 K → <b>2 KI</b>, which gives 2 I = I₂ ✓. Answer: <b>2</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw15-q18",
+   "hw": 15,
+   "n": 18,
+   "section": "Balancing Reactions",
+   "method": "balancing",
+   "q": "Balance: ___ H₃PO₄ + ___ NaOH → ___ Na₃PO₄ + ___ H₂O (enter four coefficients with no spaces or commas, like 1423).",
+   "choices": null,
+   "img": null,
+   "answer": "1313",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Keep <b>PO₄</b> and <b>OH</b> as groups. PO₄: 1 and 1 ✓."
+    },
+    {
+     "tag": "",
+     "html": "Na₃PO₄ has 3 Na → <b>3 NaOH</b>."
+    },
+    {
+     "tag": "",
+     "html": "Water: 3 H (from H₃PO₄) + 3 OH → <b>3 H₂O</b>."
+    },
+    {
+     "tag": "",
+     "html": "Coefficients 1, 3, 1, 3 → type <b>1313</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw15-q19",
+   "hw": 15,
+   "n": 19,
+   "section": "Balancing Reactions",
+   "method": "balancing",
+   "q": "Balance (type a 1 in any blank that needs it): Na + I₂ → NaI",
+   "choices": null,
+   "img": null,
+   "answer": "2, 1, 2",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Iodine is diatomic: I₂ has <b>2 I</b> → <b>2 NaI</b>."
+    },
+    {
+     "tag": "",
+     "html": "2 NaI has 2 Na → <b>2 Na</b>. Blanks: <b>2, 1, 2</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw15-q20",
+   "hw": 15,
+   "n": 20,
+   "section": "Balancing Reactions",
+   "method": "balancing",
+   "q": "Balance (type a 1 in any blank that needs it): P₄ + O₂ → P₂O₃",
+   "choices": null,
+   "img": null,
+   "answer": "1, 3, 2",
+   "steps": [
+    {
+     "tag": "",
+     "html": "P: 4 on the left → <b>2 P₂O₃</b> (4 P)."
+    },
+    {
+     "tag": "",
+     "html": "2 P₂O₃ has <b>6 O</b> → <b>3 O₂</b>. Blanks: <b>1, 3, 2</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw15-q21",
+   "hw": 15,
+   "n": 21,
+   "section": "Balancing Reactions",
+   "method": "balancing",
+   "q": "Balance (type a 1 in any blank that needs it): N₄ + F₂ → NF₃",
+   "choices": null,
+   "img": null,
+   "answer": "1, 6, 4",
+   "steps": [
+    {
+     "tag": "",
+     "html": "N: 4 on the left → <b>4 NF₃</b>."
+    },
+    {
+     "tag": "",
+     "html": "4 NF₃ has <b>12 F</b> → <b>6 F₂</b>. Blanks: <b>1, 6, 4</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw15-q22",
+   "hw": 15,
+   "n": 22,
+   "section": "Balancing Reactions",
+   "method": "balancing",
+   "q": "Balance with whole numbers, keeping this product order (type a 1 if needed): C₂H₆ + O₂ → H₂O + CO₂",
+   "choices": null,
+   "img": null,
+   "answer": "2, 7, 6, 4",
+   "steps": [
+    {
+     "tag": "",
+     "html": "C first: 2 C → <b>2 CO₂</b>. H next: 6 H → <b>3 H₂O</b>."
+    },
+    {
+     "tag": "",
+     "html": "O last: 3 + 4 = <b>7 O</b> needed, which is <b>3.5 O₂</b> (a fraction)."
+    },
+    {
+     "tag": "mem",
+     "html": "No fractions → <b>double everything</b>: 2 C₂H₆ + 7 O₂ → 6 H₂O + 4 CO₂."
+    },
+    {
+     "tag": "",
+     "html": "Blanks in this order: <b>2, 7, 6, 4</b> (H₂O comes before CO₂ here)."
+    }
+   ]
+  },
+  {
+   "id": "hw15-q23",
+   "hw": 15,
+   "n": 23,
+   "section": "Balancing Reactions",
+   "method": "balancing",
+   "q": "Balance (type a 1 in any blank that needs it): C + SO₂ → CS₂ + CO",
+   "choices": null,
+   "img": null,
+   "answer": "5, 2, 1, 4",
+   "steps": [
+    {
+     "tag": "",
+     "html": "Start with S: CS₂ needs <b>2 S</b> → <b>2 SO₂</b> (1 CS₂)."
+    },
+    {
+     "tag": "",
+     "html": "2 SO₂ has <b>4 O</b>; O only goes to CO → <b>4 CO</b>."
+    },
+    {
+     "tag": "",
+     "html": "C last (lone element): 1 (in CS₂) + 4 (in CO) = <b>5 C</b>. Blanks: <b>5, 2, 1, 4</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw15-q24",
+   "hw": 15,
+   "n": 24,
+   "section": "Balancing Reactions",
+   "method": "balancing",
+   "q": "Balance with whole numbers, keeping this product order (the fuel contains O; type a 1 if needed): C₃H₆O + O₂ → H₂O + CO₂",
+   "choices": null,
+   "img": null,
+   "answer": "1, 4, 3, 3",
+   "steps": [
+    {
+     "tag": "",
+     "html": "C: 3 → <b>3 CO₂</b>. H: 6 → <b>3 H₂O</b>."
+    },
+    {
+     "tag": "",
+     "html": "O on the right: 3(2) + 3(1) = <b>9 O</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "The fuel already brings <b>1 O</b>, so O₂ supplies 8 → <b>4 O₂</b>."
+    },
+    {
+     "tag": "",
+     "html": "Blanks: <b>1, 4, 3, 3</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw15-q25",
+   "hw": 15,
+   "n": 25,
+   "section": "Balancing Reactions",
+   "method": "predict",
+   "q": "Enter the formula, with state, of the missing substance Y (no coefficient; it is aq): Ba(NO₃)₂ + Li₂CO₃(aq) → Y + 2 LiNO₃(aq)",
+   "choices": null,
+   "img": null,
+   "answer": "BaCO₃ (aq)",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Double replacement: Li ends up with NO₃, so <b>Ba gets the CO₃</b>."
+    },
+    {
+     "tag": "both",
+     "html": "Ba²⁺ (column 2) + CO₃²⁻ (chart) → charges cancel 1:1 → <b>BaCO₃</b>."
+    },
+    {
+     "tag": "",
+     "html": "Atom check: Ba 1 = 1, NO₃ 2 = 2, Li 2 = 2, CO₃ 1 = 1 ✓. Type <b>BaCO3 (aq)</b> (really a solid, but the question says aq)."
+    }
+   ]
+  },
+  {
+   "id": "hw15-q26",
+   "hw": 15,
+   "n": 26,
+   "section": "Balancing Reactions",
+   "method": "balancing",
+   "q": "When Pb(NO₃)₂(aq) + K₂CrO₄(aq) → PbCrO₄(s) + KNO₃(aq) is balanced with the smallest integers, what is the number in front of KNO₃?",
+   "choices": [
+    "12",
+    "2",
+    "4",
+    "1",
+    "6"
+   ],
+   "img": null,
+   "answer": "2",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Keep <b>NO₃</b> and <b>CrO₄</b> as groups."
+    },
+    {
+     "tag": "",
+     "html": "Left has <b>2 NO₃</b> → <b>2 KNO₃</b>; that's 2 K, matching K₂CrO₄ ✓. Answer: <b>2</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw15-q27",
+   "hw": 15,
+   "n": 27,
+   "section": "Predicting Products",
+   "method": "predict",
+   "q": "Predict the products (no need to balance): (NH₄)₂CO₃ + Al(NO₃)₃ →",
+   "choices": [
+    "(NH₄)₂CO₃ + Al(NO₃)₃",
+    "(NH₄)₂(NO₃)₃ + AlCO₃",
+    "NH₄NO₃ + Al₂(CO₃)₃"
+   ],
+   "img": null,
+   "answer": "NH₄NO₃ + Al₂(CO₃)₃",
+   "steps": [
+    {
+     "tag": "chart",
+     "html": "Ions from the chart: <b>NH₄⁺</b>, <b>CO₃²⁻</b>, <b>NO₃⁻</b>; Al is <b>Al³⁺</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Double replacement: <b>swap the negatives</b> → NH₄ + NO₃, Al + CO₃."
+    },
+    {
+     "tag": "",
+     "html": "NH₄⁺ + NO₃⁻ → <b>NH₄NO₃</b>. Al³⁺ + CO₃²⁻ criss-cross → <b>Al₂(CO₃)₃</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw15-q28",
+   "hw": 15,
+   "n": 28,
+   "section": "Predicting Products",
+   "method": "predict",
+   "q": "Predict the products (no need to balance): Ni(NO₃)₃(aq) + KBr(aq) →",
+   "choices": [
+    "Ni(NO₃)₃ + KBr",
+    "K(NO₃)₃ + NiBr",
+    "KNO₃ + NiBr₃"
+   ],
+   "img": null,
+   "answer": "KNO₃ + NiBr₃",
+   "steps": [
+    {
+     "tag": "",
+     "html": "Ni holds three NO₃⁻, so here it is <b>Ni³⁺</b>. K is <b>K⁺</b>, Br is <b>Br⁻</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "<b>Swap the negatives</b>: K + NO₃, Ni + Br."
+    },
+    {
+     "tag": "",
+     "html": "K⁺ + NO₃⁻ → <b>KNO₃</b>. Ni³⁺ + Br⁻ → <b>NiBr₃</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw15-q29",
+   "hw": 15,
+   "n": 29,
+   "section": "Predicting Products",
+   "method": "predict",
+   "q": "Predict the products (no need to balance): C₂H₆ + O₂ →",
+   "choices": [
+    "H₂O + CO₂",
+    "C₂O₄ + H₂",
+    "C₂H₆O₂"
+   ],
+   "img": null,
+   "answer": "H₂O + CO₂",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Hydrocarbon + O₂ = <b>combustion</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Combustion always makes <b>CO₂ + H₂O</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw15-q30",
+   "hw": 15,
+   "n": 30,
+   "section": "Predicting Products",
+   "method": "predict",
+   "q": "Predict the products (no need to balance): NaClO₃ + Mg →",
+   "choices": [
+    "NaClO₃ + Mg",
+    "Mg(ClO₃)₂ + Na",
+    "MgNa + ClO₃",
+    "NaMgClO₃"
+   ],
+   "img": null,
+   "answer": "Mg(ClO₃)₂ + Na",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "A lone metal + a compound → <b>single replacement</b>: Mg takes Na's place."
+    },
+    {
+     "tag": "both",
+     "html": "Mg is <b>Mg²⁺</b> (column 2); chlorate is <b>ClO₃⁻</b> (chart) → <b>Mg(ClO₃)₂</b>."
+    },
+    {
+     "tag": "",
+     "html": "Na is left alone as <b>Na</b>. Products: <b>Mg(ClO₃)₂ + Na</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw15-q31",
+   "hw": 15,
+   "n": 31,
+   "section": "Predicting Products",
+   "method": "rxn-type",
+   "q": "Match each reaction with its type (synthesis, decomposition, single replacement, double replacement, combustion): (a) 2 HgO → 2 Hg + O₂; (b) 4 C₂H₅ + 13 O₂ → 8 CO₂ + 10 H₂O; (c) HCl + AgNO₃ → AgCl + HNO₃; (d) 2 Na + H₂ → 2 NaH; (e) K₂O₃ + H₂SO₄ → K₂(SO₄)₃ + H₂O; (f) Mg + 2 NaNO₃ → Mg(NO₃)₂ + Na; (g) Mg(OH)₂ + 2 HNO₂ → Mg(NO₂)₂ + 2 H₂O",
+   "choices": null,
+   "img": null,
+   "answer": "a 2, b 5, c 4, d 1, e 4, f 3, g 4",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Find combustion first (fuel + O₂ → CO₂ + H₂O): <b>(b) combustion</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "One reactant: <b>(a) decomposition</b>. One product: <b>(d) synthesis</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Lone element swaps in: <b>(f) single replacement</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Two compounds swap partners: <b>(c), (e), (g) double replacement</b>."
+    }
+   ]
+  }
+ ]
+}
