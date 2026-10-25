@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Test 3 Drill — Chem Study Hub</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/core.css">
+<style>
+  .tag{display:inline-flex;align-items:center;gap:4px;font:500 11px/1 'IBM Plex Mono',monospace;letter-spacing:.03em;text-transform:uppercase;padding:4px 7px;border-radius:999px;white-space:nowrap;vertical-align:1px;margin-right:6px}
+  .tag.mem{background:var(--pink-wash);color:#7A4310}
+  .tag.chart{background:var(--violet-wash);color:var(--violet-deep)}
+  .tag.both{background:linear-gradient(90deg,var(--pink-wash) 50%,var(--violet-wash) 50%);color:var(--ink)}
+  .tag.math{background:var(--paper-raised);color:var(--ink-soft)}
+  .panel{background:#F8FAFA;border:1px solid var(--rule);border-radius:12px;padding:16px;margin:0 0 14px}
+  .hwhead{display:flex;justify-content:space-between;align-items:baseline;margin:0 0 8px}
+  .hwhead h2{font:600 16px 'IBM Plex Sans',sans-serif;margin:0}
+  .mini{font:500 13px 'IBM Plex Sans',sans-serif;background:none;border:0;color:var(--violet);cursor:pointer;padding:2px 4px}
+  .topic{display:grid;grid-template-columns:22px 1fr auto;gap:2px 10px;align-items:center;width:100%;text-align:left;background:#fff;border:1px solid var(--rule);border-radius:10px;padding:9px 12px;margin:0 0 6px;font:15px 'IBM Plex Sans',sans-serif;color:var(--ink);cursor:pointer}
+  .topic[aria-pressed="true"]{border-color:var(--violet);background:var(--violet-wash)}
+  .topic .box{width:20px;height:20px;border-radius:5px;border:1.5px solid var(--rule);display:grid;place-items:center;font-size:13px;background:#fff}
+  .topic[aria-pressed="true"] .box{background:var(--violet);border-color:var(--violet);color:#fff}
+  .topic .acc{font:500 12px 'IBM Plex Mono',monospace;color:var(--sage)}
+  .topic .meter{grid-column:2/4;height:4px;border-radius:99px;background:var(--paper-raised);overflow:hidden}
+  .topic .meter i{display:block;height:100%;background:var(--good)}
+  .seg{display:flex;flex-wrap:wrap;gap:6px}
+  .seg button{font:500 14px 'IBM Plex Sans',sans-serif;border:1px solid var(--rule);background:#fff;color:var(--ink);padding:7px 12px;border-radius:999px;cursor:pointer}
+  .seg button[aria-pressed="true"]{background:var(--violet);border-color:var(--violet);color:#fff}
+  .row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+  .btn{font:600 15px 'IBM Plex Sans',sans-serif;border:1px solid var(--violet);background:var(--violet);color:#fff;padding:10px 16px;border-radius:9px;cursor:pointer;text-decoration:none}
+  .btn.ghost{background:#fff;color:var(--violet)}
+  .btn:disabled{opacity:.45;cursor:default}
+  .lbl{font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--sage);margin:14px 0 8px}
+  .stats{display:flex;flex-wrap:wrap;gap:6px 18px;font:500 14px 'IBM Plex Mono',monospace;color:var(--ink-soft);margin:6px 0 8px}
+  .stats b{color:var(--ink)}
+  .qcard{background:#F8FAFA;border:1px solid var(--rule);border-radius:12px;padding:16px}
+  .chip{display:inline-block;font:600 11px 'IBM Plex Mono',monospace;letter-spacing:.06em;text-transform:uppercase;background:var(--violet-wash);color:var(--violet-deep);padding:4px 8px;border-radius:5px}
+  .retry{display:inline-block;font:600 11px 'IBM Plex Mono',monospace;background:var(--pink-wash);color:#7A4310;padding:4px 8px;border-radius:5px;margin-left:6px}
+  .prompt{font-size:17px;line-height:1.5;margin:12px 0 6px}
+  .given{font-size:14px;color:var(--ink-soft);margin:0 0 10px}
+  .opts{display:grid;gap:8px;margin:12px 0 0}
+  .opt{display:flex;gap:10px;align-items:flex-start;text-align:left;width:100%;background:#fff;border:1.5px solid var(--rule);border-radius:10px;padding:11px 12px;font:15px/1.45 'IBM Plex Sans',sans-serif;color:var(--ink);cursor:pointer}
+  .opt .k{font:600 12px 'IBM Plex Mono',monospace;color:var(--violet);min-width:1.2em;padding-top:2px}
+  .opt:hover:not(:disabled){border-color:var(--violet)}
+  .opt.right{border-color:var(--good);background:var(--good-wash)}
+  .opt.wrong{border-color:var(--red);background:var(--red-wash)}
+  .opt:disabled{cursor:default}
+  .typed{display:flex;gap:8px;margin:12px 0 0;flex-wrap:wrap}
+  .typed input{flex:1 1 200px;font:17px 'IBM Plex Mono',monospace;padding:10px 12px;border:1.5px solid var(--rule);border-radius:9px;background:#fff;color:var(--ink)}
+  .typed input:focus{outline:none;border-color:var(--violet)}
+  .unit{align-self:center;font:500 15px 'IBM Plex Mono',monospace;color:var(--ink-soft)}
+  .fb{margin:14px 0 0;padding:12px 14px;border-radius:10px}
+  .fb.ok{background:var(--good-wash);color:#1C4D31}
+  .fb.no{background:var(--red-wash);color:#5E2222}
+  .fb .head{font-weight:600}
+  ol.steps{margin:12px 0 0;padding:0;list-style:none;counter-reset:s}
+  ol.steps li{counter-increment:s;position:relative;padding:8px 0 8px 32px;border-top:1px dashed var(--rule);font-size:15px}
+  ol.steps li:first-child{border-top:0}
+  ol.steps li::before{content:counter(s);position:absolute;left:0;top:8px;width:22px;height:22px;border-radius:50%;background:var(--violet-wash);color:var(--violet-deep);font:600 12px/22px 'IBM Plex Mono',monospace;text-align:center}
+  .kbd{font:12px 'IBM Plex Mono',monospace;color:var(--sage);margin-top:10px}
+  .done-big{font:600 34px 'Fraunces',serif;margin:4px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="quiz-head">
+    <a class="back-link" href="../index.html">&larr; Chem Study Hub</a>
+    <p class="site-mark">CHEM STUDY HUB &middot; TEST 3</p>
+    <h1 class="quiz-title">Test 3 Drill</h1>
+    <p class="quiz-sub">Endless new problems for every HW 13–16 topic. Misses come back three questions later and stay on your miss list until you get them right.</p>
+  </div>
+  <div id="app"><p class="note">Loading…</p></div>
+</div>
+<script src="engine.js"></script>
+<script src="../assets/chem-core.js"></script>
+<script>
+/* Test 3 Drill. Checkpoint/resume: settings, the round in progress (including the question on screen), the miss list,
+   per-topic accuracy and best streak are saved in this browser after every answer (chem-drill3-v1). */
+(function () {
+  const KEY = 'chem-drill3-v1', D = Drill3, $ = id => document.getElementById(id), app = $('app');
+  const HWS = [[13, 'HW 13 · Formulas & percent composition'], [14, 'HW 14 · Solutions, molarity & dilution'], [15, 'HW 15 · Reactions & balancing'], [16, 'HW 16 · Solubility, ionic equations & redox']];
+  const TAG = { mem: ['mem', '🧠 Memorize'], chart: ['chart', '📊 Chart'], both: ['both', '🧠📊 Both'], '': ['math', 'Work'] };
+  const tag = t => { const [c, l] = TAG[t || '']; return `<span class="tag ${c}">${l}</span>`; };
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const L = 'abcdefghij';
+  let st = {};
+  try { st = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) {}
+  st = Object.assign({ topics: D.TOPICS.map(t => t.id), size: '20', run: null, misses: [], stats: {}, best: 0 }, st);
+  const save = () => { try { localStorage.setItem(KEY, JSON.stringify(st)); } catch (e) {} };
+  const tname = id => (D.TOPICS.find(t => t.id === id) || {}).label || id;
+  Chem.resources('../assets/');
+
+  /* ---------- setup ---------- */
+  function setup() {
+    const r = st.run;
+    let h = '';
+    if (r && !r.over) h += `<div class="panel row" style="justify-content:space-between"><span><b>Round in progress</b> &middot; ${r.n} of ${r.goal === 0 ? '∞' : r.goal} &middot; ${r.right} right</span><span class="row"><button class="btn" id="resume">Resume</button><button class="btn ghost" id="drop">Discard</button></span></div>`;
+    h += `<div class="stats"><span>Best streak <b>${st.best}</b></span><span>Miss list <b>${st.misses.length}</b></span></div>`;
+    for (const [hw, title] of HWS) {
+      const ts = D.TOPICS.filter(t => t.hw === hw);
+      h += `<div class="panel"><div class="hwhead"><h2>${title}</h2><span><button class="mini" data-hwall="${hw}">all</button><button class="mini" data-hwnone="${hw}">none</button></span></div>`;
+      h += ts.map(t => {
+        const s = st.stats[t.id], on = st.topics.includes(t.id), pct = s && s.seen ? Math.round(100 * s.right / s.seen) : null;
+        return `<button type="button" class="topic" data-t="${t.id}" aria-pressed="${on}"><span class="box">${on ? '✓' : ''}</span><span>${esc(t.label)}</span><span class="acc">${pct === null ? 'new' : pct + '% of ' + s.seen}</span><span class="meter"><i style="width:${pct || 0}%"></i></span></button>`;
+      }).join('') + '</div>';
+    }
+    h += `<div class="panel"><p class="lbl" style="margin-top:0">Questions per round</p><div class="seg" id="size">${[['10', '10'], ['20', '20'], ['40', '40'], ['0', 'Endless']].map(([v, t]) => `<button type="button" data-v="${v}" aria-pressed="${st.size === v}">${t}</button>`).join('')}</div>
+      <div class="row" style="margin-top:16px"><button class="btn" id="start" ${st.topics.length ? '' : 'disabled'}>Start drill (${st.topics.length} topic${st.topics.length === 1 ? '' : 's'})</button>
+      ${st.misses.length ? `<button class="btn ghost" id="missBtn">Practice my misses (${st.misses.length})</button><button class="mini" id="clearMiss">clear miss list</button>` : ''}</div></div>
+      <p class="note">Every answer shows the worked steps, tagged 🧠 memorize or 📊 look up on a chart, the same way as the <a href="../walkthrough/index.html">Walkthroughs</a>.</p>`;
+    app.innerHTML = h;
+    app.onclick = e => {
+      const t = e.target.closest('[data-t]'), all = e.target.closest('[data-hwall]'), none = e.target.closest('[data-hwnone]'), sz = e.target.closest('#size button');
+      if (t) { const id = t.dataset.t; st.topics = st.topics.includes(id) ? st.topics.filter(x => x !== id) : st.topics.concat(id); }
+      else if (all) { const hw = +all.dataset.hwall; st.topics = [...new Set(st.topics.concat(D.TOPICS.filter(x => x.hw === hw).map(x => x.id)))]; }
+      else if (none) { const hw = +none.dataset.hwnone; st.topics = st.topics.filter(id => D.TOPICS.find(x => x.id === id).hw !== hw); }
+      else if (sz) st.size = sz.dataset.v;
+      else if (e.target.id === 'start') return begin('topics');
+      else if (e.target.id === 'missBtn') return begin('misses');
+      else if (e.target.id === 'resume') return run();
+      else if (e.target.id === 'drop') { st.run = null; }
+      else if (e.target.id === 'clearMiss') { st.misses = []; }
+      else return;
+      save(); setup();
+    };
+  }
+
+  /* ---------- a round ---------- */
+  function begin(mode) {
+    const goal = mode === 'misses' ? st.misses.length : +st.size;
+    st.run = { mode, goal, n: 0, right: 0, streak: 0, queue: mode === 'misses' ? st.misses.map(q => ({ q, due: 0 })) : [], q: null, answered: false, last: null, per: {}, input: '' };
+    next(); save(); run();
+  }
+  function next() {
+    const r = st.run;
+    if (r.goal && r.n >= r.goal) { r.over = true; r.q = null; return; }
+    const dueI = r.queue.findIndex(x => x.due <= r.n);
+    if (dueI >= 0) { r.q = Object.assign({}, r.queue.splice(dueI, 1)[0].q, { retry: true }); }
+    else if (r.mode === 'misses') { r.over = true; r.q = null; return; }
+    else {
+      let q, tries = 0;
+      do { q = D.make(st.topics[Math.floor(Math.random() * st.topics.length)]); } while (r.last && q.key === r.last && tries++ < 10);
+      r.q = q;
+    }
+    r.answered = false; r.input = ''; r.last = r.q.key;
+  }
+  function bar(r) {
+    const pct = r.goal ? Math.round(100 * r.n / r.goal) : Math.min(100, r.n % 20 * 5);
+    return `<div class="score-bar"><div class="score-row"><span>${r.goal ? `question <b>${Math.min(r.n + (r.answered ? 0 : 1), r.goal)}</b> of ${r.goal}` : `<b>${r.n}</b> answered`} &middot; <b>${r.right}</b> right</span><span class="num-correct">streak ${r.streak} &middot; best ${Math.max(st.best, r.streak)}</span></div>
+      <div class="progress-track" role="progressbar" aria-label="Round progress" aria-valuenow="${pct}"><div class="progress-fill" style="width:${pct}%"></div></div>
+      <div class="row" style="justify-content:space-between;margin-top:6px"><span class="note">${r.queue.length ? r.queue.length + ' miss' + (r.queue.length > 1 ? 'es' : '') + ' coming back' : '&nbsp;'}</span><button class="restart-btn" id="quit">end round</button></div></div>`;
+  }
+  function run() {
+    const r = st.run;
+    if (!r) return setup();
+    if (r.over) return summary();
+    const q = r.q;
+    let h = bar(r) + `<div class="qcard"><span class="chip">${esc(tname(q.topic))}</span>${q.retry ? '<span class="retry">missed earlier</span>' : ''}<p class="prompt">${q.prompt}</p>${q.given ? `<p class="given">${q.given}</p>` : ''}`;
+    if (q.kind === 'mc') h += `<div class="opts">${q.opts.map((o, i) => `<button type="button" class="opt" data-i="${i}"><span class="k">${L[i]}</span><span>${o}</span></button>`).join('')}</div>`;
+    else h += `<form class="typed" id="tf" autocomplete="off"><input id="ti" type="text" inputmode="${q.kind === 'num' || q.kind === 'int' ? 'decimal' : 'text'}" autocapitalize="off" spellcheck="false" placeholder="${q.kind === 'coef' ? '2, 1, 2' : q.kind === 'formula' ? 'C2H5O' : q.kind === 'int' ? '+3' : 'your answer'}" value="${esc(r.input || '')}">${q.unit ? `<span class="unit">${q.unit}</span>` : ''}<button class="btn" type="submit">Check</button></form>`;
+    h += '<div id="fb"></div></div><p class="kbd">Keys: ' + (q.kind === 'mc' ? 'a–' + L[q.opts.length - 1] + ' or 1–' + q.opts.length + ' to answer' : 'Enter to check') + ' &middot; Enter for the next question</p>';
+    app.innerHTML = h;
+    app.onclick = e => {
+      if (e.target.id === 'quit') { r.over = true; r.q = null; save(); return summary(); }
+      const o = e.target.closest('.opt'); if (o && !r.answered) answer(+o.dataset.i);
+      if (e.target.id === 'nextBtn') go();
+    };
+    const tf = $('tf');
+    if (tf) { tf.onsubmit = e => { e.preventDefault(); if (!r.answered) answer($('ti').value); else go(); }; $('ti').oninput = () => { r.input = $('ti').value; save(); }; if (!r.answered) $('ti').focus(); }
+    if (r.answered) feedback();
+  }
+  function answer(input) {
+    const r = st.run, q = r.q, res = D.check(q, input);
+    if (res.msg && !res.ok && q.kind !== 'mc' && /readable|Type a number|formula I can/.test(res.msg)) { $('fb').innerHTML = `<div class="fb no">${esc(res.msg)}</div>`; return; }
+    r.answered = true; r.ok = res.ok; r.input = String(input); r.n++;
+    const s = st.stats[q.topic] || (st.stats[q.topic] = { seen: 0, right: 0 }); s.seen++;
+    const pt = r.per[q.topic] || (r.per[q.topic] = { seen: 0, right: 0 }); pt.seen++;
+    if (res.ok) {
+      r.right++; r.streak++; s.right++; pt.right++; if (r.streak > st.best) st.best = r.streak;
+      st.misses = st.misses.filter(m => m.key !== q.key);
+    } else {
+      r.streak = 0;
+      const clean = Object.assign({}, q); delete clean.retry;
+      if (!r.queue.some(x => x.q.key === q.key)) r.queue.push({ q: clean, due: r.n + 3 });
+      if (!st.misses.some(m => m.key === q.key)) { st.misses.unshift(clean); st.misses = st.misses.slice(0, 60); }
+    }
+    save(); run();
+  }
+  function feedback() {
+    const r = st.run, q = r.q;
+    if (q.kind === 'mc') app.querySelectorAll('.opt').forEach(b => { const i = +b.dataset.i; b.disabled = true; if (i === q.correct) b.classList.add('right'); else if (String(i) === String(r.input)) b.classList.add('wrong'); });
+    else { const i = $('ti'); i.readOnly = true; i.value = r.input; }
+    $('fb').innerHTML = `<div class="fb ${r.ok ? 'ok' : 'no'}"><span class="head">${r.ok ? 'Right!' : 'Not quite.'}</span> Answer: <b>${q.display}</b>${r.ok ? '' : ' &middot; it comes back in 3 questions'}</div>
+      <ol class="steps">${q.steps.map(([t, s]) => `<li>${tag(t)}${s}</li>`).join('')}</ol>
+      <div class="row" style="margin-top:12px"><button class="btn" id="nextBtn">${r.goal && r.n >= r.goal && !r.queue.some(x => x.due <= r.n) ? 'See results' : 'Next question'}</button></div>`;
+    const nb = $('nextBtn'); if (nb) nb.focus();
+  }
+  function go() { next(); save(); run(); window.scrollTo(0, 0); }
+  function summary() {
+    const r = st.run; if (!r) return setup();
+    const pct = r.n ? Math.round(100 * r.right / r.n) : 0;
+    app.innerHTML = `<div class="panel"><p class="lbl" style="margin-top:0">Round finished</p><p class="done-big">${r.right} / ${r.n}</p><p>${pct}% right &middot; best streak ever ${st.best}</p>
+      ${Object.keys(r.per).length ? '<ul>' + Object.entries(r.per).map(([t, s]) => `<li>${esc(tname(t))}: ${s.right}/${s.seen}</li>`).join('') + '</ul>' : ''}
+      <div class="row" style="margin-top:12px"><button class="btn" id="again">New round</button>${st.misses.length ? `<button class="btn ghost" id="miss2">Practice my misses (${st.misses.length})</button>` : ''}<button class="btn ghost" id="home">Settings</button></div></div>`;
+    app.onclick = e => {
+      if (e.target.id === 'again') { st.run = null; begin('topics'); }
+      else if (e.target.id === 'miss2') { st.run = null; begin('misses'); }
+      else if (e.target.id === 'home') { st.run = null; save(); setup(); }
+    };
+  }
+  document.addEventListener('keydown', e => {
+    const r = st.run; if (!r || r.over || !r.q || /input|textarea/i.test((e.target.tagName || '')) && !r.answered) return;
+    if (e.key === 'Enter' && r.answered) { e.preventDefault(); go(); return; }
+    if (r.answered || r.q.kind !== 'mc') return;
+    let i = '123456789'.indexOf(e.key); if (i < 0) i = L.indexOf(e.key.toLowerCase());
+    if (i >= 0 && i < r.q.opts.length) answer(i);
+  });
+
+  if (st.run && !st.run.over && location.hash === '#run') run(); else setup();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,534 @@
+{
+ "slug": "hw16",
+ "test": "T3",
+ "title": "HW 16",
+ "subtitle": "Ch. 7 — Solubility, Net & Full Ionic Equations, Redox",
+ "questions": [
+  {
+   "id": "hw16-q01",
+   "n": 1,
+   "type": "match",
+   "q": "Match the characteristics with the names.",
+   "items": [
+    "When the abbreviation for this phase is (s), the substance is:",
+    "When the abbreviation for this phase is (aq), the substance is:",
+    "When something dissolves in a specific solvent (water in this course) it is:",
+    "When a precipitate forms, it is a product that is:",
+    "If a substance dissociates in water, it is:",
+    "When something splits apart into positive and negative ions when it is added to a solvent it is said to be:",
+    "When something does not dissolve and instead either falls into a pile of solid at the bottom of the container or disperses into tiny solid pieces making the liquid look cloudy, it is:"
+   ],
+   "opts": [
+    "soluble",
+    "insoluble"
+   ],
+   "correct": [
+    1,
+    0,
+    0,
+    1,
+    0,
+    0,
+    1
+   ],
+   "note": "(s) = solid = insoluble. (aq) = dissolved = soluble. A precipitate is a solid, so it is insoluble.",
+   "test": "T3"
+  },
+  {
+   "id": "hw16-q02",
+   "n": 2,
+   "type": "multi",
+   "q": "Select the soluble compounds below.",
+   "opts": [
+    "BaS",
+    "NaBr",
+    "MgCrO₄",
+    "(NH₄)₂CO₃"
+   ],
+   "correct": [
+    1,
+    3
+   ],
+   "given": "You may look up solubility rules. I strongly recommend that you have them handy during quizzes and exams. There is a printable chart in the Getting Started → printable notes → Data Sheet CHEM 1110.",
+   "note": "Na⁺ and NH₄⁺ make anything soluble. BaS (sulfide) and MgCrO₄ (chromate) are on the insoluble side of the course chart.",
+   "test": "T3"
+  },
+  {
+   "id": "hw16-q03",
+   "n": 3,
+   "type": "multi",
+   "q": "Select the soluble compounds below.",
+   "opts": [
+    "PbI₂",
+    "Cu(NO₃)₂",
+    "Ag₂SO₄",
+    "Al(OH)₃"
+   ],
+   "correct": [
+    1
+   ],
+   "given": "You may look up solubility rules. I strongly recommend that you have them handy during quizzes and exams. There is a printable chart in the Getting Started → printable notes → Data Sheet CHEM 1110.",
+   "note": "Nitrates are always soluble. PbI₂ (Pb is an iodide exception), Ag₂SO₄ (Ag is a sulfate exception) and Al(OH)₃ (hydroxide) are insoluble.",
+   "test": "T3"
+  },
+  {
+   "id": "hw16-q04",
+   "n": 4,
+   "type": "multi",
+   "q": "Select the soluble compounds below.",
+   "opts": [
+    "(NH₄)₂CO₃",
+    "BaS",
+    "MgCrO₄",
+    "NaBr"
+   ],
+   "correct": [
+    0,
+    3
+   ],
+   "given": "You may look up solubility rules. I strongly recommend that you have them handy during quizzes and exams. There is a printable chart in the Getting Started → printable notes → Data Sheet CHEM 1110.",
+   "note": "Same compounds as question 2, reordered.",
+   "test": "T3"
+  },
+  {
+   "id": "hw16-q05",
+   "n": 5,
+   "type": "multi",
+   "q": "Select the insoluble compounds below.",
+   "opts": [
+    "PbI₂",
+    "Ag₂SO₄",
+    "Cu(NO₃)₂",
+    "Al(OH)₃"
+   ],
+   "correct": [
+    0,
+    1,
+    3
+   ],
+   "given": "You may look up solubility rules. I strongly recommend that you have them handy during quizzes and exams. There is a printable chart in the Getting Started → printable notes → Data Sheet CHEM 1110.",
+   "note": "Everything except the nitrate.",
+   "test": "T3"
+  },
+  {
+   "id": "hw16-q06",
+   "n": 6,
+   "type": "multi",
+   "q": "Select all of the soluble compounds below.",
+   "opts": [
+    "Al(OH)₃",
+    "Cu(NO₃)₂",
+    "PbI₂",
+    "Ag₂SO₄"
+   ],
+   "correct": [
+    1
+   ],
+   "given": "There is a printable chart in the Getting Started → printable notes → Data Sheet CHEM 1110.",
+   "test": "T3"
+  },
+  {
+   "id": "hw16-q07",
+   "n": 7,
+   "type": "multi",
+   "q": "Select the insoluble compounds below.",
+   "opts": [
+    "Ba(OH)₂",
+    "AlPO₄",
+    "Pb(NO₃)₂",
+    "Sr(C₂H₃O₂)₂",
+    "AgCl"
+   ],
+   "correct": [
+    1,
+    4
+   ],
+   "given": "There is a printable chart in the Getting Started → printable notes → Data Sheet CHEM 1110.",
+   "note": "Phosphates are insoluble (Al isn't an exception). AgCl: Ag is a chloride exception. Ba(OH)₂ is a hydroxide exception (soluble); nitrates and acetates are soluble.",
+   "test": "T3"
+  },
+  {
+   "id": "hw16-q08",
+   "n": 8,
+   "type": "multi",
+   "q": "Mark all reactions which are NOT expected to be successful as written. (These are the reactions that will have \"no reaction\" for their net ionic equation.) Notice that all states/phases are already given for each compound.",
+   "opts": [
+    "KOH(aq) + HCl(aq) → KCl(aq) + H₂O(l)",
+    "All are successful as written.",
+    "AgNO₃(aq) + HCl(aq) → AgCl(s) + HNO₃(aq)",
+    "3NaCH₃COO(aq) + FeCl₃(aq) → 3NaCl(aq) + Fe(CH₃COO)₃(aq)",
+    "NaCl(aq) + KI(aq) → NaI(aq) + KCl(aq)",
+    "HCl(aq) + Mg(s) → MgCl₂(aq) + H₂(g)",
+    "NH₄NO₃(aq) + NaCl(aq) → NH₄Cl(aq) + NaNO₃(aq)"
+   ],
+   "correct": [
+    3,
+    4,
+    6
+   ],
+   "note": "Look only at the product phases. All (aq) → no reaction. A solid (s), gas (g) or liquid water (l) means it goes.",
+   "test": "T3"
+  },
+  {
+   "id": "hw16-q09",
+   "n": 9,
+   "type": "single",
+   "q": "Identify the full ionic equation for aqueous sodium hydroxide and aqueous nickel(II) acetate producing aqueous sodium acetate and solid nickel(II) hydroxide.",
+   "opts": [
+    "Na(OH)₂ (aq) Ni(C₂H₃O₂)₂ (aq) → Na(C₂H₃O₂)₂ (s) + Ni(OH)₂ (aq)",
+    "2 OH⁻ (aq) + Ni²⁺ (aq) → Ni(OH)₂ (s)",
+    "2 Na⁺ (aq) + 2 OH⁻ (aq) + Ni²⁺ (aq) + 2 C₂H₃O₂⁻ (aq) → Ni(OH)₂ (s) + 2 Na⁺ (aq) + 2 C₂H₃O₂⁻ (aq)",
+    "Na⁺ (aq) + C₂H₃O₂⁻ (aq) → NaC₂H₃O₂ (s)",
+    "2 Na⁺ (aq) + 2 OH⁻ (aq) + Ni²⁺ (aq) + 2 C₂H₃O₂⁻ (aq) → Ni²⁺ (aq) + 2 OH⁻ (aq) + 2 NaC₂H₃O₂ (s)",
+    "2 NaOH (aq) Ni(C₂H₃O₂)₂ (aq) → 2 NaC₂H₃O₂ (aq) + Ni(OH)₂ (s)"
+   ],
+   "correct": 2,
+   "given": "(Not related to this problem, but can you also identify whether the reaction will proceed, the net equation, and the spectator ions?)",
+   "note": "Full ionic: every (aq) split into ions, the solid Ni(OH)₂ kept together. Net: 2 OH⁻ + Ni²⁺ → Ni(OH)₂. Spectators: Na⁺ and C₂H₃O₂⁻.",
+   "test": "T3"
+  },
+  {
+   "id": "hw16-q10",
+   "n": 10,
+   "type": "single",
+   "q": "Which of the following is the full ionic equation for the balanced reaction between aqueous lead(II) nitrate and aqueous potassium iodide that produces solid lead(II) iodide and aqueous potassium nitrate?",
+   "opts": [
+    "Pb²⁺(aq) + 2I⁻(aq) → PbI₂(s)",
+    "Pb(NO₃)₂(aq) + 2KI(aq) → Pb²⁺(s) + 2I⁻(s) + 2KNO₃(aq)",
+    "Pb²⁺(aq) + 2NO₃⁻(aq) + 2K⁺(aq) + 2I⁻(aq) → Pb²⁺(aq) + 2I⁻(aq) + 2K⁺(aq) + 2NO₃⁻(aq)",
+    "Pb(NO₃)(aq) + KI(aq) → PbK₂(s) + INO₃(aq)",
+    "Pb²⁺(aq) + 2NO₃⁻(aq) + 2K⁺(aq) + 2I⁻(aq) → PbI₂(s) + 2K⁺(aq) + 2NO₃⁻(aq)",
+    "Pb(NO₃)(aq) + KI(aq) → PbI₂(s) + KNO₃(aq)"
+   ],
+   "correct": 4,
+   "note": "The first choice is the net ionic equation; the full ionic keeps the spectators K⁺ and NO₃⁻.",
+   "test": "T3"
+  },
+  {
+   "id": "hw16-q11",
+   "n": 11,
+   "type": "single",
+   "q": "Which of the following is the net ionic equation for the balanced reaction between aqueous ammonium iodide and aqueous mercury(I) nitrate that produces solid mercury(I) iodide and aqueous ammonium nitrate?",
+   "opts": [
+    "2NH₄I(aq) + Hg₂(NO₃)₂(aq) → Hg₂I₂(s) + 2NH₄NO₃(aq)",
+    "2NH₄⁺(aq) + 2I⁻(aq) + Hg₂²⁺(aq) + 2NO₃⁻(aq) → Hg₂I₂(s) + 2NH₄⁺(aq) + 2NO₃⁻(aq)",
+    "no reaction",
+    "NH₄I(aq) + Hg₂(NO₃)₂(aq) → Hg₂I₂(s) + NH₄NO₃(aq)",
+    "2NH₄⁺(aq) + 2I⁻(aq) + Hg₂²⁺(aq) + 2NO₃⁻(aq) → Hg₂²⁺(aq) + 2I⁻(aq) + 2NH₄⁺(aq) + 2NO₃⁻(aq)",
+    "NH₄⁺(aq) + NO₃⁻(aq) → NH₄NO₃(aq)",
+    "2I⁻(aq) + Hg₂²⁺(aq) → Hg₂I₂(s)",
+    "NH₄(NO₃)(aq) + Hg₂I₂(aq) → NO₃I(s) + NH₄Hg₂(aq)"
+   ],
+   "correct": 6,
+   "given": "NOTE: The symbol for mercury(I) nitrate is unusual. It is Hg₂(NO₃)₂, and when dissolved in water it becomes Hg₂²⁺ and 2NO₃⁻. The symbol for solid mercury(I) iodide is Hg₂I₂.",
+   "note": "Cancel the spectators (NH₄⁺ and NO₃⁻); what is left is the ions that make the solid.",
+   "test": "T3"
+  },
+  {
+   "id": "hw16-q12",
+   "n": 12,
+   "type": "single",
+   "q": "Which reaction will not proceed?",
+   "opts": [
+    "two aqueous reactants producing two aqueous products",
+    "two aqueous reactants producing aqueous product(s) and water",
+    "two aqueous reactants producing aqueous product(s) and a gas",
+    "two aqueous reactants producing aqueous product(s) and a solid"
+   ],
+   "correct": 0,
+   "note": "A solid, a gas or water drives a reaction. All (aq) → no reaction.",
+   "test": "T3"
+  },
+  {
+   "id": "hw16-q13",
+   "n": 13,
+   "type": "match",
+   "q": "What are the oxidation numbers for each element in: N₂O",
+   "items": [
+    "N",
+    "O"
+   ],
+   "opts": [
+    "+1",
+    "+2",
+    "+3",
+    "+4",
+    "+5",
+    "+6",
+    "-5",
+    "-4",
+    "-3",
+    "-2",
+    "-1",
+    "0"
+   ],
+   "correct": [
+    0,
+    9
+   ],
+   "note": "O gets its charge, −2. Neutral: 2N − 2 = 0, so N = +1.",
+   "test": "T3"
+  },
+  {
+   "id": "hw16-q14",
+   "n": 14,
+   "type": "match",
+   "q": "What are the oxidation numbers for each element in: NCl₃",
+   "items": [
+    "Cl",
+    "N"
+   ],
+   "opts": [
+    "+1",
+    "+2",
+    "+3",
+    "+4",
+    "+5",
+    "+6",
+    "-5",
+    "-4",
+    "-3",
+    "-2",
+    "-1",
+    "0"
+   ],
+   "correct": [
+    10,
+    2
+   ],
+   "note": "Cl is more electronegative and gets its charge, −1. N + 3(−1) = 0, so N = +3.",
+   "test": "T3"
+  },
+  {
+   "id": "hw16-q15",
+   "n": 15,
+   "type": "match",
+   "q": "What are the oxidation numbers for each element in: BrO₃⁻",
+   "items": [
+    "O",
+    "Br"
+   ],
+   "opts": [
+    "+1",
+    "+2",
+    "+3",
+    "+4",
+    "+5",
+    "+6",
+    "-5",
+    "-4",
+    "-3",
+    "-2",
+    "-1",
+    "0"
+   ],
+   "correct": [
+    9,
+    4
+   ],
+   "note": "O = −2. The ion totals −1: Br + 3(−2) = −1, so Br = +5.",
+   "test": "T3"
+  },
+  {
+   "id": "hw16-q16",
+   "n": 16,
+   "type": "match",
+   "q": "What are the oxidation numbers for each element in: Na₂C₂O₄",
+   "items": [
+    "O",
+    "Na",
+    "C"
+   ],
+   "opts": [
+    "+1",
+    "+2",
+    "+3",
+    "+4",
+    "+5",
+    "+6",
+    "-5",
+    "-4",
+    "-3",
+    "-2",
+    "-1",
+    "0"
+   ],
+   "correct": [
+    9,
+    0,
+    2
+   ],
+   "note": "Na = +1 (column 1), O = −2. 2(+1) + 2C + 4(−2) = 0, so C = +3.",
+   "test": "T3"
+  },
+  {
+   "id": "hw16-q17",
+   "n": 17,
+   "type": "match",
+   "q": "This question is different from the ones above it. What are the oxidation numbers for each element or ion in the list below?",
+   "items": [
+    "Na (s)",
+    "K⁺",
+    "C (s, graphite)",
+    "O₂ (g)",
+    "Cl¹⁻",
+    "Al³⁺",
+    "F₂ (g)"
+   ],
+   "opts": [
+    "+1",
+    "+2",
+    "+3",
+    "+4",
+    "+5",
+    "+6",
+    "-5",
+    "-4",
+    "-3",
+    "-2",
+    "-1",
+    "0"
+   ],
+   "correct": [
+    11,
+    0,
+    11,
+    11,
+    10,
+    2,
+    11
+   ],
+   "note": "Any neutral element (even diatomic) is 0. An ion's oxidation number is its charge.",
+   "test": "T3"
+  },
+  {
+   "id": "hw16-q18",
+   "n": 18,
+   "type": "fill",
+   "q": "Use these reactions. Rxn 1: Fe → Fe³⁺ + 3e⁻. Rxn 2: O₂ + 4e⁻ → 2O²⁻.",
+   "blanks": [
+    {
+     "label": "Which reaction is an oxidation? (type Rxn 1 or Rxn 2)",
+     "answer": "Rxn 1"
+    },
+    {
+     "label": "Which reaction is the reduction?",
+     "answer": "Rxn 2"
+    },
+    {
+     "label": "Symbol of the element that is the oxidizing agent",
+     "answer": [
+      "O",
+      "O2"
+     ]
+    },
+    {
+     "label": "Symbol of the element that is the reducing agent",
+     "answer": "Fe"
+    }
+   ],
+   "note": "Electrons on the right = lost = oxidation (Fe, the reducing agent). Electrons on the left = gained = reduction (O, the oxidizing agent).",
+   "test": "T3"
+  },
+  {
+   "id": "hw16-q19",
+   "n": 19,
+   "type": "fill",
+   "q": "Use these reactions. Rxn 1: Cu²⁺ + 2e⁻ → Cu. Rxn 2: Fe → Fe²⁺ + 2e⁻.",
+   "blanks": [
+    {
+     "label": "Which reaction is an oxidation? (type Rxn 1 or Rxn 2)",
+     "answer": "Rxn 2"
+    },
+    {
+     "label": "Which reaction is the reduction?",
+     "answer": "Rxn 1"
+    },
+    {
+     "label": "Symbol of the oxidizing agent (include its charge if it has one)",
+     "answer": [
+      "Cu+2",
+      "Cu2+",
+      "Cu²⁺"
+     ]
+    },
+    {
+     "label": "Look at these on the activity series. Will these two reactions occur spontaneously together? (yes/no)",
+     "answer": "yes"
+    }
+   ],
+   "note": "Cu²⁺ gains electrons, so it is the oxidizing agent. Fe is above Cu on the activity series, so neutral Fe can give its electrons to Cu²⁺: yes.",
+   "test": "T3"
+  },
+  {
+   "id": "hw16-q20",
+   "n": 20,
+   "type": "multi",
+   "q": "Use the activity series to determine if a reaction will proceed. Select all correct answers.",
+   "opts": [
+    "Zn(s) + Cu²⁺(aq) → Zn²⁺(aq) + Cu(s)",
+    "Ag(s) + Cu²⁺(aq) → Ag⁺(aq) + Cu(s)",
+    "Zn(s) + 2H⁺(aq) → Zn²⁺ + H₂",
+    "Hg(s) + Co²⁺(aq) → Hg²⁺(aq) + Co(s)"
+   ],
+   "correct": [
+    0,
+    2
+   ],
+   "note": "The neutral metal must be higher on the activity series than the ion's metal. Zn is above Cu and H; Ag is below Cu; Hg is below Co.",
+   "test": "T3"
+  },
+  {
+   "id": "hw16-q21",
+   "n": 21,
+   "type": "match",
+   "q": "Match the choices about oxidation/reduction with their answers.",
+   "items": [
+    "Has the electrons listed on the right side of the arrow",
+    "These are examples that still need electrons added: O₂⁰ → O⁻², N⁻³ → N⁻¹, Mn⁵⁺ → Mn³⁺",
+    "These are examples that still need electrons added: Zn⁰ → Zn⁺², Fe²⁺ → Fe⁴⁺, 2F⁻ → F₂⁰",
+    "The reactant is the oxidizing agent",
+    "The reactant is the reducing agent",
+    "Has the electrons listed on the left side of the arrow"
+   ],
+   "opts": [
+    "oxidation",
+    "reduction"
+   ],
+   "correct": [
+    0,
+    1,
+    0,
+    1,
+    0,
+    1
+   ],
+   "note": "Charge going down = gaining electrons = reduction; going up = losing = oxidation. Heads-up: N⁻³ → N⁻¹ goes up, so it is really an oxidation, but the homework counts that first group as reduction.",
+   "test": "T3"
+  },
+  {
+   "id": "hw16-q22",
+   "n": 22,
+   "type": "single",
+   "q": "To use the activity series, compare the two reactants. If the reactant that is neutral is higher than the reactant that has a charge, the reaction will proceed.",
+   "opts": [
+    "True",
+    "False"
+   ],
+   "correct": 0,
+   "test": "T3"
+  },
+  {
+   "id": "hw16-q23",
+   "n": 23,
+   "type": "single",
+   "q": "I understand that if I need more practice, I can go to Ch. 7 Exercises - Chemistry: Atoms First 2e | OpenStax and work problems 11 and 19. I can also go to 7.11: The Activity Series and 8.2: Oxidizing and Reducing Agents (Chemistry LibreTexts).",
+   "opts": [
+    "True",
+    "False"
+   ],
+   "correct": 0,
+   "test": "T3"
+  }
+ ]
+}

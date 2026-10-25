@@ -16,6 +16,11 @@
    "hw": 15,
    "title": "HW 15",
    "subtitle": "Ch. 7 — Reaction Types, Balancing & Predicting Products"
+  },
+  {
+   "hw": 16,
+   "title": "HW 16",
+   "subtitle": "Ch. 7 — Solubility, Net & Full Ionic Equations, Redox"
   }
  ],
  "methods": {
@@ -356,6 +361,138 @@
     {
      "tag": "",
      "html": "Then <b>balance</b> with coefficients (only if asked)."
+    }
+   ]
+  },
+  "solubility": {
+   "title": "Soluble or insoluble? (solubility chart)",
+   "hw": 16,
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Use the chart <b>top-down, positive ion first</b>: is the cation <b>Group 1 (Li, Na, K…) or NH₄⁺</b>? → <b>soluble</b>, stop."
+    },
+    {
+     "tag": "chart",
+     "html": "Otherwise find the <b>negative ion</b> on the <b>solubility chart</b> and apply the <b>first rule</b> you hit, checking its <b>exceptions</b>."
+    },
+    {
+     "tag": "chart",
+     "html": "Soluble side: <b>NO₃⁻, C₂H₃O₂⁻</b> always; <b>Cl⁻, Br⁻, I⁻</b> except Ag⁺, Pb²⁺, Hg₂²⁺; <b>SO₄²⁻</b> except Ba²⁺, Sr²⁺, Ca²⁺, Pb²⁺, Ag⁺, Hg₂²⁺."
+    },
+    {
+     "tag": "chart",
+     "html": "Insoluble side: <b>OH⁻, CO₃²⁻, PO₄³⁻, S²⁻, CrO₄²⁻</b> unless the cation is an exception (Group 1, NH₄⁺; Ba²⁺ for OH⁻)."
+    },
+    {
+     "tag": "mem",
+     "html": "<b>Soluble = (aq)</b>, dissolves, splits into ions. <b>Insoluble = (s)</b>, a precipitate."
+    }
+   ]
+  },
+  "rxn-goes": {
+   "title": "Will the reaction go?",
+   "hw": 16,
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Look at the <b>product phases</b> only."
+    },
+    {
+     "tag": "mem",
+     "html": "A <b>solid (s)</b>, a <b>gas (g)</b> or <b>liquid water (l)</b> is a driving force → the reaction <b>goes</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Every product <b>(aq)</b> → <b>no reaction</b> (in Gen Chem 1)."
+    }
+   ]
+  },
+  "ionic-eqn": {
+   "title": "Molecular, full ionic and net ionic equations",
+   "hw": 16,
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "<b>Molecular</b>: the balanced equation with whole compounds."
+    },
+    {
+     "tag": "mem",
+     "html": "<b>Full (complete) ionic</b>: split every <b>(aq)</b> compound into its ions; keep <b>(s), (l), (g)</b> together. Coefficients and subscripts multiply the ions (2 AgNO₃ → 2 Ag⁺ + 2 NO₃⁻; CuCl₂ → Cu²⁺ + 2 Cl⁻)."
+    },
+    {
+     "tag": "chart",
+     "html": "Polyatomic ions (from the <b>ion chart</b>) <b>stay together</b> when they split off."
+    },
+    {
+     "tag": "mem",
+     "html": "<b>Spectators</b> = ions identical on both sides; cancel them."
+    },
+    {
+     "tag": "mem",
+     "html": "<b>Net ionic</b> = what is left: the ions that form the solid/gas/water. It is the <b>shortest</b> option. Reduce coefficients if they all share a factor."
+    }
+   ]
+  },
+  "ox-num": {
+   "title": "Oxidation numbers",
+   "hw": 16,
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "<b>Neutral element</b> (Na, C, O₂, F₂) = <b>0</b>. A <b>monatomic ion</b> = its <b>charge</b> (K⁺ = +1, Al³⁺ = +3)."
+    },
+    {
+     "tag": "mem",
+     "html": "All the oxidation numbers <b>add up to the overall charge</b> (0 for a compound, the ion charge for a polyatomic ion)."
+    },
+    {
+     "tag": "both",
+     "html": "Ionic compound: use the normal <b>column charges</b> (Na +1, Mg +2, O −2) and solve for the leftover element."
+    },
+    {
+     "tag": "mem",
+     "html": "Covalent (all nonmetals): <b>H first</b>: H = <b>+1</b>, except with a Group 1 or 2 metal, where H = <b>−1</b>."
+    },
+    {
+     "tag": "both",
+     "html": "Then the <b>more electronegative</b> element (closer to F, top right) gets its <b>usual charge</b>; the other one \"adapts\" to make the total come out."
+    }
+   ]
+  },
+  "redox": {
+   "title": "Oxidation, reduction and agents",
+   "hw": 16,
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "<b>Oxidation = loses electrons</b>: electrons on the <b>right</b> of the arrow, charge goes <b>up</b> (Fe → Fe³⁺ + 3e⁻). \"OIL RIG\"."
+    },
+    {
+     "tag": "mem",
+     "html": "<b>Reduction = gains electrons</b>: electrons on the <b>left</b>, charge goes <b>down</b> (O₂ + 4e⁻ → 2O²⁻)."
+    },
+    {
+     "tag": "mem",
+     "html": "The thing <b>reduced</b> is the <b>oxidizing agent</b>; the thing <b>oxidized</b> is the <b>reducing agent</b>. They swap names."
+    }
+   ]
+  },
+  "activity": {
+   "title": "Activity series",
+   "hw": 16,
+   "steps": [
+    {
+     "tag": "chart",
+     "html": "Find both metals on the <b>activity series</b> chart: Li > K > Ba > Ca > Na > Mg > Al > Zn > Cr > Fe > Cd > Co > Ni > Sn > Pb > <b>H</b> > Cu > Ag > Hg > Pt > Au."
+    },
+    {
+     "tag": "mem",
+     "html": "Compare the <b>neutral</b> reactant with the <b>charged</b> one. Neutral one <b>higher</b> → it gives up electrons and the reaction <b>goes</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Neutral one <b>lower</b> → <b>no reaction</b>."
     }
    ]
   }
@@ -2633,6 +2770,625 @@
     {
      "tag": "mem",
      "html": "Two compounds swap partners: <b>(c), (e), (g) double replacement</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw16-q01",
+   "hw": 16,
+   "n": 1,
+   "section": "Reactions and the Solubility Chart",
+   "method": "solubility",
+   "q": "Match each description with soluble or insoluble: (a) phase abbreviation (s); (b) phase abbreviation (aq); (c) dissolves in a specific solvent; (d) a precipitate that forms; (e) dissociates in water; (f) splits into positive and negative ions in a solvent; (g) doesn't dissolve and piles up at the bottom or makes the liquid cloudy.",
+   "choices": null,
+   "img": null,
+   "answer": "a insoluble, b soluble, c soluble, d insoluble, e soluble, f soluble, g insoluble",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "<b>(s) = solid = insoluble</b>; a precipitate is a solid → <b>(a), (d), (g) insoluble</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "<b>(aq) = dissolved = soluble</b>; dissolving, dissociating and splitting into ions all mean soluble → <b>(b), (c), (e), (f) soluble</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw16-q02",
+   "hw": 16,
+   "n": 2,
+   "section": "Reactions and the Solubility Chart",
+   "method": "solubility",
+   "q": "Select the soluble compounds below. (You may use the solubility chart.)",
+   "choices": [
+    "BaS",
+    "NaBr",
+    "MgCrO₄",
+    "(NH₄)₂CO₃"
+   ],
+   "img": null,
+   "answer": "NaBr, (NH₄)₂CO₃",
+   "steps": [
+    {
+     "tag": "chart",
+     "html": "BaS: Ba isn't Group 1 or NH₄⁺ → sulfide <b>S²⁻</b> is on the insoluble side, Ba isn't an exception → <b>insoluble</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "NaBr: <b>Na⁺ is Group 1</b> → <b>soluble</b> (stop right there)."
+    },
+    {
+     "tag": "chart",
+     "html": "MgCrO₄: Mg isn't Group 1 → chromate <b>CrO₄²⁻</b> is on the insoluble side → <b>insoluble</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "(NH₄)₂CO₃: <b>NH₄⁺</b> makes it <b>soluble</b> (the carbonate rule never comes up)."
+    }
+   ]
+  },
+  {
+   "id": "hw16-q03",
+   "hw": 16,
+   "n": 3,
+   "section": "Reactions and the Solubility Chart",
+   "method": "solubility",
+   "q": "Select the soluble compounds below. (You may use the solubility chart.)",
+   "choices": [
+    "PbI₂",
+    "Cu(NO₃)₂",
+    "Ag₂SO₄",
+    "Al(OH)₃"
+   ],
+   "img": null,
+   "answer": "Cu(NO₃)₂",
+   "steps": [
+    {
+     "tag": "chart",
+     "html": "PbI₂: iodides are soluble <b>except Pb²⁺</b> → <b>insoluble</b>."
+    },
+    {
+     "tag": "chart",
+     "html": "Cu(NO₃)₂: <b>nitrates are always soluble</b> → <b>soluble</b>."
+    },
+    {
+     "tag": "chart",
+     "html": "Ag₂SO₄: sulfates are soluble <b>except Ag⁺</b> (and Ba, Sr, Ca, Pb, Hg₂) → <b>insoluble</b>."
+    },
+    {
+     "tag": "chart",
+     "html": "Al(OH)₃: hydroxides are insoluble and <b>Al isn't an exception</b> → <b>insoluble</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw16-q04",
+   "hw": 16,
+   "n": 4,
+   "section": "Reactions and the Solubility Chart",
+   "method": "solubility",
+   "q": "Select the soluble compounds below. (You may use the solubility chart.)",
+   "choices": [
+    "(NH₄)₂CO₃",
+    "BaS",
+    "MgCrO₄",
+    "NaBr"
+   ],
+   "img": null,
+   "answer": "(NH₄)₂CO₃, NaBr",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "(NH₄)₂CO₃: <b>NH₄⁺</b> makes it <b>soluble</b> (the carbonate rule never comes up)."
+    },
+    {
+     "tag": "chart",
+     "html": "BaS: Ba isn't Group 1 or NH₄⁺ → sulfide <b>S²⁻</b> is on the insoluble side, Ba isn't an exception → <b>insoluble</b>."
+    },
+    {
+     "tag": "chart",
+     "html": "MgCrO₄: Mg isn't Group 1 → chromate <b>CrO₄²⁻</b> is on the insoluble side → <b>insoluble</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "NaBr: <b>Na⁺ is Group 1</b> → <b>soluble</b> (stop right there)."
+    }
+   ]
+  },
+  {
+   "id": "hw16-q05",
+   "hw": 16,
+   "n": 5,
+   "section": "Reactions and the Solubility Chart",
+   "method": "solubility",
+   "q": "Select the insoluble compounds below. (You may use the solubility chart.)",
+   "choices": [
+    "PbI₂",
+    "Ag₂SO₄",
+    "Cu(NO₃)₂",
+    "Al(OH)₃"
+   ],
+   "img": null,
+   "answer": "PbI₂, Ag₂SO₄, Al(OH)₃",
+   "steps": [
+    {
+     "tag": "chart",
+     "html": "PbI₂: iodides are soluble <b>except Pb²⁺</b> → <b>insoluble</b>."
+    },
+    {
+     "tag": "chart",
+     "html": "Ag₂SO₄: sulfates are soluble <b>except Ag⁺</b> (and Ba, Sr, Ca, Pb, Hg₂) → <b>insoluble</b>."
+    },
+    {
+     "tag": "chart",
+     "html": "Cu(NO₃)₂: <b>nitrates are always soluble</b> → <b>soluble</b>."
+    },
+    {
+     "tag": "chart",
+     "html": "Al(OH)₃: hydroxides are insoluble and <b>Al isn't an exception</b> → <b>insoluble</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw16-q06",
+   "hw": 16,
+   "n": 6,
+   "section": "Reactions and the Solubility Chart",
+   "method": "solubility",
+   "q": "Select all of the soluble compounds below.",
+   "choices": [
+    "Al(OH)₃",
+    "Cu(NO₃)₂",
+    "PbI₂",
+    "Ag₂SO₄"
+   ],
+   "img": null,
+   "answer": "Cu(NO₃)₂",
+   "steps": [
+    {
+     "tag": "chart",
+     "html": "Al(OH)₃: hydroxides are insoluble and <b>Al isn't an exception</b> → <b>insoluble</b>."
+    },
+    {
+     "tag": "chart",
+     "html": "Cu(NO₃)₂: <b>nitrates are always soluble</b> → <b>soluble</b>."
+    },
+    {
+     "tag": "chart",
+     "html": "PbI₂: iodides are soluble <b>except Pb²⁺</b> → <b>insoluble</b>."
+    },
+    {
+     "tag": "chart",
+     "html": "Ag₂SO₄: sulfates are soluble <b>except Ag⁺</b> (and Ba, Sr, Ca, Pb, Hg₂) → <b>insoluble</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw16-q07",
+   "hw": 16,
+   "n": 7,
+   "section": "Reactions and the Solubility Chart",
+   "method": "solubility",
+   "q": "Select the insoluble compounds below.",
+   "choices": [
+    "Ba(OH)₂",
+    "AlPO₄",
+    "Pb(NO₃)₂",
+    "Sr(C₂H₃O₂)₂",
+    "AgCl"
+   ],
+   "img": null,
+   "answer": "AlPO₄, AgCl",
+   "steps": [
+    {
+     "tag": "chart",
+     "html": "Ba(OH)₂: hydroxides are insoluble <b>except Ba²⁺</b> (and Group 1, NH₄⁺) → <b>soluble</b>."
+    },
+    {
+     "tag": "chart",
+     "html": "AlPO₄: phosphates are insoluble, Al isn't an exception → <b>insoluble</b>."
+    },
+    {
+     "tag": "chart",
+     "html": "Pb(NO₃)₂ and Sr(C₂H₃O₂)₂: <b>nitrates and acetates</b> are always <b>soluble</b>."
+    },
+    {
+     "tag": "chart",
+     "html": "AgCl: chlorides are soluble <b>except Ag⁺</b> → <b>insoluble</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw16-q08",
+   "hw": 16,
+   "n": 8,
+   "section": "Ionic Reactions",
+   "method": "rxn-goes",
+   "q": "Mark all reactions which are NOT expected to be successful as written (these have \"no reaction\" for their net ionic equation). All phases are given.",
+   "choices": [
+    "KOH(aq) + HCl(aq) → KCl(aq) + H₂O(l)",
+    "All are successful as written.",
+    "AgNO₃(aq) + HCl(aq) → AgCl(s) + HNO₃(aq)",
+    "3NaCH₃COO(aq) + FeCl₃(aq) → 3NaCl(aq) + Fe(CH₃COO)₃(aq)",
+    "NaCl(aq) + KI(aq) → NaI(aq) + KCl(aq)",
+    "HCl(aq) + Mg(s) → MgCl₂(aq) + H₂(g)",
+    "NH₄NO₃(aq) + NaCl(aq) → NH₄Cl(aq) + NaNO₃(aq)"
+   ],
+   "img": null,
+   "answer": "the NaCH₃COO + FeCl₃, NaCl + KI and NH₄NO₃ + NaCl reactions",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Check only the <b>product phases</b>. Any (s), (g) or (l) → it goes."
+    },
+    {
+     "tag": "",
+     "html": "KOH + HCl makes <b>H₂O(l)</b> → goes. AgNO₃ + HCl makes <b>AgCl(s)</b> → goes. HCl + Mg makes <b>H₂(g)</b> → goes."
+    },
+    {
+     "tag": "",
+     "html": "NaCH₃COO + FeCl₃, NaCl + KI and NH₄NO₃ + NaCl make <b>only (aq)</b> products → <b>no reaction</b>; mark those three."
+    }
+   ]
+  },
+  {
+   "id": "hw16-q09",
+   "hw": 16,
+   "n": 9,
+   "section": "Ionic Reactions",
+   "method": "ionic-eqn",
+   "q": "Identify the full ionic equation for aqueous sodium hydroxide and aqueous nickel(II) acetate producing aqueous sodium acetate and solid nickel(II) hydroxide. (Also: will it proceed, what is the net equation, and what are the spectators?)",
+   "choices": null,
+   "img": null,
+   "answer": "2 Na⁺ (aq) + 2 OH⁻ (aq) + Ni²⁺ (aq) + 2 C₂H₃O₂⁻ (aq) → Ni(OH)₂ (s) + 2 Na⁺ (aq) + 2 C₂H₃O₂⁻ (aq)",
+   "steps": [
+    {
+     "tag": "both",
+     "html": "Formulas: NaOH, nickel(II) = Ni²⁺ with acetate C₂H₃O₂⁻ → <b>Ni(C₂H₃O₂)₂</b>; products <b>NaC₂H₃O₂(aq)</b> and <b>Ni(OH)₂(s)</b>."
+    },
+    {
+     "tag": "",
+     "html": "Balanced: <b>2 NaOH + Ni(C₂H₃O₂)₂ → 2 NaC₂H₃O₂ + Ni(OH)₂</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Split the (aq) ones, keep the solid: <b>2 Na⁺ + 2 OH⁻ + Ni²⁺ + 2 C₂H₃O₂⁻ → Ni(OH)₂(s) + 2 Na⁺ + 2 C₂H₃O₂⁻</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Spectators <b>Na⁺, C₂H₃O₂⁻</b>; net <b>2 OH⁻ + Ni²⁺ → Ni(OH)₂(s)</b>; it proceeds (a solid forms)."
+    }
+   ]
+  },
+  {
+   "id": "hw16-q10",
+   "hw": 16,
+   "n": 10,
+   "section": "Ionic Reactions",
+   "method": "ionic-eqn",
+   "q": "Which is the full ionic equation for aqueous lead(II) nitrate + aqueous potassium iodide → solid lead(II) iodide + aqueous potassium nitrate?",
+   "choices": null,
+   "img": null,
+   "answer": "Pb²⁺(aq) + 2NO₃⁻(aq) + 2K⁺(aq) + 2I⁻(aq) → PbI₂(s) + 2K⁺(aq) + 2NO₃⁻(aq)",
+   "steps": [
+    {
+     "tag": "",
+     "html": "Balanced: <b>Pb(NO₃)₂ + 2 KI → PbI₂(s) + 2 KNO₃</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Full ionic splits every (aq): <b>Pb²⁺ + 2 NO₃⁻ + 2 K⁺ + 2 I⁻</b> on the left."
+    },
+    {
+     "tag": "mem",
+     "html": "Keep the <b>solid PbI₂</b> together; split 2 KNO₃ → <b>2 K⁺ + 2 NO₃⁻</b>."
+    },
+    {
+     "tag": "",
+     "html": "Answer: <b>Pb²⁺ + 2NO₃⁻ + 2K⁺ + 2I⁻ → PbI₂(s) + 2K⁺ + 2NO₃⁻</b> (the short one is the net ionic, not the full)."
+    }
+   ]
+  },
+  {
+   "id": "hw16-q11",
+   "hw": 16,
+   "n": 11,
+   "section": "Ionic Reactions",
+   "method": "ionic-eqn",
+   "q": "Which is the net ionic equation for aqueous ammonium iodide + aqueous mercury(I) nitrate → solid mercury(I) iodide + aqueous ammonium nitrate? (Mercury(I) nitrate is Hg₂(NO₃)₂ → Hg₂²⁺ + 2 NO₃⁻; mercury(I) iodide is Hg₂I₂.)",
+   "choices": null,
+   "img": null,
+   "answer": "2I⁻(aq) + Hg₂²⁺(aq) → Hg₂I₂(s)",
+   "steps": [
+    {
+     "tag": "",
+     "html": "Balanced: <b>2 NH₄I + Hg₂(NO₃)₂ → Hg₂I₂(s) + 2 NH₄NO₃</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Full ionic: <b>2 NH₄⁺ + 2 I⁻ + Hg₂²⁺ + 2 NO₃⁻ → Hg₂I₂(s) + 2 NH₄⁺ + 2 NO₃⁻</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Cancel spectators <b>NH₄⁺ and NO₃⁻</b>."
+    },
+    {
+     "tag": "",
+     "html": "Net: <b>2 I⁻ + Hg₂²⁺ → Hg₂I₂(s)</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw16-q12",
+   "hw": 16,
+   "n": 12,
+   "section": "Ionic Reactions",
+   "method": "rxn-goes",
+   "q": "Which reaction will not proceed?",
+   "choices": [
+    "two aqueous reactants producing two aqueous products",
+    "two aqueous reactants producing aqueous product(s) and water",
+    "two aqueous reactants producing aqueous product(s) and a gas",
+    "two aqueous reactants producing aqueous product(s) and a solid"
+   ],
+   "img": null,
+   "answer": "two aqueous reactants producing two aqueous products",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Driving forces: a <b>solid</b>, a <b>gas</b> or <b>water</b>."
+    },
+    {
+     "tag": "",
+     "html": "Only \"<b>two aqueous reactants producing two aqueous products</b>\" has none → it won't proceed."
+    }
+   ]
+  },
+  {
+   "id": "hw16-q13",
+   "hw": 16,
+   "n": 13,
+   "section": "Oxidation Reduction",
+   "method": "ox-num",
+   "q": "What are the oxidation numbers for each element in N₂O?",
+   "choices": null,
+   "img": null,
+   "answer": "N +1, O −2",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Neutral compound → total = <b>0</b>. No H."
+    },
+    {
+     "tag": "both",
+     "html": "O is more electronegative → gets its charge, <b>O = −2</b>."
+    },
+    {
+     "tag": "",
+     "html": "2N + (−2) = 0 → <b>N = +1</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw16-q14",
+   "hw": 16,
+   "n": 14,
+   "section": "Oxidation Reduction",
+   "method": "ox-num",
+   "q": "What are the oxidation numbers for each element in NCl₃?",
+   "choices": null,
+   "img": null,
+   "answer": "Cl −1, N +3",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Neutral → total <b>0</b>. No H, no metal."
+    },
+    {
+     "tag": "both",
+     "html": "Cl is more electronegative → <b>Cl = −1</b>."
+    },
+    {
+     "tag": "",
+     "html": "N + 3(−1) = 0 → <b>N = +3</b> (not −3: N adapts here)."
+    }
+   ]
+  },
+  {
+   "id": "hw16-q15",
+   "hw": 16,
+   "n": 15,
+   "section": "Oxidation Reduction",
+   "method": "ox-num",
+   "q": "What are the oxidation numbers for each element in BrO₃⁻?",
+   "choices": null,
+   "img": null,
+   "answer": "O −2, Br +5",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Polyatomic ion → total = its charge, <b>−1</b>."
+    },
+    {
+     "tag": "both",
+     "html": "O is more electronegative → <b>O = −2</b>."
+    },
+    {
+     "tag": "",
+     "html": "Br + 3(−2) = −1 → Br − 6 = −1 → <b>Br = +5</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw16-q16",
+   "hw": 16,
+   "n": 16,
+   "section": "Oxidation Reduction",
+   "method": "ox-num",
+   "q": "What are the oxidation numbers for each element in Na₂C₂O₄?",
+   "choices": null,
+   "img": null,
+   "answer": "O −2, Na +1, C +3",
+   "steps": [
+    {
+     "tag": "both",
+     "html": "Ionic part: <b>Na = +1</b> (column 1); <b>O = −2</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Neutral → 2(+1) + 2C + 4(−2) = <b>0</b>."
+    },
+    {
+     "tag": "",
+     "html": "2 + 2C − 8 = 0 → 2C = 6 → <b>C = +3</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw16-q17",
+   "hw": 16,
+   "n": 17,
+   "section": "Oxidation Reduction",
+   "method": "ox-num",
+   "q": "What are the oxidation numbers for: Na (s), K⁺, C (s, graphite), O₂ (g), Cl¹⁻, Al³⁺, F₂ (g)?",
+   "choices": null,
+   "img": null,
+   "answer": "Na 0, K⁺ +1, C 0, O₂ 0, Cl⁻ −1, Al³⁺ +3, F₂ 0",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Neutral elements, diatomic or not, are <b>0</b>: Na(s), C(graphite), O₂, F₂ → <b>0</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "An ion's oxidation number <b>equals its charge</b>: K⁺ = <b>+1</b>, Cl⁻ = <b>−1</b>, Al³⁺ = <b>+3</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw16-q18",
+   "hw": 16,
+   "n": 18,
+   "section": "Oxidation Reduction",
+   "method": "redox",
+   "q": "Rxn 1: Fe → Fe³⁺ + 3e⁻. Rxn 2: O₂ + 4e⁻ → 2O²⁻. Which is the oxidation? the reduction? Which element is the oxidizing agent? the reducing agent?",
+   "choices": null,
+   "img": null,
+   "answer": "Rxn 1, Rxn 2, O, Fe",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Electrons on the <b>right</b> = lost = <b>oxidation</b> → <b>Rxn 1</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Electrons on the <b>left</b> = gained = <b>reduction</b> → <b>Rxn 2</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "The one reduced (O) is the <b>oxidizing agent</b> → <b>O</b>; the one oxidized (Fe) is the <b>reducing agent</b> → <b>Fe</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw16-q19",
+   "hw": 16,
+   "n": 19,
+   "section": "Oxidation Reduction",
+   "method": "redox",
+   "q": "Rxn 1: Cu²⁺ + 2e⁻ → Cu. Rxn 2: Fe → Fe²⁺ + 2e⁻. Which is the oxidation? the reduction? What is the oxidizing agent (with charge)? Will they occur spontaneously together (activity series)?",
+   "choices": null,
+   "img": null,
+   "answer": "Rxn 2, Rxn 1, Cu+2, yes",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Electrons on the right → <b>Rxn 2 is the oxidation</b>; electrons on the left → <b>Rxn 1 is the reduction</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Cu²⁺ is reduced → it is the <b>oxidizing agent</b>: <b>Cu+2</b>."
+    },
+    {
+     "tag": "chart",
+     "html": "Activity series: neutral <b>Fe is above Cu</b> → <b>yes</b>, it goes."
+    }
+   ]
+  },
+  {
+   "id": "hw16-q20",
+   "hw": 16,
+   "n": 20,
+   "section": "Oxidation Reduction",
+   "method": "activity",
+   "q": "Use the activity series to determine if a reaction will proceed. Select all correct answers.",
+   "choices": [
+    "Zn(s) + Cu²⁺(aq) → Zn²⁺(aq) + Cu(s)",
+    "Ag(s) + Cu²⁺(aq) → Ag⁺(aq) + Cu(s)",
+    "Zn(s) + 2H⁺(aq) → Zn²⁺ + H₂",
+    "Hg(s) + Co²⁺(aq) → Hg²⁺(aq) + Co(s)"
+   ],
+   "img": null,
+   "answer": "Zn + Cu²⁺ and Zn + 2H⁺",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Compare the <b>neutral metal</b> with the <b>charged one</b>; neutral must be <b>higher</b>."
+    },
+    {
+     "tag": "chart",
+     "html": "Zn vs Cu²⁺: Zn is <b>above</b> Cu → <b>goes</b>. Zn vs H⁺: Zn is <b>above</b> H → <b>goes</b>."
+    },
+    {
+     "tag": "chart",
+     "html": "Ag vs Cu²⁺: Ag is <b>below</b> Cu → no. Hg vs Co²⁺: Hg is <b>below</b> Co → no."
+    }
+   ]
+  },
+  {
+   "id": "hw16-q21",
+   "hw": 16,
+   "n": 21,
+   "section": "Oxidation Reduction",
+   "method": "redox",
+   "q": "Match each with oxidation or reduction: (a) electrons on the right of the arrow; (b) still need electrons added: O₂⁰ → O⁻², N⁻³ → N⁻¹, Mn⁵⁺ → Mn³⁺; (c) still need electrons added: Zn⁰ → Zn⁺², Fe²⁺ → Fe⁴⁺, 2F⁻ → F₂⁰; (d) the reactant is the oxidizing agent; (e) the reactant is the reducing agent; (f) electrons on the left of the arrow.",
+   "choices": null,
+   "img": null,
+   "answer": "a oxidation, b reduction, c oxidation, d reduction, e oxidation, f reduction",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Electrons on the right = <b>oxidation</b> (a); on the left = <b>reduction</b> (f)."
+    },
+    {
+     "tag": "mem",
+     "html": "Charge going <b>down</b> = gaining = reduction; going <b>up</b> = losing = oxidation. (c) all go up → <b>oxidation</b>; (b) → <b>reduction</b> per the HW."
+    },
+    {
+     "tag": "",
+     "html": "Heads-up: N⁻³ → N⁻¹ goes <b>up</b>, so it is really an oxidation; the HW still counts group (b) as reduction."
+    },
+    {
+     "tag": "mem",
+     "html": "Oxidizing agent gets reduced → (d) <b>reduction</b>; reducing agent gets oxidized → (e) <b>oxidation</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw16-q22",
+   "hw": 16,
+   "n": 22,
+   "section": "Oxidation Reduction",
+   "method": "activity",
+   "q": "True or false: To use the activity series, compare the two reactants. If the reactant that is neutral is higher than the reactant that has a charge, the reaction will proceed.",
+   "choices": null,
+   "img": null,
+   "answer": "True",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Higher on the series = gives up electrons more easily, so a <b>higher neutral metal</b> replaces the lower ion → <b>True</b>."
     }
    ]
   }

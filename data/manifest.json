@@ -56,7 +56,7 @@
   {
    "id": "T3",
    "title": "Test 3",
-   "sub": "HW 13–15",
+   "sub": "HW 13–16",
    "items": [
     {
      "num": "13",
@@ -95,6 +95,20 @@
        "slug": "hw15",
        "label": "Quiz",
        "count": 32
+      }
+     ],
+     "qa": null,
+     "walk": true
+    },
+    {
+     "num": "16",
+     "title": "HW 16",
+     "subtitle": "Ch. 7 — Solubility, Net & Full Ionic Equations, Redox",
+     "quizzes": [
+      {
+       "slug": "hw16",
+       "label": "Quiz",
+       "count": 23
       }
      ],
      "qa": null,
