@@ -490,6 +490,55 @@
     return { ok: false };
   }
 
-  const api = { TOPICS, make, check, parse, molar, sub, chg, sig, oxSolve, soluble, salt, BAL, MASS, empSolve, EMP_TARGETS, CAT, AN, SERIES, sfOf };
+
+  /* ---------- tools for the Navigator ---------- */
+  /* balance any equation with exact fractions (null space of the atom matrix) */
+  function balance(reactants, products) {
+    const sp = reactants.concat(products).map(f => parse(f)), els = [...new Set(sp.flatMap(c => Object.keys(c)))];
+    const n = sp.length, rows = els.map(e => sp.map((c, j) => (c[e] || 0) * (j < reactants.length ? 1 : -1)));
+    // fraction helpers [num, den]
+    const F = (a, b = 1) => { const g = gcd(a, b) || 1, s = b < 0 ? -1 : 1; return [s * a / g, s * b / g]; };
+    const mul = (x, y) => F(x[0] * y[0], x[1] * y[1]), sub_ = (x, y) => F(x[0] * y[1] - y[0] * x[1], x[1] * y[1]), div = (x, y) => F(x[0] * y[1], x[1] * y[0]);
+    let A = rows.map(r => r.map(v => F(v))), piv = [], r = 0;
+    for (let c = 0; c < n && r < A.length; c++) {
+      let k = A.findIndex((row, i) => i >= r && row[c][0] !== 0); if (k < 0) continue;
+      [A[r], A[k]] = [A[k], A[r]];
+      const pv = A[r][c]; A[r] = A[r].map(v => div(v, pv));
+      for (let i = 0; i < A.length; i++) if (i !== r && A[i][c][0] !== 0) { const f = A[i][c]; A[i] = A[i].map((v, j) => sub_(v, mul(f, A[r][j]))); }
+      piv.push(c); r++;
+    }
+    const free = [...Array(n).keys()].filter(c => !piv.includes(c));
+    if (free.length !== 1) return null;   // no unique balance
+    const x = Array(n).fill(null); x[free[0]] = F(1);
+    piv.forEach((c, i) => { x[c] = F(-A[i][free[0]][0], A[i][free[0]][1]); });
+    const L = x.reduce((l, v) => l / gcd(l, v[1]) * v[1], 1), ints = x.map(v => v[0] * L / v[1]);
+    if (ints.some(v => v <= 0)) { if (ints.every(v => v < 0)) return ints.map(v => -v / gcdAll(ints.map(Math.abs))); return null; }
+    const g = gcdAll(ints); return ints.map(v => v / g);
+  }
+  /* AB + CD: products, phases, coefficients, full/net ionic and spectators (any number of precipitates) */
+  function explainDR(c1, a1, c2, a2) {
+    const s1 = salt(c1, a1), s2 = salt(c2, a2), p1 = salt(c1, a2), p2 = salt(c2, a1);
+    const sol = { s1: soluble(c1, a1), s2: soluble(c2, a2), p1: soluble(c1, a2), p2: soluble(c2, a1) };
+    const co = balanceDR(s1, s2, p1, p2) || [1, 1, 1, 1];
+    const ph1 = sol.p1[0] ? '(aq)' : '(s)', ph2 = sol.p2[0] ? '(aq)' : '(s)';
+    const k = n => n > 1 ? n + ' ' : '';
+    const mol = `${k(co[0])}${sub(s1.f)}(aq) + ${k(co[1])}${sub(s2.f)}(aq) → ${k(co[2])}${sub(p1.f)}${ph1} + ${k(co[3])}${sub(p2.f)}${ph2}`;
+    const split = (s, n, ok) => ok ? [ionStr(n * s.nc, s.ck, 1), ionStr(n * s.na, s.ak)] : [k(n) + sub(s.f) + '(s)'];
+    const left = split(s1, co[0], true).concat(split(s2, co[1], true)), right = split(p1, co[2], sol.p1[0]).concat(split(p2, co[3], sol.p2[0]));
+    const full = left.join(' + ') + ' → ' + right.join(' + ');
+    const spect = left.filter(t => right.includes(t)), netL = left.filter(t => !right.includes(t)), netR = right.filter(t => !left.includes(t));
+    const goes = !(sol.p1[0] && sol.p2[0]);
+    let net = 'no reaction (all ions are spectators)';
+    if (goes) {   // reduce coefficients if they share a factor
+      const terms = netL.concat(netR).map(t => { const m = /^(\d+) /.exec(t); return [m ? +m[1] : 1, m ? t.slice(m[0].length) : t]; });
+      const g = gcdAll(terms.map(t => t[0]));
+      const fmt = t => (t[0] / g > 1 ? t[0] / g + ' ' : '') + t[1];
+      net = terms.slice(0, netL.length).map(fmt).join(' + ') + ' → ' + terms.slice(netL.length).map(fmt).join(' + ');
+    }
+    const specNames = [...new Set(spect.map(t => t.replace(/^\d+ /, '').replace('(aq)', '')))];
+    return { s1, s2, p1, p2, sol, co, mol, full, net, goes, spectators: specNames, reactantsSoluble: sol.s1[0] && sol.s2[0] };
+  }
+
+  const api = { balance, explainDR, gcd, gcdAll, ION_CH, NAME, TOPICS, make, check, parse, molar, sub, chg, sig, oxSolve, soluble, salt, BAL, MASS, empSolve, EMP_TARGETS, CAT, AN, SERIES, sfOf };
   if (typeof module !== 'undefined') module.exports = api; else root.Drill3 = api;
 })(this);

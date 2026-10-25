@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Chem Test 2 Navigator</title>
-<meta name="description" content="Flowchart study aid for CHEM 1110 Test 2 (HW 7–12): pick the question type, follow the steps from the notes, check your answer.">
+<title>Chem Navigator</title>
+<meta name="description" content="Flowchart study aid for CHEM 1110 Tests 2 and 3 (HW 7–16): pick the question type, follow the steps, check your answer.">
 <style>
 :root{
   --bg:#f6f4ee; --card:#ffffff; --ink:#1b1d22; --muted:#5d6370; --line:#e4e0d5; --soft:#f0ede4;
@@ -213,15 +213,31 @@ footer{max-width:820px;margin:0 auto;padding:0 16px 30px;color:var(--muted);font
   .crumb{max-width:78vw}
 }
 @media (prefers-reduced-motion: reduce){ .opt{transition:none} .notes section.flash{animation:none} }
+/* Test switch and Test 3 additions */
+.testtabs{display:flex;gap:6px;margin:4px 0 0;flex-wrap:wrap}
+.testtabs button{font:inherit;font-size:14px;font-weight:600;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:7px 14px;cursor:pointer}
+.testtabs button small{font-weight:400;color:var(--muted);margin-left:4px}
+.testtabs button[aria-selected="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.testtabs button[aria-selected="true"] small{color:#fff;opacity:.85}
+.tag-f13{--tc:var(--light)} .tag-s14{--tc:var(--table)} .tag-r15{--tc:var(--elec)} .tag-i16{--tc:var(--name)}
+.tg{display:inline-block;font:600 10.5px/1 var(--mono);letter-spacing:.03em;text-transform:uppercase;padding:4px 7px;border-radius:999px;margin-right:4px;vertical-align:1px;white-space:nowrap}
+.tg-m{background:var(--warn-bg);color:var(--warn-ink)} .tg-c{background:var(--accent-soft);color:var(--accent)} .tg-b{background:linear-gradient(90deg,var(--warn-bg) 50%,var(--accent-soft) 50%);color:var(--ink)} .tg-w{background:var(--soft);color:var(--muted)}
+.t3tab{border-collapse:collapse;margin:8px 0;font-size:14px;width:100%}
+.t3tab th,.t3tab td{border-bottom:1px solid var(--line);padding:5px 8px;text-align:left}
+.t3tab th{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+.t3steps li{margin:7px 0}
+.grid4{grid-template-columns:repeat(auto-fit,minmax(140px,1fr))}
 </style>
 </head>
 <body>
 <header class="top"><div class="in">
-  <a class="brand" href="../index.html" title="Back to Chem Study Hub"><span class="mark">Ch</span><span>Test 2 <span class="full-name">Navigator</span></span></a>
-  <nav><a class="btn" href="#/">Start</a><a class="btn" href="#/drill">Drill</a><a class="btn" href="#/notes">Notes</a><button class="btn" id="theme" type="button" aria-label="Toggle dark mode">◐</button></nav>
+  <a class="brand" href="../index.html" title="Back to Chem Study Hub"><span class="mark">Ch</span><span>Chem <span class="full-name">Navigator</span></span></a>
+  <nav><a class="btn" href="#/">Start</a><a class="btn" href="#/drill" id="drillNav">Drill</a><a class="btn" href="#/notes">Notes</a><button class="btn" id="theme" type="button" aria-label="Toggle dark mode">◐</button></nav>
 </div></header>
 <main id="app"></main>
 <footer>Built from your one-page notes and the HW 7–12 / Quiz 3–4 question styles. The checkers follow the class rules (how the test grades), not every real-world exception.</footer>
+<script src="../drill3/engine.js"></script>
+<script src="test3.js"></script>
 <script>
 /* ================= CHEM ENGINE (follows CHEM 1110 class rules) ================= */
 var EL_RAW = `H,hydrogen,1,1,2.20
@@ -1474,6 +1490,10 @@ var NOTES_HTML = `
 <li>Valence bond theory: bonds form from overlap of half-filled orbitals</li></ul></section>`;
 
 /* ================= UI ================= */
+GROUPS.forEach(function (g) { g.test = g.test || 'T2'; });
+if (window.T3NAV) { GROUPS = GROUPS.concat(T3NAV.groups); Object.keys(T3NAV.nodes).forEach(function (k) { NODES[k] = T3NAV.nodes[k]; }); }
+var TESTS = { T2: { label: 'Test 2', sub: 'HW 7–12', drill: '#/drill', drillSub: 'Memorize naming, shapes, bond angles, and hybridization with quick-fire questions' }, T3: { label: 'Test 3', sub: 'HW 13–16', drill: '../drill3/index.html', drillSub: 'Endless new problems for every HW 13–16 topic, with worked steps' } };
+function curTest() { try { return localStorage.getItem('nav_test') === 'T2' ? 'T2' : (localStorage.getItem('nav_test') === 'T3' ? 'T3' : 'T3'); } catch (e) { return 'T3'; } }
 function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
 var PARENT = {};
 Object.keys(NODES).forEach(function (id) { (NODES[id].opts || []).forEach(function (c) { PARENT[c] = id; }); });
@@ -1485,6 +1505,7 @@ function chain(id) { var c = []; while (id) { c.unshift(id); id = PARENT[id]; } 
 var app;
 function go(hash) { if (location.hash === hash) render(); else location.hash = hash; }
 function render() {
+  var dn = document.getElementById('drillNav'); if (dn) dn.href = TESTS[curTest()].drill;
   var h = location.hash.replace(/^#\/?/, '');
   window.scrollTo(0, 0);
   if (h === 'notes' || h.indexOf('notes/') === 0) return renderNotes(h.split('/')[1]);
@@ -1504,15 +1525,18 @@ function crumbsHTML(id) {
   return '<nav class="trail" aria-label="Your path">' + parts.join('<span class="sep">›</span>') + '</nav>';
 }
 function renderHome() {
-  var html = '<section class="hero"><p class="eyebrow">CHEM 1110 · Test 2 · HW 7–12</p><h1>What is your question asking you to do?</h1><p class="lede">Pick the kind of question. You\'ll walk the steps from your notes, then check your own answer.</p></section>';
-  html += '<a class="drillcta" href="#/drill"><span><b>Drill mode</b><small>Memorize naming, shapes, bond angles, and hybridization with quick-fire questions</small></span><span class="chev">→</span></a>';
+  var T = curTest(), TT = TESTS[T];
+  var html = '<div class="testtabs" role="tablist">' + Object.keys(TESTS).map(function (k) { return '<button type="button" role="tab" data-test="' + k + '" aria-selected="' + (k === T) + '">' + TESTS[k].label + ' <small>' + TESTS[k].sub + '</small></button>'; }).join('') + '</div>';
+  html += '<section class="hero"><p class="eyebrow">CHEM 1110 · ' + TT.label + ' · ' + TT.sub + '</p><h1>What is your question asking you to do?</h1><p class="lede">Pick the kind of question. You\'ll walk the steps' + (T === 'T3' ? ' (each tagged 🧠 memorize or 📊 look it up on a chart)' : ' from your notes') + ', then check your own answer.</p></section>';
+  html += '<a class="drillcta" href="' + TT.drill + '"><span><b>' + (T === 'T3' ? 'Test 3 Drill' : 'Drill mode') + '</b><small>' + TT.drillSub + '</small></span><span class="chev">→</span></a>';
   html += '<div class="search"><input id="q" type="search" placeholder="Filter question types (e.g. hybridization, acid, unpaired)" aria-label="Filter question types"></div>';
-  GROUPS.forEach(function (g) {
+  GROUPS.filter(function (g) { return g.test === T; }).forEach(function (g) {
     html += '<section class="group tag-' + g.tag + '"><h2>' + esc(g.name) + '</h2><div class="opts">';
     g.ids.forEach(function (id) { var n = NODES[id]; html += optBtn(id, n); });
     html += '</div></section>';
   });
   app.innerHTML = html;
+  app.querySelectorAll('[data-test]').forEach(function (b) { b.addEventListener('click', function () { try { localStorage.setItem('nav_test', b.dataset.test); } catch (e) {} render(); }); });
   var q = document.getElementById('q');
   q.addEventListener('input', function () {
     var v = q.value.toLowerCase().trim();
@@ -1546,6 +1570,7 @@ function renderNode(id) {
     html += '<ol class="steps">' + n.steps.map(function (s) { return '<li>' + s + '</li>'; }).join('') + '</ol>';
     if (n.watch) html += '<div class="watch"><strong>Watch out</strong>' + n.watch.map(function (w) { return '<p>' + w + '</p>'; }).join('') + '</div>';
     if (n.notes) html += '<p class="notes-link"><a href="#/notes/' + n.notes + '">Open this part of your notes →</a></p>';
+    if (n.walk) html += '<p class="notes-link"><a href="../walkthrough/index.html#' + n.walk + '">See this worked on a homework problem →</a> &nbsp;·&nbsp; <a href="../walkthrough/index.html#hw' + n.walk.slice(2, 4) + '">' + 'All HW ' + n.walk.slice(2, 4) + ' walkthroughs</a></p>';
   }
   html += '</div>';
   if (n.tool && TOOLS[n.tool]) html += '<section class="card tool"><p class="eyebrow">Check my work</p><div id="tool"></div></section>';
@@ -1584,6 +1609,7 @@ function compareMine(root, correct, alts) {
 
 /* ---------- TOOLS ---------- */
 var TOOLS = {};
+if (window.T3NAV) T3NAV.install(TOOLS);
 TOOLS.light = function (root, p) {
   var q = [['lambda', 'wavelength λ'], ['nu', 'frequency ν'], ['E', 'energy E']];
   var unitOpts = function (k) { return Object.keys(UNITS[k]); };
