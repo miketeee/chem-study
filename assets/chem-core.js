@@ -22,7 +22,7 @@
     const s = String(str).trim().replace(/,/g, '').replace(/[×*X]/g, 'x').replace(/\s+/g, '')
       .replace(/x10([⁻⁰¹²³⁴⁵⁶⁷⁸⁹]+)/, (m, e) => 'x10^' + [...e].map(c => SUP[c]).join(''));
     if (s === '') return NaN;
-    const m = s.match(/^(-?\d*\.?\d+)(?:x10\^?(-?\d+)|[eE](-?\d+))?$/);
+    const m = s.replace(/(\d)(%|[A-Za-zµ][A-Za-zµ/·⁻¹()]*)$/, (x, d, u) => /^[eE]$/.test(u) ? x : d).match(/^(-?\d*\.?\d+)(?:x10\^?(-?\d+)|[eE](-?\d+))?$/);
     if (!m) return NaN;
     const exp = m[2] !== undefined ? parseInt(m[2], 10) : (m[3] !== undefined ? parseInt(m[3], 10) : 0);
     return parseFloat(m[1]) * Math.pow(10, exp);

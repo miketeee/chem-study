@@ -1,0 +1,361 @@
+{
+ "slug": "hw17",
+ "test": "T3",
+ "title": "HW 17",
+ "subtitle": "Stoichiometry (Mole Ratios, Grams to Grams) & Percent Yield",
+ "questions": [
+  {
+   "id": "hw17-q01",
+   "n": 1,
+   "type": "single",
+   "q": "Based on the balanced reaction below, 18 moles of H₂O would be produced from 12 moles of NH₃. 4 NH₃ + 5 O₂ → 4 NO + 6 H₂O",
+   "opts": [
+    "True",
+    "False"
+   ],
+   "correct": 0,
+   "note": "12 mol NH₃ × (6 mol H₂O / 4 mol NH₃) = 18 mol H₂O.",
+   "test": "T3"
+  },
+  {
+   "id": "hw17-q02",
+   "n": 2,
+   "type": "single",
+   "q": "Based on the balanced reaction below, 6 moles of H₂O would be produced from 8 moles of NH₃. 4 NH₃ + 5 O₂ → 4 NO + 6 H₂O",
+   "opts": [
+    "True",
+    "False"
+   ],
+   "correct": 1,
+   "note": "8 mol NH₃ × (6 mol H₂O / 4 mol NH₃) = 12 mol H₂O, not 6.",
+   "test": "T3"
+  },
+  {
+   "id": "hw17-q03",
+   "n": 3,
+   "type": "single",
+   "q": "In the following reaction, 10.0 moles of potassium would require how many moles of bromine? 2 K + Br₂ → 2 KBr",
+   "opts": [
+    "2.50",
+    "20.0",
+    "10.0",
+    "5.00",
+    "2.00"
+   ],
+   "correct": 3,
+   "note": "10.0 mol K × (1 mol Br₂ / 2 mol K) = 5.00 mol Br₂.",
+   "test": "T3"
+  },
+  {
+   "id": "hw17-q04",
+   "n": 4,
+   "type": "single",
+   "q": "For the reaction below, how many moles of nitrogen monoxide will form if we start with 2.0 moles of oxygen? 4 NH₃ + 5 O₂ → 4 NO + 6 H₂O",
+   "opts": [
+    "2.0 mol",
+    "1.6 mol",
+    "5.0 mol",
+    "4.0 mol",
+    "2.5 mol"
+   ],
+   "correct": 1,
+   "note": "2.0 mol O₂ × (4 mol NO / 5 mol O₂) = 1.6 mol NO.",
+   "test": "T3"
+  },
+  {
+   "id": "hw17-q05",
+   "n": 5,
+   "type": "single",
+   "q": "Considering the balanced equation P₄ + 6 H₂ → 4 PH₃, finish the following sentence: Twelve (12) moles of H₂ _________.",
+   "opts": [
+    "produce 4 moles of PH₃",
+    "produce 8 moles of PH₃",
+    "react with 12 moles of P₄",
+    "produce 6 moles of PH₃",
+    "react with 1 mole of P₄"
+   ],
+   "correct": 1,
+   "note": "12 mol H₂ × (4 mol PH₃ / 6 mol H₂) = 8 mol PH₃.",
+   "test": "T3"
+  },
+  {
+   "id": "hw17-q06",
+   "n": 6,
+   "type": "single",
+   "q": "Considering the balanced equation 2 Cu + O₂ → 2 CuO, finish the following sentence: Six (6) moles of Cu _________.",
+   "opts": [
+    "react with 6 moles O₂",
+    "produce 2 moles CuO",
+    "produce 6 moles CuO",
+    "react with 1 mole O₂",
+    "react with 2 moles O₂"
+   ],
+   "correct": 2,
+   "note": "6 mol Cu × (2 mol CuO / 2 mol Cu) = 6 mol CuO. (It reacts with 3 mol O₂.)",
+   "test": "T3"
+  },
+  {
+   "id": "hw17-q07",
+   "n": 7,
+   "type": "single",
+   "q": "Balance the equation below and determine the number of moles of oxygen required to completely burn 5.00 moles of propane. C₃H₈ + O₂ → H₂O + CO₂",
+   "opts": [
+    "25.0",
+    "2.50",
+    "5.00",
+    "15.0",
+    "10.0"
+   ],
+   "correct": 0,
+   "note": "C₃H₈ + 5 O₂ → 4 H₂O + 3 CO₂. 5.00 mol C₃H₈ × (5 mol O₂ / 1 mol C₃H₈) = 25.0 mol O₂.",
+   "test": "T3"
+  },
+  {
+   "id": "hw17-q08",
+   "n": 8,
+   "type": "single",
+   "q": "Flashback related to the question below! Methane, CH₄, reacts with oxygen following the pattern of a combustion reaction. Write and balance the reaction. What is the number in front of the H₂O after it is balanced without fractions?",
+   "opts": [
+    "3",
+    "5",
+    "1",
+    "2",
+    "4"
+   ],
+   "correct": 3,
+   "tag": "Flashback",
+   "note": "CH₄ + 2 O₂ → CO₂ + 2 H₂O.",
+   "test": "T3"
+  },
+  {
+   "id": "hw17-q09",
+   "n": 9,
+   "type": "single",
+   "q": "Methane, CH₄, is found in natural gas. How many moles of oxygen are required to completely react with 4 moles of methane? You must first write and balance the combustion reaction.",
+   "opts": [
+    "3",
+    "4",
+    "8",
+    "2",
+    "6"
+   ],
+   "correct": 2,
+   "note": "4 mol CH₄ × (2 mol O₂ / 1 mol CH₄) = 8 mol O₂.",
+   "test": "T3"
+  },
+  {
+   "id": "hw17-q10",
+   "n": 10,
+   "type": "calc",
+   "q": "FLASHBACK (you'll use this compound below): Calculate the molar mass of Na₂CO₃.",
+   "answerValue": 105.99,
+   "answerDisplay": "105.99",
+   "unit": "g/mol",
+   "tolerance": 0.0001,
+   "tag": "Flashback",
+   "given": "Use the periodic chart in Getting Started → Printable notes. Don't round early: put all the numbers in your calculator at once. Record your answer with 2 decimal places.",
+   "test": "T3"
+  },
+  {
+   "id": "hw17-q11",
+   "n": 11,
+   "type": "calc",
+   "q": "FLASHBACK (you'll use this compound below): Calculate the molar mass of NaCl.",
+   "answerValue": 58.44,
+   "answerDisplay": "58.44",
+   "unit": "g/mol",
+   "tolerance": 0.0001,
+   "tag": "Flashback",
+   "given": "Use the periodic chart in Getting Started → Printable notes. Don't round early: put all the numbers in your calculator at once. Record your answer with 2 decimal places.",
+   "test": "T3"
+  },
+  {
+   "id": "hw17-q12",
+   "n": 12,
+   "type": "calc",
+   "q": "FLASHBACK (you'll use this compound below): Calculate the molar mass of HCl.",
+   "answerValue": 36.46,
+   "answerDisplay": "36.46",
+   "unit": "g/mol",
+   "tolerance": 0.0001,
+   "tag": "Flashback",
+   "given": "Use the periodic chart in Getting Started → Printable notes. Don't round early: put all the numbers in your calculator at once. Record your answer with 2 decimal places.",
+   "test": "T3"
+  },
+  {
+   "id": "hw17-q13",
+   "n": 13,
+   "type": "calc",
+   "q": "FLASHBACK (you'll use this compound below): Calculate the molar mass of PbCl₂.",
+   "answerValue": 278.1,
+   "answerDisplay": "278.10",
+   "unit": "g/mol",
+   "tolerance": 0.0001,
+   "tag": "Flashback",
+   "given": "Use the periodic chart in Getting Started → Printable notes. Don't round early: put all the numbers in your calculator at once. Record your answer with 2 decimal places.",
+   "test": "T3"
+  },
+  {
+   "id": "hw17-q14",
+   "n": 14,
+   "type": "single",
+   "q": "According to the following reaction, what mass of silver nitrate would be required to react with 0.500 grams of potassium chloride? AgNO₃(aq) + KCl(aq) → AgCl(s) + KNO₃(aq)",
+   "opts": [
+    "0.500 g",
+    "2.68 g",
+    "1.14 g",
+    "85.0 g",
+    "170 g"
+   ],
+   "correct": 2,
+   "given": "Molar mass of AgNO₃ = 169.87 g/mol · Molar mass of KCl = 74.55 g/mol",
+   "note": "0.500 g KCl × (1 mol KCl / 74.55 g KCl) × (1 mol AgNO₃ / 1 mol KCl) × (169.87 g AgNO₃ / 1 mol AgNO₃) = 1.14 g.",
+   "test": "T3"
+  },
+  {
+   "id": "hw17-q15",
+   "n": 15,
+   "type": "calc",
+   "q": "Consider the reaction: Na₂CO₃(aq) + 2 HCl(aq) → 2 NaCl(aq) + CO₂(g) + H₂O(l). If 24.43 g of sodium carbonate react completely, how many grams of NaCl will be produced? Report your answer with the correct number of significant figures.",
+   "answerValue": 26.94,
+   "answerDisplay": "26.94",
+   "unit": "g",
+   "tolerance": 0.002,
+   "note": "24.43 g Na₂CO₃ × (1 mol / 105.99 g) × (2 mol NaCl / 1 mol Na₂CO₃) × (58.44 g NaCl / 1 mol NaCl) = 26.94 g.",
+   "test": "T3"
+  },
+  {
+   "id": "hw17-q16",
+   "n": 16,
+   "type": "calc",
+   "q": "Consider the reaction: Na₂CO₃(aq) + 2 HCl(aq) → 2 NaCl(aq) + CO₂(g) + H₂O(l). If 17.41 g of sodium carbonate react completely, how many grams of NaCl will be produced? Report your answer with the correct number of significant figures.",
+   "answerValue": 19.2,
+   "answerDisplay": "19.20",
+   "unit": "g",
+   "tolerance": 0.002,
+   "note": "17.41 g × (1 mol / 105.99 g) × (2 mol NaCl / 1 mol Na₂CO₃) × (58.44 g / 1 mol) = 19.20 g (keep the trailing zero: 4 sig figs).",
+   "test": "T3"
+  },
+  {
+   "id": "hw17-q17",
+   "n": 17,
+   "type": "calc",
+   "q": "Consider the reaction: Na₂CO₃(aq) + 2 HCl(aq) → 2 NaCl(aq) + CO₂(g) + H₂O(l). If 32.97 g of sodium carbonate react completely, how many grams of HCl will be required? Report your answer to the correct number of significant figures.",
+   "answerValue": 22.68,
+   "answerDisplay": "22.68",
+   "unit": "g",
+   "tolerance": 0.002,
+   "note": "32.97 g × (1 mol / 105.99 g) × (2 mol HCl / 1 mol Na₂CO₃) × (36.46 g HCl / 1 mol HCl) = 22.68 g.",
+   "test": "T3"
+  },
+  {
+   "id": "hw17-q18",
+   "n": 18,
+   "type": "calc",
+   "q": "Consider the reaction below: 3 Ca(NO₃)₂(aq) + 2 Na₃PO₄(aq) → Ca₃(PO₄)₂(s) + 6 NaNO₃(aq). How many grams of Ca₃(PO₄)₂ will be produced if 6.85 g of Na₃PO₄ react completely?",
+   "answerValue": 6.48,
+   "answerDisplay": "6.48",
+   "unit": "g",
+   "tolerance": 0.003,
+   "given": "Molar mass of Na₃PO₄ is 163.94 g/mol · molar mass of Ca₃(PO₄)₂ is 310.18 g/mol · enter your answer in decimal form rounded to the correct number of significant digits.",
+   "note": "6.85 g × (1 mol Na₃PO₄ / 163.94 g) × (1 mol Ca₃(PO₄)₂ / 2 mol Na₃PO₄) × (310.18 g / 1 mol) = 6.48 g.",
+   "test": "T3"
+  },
+  {
+   "id": "hw17-q19",
+   "n": 19,
+   "type": "calc",
+   "q": "Consider the balanced reaction below: 3 Ca(NO₃)₂(aq) + 2 Na₃PO₄(aq) → Ca₃(PO₄)₂(s) + 6 NaNO₃(aq). How many grams of Ca(NO₃)₂ will be used completely in the reaction if 1.65 g of Na₃PO₄ react completely?",
+   "answerValue": 2.48,
+   "answerDisplay": "2.48",
+   "unit": "g",
+   "tolerance": 0.003,
+   "given": "Molar mass of Na₃PO₄ is 163.94 g/mol · molar mass of Ca(NO₃)₂ is 164.09 g/mol · enter your answer in decimal form rounded to the correct number of significant digits.",
+   "note": "1.65 g × (1 mol Na₃PO₄ / 163.94 g) × (3 mol Ca(NO₃)₂ / 2 mol Na₃PO₄) × (164.09 g / 1 mol) = 2.48 g.",
+   "test": "T3"
+  },
+  {
+   "id": "hw17-q20",
+   "n": 20,
+   "type": "calc",
+   "q": "A student ran the reaction below. They calculated a theoretical yield of HgCl₂ to be 34.8 g. 2 KCl + Hg(NO₃)₂ → HgCl₂ + 2 KNO₃. If the student actually collected 27.5 g after filtering and drying the precipitate, what is the percent yield for their experiment?",
+   "answerValue": 79.0,
+   "answerDisplay": "79.0",
+   "unit": "%",
+   "tolerance": 0.003,
+   "note": "27.5 ÷ 34.8 × 100 = 79.0 %.",
+   "test": "T3"
+  },
+  {
+   "id": "hw17-q21",
+   "n": 21,
+   "type": "calc",
+   "q": "A student ran the reaction below. They calculated a theoretical yield of HgCl₂ to be 34.8 g. 2 KCl + Hg(NO₃)₂ → HgCl₂ + 2 KNO₃. If the student actually collected 21.1 g after filtering and drying the precipitate, what is the percent yield for their experiment?",
+   "answerValue": 60.6,
+   "answerDisplay": "60.6",
+   "unit": "%",
+   "tolerance": 0.003,
+   "note": "21.1 ÷ 34.8 × 100 = 60.6 %.",
+   "test": "T3"
+  },
+  {
+   "id": "hw17-q22",
+   "n": 22,
+   "type": "single",
+   "q": "A certain reaction should produce 16 g of product based on the stoichiometry. If you actually get 12 g in the lab, what is the percent yield?",
+   "opts": [
+    "33 %",
+    "75 %",
+    "67 %",
+    "25 %",
+    "133 %"
+   ],
+   "correct": 1,
+   "note": "Actual ÷ theoretical × 100 = 12 ÷ 16 × 100 = 75 %.",
+   "test": "T3"
+  },
+  {
+   "id": "hw17-q23",
+   "n": 23,
+   "type": "calc",
+   "q": "In the chemical reaction below, the theoretical yield of CCl₂F₂ was calculated to be 203.13 grams. If the percent yield in the reaction was 74.3%, how many grams of CCl₂F₂ were obtained? AsF₃ + CCl₄ → AsCl₃ + CCl₂F₂",
+   "answerValue": 151,
+   "answerDisplay": "151",
+   "unit": "g",
+   "tolerance": 0.004,
+   "given": "Do not round intermediate results. Type the answer with the correct number of significant figures. Do not include the unit.",
+   "note": "203.13 × 0.743 = 150.9 → 3 sig figs → 151.",
+   "test": "T3"
+  },
+  {
+   "id": "hw17-q24",
+   "n": 24,
+   "type": "single",
+   "q": "Methanol can react in the presence of sulfuric acid to produce dimethyl ether. Calculate the percent yield for this reaction, run in a laboratory starting with 50 grams of methanol and producing 26 grams of dimethyl ether. 2 CH₃OH → (CH₃)₂O + H₂O",
+   "opts": [
+    "200%",
+    "86%",
+    "52%",
+    "57%",
+    "72%"
+   ],
+   "correct": 4,
+   "given": "Make sure you calculate the theoretical yield of dimethyl ether first! Molar mass of CH₃OH = 32.04 g/mol · molar mass of (CH₃)₂O = 46.09 g/mol",
+   "note": "Theoretical: 50 g × (1 mol / 32.04 g) × (1 mol (CH₃)₂O / 2 mol CH₃OH) × (46.09 g / 1 mol) = 35.96 g. 26 ÷ 35.96 × 100 = 72 %.",
+   "test": "T3"
+  },
+  {
+   "id": "hw17-q25",
+   "n": 25,
+   "type": "calc",
+   "q": "Calculate the percent yield of CCl₂F₂: 3.95 g of AsF₃ reacted completely with excess CCl₄. In a lab, a student actually obtained 2.1 g of CCl₂F₂. 2 AsF₃ + 3 CCl₄ → 2 AsCl₃ + 3 CCl₂F₂",
+   "answerValue": 38.67,
+   "answerDisplay": "39 (38.7 unrounded)",
+   "unit": "%",
+   "tolerance": 0.012,
+   "tag": "Answer worked out, not from eLearn",
+   "note": "Theoretical: 3.95 g AsF₃ × (1 mol / 131.92 g) × (3 mol CCl₂F₂ / 2 mol AsF₃) × (120.91 g / 1 mol) = 5.43 g. 2.1 ÷ 5.43 × 100 = 38.7 % → 39 % (2 sig figs). Your PDF cut off before this question's answer, so it is calculated here with the class molar masses.",
+   "test": "T3"
+  }
+ ]
+}

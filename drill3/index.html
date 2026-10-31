@@ -59,6 +59,13 @@
   ol.steps li::before{content:counter(s);position:absolute;left:0;top:8px;width:22px;height:22px;border-radius:50%;background:var(--violet-wash);color:var(--violet-deep);font:600 12px/22px 'IBM Plex Mono',monospace;text-align:center}
   .kbd{font:12px 'IBM Plex Mono',monospace;color:var(--sage);margin-top:10px}
   .done-big{font:600 34px 'Fraunces',serif;margin:4px 0}
+  /* factor-label chains: stacked fractions, cancelled units struck through */
+  .fl{display:inline;line-height:2.7}
+  .frac{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;margin:2px 3px;line-height:1.3;font-size:.92em;white-space:nowrap}
+  .frac .ft{border-bottom:1.5px solid currentColor;padding:0 4px 2px}
+  .frac .fb{padding:2px 4px 0}
+  .frac .po,.frac .sl,.sep{display:none}
+  .fl s{text-decoration-thickness:1.5px;text-decoration-color:#b4322a;opacity:.75}
 </style>
 </head>
 <body>
@@ -67,7 +74,7 @@
     <a class="back-link" href="../index.html">&larr; Chem Study Hub</a>
     <p class="site-mark">CHEM STUDY HUB &middot; TEST 3</p>
     <h1 class="quiz-title">Test 3 Drill</h1>
-    <p class="quiz-sub">Endless new problems for every HW 13–16 topic. Misses come back three questions later and stay on your miss list until you get them right.</p>
+    <p class="quiz-sub">Endless new problems for every HW 13–17 topic. Misses come back three questions later and stay on your miss list until you get them right.</p>
   </div>
   <div id="app"><p class="note">Loading…</p></div>
 </div>
@@ -78,7 +85,7 @@
    per-topic accuracy and best streak are saved in this browser after every answer (chem-drill3-v1). */
 (function () {
   const KEY = 'chem-drill3-v1', D = Drill3, $ = id => document.getElementById(id), app = $('app');
-  const HWS = [[13, 'HW 13 · Formulas & percent composition'], [14, 'HW 14 · Solutions, molarity & dilution'], [15, 'HW 15 · Reactions & balancing'], [16, 'HW 16 · Solubility, ionic equations & redox']];
+  const HWS = [[13, 'HW 13 · Formulas & percent composition'], [14, 'HW 14 · Solutions, molarity & dilution'], [15, 'HW 15 · Reactions & balancing'], [16, 'HW 16 · Solubility, ionic equations & redox'], [17, 'HW 17 · Stoichiometry & percent yield']];
   const TAG = { mem: ['mem', '🧠 Memorize'], chart: ['chart', '📊 Chart'], both: ['both', '🧠📊 Both'], '': ['math', 'Work'] };
   const tag = t => { const [c, l] = TAG[t || '']; return `<span class="tag ${c}">${l}</span>`; };
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -86,6 +93,7 @@
   let st = {};
   try { st = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) {}
   st = Object.assign({ topics: D.TOPICS.map(t => t.id), size: '20', run: null, misses: [], stats: {}, best: 0 }, st);
+  { const known = st.known || st.topics.slice(); D.TOPICS.forEach(t => { if (!known.includes(t.id) && !st.topics.includes(t.id)) st.topics.push(t.id); }); st.known = D.TOPICS.map(t => t.id); }   // new topics start switched on
   const save = () => { try { localStorage.setItem(KEY, JSON.stringify(st)); } catch (e) {} };
   const tname = id => (D.TOPICS.find(t => t.id === id) || {}).label || id;
   Chem.resources('../assets/');

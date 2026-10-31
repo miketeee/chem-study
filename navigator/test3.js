@@ -1,4 +1,4 @@
-/* Chem Navigator — Test 3 (HW 13–16). Loaded before the main Navigator script; it adds Test 3 groups, flowchart nodes
+/* Chem Navigator — Test 3 (HW 13–17). Conversions are shown as factor-label chains (how Dr. Bragg teaches). Loaded before the main Navigator script; it adds Test 3 groups, flowchart nodes
    and "Check my work" tools. The chemistry comes from ../drill3/engine.js (Drill3), the same engine as the Test 3 Drill,
    so the Navigator and the Drill always agree. */
 (function () {
@@ -12,7 +12,8 @@
     { test: 'T3', name: 'Formulas & percent composition', tag: 'f13', ids: ['t3_empid', 't3_pct', 't3_molform', 't3_empf', 't3_atoms'] },
     { test: 'T3', name: 'Solutions, molarity & dilution', tag: 's14', ids: ['t3_solnwords', 't3_molarity', 't3_dilution'] },
     { test: 'T3', name: 'Reactions & balancing', tag: 'r15', ids: ['t3_diatomic', 't3_rxntype', 't3_balance', 't3_predict', 't3_names', 't3_conserve'] },
-    { test: 'T3', name: 'Solubility, ionic equations & redox', tag: 'i16', ids: ['t3_solub', 't3_goes', 't3_ionic', 't3_ox', 't3_redox', 't3_activity'] }
+    { test: 'T3', name: 'Solubility, ionic equations & redox', tag: 'i16', ids: ['t3_solub', 't3_goes', 't3_ionic', 't3_ox', 't3_redox', 't3_activity'] },
+    { test: 'T3', name: 'Stoichiometry & percent yield', tag: 'y17', ids: ['t3_mm', 't3_ratio', 't3_gg', 't3_yield', 't3_titr'] }
   ];
 
   var nodes = {
@@ -40,7 +41,7 @@
     t3_empf_pct: { title: 'Percent of each element', walk: 'hw13-q16',
       steps: [MEM('<b>Assume 100 g</b>, so every percent becomes grams (53.3 % → 53.3 g).'),
         WK('A missing element ("no other element except oxygen") = 100 − the others.'),
-        CH('grams ÷ atomic mass (periodic table) = <b>moles</b> of each element. Do every element. Never use diatomic masses (O, not O₂).'),
+        CH('Grams → <b>moles</b> by factor label, for every element: ' + D.fl(['53.3', 'g C'], [[['1', 'mol C'], ['12.01', 'g C']]], ['4.438', 'mol C'], false) + '. The atomic mass goes with grams. Never use diatomic masses (O, not O₂).'),
         MEM('<b>Divide every mole value by the smallest one.</b> This is the most-missed step.'),
         MEM('Within <b>0.1</b> of a whole number → round. Ends in <b>.5 → × 2</b>; <b>.33 / .67 → × 3</b>; <b>.25 / .75 → × 4</b>. Multiply every element.'),
         MEM('Write C, then H, then the rest. H never goes first unless it\'s an acid.')],
@@ -48,13 +49,13 @@
       tool: 't3empf', preset: { mode: 'pct', e1: 'C', a1: '53.3', e2: 'H', a2: '11.2', e3: 'O', a3: '' } },
     t3_empf_g: { title: 'Grams of each element (or a sample mass)', walk: 'hw13-q13',
       steps: [WK('Missing element by subtraction: sample mass − the known element.'),
-        CH('grams ÷ atomic mass = <b>moles</b> for each element.'),
+        CH('Grams → <b>moles</b> by factor label for each element: ' + D.fl(['5.89', 'g Co'], [[['1', 'mol Co'], ['58.93', 'g Co']]], ['0.100', 'mol Co'], false) + '.'),
         MEM('<b>Divide by the smallest</b>, then fix any .5 / .33 / .25 with × 2 / × 3 / × 4.'),
         WK('Write the formula from the whole numbers.')],
       watch: ['HW 13 #13: Co 0.100 mol, O 0.150 mol → 1 : 1.5 → × 2 → Co₂O₃.'],
       tool: 't3empf', preset: { mode: 'g', total: '8.29', e1: 'Co', a1: '5.89', e2: 'O', a2: '', e3: '', a3: '' } },
     t3_atoms: { title: 'Which sample has the most atoms of an element?', hint: 'moles × subscript', walk: 'hw13-q02',
-      steps: [WK('Moles of that element = <b>moles of compound × its subscript</b> in the formula.'),
+      steps: [MEM('Use the <b>subscript</b> as a factor label: ' + D.fl(['0.450', 'mol Al₂(CO₃)₃'], [[['3', 'mol C'], ['1', 'mol Al₂(CO₃)₃']]], ['1.35', 'mol C'], false) + '.'),
         MEM('A subscript outside parentheses multiplies everything inside: Al₂(CO₃)₃ has 3 C.'),
         WK('Compare the results; the largest wins.'),
         MEM('1 mol of anything = 6.022 × 10²³ of it; 1 mol Cl₂ = 2 mol Cl atoms.')] },
@@ -69,20 +70,24 @@
       watch: ['A volumetric flask is filled to the graduation line, not the very top.'] },
     t3_molarity: { title: 'Molarity problems: find M, moles, grams or volume', hint: 'M = mol ÷ L', q: 'What does the question ask you to find?', opts: ['t3_mol_M', 't3_mol_n', 't3_mol_g', 't3_mol_V'] },
     t3_mol_M: { title: 'Find the molarity (M)', walk: 'hw14-q12',
-      steps: [MEM('<b>M = mol ÷ L</b>.'), MEM('Volume in <b>liters</b>: mL ÷ 1000.'),
-        CH('Given grams? grams ÷ molar mass (from the problem) = moles first.'),
+      steps: [MEM('Finding the molarity itself: get <b>mol</b> and <b>L</b>, then <b>M = mol ÷ L</b>.'),
+        MEM('Volume to liters by factor label: ' + D.fl(['123.0', 'mL'], [[['1', 'L'], ['1000', 'mL']]], ['0.1230', 'L'], false) + '.'),
+        CH('Given grams? Grams → moles first: ' + D.fl(['4.90', 'g Ca(NO₂)₂'], [[['1', 'mol Ca(NO₂)₂'], ['132.10', 'g Ca(NO₂)₂']]], ['0.03709', 'mol'], false) + '.'),
         MEM('Sig figs: the least precise number given.')],
       watch: ['HW 14 #8–9: 997.7 mL is 0.9977 L. Using mL gives an answer 1000× too small.'],
       tool: 't3molarity', preset: { find: 'M', g: '4.90', mm: '132.10', vol: '123.0', vu: 'mL' } },
     t3_mol_n: { title: 'Find the moles', walk: 'hw14-q13',
-      steps: [MEM('Rewrite <b>M as mol/L</b> so you can see L cancel.'), MEM('Start with the one-unit number: the volume in <b>L</b>.'), WK('L × mol/L = <b>mol</b>.')],
+      steps: [MEM('Rewrite molarity as two units: <b>0.139 M = (0.139 mol / 1 L)</b>.'), MEM('<b>Start with the one-unit number</b> (the volume), never the molarity.'),
+        WK(D.fl(['115.0', 'mL'], [[['1', 'L'], ['1000', 'mL']], [['0.139', 'mol KCl'], ['1', 'L']]], ['0.0160', 'mol KCl'], false))],
       tool: 't3molarity', preset: { find: 'mol', M: '0.139', vol: '115.0', vu: 'mL' } },
     t3_mol_g: { title: 'Find the grams needed', walk: 'hw14-q15',
-      steps: [MEM('Volume in L × molarity (mol/L) = <b>moles</b>.'), CH('Moles × molar mass (g/mol) = <b>grams</b>.'), MEM('Factor-label: g/mol has the 1 under mol, the grams on top.')],
+      steps: [MEM('<b>Start with the volume</b> (one unit) and chain mL → L → mol → g.'), CH('Molar mass as a fraction: <b>(241.86 g / 1 mol)</b>; the number goes with grams.'),
+        WK(D.fl(['150.0', 'mL'], [[['1', 'L'], ['1000', 'mL']], [['0.132', 'mol Fe(NO₃)₃'], ['1', 'L']], [['241.86', 'g Fe(NO₃)₃'], ['1', 'mol Fe(NO₃)₃']]], ['4.79', 'g Fe(NO₃)₃'], false))],
       watch: ['HW 14 #16: 0.41 M has only 2 sig figs → 29.9 g becomes 30 g.'],
       tool: 't3molarity', preset: { find: 'g', M: '0.132', vol: '150.0', vu: 'mL', mm: '241.86' } },
     t3_mol_V: { title: 'Find the volume (L or mL)', walk: 'hw14-q20',
-      steps: [CH('Given grams? grams ÷ molar mass = moles.'), MEM('<b>L = mol ÷ M</b> (divide so mol cancels).'), MEM('Asked for mL? × 1000 at the end.')],
+      steps: [MEM('<b>Start with what you have</b> (grams or moles) and head to moles first.'), MEM('Flip the molarity so mol cancels: <b>(1 L / 0.911 mol)</b>. Asked for mL? Add <b>(1000 mL / 1 L)</b>.'),
+        WK(D.fl(['3.41', 'g LiNO₃'], [[['1', 'mol LiNO₃'], ['68.95', 'g LiNO₃']], [['1', 'L'], ['0.911', 'mol LiNO₃']], [['1000', 'mL'], ['1', 'L']]], ['54.3', 'mL'], false))],
       watch: ['Read the unit the question wants: HW 14 #18–19 want L, #20–21 want mL.'],
       tool: 't3molarity', preset: { find: 'mL', M: '0.911', g: '3.41', mm: '68.95' } },
     t3_dilution: { title: 'Dilution (M₁V₁ = M₂V₂)', hint: '20.0 mL of 1.69 M diluted to 175.0 mL', walk: 'hw14-q25',
@@ -206,7 +211,50 @@
       steps: [CH('Find both on the <b>activity series</b>: Li > K > Ba > Ca > Na > Mg > Al > Zn > Cr > Fe > Cd > Co > Ni > Sn > Pb > H > Cu > Ag > Hg > Pt > Au.'),
         MEM('Compare the <b>neutral</b> reactant with the <b>charged</b> one. The neutral one is <b>higher</b> → it goes.'),
         MEM('Neutral one lower → no reaction.')],
-      tool: 't3activity', preset: { m: 'Zn', i: 'Cu' } }
+      tool: 't3activity', preset: { m: 'Zn', i: 'Cu' } },
+
+    /* ---------- HW 17 ---------- */
+    t3_mm: { title: 'Molar mass of a compound', hint: 'Na₂CO₃ = 105.99 g/mol', walk: 'hw17-q10',
+      steps: [CH('Atomic masses from the <b>periodic chart</b>.'), BO('Each one × its subscript; a subscript outside parentheses multiplies everything inside.'),
+        MEM('Put it all in the calculator at once; <b>don\'t round early</b>. Report 2 decimal places.')],
+      watch: ['Save the HW 17 molar masses: the later problems reuse them.'], tool: 't3pct', preset: { f: 'Na2CO3' } },
+    t3_ratio: { title: 'Mole to mole (coefficient ratios)', hint: '2.0 mol O₂ → ? mol NO', walk: 'hw17-q04',
+      steps: [MEM('The <b>coefficients</b> are the mole ratio. No coefficient showing = an understood <b>1</b>.'),
+        MEM('<b>Start with the moles you\'re given</b>, labeled with the substance (mol O₂, not just mol).'),
+        MEM('Ratio = (coefficient of what you <b>want</b> / coefficient of what you <b>have</b>). What you have goes on the bottom so it cancels.'),
+        WK(D.fl(['2.0', 'mol O₂'], [[['4', 'mol NO'], ['5', 'mol O₂']]], ['1.6', 'mol NO'], false)),
+        MEM('Mole ratios are <b>exact</b>; they never limit sig figs.')],
+      watch: ['Not balanced yet (HW 17 #7–9)? Balance it first, then use the coefficients.'], tool: 't3stoich', preset: { eq: '4 NH3 + 5 O2 -> 4 NO + 6 H2O', amt: '2.0', gu: 'mol', A: 'O2', B: 'NO', fu: 'mol' } },
+    t3_gg: { title: 'Grams of one substance → grams of another', hint: 'stoichiometry, theoretical yield', walk: 'hw17-q15',
+      steps: [MEM('<b>Start with the given grams</b> (one unit), labeled with the substance.'),
+        CH('Grams → moles: <b>(1 mol / molar-mass g)</b>; the number goes with grams.'),
+        MEM('Moles → moles of the <b>other</b> substance with the coefficients. This is the only step that switches substances.'),
+        CH('Moles → grams with the new substance\'s molar mass: <b>(molar-mass g / 1 mol)</b>.'),
+        WK(D.fl(['24.43', 'g Na₂CO₃'], [[['1', 'mol Na₂CO₃'], ['105.99', 'g Na₂CO₃']], [['2', 'mol NaCl'], ['1', 'mol Na₂CO₃']], [['58.44', 'g NaCl'], ['1', 'mol NaCl']]], ['26.94', 'g NaCl'], false)),
+        MEM('Grams of a <b>product</b> = the <b>theoretical yield</b>. Sig figs: usually the starting number.')],
+      watch: ['Always head toward moles first; you can\'t switch substances in grams.', 'If the problem gives a molar mass, use its number (Ca(NO₃)₂ = 164.09 in HW 17).'],
+      tool: 't3stoich', preset: { eq: 'Na2CO3 + 2 HCl -> 2 NaCl + CO2 + H2O', amt: '24.43', gu: 'g', A: 'Na2CO3', B: 'NaCl', fu: 'g' } },
+    t3_yield: { title: 'Percent yield', hint: 'actual ÷ theoretical × 100', q: 'What does the problem give you?', opts: ['t3_y_both', 't3_y_pct', 't3_y_full'] },
+    t3_y_both: { title: 'The actual and the theoretical yield', walk: 'hw17-q20',
+      steps: [MEM('<b>% yield = actual ÷ theoretical × 100</b>.'), MEM('<b>Actual</b> = what was weighed in the lab. <b>Theoretical</b> = the math.'),
+        MEM('Over 100 % → probably still wet; exactly 100 % is unrealistic.')],
+      watch: ['HW 17 #22: 12 g out of 16 g is 75 %. 133 % is the upside-down answer.'], tool: 't3yield', preset: { act: '27.5', th: '34.8' } },
+    t3_y_pct: { title: 'The percent yield and the theoretical yield (find the actual)', walk: 'hw17-q23',
+      steps: [MEM('Rearrange: <b>actual = theoretical × (% ÷ 100)</b>.'), WK('Use the decimal: 74.3 % → 0.743.'), MEM('Sig figs from the numbers given (74.3 has 3).')],
+      tool: 't3yield', preset: { th: '203.13', pct: '74.3' } },
+    t3_y_full: { title: 'Grams of a reactant and the grams actually collected', walk: 'hw17-q24',
+      steps: [MEM('<b>Theoretical yield first</b>: a grams-to-grams factor-label chain to the product.'),
+        MEM('Then <b>% yield = actual ÷ theoretical × 100</b>.')],
+      tool: 't3stoich', preset: { eq: '2 CH3OH -> (CH3)2O + H2O', amt: '50', gu: 'g', A: 'CH3OH', B: '(CH3)2O', fu: 'g', mmA: '32.04', mmB: '46.09' } },
+    t3_titr: { title: 'Solution stoichiometry and titrations', hint: 'mL + molarity → moles → other substance', 
+      steps: [MEM('<b>Start with the volume</b> (one unit), never the molarity (two units).'),
+        MEM('Molarity as a fraction: <b>(0.250 mol NaOH / 1 L)</b>. mL → L with (1 L / 1000 mL).'),
+        MEM('Switch substances with the <b>coefficients</b>, like any stoichiometry.'),
+        WK(D.fl(['35.23', 'mL NaOH'], [[['1', 'L NaOH'], ['1000', 'mL NaOH']], [['0.250', 'mol NaOH'], ['1', 'L NaOH']], [['1', 'mol HCl'], ['1', 'mol NaOH']]], ['0.008808', 'mol HCl'], false)),
+        MEM('Asked for the other molarity? <b>M = mol ÷ L</b> of that solution: 0.008808 mol ÷ 0.05000 L = 0.176 M.'),
+        MEM('Sig figs here come from the shortest measured number (often the molarity).')],
+      watch: ['H₂SO₄ is the classic 1 : 2 acid (H₂SO₄ + 2 NaOH). Check the coefficients before using 1 : 1.'],
+      tool: 't3stoich', preset: { eq: 'HCl + NaOH -> NaCl + H2O', amt: '35.23', gu: 'mL', MA: '0.250', A: 'NaOH', B: 'HCl', fu: 'M', VB: '50.00' } }
   };
 
   /* ---------- tools (they use the main Navigator's field/inp/sel/val/wire/box/bad/bigAns/list helpers) ---------- */
@@ -256,7 +304,7 @@
         if (mode === 'pct') steps.push(MEM('<b>Assume 100 g</b>: each percent becomes grams.'));
         if (blank >= 0) { if (!total) return bad('Enter the sample mass to fill the blank by subtraction.'); var known = amt.reduce(function (s, x) { return s + (x || 0); }, 0); var dec = Math.max.apply(null, [String(val(root, 'total') || '100')].concat(amt.filter(function (x) { return x !== null; }).map(String)).map(function (t) { return (t.split('.')[1] || '').length; })); amt[blank] = +(total - known).toFixed(dec); amt.disp = (total - known).toFixed(dec); steps.push(WK(els[blank] + ' by subtraction: ' + total + ' − ' + amt.filter(function (x, j) { return j !== blank; }).join(' − ') + ' = <b>' + amt.disp + ' g</b>.')); }
         var mol = els.map(function (e, j) { return amt[j] / D.MASS[e]; }), mn = Math.min.apply(null, mol), ratio = mol.map(function (x) { return x / mn; });
-        steps.push(CH('Moles: ' + els.map(function (e, j) { return e + ' ' + (j === blank ? amt.disp : amt[j]) + ' ÷ ' + D.MASS[e].toFixed(2) + ' = <b>' + mol[j].toFixed(4) + '</b>'; }).join('; ') + '.'));
+        steps.push(CH('Grams → moles by factor label:<br>' + els.map(function (e, j) { return D.fl([String(j === blank ? amt.disp : amt[j]), 'g ' + e], [[['1', 'mol ' + e], [D.MASS[e].toFixed(2), 'g ' + e]]], [mol[j].toFixed(4), 'mol ' + e]); }).join('<br>')));
         steps.push(MEM('Divide by the smallest: ' + els.map(function (e, j) { return e + ' <b>' + ratio[j].toFixed(2) + '</b>'; }).join(', ') + '.'));
         var mult = null; [1, 2, 3, 4, 5, 6].some(function (m) { if (ratio.every(function (x) { return Math.abs(x * m - Math.round(x * m)) <= 0.1; })) { mult = m; return true; } });
         if (!mult) return box(tagList(steps) + '<p>The ratios don\'t come out to whole numbers even × 6. Check the numbers you entered.</p>');
@@ -266,24 +314,99 @@
       });
     };
     TOOLS.t3molarity = function (root, p) {
-      root.innerHTML = '<div class="grid2">' + field('Find', sel('find', [['M', 'molarity (M)'], ['mol', 'moles'], ['g', 'grams'], ['L', 'volume in L'], ['mL', 'volume in mL']], p.find)) + field('Molarity (M)', inp('M', p.M, 'e.g. 0.139')) + field('Volume', inp('vol', p.vol, 'e.g. 115.0')) + field('Volume unit', sel('vu', ['mL', 'L'], p.vu || 'mL')) + field('Moles', inp('n', p.n, 'mol')) + field('Grams', inp('g', p.g, 'g')) + field('Molar mass (g/mol) or formula', inp('mm', p.mm, '58.44 or NaCl')) + '</div><p class="hint">Fill in what the problem gives; leave the rest blank.</p><div class="out"></div>';
+      root.innerHTML = '<div class="grid2">' + field('Find', sel('find', [['M', 'molarity (M)'], ['mol', 'moles'], ['g', 'grams'], ['L', 'volume in L'], ['mL', 'volume in mL']], p.find)) + field('Substance (optional)', inp('sub', p.sub, 'e.g. KCl')) + field('Molarity (M)', inp('M', p.M, 'e.g. 0.139')) + field('Volume', inp('vol', p.vol, 'e.g. 115.0')) + field('Volume unit', sel('vu', ['mL', 'L'], p.vu || 'mL')) + field('Moles', inp('n', p.n, 'mol')) + field('Grams', inp('g', p.g, 'g')) + field('Molar mass (g/mol) or formula', inp('mm', p.mm, '58.44 or NaCl')) + '</div><p class="hint">Fill in what the problem gives; leave the rest blank. The steps are written as factor-label chains.</p><div class="out"></div>';
       wire(root, function () {
-        var find = val(root, 'find'), Ms = val(root, 'M').trim(), vs = val(root, 'vol').trim(), ns = val(root, 'n').trim(), gs = val(root, 'g').trim(), mms = val(root, 'mm').trim();
+        var find = val(root, 'find'), Ms = val(root, 'M').trim(), vs = val(root, 'vol').trim(), ns = val(root, 'n').trim(), gs = val(root, 'g').trim(), mms = val(root, 'mm').trim(), vu = val(root, 'vu');
         var M = num(Ms), v = num(vs), n = num(ns), g = num(gs), mm = num(mms), steps = [], used = [];
-        if (mms && mm === null) { var c = parseOrNull(mms); if (c) { mm = D.molar(c); steps.push(CH('Molar mass of ' + fmtF(mms) + ' = <b>' + mm.toFixed(2) + ' g/mol</b>.')); } }
+        var X = val(root, 'sub').trim(); if (!X && mms && mm === null && parseOrNull(mms)) X = mms; X = X ? ' ' + fmtF(X) : '';
+        if (mms && mm === null) { var c = parseOrNull(mms); if (c) { mm = D.molar(c); steps.push(CH('Molar mass of ' + fmtF(mms) + ' (periodic chart) = <b>' + mm.toFixed(2) + ' g/mol</b>.')); } }
         else if (mm) steps.push(CH('Molar mass is given: <b>' + mms + ' g/mol</b>.'));
-        var L = null; if (v !== null) { L = val(root, 'vu') === 'mL' ? v / 1000 : v; used.push(vs); if (val(root, 'vu') === 'mL') steps.push(MEM('mL ÷ 1000: ' + vs + ' mL = <b>' + L.toPrecision(4) + ' L</b>.')); }
-        if (M !== null) { used.push(Ms); steps.push(MEM('Rewrite <b>' + Ms + ' M as ' + Ms + ' mol/L</b>.')); }
-        if (n === null && g !== null && mm) { n = g / mm; used.push(gs); steps.push(WK('Grams → moles: ' + gs + ' ÷ ' + mm.toFixed(2) + ' = <b>' + n.toPrecision(4) + ' mol</b>.')); }
-        else if (n !== null) used.push(ns);
-        var ans = null, unit = find;
-        if (find === 'M') { if (n === null || L === null) return bad('To find M you need moles (or grams + molar mass) and a volume.'); ans = n / L; unit = 'M'; steps.push(MEM('M = mol ÷ L = <b>' + ans.toPrecision(4) + '</b>.')); }
-        if (find === 'mol' || find === 'g') { if (M === null || L === null) return bad('You need the molarity and the volume.'); var nn = M * L; steps.push(WK(L.toPrecision(4) + ' L × ' + Ms + ' mol/L = <b>' + nn.toPrecision(4) + ' mol</b>.')); ans = nn; unit = 'mol';
-          if (find === 'g') { if (!mm) return bad('Grams need a molar mass (or formula).'); ans = nn * mm; unit = 'g'; steps.push(CH(nn.toPrecision(4) + ' mol × ' + mm.toFixed(2) + ' g/mol = <b>' + ans.toPrecision(4) + ' g</b>.')); } }
-        if (find === 'L' || find === 'mL') { if (M === null || n === null) return bad('You need the molarity and the moles (or grams + molar mass).'); ans = n / M; steps.push(MEM('L = mol ÷ M = <b>' + ans.toPrecision(4) + ' L</b>.')); unit = 'L'; if (find === 'mL') { ans *= 1000; unit = 'mL'; steps.push(MEM('× 1000 → <b>' + ans.toPrecision(4) + ' mL</b>.')); } }
+        var mmS = mm ? (num(mms) !== null ? mms : mm.toFixed(2)) : null;
+        if (v !== null) used.push(vs); if (M !== null) used.push(Ms); if (g !== null) used.push(gs); if (n !== null) used.push(ns);
+        var toL = vu === 'mL' ? [[['1', 'L'], ['1000', 'mL']]] : [], L = v === null ? null : (vu === 'mL' ? v / 1000 : v);
+        var molF = M !== null ? [[Ms, 'mol' + X], ['1', 'L']] : null, flip = M !== null ? [['1', 'L'], [Ms, 'mol' + X]] : null;
+        var ans, unit;
+        if (M !== null && find !== 'M') steps.push(MEM('Rewrite molarity as two units: <b>' + Ms + ' M = (' + Ms + ' mol / 1 L)</b>.'));
+        if (find === 'M') {
+          if (L === null || (n === null && (g === null || !mm))) return bad('To find M you need moles (or grams + molar mass) and a volume.');
+          steps.push(MEM('Finding molarity itself: get <b>mol</b> and <b>L</b>, then <b>M = mol ÷ L</b>.'));
+          if (n === null) { n = g / mm; steps.push(MEM('Grams → moles: ' + D.fl([gs, 'g' + X], [[['1', 'mol' + X], [mmS, 'g' + X]]], [n.toPrecision(4), 'mol' + X]))); }
+          if (vu === 'mL') steps.push(MEM('Volume to liters: ' + D.fl([vs, 'mL'], toL, [L.toPrecision(4), 'L'])));
+          ans = n / L; unit = 'M'; steps.push(WK('M = ' + n.toPrecision(4) + ' mol ÷ ' + L.toPrecision(4) + ' L = <b>' + ans.toPrecision(4) + ' M</b>.'));
+        } else if (find === 'mol' || find === 'g') {
+          if (M === null || L === null) return bad('You need the molarity and the volume.');
+          if (find === 'g' && !mm) return bad('Grams need a molar mass (or formula).');
+          ans = M * L * (find === 'g' ? mm : 1); unit = find;
+          steps.push(MEM('<b>Start with the one-unit number</b> (the volume) and let the units cancel:'));
+          steps.push(WK(D.fl([vs, vu], toL.concat([molF]).concat(find === 'g' ? [[[mmS, 'g' + X], ['1', 'mol' + X]]] : []), [ans.toPrecision(4), (find === 'g' ? 'g' : 'mol') + X])));
+        } else {
+          if (M === null || (n === null && (g === null || !mm))) return bad('You need the molarity and the moles (or grams + molar mass).');
+          var startG = n === null, fs = (startG ? [[['1', 'mol' + X], [mmS, 'g' + X]]] : []).concat([flip]).concat(find === 'mL' ? [[['1000', 'mL'], ['1', 'L']]] : []);
+          ans = (startG ? g / mm : n) / M * (find === 'mL' ? 1000 : 1); unit = find;
+          steps.push(MEM('<b>Start with what you have</b> (' + (startG ? 'grams' : 'moles') + ') and flip the molarity so mol cancels:'));
+          steps.push(WK(D.fl(startG ? [gs, 'g' + X] : [ns, 'mol' + X], fs, [ans.toPrecision(4), find])));
+        }
         var sf = Math.min.apply(null, used.map(D.sfOf)); if (!isFinite(sf) || sf < 1) sf = 3;
         steps.push(MEM('Sig figs: the least precise given number has <b>' + sf + '</b>.'));
         return box(bigAns('Answer', D.sig(ans, sf) + ' ' + unit, 'unrounded ' + ans.toPrecision(6)) + tagList(steps), 'res-ok');
+      });
+    };
+    function eqParts(str) {   // "2 H2 + O2 -> 2 H2O" -> {all:[{f,c,k}], nre}
+      var parts = String(str).replace(/→|=+>|-+>|⟶/g, '>').split('>'); if (parts.length !== 2) return null;
+      var side = function (t) { return t.split('+').map(function (x) { x = x.trim().replace(/\((aq|s|l|g)\)/g, '').trim(); var m = /^(\d+)\s*/.exec(x); return { k: m ? +m[1] : null, f: m ? x.slice(m[0].length).trim() : x }; }).filter(function (x) { return x.f; }); };
+      var L = side(parts[0]), R = side(parts[1]), all = L.concat(R);
+      for (var i = 0; i < all.length; i++) { all[i].c = parseOrNull(all[i].f); if (!all[i].c) return { error: 'I can\'t read "' + all[i].f + '".' }; }
+      return { all: all, nre: L.length };
+    }
+    function sameC(a, b) { var ka = Object.keys(a), kb = Object.keys(b); return ka.length === kb.length && ka.every(function (k) { return a[k] === b[k]; }); }
+    TOOLS.t3stoich = function (root, p) {
+      root.innerHTML = field('Balanced equation (coefficients optional; I balance it if they\'re missing)', inp('eq', p.eq, 'Na2CO3 + 2 HCl -> 2 NaCl + CO2 + H2O')) +
+        '<div class="grid2">' + field('Given amount', inp('amt', p.amt, 'e.g. 24.43')) + field('Given unit', sel('gu', [['g', 'grams'], ['mol', 'moles'], ['mL', 'mL of solution'], ['L', 'L of solution']], p.gu)) + field('Given substance', inp('A', p.A, 'Na2CO3')) + field('Its molarity (if mL/L)', inp('MA', p.MA, 'M')) +
+        field('Find: substance', inp('B', p.B, 'NaCl')) + field('Find: unit', sel('fu', [['g', 'grams'], ['mol', 'moles'], ['mL', 'mL of solution'], ['L', 'L of solution'], ['M', 'molarity']], p.fu)) + field('Its molarity (for mL/L)', inp('MB', p.MB, 'M')) + field('Its volume in mL (for molarity)', inp('VB', p.VB, 'mL')) +
+        field('Given molar mass (blank = chart)', inp('mmA', p.mmA, 'g/mol')) + field('Find molar mass (blank = chart)', inp('mmB', p.mmB, 'g/mol')) + '</div><div class="out"></div>';
+      wire(root, function () {
+        var E = eqParts(val(root, 'eq')); if (!E) return ''; if (E.error) return bad(esc(E.error));
+        var ks = E.all.map(function (x) { return x.k; }), co;
+        if (ks.every(function (k) { return k === null; })) co = D.balance(E.all.slice(0, E.nre).map(function (x) { return x.f; }), E.all.slice(E.nre).map(function (x) { return x.f; }));
+        else co = ks.map(function (k) { return k || 1; });
+        if (!co) return bad('That equation can\'t be balanced as written.');
+        var Af = val(root, 'A').trim(), Bf = val(root, 'B').trim(), ca = parseOrNull(Af), cb = parseOrNull(Bf); if (!ca || !cb) return '';
+        var ia = E.all.findIndex(function (x) { return sameC(x.c, ca); }), ib = E.all.findIndex(function (x) { return sameC(x.c, cb); });
+        if (ia < 0 || ib < 0) return bad('Both substances have to appear in the equation.');
+        var A = fmtF(Af), Bs = fmtF(Bf), amtS = val(root, 'amt').trim(), amt = num(amtS), gu = val(root, 'gu'), fu = val(root, 'fu');
+        if (amt === null) return '';
+        var used = [amtS], steps = [], fs = [];
+        var mmAS = val(root, 'mmA').trim() || D.molar(ca).toFixed(2), mmBS = val(root, 'mmB').trim() || D.molar(cb).toFixed(2), MAS = val(root, 'MA').trim(), MBS = val(root, 'MB').trim(), VBS = val(root, 'VB').trim();
+        var eqTxt = E.all.map(function (x, i) { return (co[i] > 1 ? co[i] + ' ' : '') + fmtF(x.f); }), eqStr = eqTxt.slice(0, E.nre).join(' + ') + ' → ' + eqTxt.slice(E.nre).join(' + ');
+        steps.push(MEM('Balanced: <b>' + eqStr + '</b>. Coefficient ratio: <b>' + co[ib] + ' ' + Bs + ' : ' + co[ia] + ' ' + A + '</b>.'));
+        var mol;
+        if (gu === 'g') { fs.push([['1', 'mol ' + A], [mmAS, 'g ' + A]]); mol = amt / +mmAS; steps.push(CH('Molar mass of ' + A + ': <b>' + mmAS + ' g/mol</b> (the number goes with grams).')); }
+        else if (gu === 'mol') mol = amt;
+        else { if (!num(MAS)) return bad('Enter the given solution\'s molarity.'); used.push(MAS); if (gu === 'mL') fs.push([['1', 'L ' + A], ['1000', 'mL ' + A]]); fs.push([[MAS, 'mol ' + A], ['1', 'L ' + A]]); mol = amt / (gu === 'mL' ? 1000 : 1) * +MAS; }
+        fs.push([[String(co[ib]), 'mol ' + Bs], [String(co[ia]), 'mol ' + A]]); var molB = mol * co[ib] / co[ia], ans = molB, unit = 'mol ' + Bs, extra = '';
+        if (fu === 'g') { fs.push([[mmBS, 'g ' + Bs], ['1', 'mol ' + Bs]]); ans = molB * +mmBS; unit = 'g ' + Bs; steps.push(CH('Molar mass of ' + Bs + ': <b>' + mmBS + ' g/mol</b>.')); }
+        if (fu === 'L' || fu === 'mL') { if (!num(MBS)) return bad('Enter the molarity of the solution you\'re finding the volume of.'); used.push(MBS); fs.push([['1', 'L ' + Bs], [MBS, 'mol ' + Bs]]); ans = molB / +MBS; unit = 'L ' + Bs; if (fu === 'mL') { fs.push([['1000', 'mL ' + Bs], ['1', 'L ' + Bs]]); ans *= 1000; unit = 'mL ' + Bs; } }
+        steps.push(MEM('<b>Start with the given ' + (gu === 'g' ? 'grams' : gu === 'mol' ? 'moles' : 'volume') + '</b> and chain the factors so each unit cancels:'));
+        steps.push(WK(D.fl([amtS, (gu === 'g' ? 'g ' : gu === 'mol' ? 'mol ' : gu + ' ') + A], fs, [ans.toPrecision(5), unit])));
+        if (fu === 'M') { if (!num(VBS)) return bad('Enter the volume (mL) of the solution whose molarity you want.'); used.push(VBS); var LB = +VBS / 1000; ans = molB / LB; unit = 'M ' + Bs; extra = WK('M = mol ÷ L: ' + molB.toPrecision(5) + ' mol ÷ ' + LB.toPrecision(4) + ' L = <b>' + ans.toPrecision(5) + ' M</b>.'); steps.push(extra); }
+        var sf = Math.min.apply(null, used.map(D.sfOf)); if (!isFinite(sf) || sf < 1) sf = 3;
+        if (fu === 'g' && ib >= E.nre) steps.push(MEM(Bs + ' is a product, so grams of it = the <b>theoretical yield</b>.'));
+        steps.push(MEM('Sig figs: <b>' + sf + '</b> (mole ratios are exact; molar masses usually have extra).'));
+        return box(bigAns('Answer', D.sig(ans, sf) + ' ' + unit.split(' ')[0], 'unrounded ' + ans.toPrecision(6) + ' ' + unit) + tagList(steps), 'res-ok');
+      });
+    };
+    TOOLS.t3yield = function (root, p) {
+      root.innerHTML = '<div class="grid3">' + field('Actual yield (g)', inp('act', p.act, 'weighed')) + field('Theoretical yield (g)', inp('th', p.th, 'the math')) + field('Percent yield (%)', inp('pct', p.pct, '%')) + '</div><p class="hint">Leave exactly one blank.</p><div class="out"></div>';
+      wire(root, function () {
+        var s = ['act', 'th', 'pct'].map(function (k) { return val(root, k).trim(); }), v = s.map(num), blanks = v.map(function (x, i) { return x === null ? i : -1; }).filter(function (i) { return i >= 0; });
+        if (blanks.length !== 1) return '';
+        var b = blanks[0], ans, lab, eq;
+        if (b === 2) { ans = v[0] / v[1] * 100; lab = 'Percent yield'; eq = s[0] + ' g ÷ ' + s[1] + ' g × 100'; }
+        else if (b === 0) { ans = v[1] * v[2] / 100; lab = 'Actual yield'; eq = s[1] + ' g × ' + (v[2] / 100) + ' (the % as a decimal)'; }
+        else { ans = v[0] / (v[2] / 100); lab = 'Theoretical yield'; eq = s[0] + ' g ÷ ' + (v[2] / 100); }
+        var sf = Math.min.apply(null, s.filter(Boolean).map(D.sfOf)), u = b === 2 ? ' %' : ' g';
+        var warn = b === 2 && ans > 100 ? '<p class="cmp cmp-bad">Over 100 %: the product is probably still wet (or the actual and theoretical are swapped).</p>' : '';
+        return box(bigAns(lab, D.sig(ans, sf) + u, 'unrounded ' + ans.toPrecision(6)) + warn + tagList([MEM('<b>% yield = actual ÷ theoretical × 100</b>.'), WK(eq + ' = <b>' + ans.toPrecision(5) + u + '</b>.'), MEM('Sig figs: <b>' + sf + '</b>.')]), 'res-ok');
       });
     };
     TOOLS.t3dilution = function (root, p) {

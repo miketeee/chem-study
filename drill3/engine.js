@@ -56,6 +56,25 @@
   /* ---------- tags ---------- */
   const M = 'mem', C = 'chart', B = 'both', W = '';
 
+  /* ---------- factor label (Dr. Bragg's setup): start with the one-unit number, then fractions whose units cancel ----------
+     fl(['24.43', 'g Na₂CO₃'], [[['1', 'mol Na₂CO₃'], ['105.99', 'g Na₂CO₃']], …], ['26.94', 'g NaCl'])
+     Cancelled units are struck through; the plain-text version reads "24.43 g Na₂CO₃ × (1 mol Na₂CO₃ / 105.99 g Na₂CO₃) × … = 26.94 g NaCl". */
+  function fl(start, factors, result, bold) {
+    const tops = [[start[1], false]], botS = [];
+    factors.forEach(([[, tu], [, bu]]) => {
+      let hit = null; for (let i = tops.length - 1; i >= 0; i--) if (!tops[i][1] && tops[i][0] === bu) { hit = tops[i]; break; }
+      if (hit) hit[1] = true; botS.push(!!hit); tops.push([tu, false]);
+    });
+    const u = (unit, st) => st ? `<s>${unit}</s>` : unit;
+    const parts = [`${start[0]} ${u(start[1], tops[0][1])}`].concat(factors.map(([[tn, tu], [bn, bu]], i) =>
+      `<span class="frac"><span class="po">(</span><span class="ft">${tn} ${u(tu, tops[i + 1][1])}</span><span class="sl"> / </span><span class="fb">${bn} ${u(bu, botS[i])}</span><span class="po">)</span></span>`));
+    const res = `${result[0]} ${result[1]}`;
+    return '<span class="fl">' + parts.join(' × ') + ' = ' + (bold === false ? res : `<b>${res}</b>`) + '</span>';
+  }
+  const BR = '<span class="sep">; </span><br>';
+  const ML2L = [['1', 'L'], ['1000', 'mL']];
+  const gmol = (g, F, mm, mol) => fl([g, 'g ' + F], [[['1', 'mol ' + F], [mm, 'g ' + F]]], [mol, 'mol ' + F]);
+
   /* ================= HW 13 ================= */
   const EMP_BASES = [['C', 'H'], ['C', 'H', 'O'], ['N', 'O'], ['S', 'O'], ['P', 'O'], ['C', 'H', 'N'], ['C', 'H', 'Cl']];
   function g13id() {
@@ -138,7 +157,7 @@
         kind: 'formula', counts: c, display: sub(f),
         steps: steps0.concat([
           [C, 'Molar masses: ' + els.map(e => `${e} = <b>${MASS[e].toFixed(2)}</b>`).join(', ') + '.'],
-          [W, 'Moles: ' + els.map((e, i) => `${e} ${amounts[i]} ÷ ${MASS[e].toFixed(2)} = <b>${s.mol[i].toFixed(4)}</b>`).join('; ') + '.'],
+          [W, 'Grams → moles by factor label:<br>' + els.map((e, i) => gmol(String(amounts[i]), e, MASS[e].toFixed(2), s.mol[i].toFixed(4))).join(BR)],
           [M, `<b>Divide by the smallest</b> (${small}): ` + els.map((e, i) => `${e} = <b>${s.ratio[i].toFixed(2)}</b>`).join(', ') + '.'],
           s.mult === 1 ? [M, `All within <b>0.1</b> of whole numbers → round → <b>${sub(f)}</b>.`]
             : [M, `Not whole: ends in ${s.mult === 2 ? '.5 → <b>×2</b>' : s.mult === 3 ? '.33/.67 → <b>×3</b>' : s.mult === 4 ? '.25/.75 → <b>×4</b>' : '<b>×5</b>'} → ` + els.map((e, i) => `${e} ${(s.ratio[i] * s.mult).toFixed(2)}`).join(', ') + ` → <b>${sub(f)}</b>.`]])
@@ -149,26 +168,29 @@
 
   /* ================= HW 14 ================= */
   const SOLUTES = [['NaCl', 58.44], ['KOH', 56.11], ['NaOH', 40.00], ['KCl', 74.55], ['CaCl2', 110.98], ['KBr', 119.00], ['C6H12O6', 180.18], ['NaNO3', 84.99], ['LiNO3', 68.95], ['NaF', 41.99], ['AgNO3', 169.87], ['NaClO4', 122.44], ['Al(NO3)3', 213.01], ['Ca(NO2)2', 132.10], ['C7H6O2', 122.13]];
-  const v3 = (a, b) => +(R(a * 100, b * 100) / 100).toPrecision(3);
+  const v3 = (a, b) => { for (let t = 0; t < 200; t++) { const v = +(R(a * 1000, b * 1000) / 1000).toPrecision(3); if (sfOf(String(v)) === 3) return v; } return +(a + b).toFixed(2); };   // a value that shows exactly 3 sig figs
   function numQ(key, prompt, value, unit, sf, steps, given) {
     return { key, prompt, given, kind: 'num', value, tol: 0.006, unit, display: sig(value, sf) + ' ' + unit, steps: steps.concat([[M, `<b>Sig figs</b>: ${sf} (match the least precise number) → <b>${sig(value, sf)} ${unit}</b>.`]]) };
   }
   function g14M() {
     const [f, mm] = pick(SOLUTES), F = sub(f), kind = R(1, 6);
     const mL = R(50, 950) + (Math.random() < 0.5 ? 0 : 0.5), L = mL / 1000, mLs = mL.toFixed(1), Ls = (mL / 1000).toFixed(4);
-    const Mv = v3(0.1, 2.5), mol = v3(0.05, 1.5), g = v3(1, 30);
-    const toL = [M, `<b>mL ÷ 1000</b>: ${mLs} mL = <b>${Ls} L</b>.`], mmStep = [C, `Molar mass of ${F} is <b>given</b>: <b>${mm.toFixed(2)} g/mol</b>.`], rw = Ms => [M, `Rewrite <b>${Ms} M as ${Ms} mol/L</b>.`];
-    if (kind === 1) { const v = mol / L; return numQ('M1' + f, `What is the molarity of a solution made by dissolving ${mol} mol of ${F} in enough water to make ${mLs} mL of solution?`, v, 'M', 3, [[M, '<b>M = mol ÷ L</b>.'], toL, [W, `${mol} ÷ ${Ls} = <b>${v.toFixed(4)}</b>.`]]); }
-    if (kind === 2) { const n = g / mm, v = n / L; return numQ('M2' + f, `What is the molarity of a solution prepared by dissolving ${g} g of ${F} (molar mass ${mm.toFixed(2)} g/mol) in enough water to make ${mLs} mL of solution?`, v, 'M', 3, [mmStep, [W, `Grams → moles: ${g} ÷ ${mm.toFixed(2)} = <b>${n.toFixed(5)} mol</b>.`], toL, [M, `M = mol ÷ L = <b>${v.toFixed(4)}</b>.`]]); }
-    if (kind === 3) { const v = Mv * L; return numQ('M3' + f, `How many moles of ${F} are in ${mLs} mL of a ${Mv} M ${F} solution?`, v, 'mol', 3, [rw(Mv), toL, [W, `${Ls} L × ${Mv} mol/L = <b>${v.toFixed(5)} mol</b> (L cancels).`]]); }
-    if (kind === 4) { const n = Mv * L, v = n * mm; return numQ('M4' + f, `How many grams of ${F} (molar mass ${mm.toFixed(2)} g/mol) are needed to make ${mLs} mL of a ${Mv} M solution?`, v, 'g', 3, [rw(Mv), toL, [W, `Moles: ${Ls} × ${Mv} = <b>${n.toFixed(5)} mol</b>.`], mmStep, [W, `Grams: ${n.toFixed(5)} × ${mm.toFixed(2)} = <b>${v.toFixed(3)} g</b>.`]]); }
-    if (kind === 5) { const v = mol / Mv; return numQ('M5' + f, `What volume (in L) of a ${Mv} M ${F} solution contains ${mol} mol of ${F}?`, v, 'L', 3, [rw(Mv), [M, `<b>Start with the one-unit number</b> (${mol} mol) and divide by molarity so mol cancels.`], [W, `${mol} ÷ ${Mv} = <b>${v.toFixed(4)} L</b>.`]]); }
-    const n = g / mm, v = n / Mv * 1000;
-    return numQ('M6' + f, `What volume (in mL) of a ${Mv} M ${F} solution would you evaporate to collect ${g} g of ${F} (molar mass ${mm.toFixed(2)} g/mol)?`, v, 'mL', 3, [mmStep, [W, `Grams → moles: ${g} ÷ ${mm.toFixed(2)} = <b>${n.toFixed(5)} mol</b>.`], [M, `Liters = mol ÷ M = <b>${(n / Mv).toFixed(5)} L</b>.`], [M, `Question wants <b>mL</b>: × 1000 = <b>${v.toFixed(2)} mL</b>.`]]);
+    const Mv = v3(0.1, 2.5), mol = v3(0.05, 1.5), g = v3(1, 30), mms = mm.toFixed(2);
+    const toL = [M, 'Volume to liters: ' + fl([mLs, 'mL'], [ML2L], [Ls, 'L'])];
+    const mmStep = [C, `Molar mass of ${F} is <b>given</b>: <b>(${mms} g ${F} / 1 mol ${F})</b>; the number goes with grams.`];
+    const rw = Ms => [M, `Rewrite molarity as two units: <b>${Ms} M = (${Ms} mol ${F} / 1 L)</b>.`];
+    const start = [M, '<b>Start with the one-unit number</b>; two-unit numbers (M, g/mol) are conversion factors.'];
+    if (kind === 1) { const v = mol / L; return numQ('M1' + f, `What is the molarity of a solution made by dissolving ${mol} mol of ${F} in enough water to make ${mLs} mL of solution?`, v, 'M', 3, [[M, 'Finding molarity itself: <b>M = mol ÷ L</b>.'], toL, [W, `${mol} mol ÷ ${Ls} L = <b>${v.toFixed(4)} M</b>.`]]); }
+    if (kind === 2) { const n = g / mm, v = n / L; return numQ('M2' + f, `What is the molarity of a solution prepared by dissolving ${g} g of ${F} (molar mass ${mms} g/mol) in enough water to make ${mLs} mL of solution?`, v, 'M', 3, [[M, 'Finding molarity itself: get <b>mol</b> and <b>L</b>, then <b>M = mol ÷ L</b>.'], [M, 'Grams → moles: ' + gmol(String(g), F, mms, n.toFixed(5))], toL, [W, `M = ${n.toFixed(5)} mol ÷ ${Ls} L = <b>${v.toFixed(4)} M</b>.`]]); }
+    if (kind === 3) { const v = Mv * L; return numQ('M3' + f, `How many moles of ${F} are in ${mLs} mL of a ${Mv} M ${F} solution?`, v, 'mol', 3, [rw(Mv), start, [W, fl([mLs, 'mL'], [ML2L, [[String(Mv), 'mol ' + F], ['1', 'L']]], [v.toFixed(5), 'mol ' + F])]]); }
+    if (kind === 4) { const v = Mv * L * mm; return numQ('M4' + f, `How many grams of ${F} (molar mass ${mms} g/mol) are needed to make ${mLs} mL of a ${Mv} M solution?`, v, 'g', 3, [rw(Mv), mmStep, [M, '<b>Start with the volume</b> and chain mL → L → mol → g:'], [W, fl([mLs, 'mL'], [ML2L, [[String(Mv), 'mol ' + F], ['1', 'L']], [[mms, 'g ' + F], ['1', 'mol ' + F]]], [v.toFixed(3), 'g ' + F])]]); }
+    if (kind === 5) { const v = mol / Mv; return numQ('M5' + f, `What volume (in L) of a ${Mv} M ${F} solution contains ${mol} mol of ${F}?`, v, 'L', 3, [rw(Mv), [M, '<b>Start with the moles</b> and flip the molarity (1 L on top) so mol cancels:'], [W, fl([String(mol), 'mol ' + F], [[['1', 'L'], [String(Mv), 'mol ' + F]]], [v.toFixed(4), 'L'])]]); }
+    const v = g / mm / Mv * 1000;
+    return numQ('M6' + f, `What volume (in mL) of a ${Mv} M ${F} solution would you evaporate to collect ${g} g of ${F} (molar mass ${mms} g/mol)?`, v, 'mL', 3, [mmStep, rw(Mv), [M, '<b>Start with the grams</b> and chain g → mol → L → mL:'], [W, fl([String(g), 'g ' + F], [[['1', 'mol ' + F], [mms, 'g ' + F]], [['1', 'L'], [String(Mv), 'mol ' + F]], [['1000', 'mL'], ['1', 'L']]], [v.toFixed(2), 'mL'])]]);
   }
   function g14dil() {
     const [f] = pick(SOLUTES.slice(0, 11)), F = sub(f), kind = R(1, 3);
-    const M1 = v3(1, 12), V1 = +(R(50, 500) / 10).toFixed(1), V2 = pick([100.0, 150.0, 175.0, 200.0, 250.0, 500.0, 1000.0]), M2 = v3(0.05, 0.9);
+    const M1 = v3(1, 12), V1 = +(R(100, 500) / 10).toFixed(1), V2 = pick([100.0, 150.0, 175.0, 200.0, 250.0, 500.0, 1000.0]), M2 = v3(0.05, 0.9);
     const eq = [M, 'Dilution equation: <b>M₁V₁ = M₂V₂</b> (volumes in the same unit).'];
     if (kind === 1) { const v = M1 * V1 / V2; return numQ('D1' + f, `${V1.toFixed(1)} mL of ${M1} M ${F} is diluted with water to a final volume of ${V2.toFixed(1)} mL. What is the new concentration?`, v, 'M', 3, [eq, [W, `"${V1.toFixed(1)} mL <i>of</i> ${M1} M" → <b>M₁ = ${M1}</b>, <b>V₁ = ${V1.toFixed(1)} mL</b>; <b>V₂ = ${V2.toFixed(1)} mL</b>.`], [W, `M₂ = ${M1} × ${V1.toFixed(1)} ÷ ${V2.toFixed(1)} = <b>${v.toFixed(4)}</b>.`]]); }
     if (kind === 2) { const v = M2 * V2 / M1; return numQ('D2' + f, `How many mL of ${M1} M ${F} are needed to prepare ${V2.toFixed(1)} mL of ${M2} M ${F}?`, v, 'mL', 3, [eq, [W, `Concentrated: <b>M₁ = ${M1}</b>, <b>V₁ = ?</b>. Dilute: <b>M₂ = ${M2}</b>, <b>V₂ = ${V2.toFixed(1)} mL</b>.`], [W, `V₁ = ${M2} × ${V2.toFixed(1)} ÷ ${M1} = <b>${v.toFixed(3)} mL</b>.`]]); }
@@ -444,6 +466,92 @@
     }
   }
 
+
+  /* ================= HW 17: stoichiometry (all factor label) ================= */
+  const MM_LIST = ['Na2CO3', 'NaCl', 'HCl', 'PbCl2', 'Ca(NO3)2', 'Na3PO4', 'Ca3(PO4)2', 'AgNO3', 'KCl', 'Al2(SO4)3', '(NH4)2SO4', 'C6H12O6', 'H2SO4', 'CaCO3', 'Mg(OH)2', 'KMnO4', 'NaHCO3', 'Fe2O3', 'C3H8', 'CuSO4'];
+  const mmStr = f => molar(f).toFixed(2);
+  function g17mm() {
+    const f = pick(MM_LIST), c = parse(f), els = Object.keys(c), v = molar(c);
+    return { key: 'mm:' + f, prompt: `Calculate the molar mass of ${sub(f)}. Record your answer with 2 decimal places.`, given: 'Use the class periodic chart values; don\'t round early.', kind: 'num', value: v, tol: 0.015, abs: true, unit: 'g/mol', display: v.toFixed(2) + ' g/mol',
+      steps: [[C, 'Periodic chart: ' + els.map(e => `${e} = <b>${MASS[e].toFixed(2)}</b>`).join(', ') + '.'],
+        [B, 'Each atomic mass <b>× its subscript</b> (a subscript outside parentheses multiplies everything inside).'],
+        [W, els.map(e => c[e] > 1 ? `${c[e]}(${MASS[e].toFixed(2)})` : MASS[e].toFixed(2)).join(' + ') + ` = <b>${v.toFixed(2)} g/mol</b>.`]] };
+  }
+  const STOICH = BAL.filter(b => !b[0].includes('N4') && b[0].concat(b[1]).every(f => f !== 'Hg'));
+  const eqBal = (re, pr, co) => eqn(re, pr, co);
+  function pickPair(needCompounds) {
+    for (;;) {
+      const [re, pr, co] = pick(STOICH), all = re.concat(pr), i = R(0, all.length - 1), j = R(0, all.length - 1);
+      if (i === j) continue;
+      if (needCompounds && (Object.keys(parse(all[i])).length < 1 || Object.keys(parse(all[j])).length < 1)) continue;
+      return { re, pr, co, all, i, j, isProd: j >= re.length, giveProd: i >= re.length };
+    }
+  }
+  const NICE_MOL = ['2.0', '3.00', '4.50', '10.0', '0.250', '1.20', '6.00', '12.0', '0.600', '5.00', '0.0750', '8.0'];
+  function g17ratio() {
+    const P = pickPair(), A = sub(P.all[P.i]), Bf = sub(P.all[P.j]), n = pick(NICE_MOL), sf = sfOf(n), v = +n * P.co[P.j] / P.co[P.i];
+    const verb = P.isProd ? (P.giveProd ? 'are produced along with' : 'will be produced from') : (P.giveProd ? 'were used to make' : 'are needed to react with');
+    return numQ('ratio', `${eqBal(P.re, P.pr, P.co)}. How many moles of ${Bf} ${verb} ${n} mol of ${A}?`, v, 'mol', sf,
+      [[M, `Coefficients = the mole ratio (no coefficient = 1): <b>${P.co[P.j]} ${Bf} : ${P.co[P.i]} ${A}</b>.`],
+       [M, `<b>Start with the given moles</b>; what you have (${A}) goes on the <b>bottom</b> so it cancels.`],
+       [W, fl([n, 'mol ' + A], [[[String(P.co[P.j]), 'mol ' + Bf], [String(P.co[P.i]), 'mol ' + A]]], [sig(v, sf), 'mol ' + Bf])],
+       [M, 'Mole ratios are <b>exact</b>; sig figs come from the starting number.']]);
+  }
+  function stoichSteps(g, A, mmA, B_, mmB, coA, coB, v, prod) {
+    return [[C, `Molar masses: ${A} = <b>${mmA}</b>, ${B_} = <b>${mmB}</b> g/mol (number goes with grams, over 1 mol).`],
+      [M, `<b>Start with the given grams</b>, head to moles, switch with the coefficients (<b>${coB} ${B_} : ${coA} ${A}</b>), then back to grams.`],
+      [W, fl([g, 'g ' + A], [[['1', 'mol ' + A], [mmA, 'g ' + A]], [[String(coB), 'mol ' + B_], [String(coA), 'mol ' + A]], [[mmB, 'g ' + B_], ['1', 'mol ' + B_]]], [v.toFixed(3), 'g ' + B_])]]
+      .concat(prod ? [[M, `${B_} is a product, so this is the <b>theoretical yield</b>.`]] : []);
+  }
+  function g17stoich() {
+    for (;;) {
+      const P = pickPair(); if (P.giveProd) continue; if (['O2', 'H2', 'N2', 'Cl2', 'Br2', 'I2', 'F2'].includes(P.all[P.i]) && Math.random() < 0.5) continue;
+      const fa = P.all[P.i], fb = P.all[P.j], A = sub(fa), Bf = sub(fb), mmA = mmStr(fa), mmB = mmStr(fb), g = String(v3(1, 60));
+      const v = +g / +mmA * P.co[P.j] / P.co[P.i] * +mmB;
+      const ask = P.isProd ? `how many grams of ${Bf} can be produced` : `how many grams of ${Bf} are needed to react with it`;
+      return numQ('stoich', `${eqBal(P.re, P.pr, P.co)}. If ${g} g of ${A} react completely, ${ask}?`, v, 'g', 3, stoichSteps(g, A, mmA, Bf, mmB, P.co[P.i], P.co[P.j], v, P.isProd),
+        `Molar masses: ${A} = ${mmA} g/mol, ${Bf} = ${mmB} g/mol.`);
+    }
+  }
+  function g17yield() {
+    const kind = R(1, 3);
+    if (kind === 1) {
+      const th = v3(10, 90), act = +(th * R(55, 97) / 100).toPrecision(3), v = act / th * 100;
+      return numQ('yield1', `A reaction has a theoretical yield of ${th} g of product. The student actually collected ${act} g. What is the percent yield?`, v, '%', 3,
+        [[M, '<b>% yield = actual ÷ theoretical × 100</b>. Actual = what was weighed; theoretical = what the math says.'], [W, `${act} g ÷ ${th} g × 100 = <b>${v.toFixed(2)} %</b>.`]]);
+    }
+    if (kind === 2) {
+      const th = v3(10, 250), pc = +(R(550, 970) / 10).toFixed(1), v = th * pc / 100;
+      return numQ('yield2', `The theoretical yield of a product is ${th} g and the percent yield was ${pc}%. How many grams were actually obtained?`, v, 'g', 3,
+        [[M, 'Solve the % yield equation for actual: <b>actual = theoretical × (% ÷ 100)</b>; use the decimal.'], [W, `${th} g × ${(pc / 100).toFixed(3)} = <b>${v.toFixed(3)} g</b>.`]]);
+    }
+    for (;;) {
+      const P = pickPair(); if (!(P.isProd && !P.giveProd)) continue;
+      const fa = P.all[P.i], fb = P.all[P.j], A = sub(fa), Bf = sub(fb), mmA = mmStr(fa), mmB = mmStr(fb), g = String(v3(5, 60));
+      const th = +g / +mmA * P.co[P.j] / P.co[P.i] * +mmB, act = +(th * R(55, 95) / 100).toPrecision(3), v = act / th * 100;
+      return numQ('yield3', `${eqBal(P.re, P.pr, P.co)}. Starting with ${g} g of ${A} (and plenty of everything else), a student collected ${act} g of ${Bf}. What is the percent yield?`, v, '%', 3,
+        [[M, '<b>Theoretical yield first</b>, by factor label:']].concat(stoichSteps(g, A, mmA, Bf, mmB, P.co[P.i], P.co[P.j], th, false).slice(0, 3))
+          .concat([[M, `% yield = actual ÷ theoretical × 100 = ${act} ÷ ${th.toFixed(3)} × 100 = <b>${v.toFixed(2)} %</b>.`]]),
+        `Molar masses: ${A} = ${mmA} g/mol, ${Bf} = ${mmB} g/mol.`);
+    }
+  }
+  const TITR = [['HCl', 'NaOH', 1, 1, 'HCl + NaOH → NaCl + H₂O'], ['HNO3', 'KOH', 1, 1, 'HNO₃ + KOH → KNO₃ + H₂O'], ['H2SO4', 'NaOH', 1, 2, 'H₂SO₄ + 2 NaOH → Na₂SO₄ + 2 H₂O'],
+    ['H2SO4', 'KOH', 1, 2, 'H₂SO₄ + 2 KOH → K₂SO₄ + 2 H₂O'], ['HCl', 'Ba(OH)2', 2, 1, '2 HCl + Ba(OH)₂ → BaCl₂ + 2 H₂O'], ['HC2H3O2', 'NaOH', 1, 1, 'HC₂H₃O₂ + NaOH → NaC₂H₃O₂ + H₂O']];
+  function g17titr() {
+    const [fa, fb, ca, cb, eq] = pick(TITR), A = sub(fa), Bf = sub(fb), Vb = (R(1500, 4500) / 100).toFixed(2), Mb = String(v3(0.1, 0.5)), Va = pick(['25.00', '50.00', '20.00', '10.00']);
+    const molA = +Vb / 1000 * +Mb * ca / cb, Ma = molA / (+Va / 1000);
+    if (Math.random() < 0.6) return numQ('titrM', `${eq}. The endpoint of a titration of ${Va} mL of ${A} was reached with ${Vb} mL of ${Mb} M ${Bf}. What is the molarity of the ${A}?`, Ma, 'M', 3,
+      [[M, `Plan: <b>M of ${A} = mol ${A} ÷ L ${A}</b>. Liters of ${A} are given: ${Va} mL = <b>${(+Va / 1000).toFixed(5)} L</b>.`],
+       [M, `Moles of ${A} by factor label: <b>start with the one-unit number</b> (the ${Bf} volume), never with the molarity (two units).`],
+       [W, fl([Vb, 'mL ' + Bf], [ML2L.map((x, i) => i === 0 ? ['1', 'L ' + Bf] : ['1000', 'mL ' + Bf]), [[Mb, 'mol ' + Bf], ['1', 'L ' + Bf]], [[String(ca), 'mol ' + A], [String(cb), 'mol ' + Bf]]], [molA.toPrecision(5), 'mol ' + A])],
+       [W, `M = ${molA.toPrecision(5)} mol ÷ ${(+Va / 1000).toFixed(5)} L = <b>${Ma.toFixed(4)} M</b>.`],
+       [M, 'Sig figs here come from the <b>shortest</b> measured number (often the molarity), not just the first one.']]);
+    const Ma2 = String(v3(0.1, 0.5)), Vb2 = +Va / 1000 * +Ma2 * cb / ca / +Mb * 1000;
+    return numQ('titrV', `${eq}. What volume (in mL) of ${Mb} M ${Bf} is needed to neutralize ${Va} mL of ${Ma2} M ${A}?`, Vb2, 'mL', 3,
+      [[M, '<b>Start with the one-unit number</b> (the acid volume) and chain mL → L → mol → mol → L → mL:'],
+       [W, fl([Va, 'mL ' + A], [[['1', 'L ' + A], ['1000', 'mL ' + A]], [[Ma2, 'mol ' + A], ['1', 'L ' + A]], [[String(cb), 'mol ' + Bf], [String(ca), 'mol ' + A]], [['1', 'L ' + Bf], [Mb, 'mol ' + Bf]], [['1000', 'mL ' + Bf], ['1', 'L ' + Bf]]], [Vb2.toFixed(3), 'mL ' + Bf])]]);
+  }
+
   const TOPICS = [
     { id: 'id', hw: 13, label: 'Empirical or molecular?', gen: g13id },
     { id: 'pct', hw: 13, label: 'Percent composition', gen: g13pct },
@@ -462,6 +570,11 @@
     { id: 'ox', hw: 16, label: 'Oxidation numbers', gen: g16ox },
     { id: 'redox', hw: 16, label: 'Oxidation vs reduction, agents', gen: g16redox },
     { id: 'act', hw: 16, label: 'Activity series', gen: g16act },
+    { id: 'mm', hw: 17, label: 'Molar mass', gen: g17mm },
+    { id: 'ratio', hw: 17, label: 'Mole to mole (coefficient ratios)', gen: g17ratio },
+    { id: 'stoich', hw: 17, label: 'Grams to grams (stoichiometry)', gen: g17stoich },
+    { id: 'yield', hw: 17, label: 'Percent yield', gen: g17yield },
+    { id: 'titr', hw: 17, label: 'Solution stoichiometry (titration)', gen: g17titr },
   ];
   function make(topicId) { const t = TOPICS.find(x => x.id === topicId); const q = t.gen(); q.topic = t.id; q.key = t.id + '|' + q.prompt; return q; }
 
@@ -539,6 +652,6 @@
     return { s1, s2, p1, p2, sol, co, mol, full, net, goes, spectators: specNames, reactantsSoluble: sol.s1[0] && sol.s2[0] };
   }
 
-  const api = { balance, explainDR, gcd, gcdAll, ION_CH, NAME, TOPICS, make, check, parse, molar, sub, chg, sig, oxSolve, soluble, salt, BAL, MASS, empSolve, EMP_TARGETS, CAT, AN, SERIES, sfOf };
+  const api = { fl, balance, explainDR, gcd, gcdAll, ION_CH, NAME, TOPICS, make, check, parse, molar, sub, chg, sig, oxSolve, soluble, salt, BAL, MASS, empSolve, EMP_TARGETS, CAT, AN, SERIES, sfOf };
   if (typeof module !== 'undefined') module.exports = api; else root.Drill3 = api;
 })(this);

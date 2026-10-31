@@ -139,7 +139,7 @@
     }
    ],
    "given": "Record your answer with the correct number of significant figures.",
-   "note": "997.7 mL = 0.9977 L. 0.403 ÷ 0.9977 = 0.404 M.",
+   "note": "997.7 mL × (1 L / 1000 mL) = 0.9977 L. M = 0.403 mol ÷ 0.9977 L = 0.404 M.",
    "test": "T3"
   },
   {
@@ -158,7 +158,7 @@
     }
    ],
    "given": "Record your answer with the correct number of significant figures.",
-   "note": "702.0 mL = 0.7020 L. 0.395 ÷ 0.7020 = 0.563 M.",
+   "note": "702.0 mL × (1 L / 1000 mL) = 0.7020 L. M = 0.395 mol ÷ 0.7020 L = 0.563 M.",
    "test": "T3"
   },
   {
@@ -174,7 +174,7 @@
     "0.106 M"
    ],
    "correct": 3,
-   "note": "1.92 ÷ 122.44 = 0.01568 mol. ÷ 0.125 L = 0.125 M.",
+   "note": "Grams → moles, then M = mol ÷ L: 1.92 g NaClO₄ × (1 mol NaClO₄ / 122.44 g NaClO₄) = 0.01568 mol. 125 mL × (1 L / 1000 mL) = 0.125 L. M = 0.01568 mol ÷ 0.125 L = 0.125 M.",
    "test": "T3"
   },
   {
@@ -192,7 +192,7 @@
      ]
     }
    ],
-   "note": "17.0 ÷ 56.11 = 0.303 mol. ÷ 0.0800 L = 3.79 M.",
+   "note": "17.0 g KOH × (1 mol KOH / 56.11 g KOH) = 0.3030 mol. 80.0 mL × (1 L / 1000 mL) = 0.0800 L. M = 0.3030 mol ÷ 0.0800 L = 3.79 M.",
    "test": "T3"
   },
   {
@@ -211,7 +211,7 @@
     }
    ],
    "given": "Enter your answer in decimal form with the correct number of sig figs. Use the proper abbreviation for the units.",
-   "note": "4.90 ÷ 132.10 = 0.03709 mol. ÷ 0.1230 L = 0.302 M.",
+   "note": "4.90 g Ca(NO₂)₂ × (1 mol / 132.10 g) = 0.03709 mol. 123.0 mL × (1 L / 1000 mL) = 0.1230 L. M = 0.03709 mol ÷ 0.1230 L = 0.302 M.",
    "test": "T3"
   },
   {
@@ -229,7 +229,7 @@
      ]
     }
    ],
-   "note": "mol = M × L = 0.139 × 0.1150 = 0.0160 mol.",
+   "note": "Start with the volume: 115.0 mL × (1 L / 1000 mL) × (0.139 mol KCl / 1 L) = 0.0160 mol KCl.",
    "test": "T3"
   },
   {
@@ -247,7 +247,7 @@
      ]
     }
    ],
-   "note": "0.127 × 0.1400 = 0.0178 mol. (The question's mix of KCl and NaI is a typo in the original.)",
+   "note": "140.0 mL × (1 L / 1000 mL) × (0.127 mol / 1 L) = 0.0178 mol. (The KCl/NaI mix-up is a typo in the original.)",
    "test": "T3"
   },
   {
@@ -263,7 +263,7 @@
     "31.9 g"
    ],
    "correct": 2,
-   "note": "0.132 × 0.1500 = 0.0198 mol × 241.86 = 4.79 g.",
+   "note": "150.0 mL × (1 L / 1000 mL) × (0.132 mol / 1 L) × (241.86 g / 1 mol) = 4.79 g.",
    "test": "T3"
   },
   {
@@ -282,7 +282,7 @@
     }
    ],
    "given": "Enter your answer in decimal form with the correct number of sig figs. Use the proper abbreviation for the units.",
-   "note": "0.41 × 0.5970 × 122.13 = 29.9 g. 0.41 has two sig figs, so 30 g.",
+   "note": "597.0 mL × (1 L / 1000 mL) × (0.41 mol / 1 L) × (122.13 g / 1 mol) = 29.9 g. 0.41 has two sig figs, so 30 g.",
    "test": "T3"
   },
   {
@@ -300,7 +300,7 @@
      ]
     }
    ],
-   "note": "0.110 × 0.0800 × 213.01 = 1.87 g.",
+   "note": "80.0 mL × (1 L / 1000 mL) × (0.110 mol / 1 L) × (213.01 g / 1 mol) = 1.87 g.",
    "test": "T3"
   },
   {
@@ -318,7 +318,7 @@
      ]
     }
    ],
-   "note": "L = mol ÷ M = 0.733 ÷ 0.143 = 5.13 L.",
+   "note": "Start with the moles and flip the molarity: 0.733 mol HCl × (1 L / 0.143 mol HCl) = 5.13 L.",
    "test": "T3"
   },
   {
@@ -336,7 +336,7 @@
      ]
     }
    ],
-   "note": "0.919 ÷ 0.187 = 4.91 L.",
+   "note": "0.919 mol KBr × (1 L / 0.187 mol KBr) = 4.91 L.",
    "test": "T3"
   },
   {
@@ -355,7 +355,7 @@
     }
    ],
    "given": "Be careful to pay attention to the units!",
-   "note": "3.41 ÷ 68.95 = 0.04946 mol. ÷ 0.911 M = 0.05429 L = 54.3 mL.",
+   "note": "3.41 g LiNO₃ × (1 mol / 68.95 g) × (1 L / 0.911 mol) × (1000 mL / 1 L) = 54.3 mL.",
    "test": "T3"
   },
   {
@@ -376,7 +376,7 @@
     }
    ],
    "given": "Be careful to pay attention to the units and report your answer with the correct number of significant figures!",
-   "note": "1.19 ÷ 41.99 = 0.02834 mol. ÷ 0.945 M = 0.02999 L. eLearn accepted 29.9 mL; strict rounding gives 30.0 mL, so both count here.",
+   "note": "1.19 g NaF × (1 mol / 41.99 g) × (1 L / 0.945 mol) × (1000 mL / 1 L) = 29.99 mL. eLearn accepted 29.9 mL; strict rounding gives 30.0 mL, so both count here.",
    "test": "T3"
   },
   {
