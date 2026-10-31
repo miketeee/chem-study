@@ -219,7 +219,7 @@ footer{max-width:820px;margin:0 auto;padding:0 16px 30px;color:var(--muted);font
 .testtabs button small{font-weight:400;color:var(--muted);margin-left:4px}
 .testtabs button[aria-selected="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
 .testtabs button[aria-selected="true"] small{color:#fff;opacity:.85}
-.tag-f13{--tc:var(--light)} .tag-s14{--tc:var(--table)} .tag-r15{--tc:var(--elec)} .tag-i16{--tc:var(--name)} .tag-y17{--tc:var(--bond)}
+.tag-f13{--tc:var(--light)} .tag-s14{--tc:var(--table)} .tag-r15{--tc:var(--elec)} .tag-i16{--tc:var(--name)} .tag-y17{--tc:var(--bond)} .tag-l18{--tc:var(--light)}
 .tg{display:inline-block;font:600 10.5px/1 var(--mono);letter-spacing:.03em;text-transform:uppercase;padding:4px 7px;border-radius:999px;margin-right:4px;vertical-align:1px;white-space:nowrap}
 .tg-m{background:var(--warn-bg);color:var(--warn-ink)} .tg-c{background:var(--accent-soft);color:var(--accent)} .tg-b{background:linear-gradient(90deg,var(--warn-bg) 50%,var(--accent-soft) 50%);color:var(--ink)} .tg-w{background:var(--soft);color:var(--muted)}
 .t3tab{border-collapse:collapse;margin:8px 0;font-size:14px;width:100%}
@@ -1499,7 +1499,7 @@ var NOTES_HTML = `
 /* ================= UI ================= */
 GROUPS.forEach(function (g) { g.test = g.test || 'T2'; });
 if (window.T3NAV) { GROUPS = GROUPS.concat(T3NAV.groups); Object.keys(T3NAV.nodes).forEach(function (k) { NODES[k] = T3NAV.nodes[k]; }); }
-var TESTS = { T2: { label: 'Test 2', sub: 'HW 7–12', drill: '#/drill', drillSub: 'Memorize naming, shapes, bond angles, and hybridization with quick-fire questions' }, T3: { label: 'Test 3', sub: 'HW 13–17', drill: '../drill3/index.html', drillSub: 'Endless new problems for every HW 13–17 topic, with worked steps' } };
+var TESTS = { T2: { label: 'Test 2', sub: 'HW 7–12', drill: '#/drill', drillSub: 'Memorize naming, shapes, bond angles, and hybridization with quick-fire questions' }, T3: { label: 'Test 3', sub: 'HW 13–18', drill: '../drill3/index.html', drillSub: 'Endless new problems for every HW 13–18 topic, with worked steps' } };
 function curTest() { try { return localStorage.getItem('nav_test') === 'T2' ? 'T2' : (localStorage.getItem('nav_test') === 'T3' ? 'T3' : 'T3'); } catch (e) { return 'T3'; } }
 function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
 var PARENT = {};

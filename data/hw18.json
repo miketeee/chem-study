@@ -1,0 +1,315 @@
+{
+ "slug": "hw18",
+ "test": "T3",
+ "title": "HW 18",
+ "subtitle": "Solution Stoichiometry, Limiting & Excess Reactant",
+ "questions": [
+  {
+   "id": "hw18-q01",
+   "n": 1,
+   "type": "calc",
+   "q": "FLASHBACK: What is the molarity of a solution of NaCl if 0.401 moles is dissolved in enough water to make 842.4 mL of solution? (Pay attention to the volume unit!) Record your answer with the correct number of significant figures.",
+   "answerValue": 0.476,
+   "answerDisplay": "0.476",
+   "unit": "M",
+   "tolerance": 0.003,
+   "tag": "Flashback",
+   "note": "842.4 mL × (1 L / 1000 mL) = 0.8424 L. M = mol ÷ L = 0.401 ÷ 0.8424 = 0.476 M (3 sig figs).",
+   "test": "T3"
+  },
+  {
+   "id": "hw18-q02",
+   "n": 2,
+   "type": "calc",
+   "q": "Lead(II) nitrate and sodium chloride react: Pb(NO₃)₂(aq) + 2 NaCl(aq) → 2 NaNO₃(aq) + PbCl₂(s). What is the molarity of the sodium chloride solution if 78.0 mL of it will produce 7.17 g of lead(II) chloride?",
+   "answerValue": 0.661,
+   "answerDisplay": "0.661",
+   "unit": "M",
+   "tolerance": 0.003,
+   "given": "Molar mass of PbCl₂ = 278.10 g/mol",
+   "note": "7.17 g PbCl₂ × (1 mol PbCl₂ / 278.10 g PbCl₂) × (2 mol NaCl / 1 mol PbCl₂) = 0.05156 mol NaCl. 78.0 mL × (1 L / 1000 mL) = 0.0780 L. M = 0.05156 ÷ 0.0780 = 0.661 M.",
+   "test": "T3"
+  },
+  {
+   "id": "hw18-q03",
+   "n": 3,
+   "type": "calc",
+   "q": "Pb(NO₃)₂(aq) + 2 NaCl(aq) → 2 NaNO₃(aq) + PbCl₂(s). What is the molarity of the sodium chloride solution if 83.0 mL of it will produce 8.01 g of the lead(II) chloride?",
+   "answerValue": 0.694,
+   "answerDisplay": "0.694",
+   "unit": "M",
+   "tolerance": 0.003,
+   "given": "Molar mass of PbCl₂ = 278.10 g/mol (from Q2)",
+   "note": "8.01 g PbCl₂ × (1 mol / 278.10 g) × (2 mol NaCl / 1 mol PbCl₂) = 0.05761 mol NaCl. M = 0.05761 ÷ 0.0830 L = 0.694 M.",
+   "test": "T3"
+  },
+  {
+   "id": "hw18-q04",
+   "n": 4,
+   "type": "calc",
+   "q": "Copper(II) bromide and silver(I) acetate react: CuBr₂(aq) + AgCH₃CO₂(aq) → AgBr(s) + Cu(CH₃CO₂)₂(aq) (UNBALANCED). How many grams of silver(I) bromide will form if 45.0 mL of 0.149 M copper(II) bromide react with excess silver(I) acetate?",
+   "answerValue": 2.52,
+   "answerDisplay": "2.52",
+   "unit": "g",
+   "tolerance": 0.004,
+   "given": "Molar mass of AgBr = 187.77 g/mol · 3 sig figs, and BALANCE the reaction first.",
+   "note": "Balanced: CuBr₂ + 2 AgCH₃CO₂ → 2 AgBr + Cu(CH₃CO₂)₂. 45.0 mL × (1 L / 1000 mL) × (0.149 mol CuBr₂ / 1 L) × (2 mol AgBr / 1 mol CuBr₂) × (187.77 g AgBr / 1 mol AgBr) = 2.52 g.",
+   "test": "T3"
+  },
+  {
+   "id": "hw18-q05",
+   "n": 5,
+   "type": "calc",
+   "q": "CuBr₂(aq) + AgCH₃CO₂(aq) → AgBr(s) + Cu(CH₃CO₂)₂(aq) (UNBALANCED). How many grams of silver(I) bromide will form if 25.0 mL of 0.395 M copper(II) bromide react with excess silver(I) acetate?",
+   "answerValue": 3.71,
+   "answerDisplay": "3.71",
+   "unit": "g",
+   "tolerance": 0.004,
+   "given": "Molar mass of AgBr = 187.77 g/mol · 3 sig figs, and BALANCE the reaction first.",
+   "note": "25.0 mL × (1 L / 1000 mL) × (0.395 mol CuBr₂ / 1 L) × (2 mol AgBr / 1 mol CuBr₂) × (187.77 g / 1 mol) = 3.71 g.",
+   "test": "T3"
+  },
+  {
+   "id": "hw18-q06",
+   "n": 6,
+   "type": "calc",
+   "q": "How many milliliters of 0.173 M hydroiodic acid are required to neutralize 12.0 mL of 0.369 M strontium hydroxide? HI(aq) + Sr(OH)₂(aq) → SrI₂(aq) + H₂O(l) (UNBALANCED)",
+   "answerValue": 51.2,
+   "answerDisplay": "51.2",
+   "unit": "mL",
+   "tolerance": 0.004,
+   "given": "On eLearn the numbers change on each try; the method is the same.",
+   "note": "Balanced: 2 HI + Sr(OH)₂ → SrI₂ + 2 H₂O. 12.0 mL Sr(OH)₂ × (1 L / 1000 mL) × (0.369 mol Sr(OH)₂ / 1 L) × (2 mol HI / 1 mol Sr(OH)₂) × (1 L HI / 0.173 mol HI) × (1000 mL / 1 L) = 51.2 mL.",
+   "test": "T3"
+  },
+  {
+   "id": "hw18-q07",
+   "n": 7,
+   "type": "calc",
+   "q": "How many milliliters of 0.249 M sulfuric acid are required to neutralize 40.1 mL of 0.433 M sodium hydroxide? H₂SO₄(aq) + NaOH(aq) → Na₂SO₄(aq) + H₂O(l) (UNBALANCED)",
+   "answerValue": 34.9,
+   "answerDisplay": "34.9",
+   "unit": "mL",
+   "tolerance": 0.004,
+   "note": "Balanced: H₂SO₄ + 2 NaOH → Na₂SO₄ + 2 H₂O. 40.1 mL NaOH × (1 L / 1000 mL) × (0.433 mol NaOH / 1 L) × (1 mol H₂SO₄ / 2 mol NaOH) × (1 L / 0.249 mol H₂SO₄) × (1000 mL / 1 L) = 34.9 mL.",
+   "test": "T3"
+  },
+  {
+   "id": "hw18-q08",
+   "n": 8,
+   "type": "single",
+   "q": "The limiting reactant in a reaction is",
+   "opts": [
+    "the reactant which has the lowest coefficient in the balanced equation.",
+    "the reactant for which there is the fewest number of moles.",
+    "the reactant for which there is the most amount in grams.",
+    "none of these.",
+    "the reactant for which there is the least amount in grams."
+   ],
+   "correct": 3,
+   "note": "The limiting reactant is the one that runs out first, so it makes the LEAST PRODUCT. Fewest moles, fewest grams or the smallest coefficient don't decide it on their own; the mole ratio matters. None of the choices say that → none of these.",
+   "test": "T3"
+  },
+  {
+   "id": "hw18-q09",
+   "n": 9,
+   "type": "single",
+   "q": "The diagram represents a mixture of S atoms and O₂ molecules in a closed container. Which diagram best represents the results after the mixture reacts as completely as possible according to 2 S + 3 O₂ → 2 SO₃, including anything left over?",
+   "opts": [
+    "Diagram 1",
+    "Diagram 2",
+    "Diagram 3",
+    "Diagram 4",
+    "Diagram 5"
+   ],
+   "correct": 1,
+   "given": "<img src=\"../assets/hw18-s-o2.png\" alt=\"Start box: 6 sulfur atoms (squares) and 6 O₂ molecules (pairs of circles). Five numbered answer boxes below.\" style=\"width:100%;max-width:420px;border-radius:8px;background:#fff;padding:6px;\"><div class=\"q-given\">Square = S atom · pair of circles = O₂ molecule. Count what's in the start box first.</div>",
+   "note": "Start: 6 S atoms and 6 O₂ molecules. 6 O₂ × (2 S / 3 O₂) = 4 S needed, so O₂ runs out first. 6 O₂ × (2 SO₃ / 3 O₂) = 4 SO₃ form, and 6 − 4 = 2 S atoms are left over. Diagram 2 shows four SO₃ plus two lone S.",
+   "test": "T3"
+  },
+  {
+   "id": "hw18-q10",
+   "n": 10,
+   "type": "single",
+   "q": "For the reaction C₂H₅OH + 3 O₂ → 2 CO₂ + 3 H₂O, if 0.15 mol of ethanol is allowed to react with 0.40 mol of oxygen, what is the limiting reactant?",
+   "opts": [
+    "ethanol, C₂H₅OH",
+    "oxygen, O₂",
+    "carbon dioxide, CO₂",
+    "water, H₂O"
+   ],
+   "correct": 1,
+   "given": "Molar mass of ethanol = 46.07 g/mol · molar mass of oxygen = 32.00 g/mol",
+   "note": "Chain each reactant to the same product: 0.15 mol C₂H₅OH × (2 mol CO₂ / 1 mol C₂H₅OH) = 0.30 mol CO₂. 0.40 mol O₂ × (2 mol CO₂ / 3 mol O₂) = 0.27 mol CO₂. O₂ makes less → O₂ is limiting. (The molar masses aren't needed; you start in moles.)",
+   "test": "T3"
+  },
+  {
+   "id": "hw18-q11",
+   "n": 11,
+   "type": "single",
+   "q": "For the reaction C₂H₅OH + 3 O₂ → 2 CO₂ + 3 H₂O, if 0.40 mol of ethanol is allowed to react with 0.30 mol of oxygen, what is the limiting reactant?",
+   "opts": [
+    "ethanol, C₂H₅OH",
+    "oxygen, O₂",
+    "carbon dioxide, CO₂",
+    "water, H₂O"
+   ],
+   "correct": 1,
+   "given": "Molar mass of ethanol = 46.07 g/mol · molar mass of oxygen = 32.00 g/mol",
+   "note": "0.40 mol C₂H₅OH × (2 mol CO₂ / 1 mol C₂H₅OH) = 0.80 mol CO₂. 0.30 mol O₂ × (2 mol CO₂ / 3 mol O₂) = 0.20 mol CO₂. O₂ makes less → O₂ is limiting.",
+   "test": "T3"
+  },
+  {
+   "id": "hw18-q12",
+   "n": 12,
+   "type": "single",
+   "q": "For the reaction C₂H₅OH + 3 O₂ → 2 CO₂ + 3 H₂O, if 0.25 mol of ethanol is allowed to react with 0.40 mol of oxygen, what is the limiting reactant?",
+   "opts": [
+    "ethanol, C₂H₅OH",
+    "oxygen, O₂",
+    "carbon dioxide, CO₂",
+    "water, H₂O"
+   ],
+   "correct": 1,
+   "given": "Molar mass of ethanol = 46.07 g/mol · molar mass of oxygen = 32.00 g/mol",
+   "note": "0.25 mol C₂H₅OH × (2 mol CO₂ / 1 mol C₂H₅OH) = 0.50 mol CO₂. 0.40 mol O₂ × (2 mol CO₂ / 3 mol O₂) = 0.27 mol CO₂. O₂ makes less → O₂ is limiting. Having fewer moles of ethanol doesn't make it limiting: it needs 3 O₂ each.",
+   "test": "T3"
+  },
+  {
+   "id": "hw18-q13",
+   "n": 13,
+   "type": "calc",
+   "q": "If 1.3618 moles of AsF₃ are allowed to react with 1.0000 mole of C₂Cl₆, what would be the theoretical yield of AsCl₃, in moles? 4 AsF₃ + 3 C₂Cl₆ → 4 AsCl₃ + 3 C₂Cl₂F₄",
+   "answerValue": 1.3333,
+   "answerDisplay": "1.3333",
+   "unit": "mol",
+   "tolerance": 0.0004,
+   "given": "Report the correct number of sig figs (notice how many are in these numbers!). Type only the number.",
+   "note": "1.3618 mol AsF₃ × (4 mol AsCl₃ / 4 mol AsF₃) = 1.3618 mol AsCl₃. 1.0000 mol C₂Cl₆ × (4 mol AsCl₃ / 3 mol C₂Cl₆) = 1.3333 mol AsCl₃. Smaller → C₂Cl₆ is limiting; theoretical yield = 1.3333 mol (5 sig figs, like 1.0000).",
+   "test": "T3"
+  },
+  {
+   "id": "hw18-q14",
+   "n": 14,
+   "type": "calc",
+   "q": "If 0.18 moles of AsF₃ are allowed to react with 0.81 mole of C₂Cl₆, what would be the theoretical yield of AsCl₃, in moles? 4 AsF₃ + 3 C₂Cl₆ → 4 AsCl₃ + 3 C₂Cl₂F₄",
+   "answerValue": 0.18,
+   "answerDisplay": "0.18",
+   "unit": "mol",
+   "tolerance": 0.02,
+   "given": "Report the correct number of sig figs. Type only the number.",
+   "note": "0.18 mol AsF₃ × (4 mol AsCl₃ / 4 mol AsF₃) = 0.18 mol AsCl₃. 0.81 mol C₂Cl₆ × (4 mol AsCl₃ / 3 mol C₂Cl₆) = 1.08 mol AsCl₃. Smaller → AsF₃ is limiting; 0.18 mol (2 sig figs).",
+   "test": "T3"
+  },
+  {
+   "id": "hw18-q15",
+   "n": 15,
+   "type": "single",
+   "q": "If 4.93 grams of hydrogen react with 6.18 grams of nitrogen to produce ammonia, how many grams of ammonia can be produced? 3 H₂(g) + N₂(g) → 2 NH₃(g)",
+   "opts": [
+    "27.7 g",
+    "3.76 g",
+    "55.5 g",
+    "15.0 g",
+    "7.52 g"
+   ],
+   "correct": 4,
+   "note": "4.93 g H₂ × (1 mol H₂ / 2.02 g H₂) × (2 mol NH₃ / 3 mol H₂) × (17.04 g NH₃ / 1 mol NH₃) = 27.7 g. 6.18 g N₂ × (1 mol N₂ / 28.02 g N₂) × (2 mol NH₃ / 1 mol N₂) × (17.04 g NH₃ / 1 mol NH₃) = 7.52 g. Smaller → N₂ is limiting → 7.52 g. (27.7 g is the trap: that's the H₂ chain.)",
+   "test": "T3"
+  },
+  {
+   "id": "hw18-q16",
+   "n": 16,
+   "type": "calc",
+   "q": "If 1.84 grams of hydrogen react with 1.84 grams of nitrogen to produce ammonia, how many grams of ammonia can be produced? 3 H₂(g) + N₂(g) → 2 NH₃(g)",
+   "answerValue": 2.24,
+   "answerDisplay": "2.24",
+   "unit": "g",
+   "tolerance": 0.004,
+   "note": "1.84 g H₂ × (1 mol / 2.02 g) × (2 mol NH₃ / 3 mol H₂) × (17.04 g / 1 mol) = 10.3 g. 1.84 g N₂ × (1 mol / 28.02 g) × (2 mol NH₃ / 1 mol N₂) × (17.04 g / 1 mol) = 2.24 g. N₂ is limiting → 2.24 g.",
+   "test": "T3"
+  },
+  {
+   "id": "hw18-q17",
+   "n": 17,
+   "type": "single",
+   "q": "What mass of potassium chloride, a salt substitute often used by heart patients, can be produced directly from 5.2 g potassium and 7.9 g chlorine? 2 K + Cl₂ → 2 KCl",
+   "opts": [
+    "4.9 g KCl",
+    "9.9 g KCl",
+    "5.2 g KCl",
+    "10 g KCl",
+    "13 g KCl"
+   ],
+   "correct": 1,
+   "note": "5.2 g K × (1 mol K / 39.10 g K) × (2 mol KCl / 2 mol K) × (74.55 g KCl / 1 mol KCl) = 9.9 g. 7.9 g Cl₂ × (1 mol Cl₂ / 70.90 g Cl₂) × (2 mol KCl / 1 mol Cl₂) × (74.55 g / 1 mol) = 16.6 g. K is limiting → 9.9 g (2 sig figs).",
+   "test": "T3"
+  },
+  {
+   "id": "hw18-q18",
+   "n": 18,
+   "type": "calc",
+   "q": "What mass of rubidium chloride can be produced directly from 7.60 g rubidium and 7.60 g chlorine? 2 Rb + Cl₂ → 2 RbCl",
+   "answerValue": 10.8,
+   "answerDisplay": "10.8",
+   "unit": "g",
+   "tolerance": 0.004,
+   "given": "Use the class periodic chart: Rb = 85.47, Cl = 35.45.",
+   "note": "7.60 g Rb × (1 mol Rb / 85.47 g Rb) × (2 mol RbCl / 2 mol Rb) × (120.92 g RbCl / 1 mol RbCl) = 10.8 g. 7.60 g Cl₂ × (1 mol Cl₂ / 70.90 g Cl₂) × (2 mol RbCl / 1 mol Cl₂) × (120.92 g / 1 mol) = 25.9 g. Rb is limiting → 10.8 g.",
+   "test": "T3"
+  },
+  {
+   "id": "hw18-q19",
+   "n": 19,
+   "type": "calc",
+   "q": "36.7 g of A₂ are mixed with 36.7 g of T₂. How many grams of product are produced? 2 A₂ + 3 T₂ → 2 A₂T₃",
+   "answerValue": 58.1,
+   "answerDisplay": "58.1",
+   "unit": "g",
+   "tolerance": 0.004,
+   "given": "You may or may not need all of this: molar mass of A₂ = 28.02 g/mol · T₂ = 32.00 g/mol · A₂T₃ = 76.02 g/mol. For full credit: correct sig figs and the unit abbreviation (g).",
+   "note": "36.7 g A₂ × (1 mol A₂ / 28.02 g A₂) × (2 mol A₂T₃ / 2 mol A₂) × (76.02 g A₂T₃ / 1 mol) = 99.6 g. 36.7 g T₂ × (1 mol T₂ / 32.00 g T₂) × (2 mol A₂T₃ / 3 mol T₂) × (76.02 g / 1 mol) = 58.1 g. T₂ is limiting → 58.1 g.",
+   "test": "T3"
+  },
+  {
+   "id": "hw18-q20",
+   "n": 20,
+   "type": "calc",
+   "q": "BONUS: If 3.16 grams of hydrogen react with 3.16 grams of oxygen by 2 H₂ + O₂ → 2 H₂O, and oxygen is known to be the limiting reactant, how much hydrogen is left over after the reaction?",
+   "answerValue": 2.76,
+   "answerDisplay": "2.76",
+   "unit": "g",
+   "tolerance": 0.002,
+   "tag": "Bonus",
+   "given": "Molar mass of H₂ = 2.02 g/mol · molar mass of O₂ = 32.00 g/mol · round your answer to the hundredths place.",
+   "note": "Start with the limiting reactant (O₂): 3.16 g O₂ × (1 mol O₂ / 32.00 g O₂) × (2 mol H₂ / 1 mol O₂) × (2.02 g H₂ / 1 mol H₂) = 0.399 g H₂ used. Left over: 3.16 − 0.399 = 2.76 g H₂.",
+   "test": "T3"
+  },
+  {
+   "id": "hw18-q21",
+   "n": 21,
+   "type": "calc",
+   "q": "If 8.44 grams of hydrogen react with 8.44 grams of oxygen by 2 H₂ + O₂ → 2 H₂O, and oxygen is known to be the limiting reactant, how much hydrogen is left over after the reaction?",
+   "answerValue": 7.37,
+   "answerDisplay": "7.37",
+   "unit": "g",
+   "tolerance": 0.001,
+   "given": "Molar mass of H₂ = 2.02 g/mol · molar mass of O₂ = 32.00 g/mol · round your answer to the hundredths place.",
+   "note": "8.44 g O₂ × (1 mol O₂ / 32.00 g O₂) × (2 mol H₂ / 1 mol O₂) × (2.02 g H₂ / 1 mol H₂) = 1.066 g H₂ used. Left over: 8.44 − 1.066 = 7.37 g H₂.",
+   "test": "T3"
+  },
+  {
+   "id": "hw18-q22",
+   "n": 22,
+   "type": "single",
+   "q": "I understand that if I need more practice I can go to Ch. 7 Exercises, Chemistry: Atoms First 2e (OpenStax), and work odd problems 61–71, 79 and 87–91.",
+   "opts": [
+    "True",
+    "False"
+   ],
+   "correct": 0,
+   "note": "True.",
+   "test": "T3"
+  }
+ ]
+}

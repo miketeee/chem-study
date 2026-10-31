@@ -552,6 +552,80 @@
        [W, fl([Va, 'mL ' + A], [[['1', 'L ' + A], ['1000', 'mL ' + A]], [[Ma2, 'mol ' + A], ['1', 'L ' + A]], [[String(cb), 'mol ' + Bf], [String(ca), 'mol ' + A]], [['1', 'L ' + Bf], [Mb, 'mol ' + Bf]], [['1000', 'mL ' + Bf], ['1', 'L ' + Bf]]], [Vb2.toFixed(3), 'mL ' + Bf])]]);
   }
 
+  /* ================= HW 18: solution stoichiometry, limiting & excess reactant (factor label) ================= */
+  const TWO = STOICH.filter(b => b[0].length === 2 && !b[0].includes('NaNO3'));   // skip Mg + NaNO3 (it doesn't really go)
+  const chainTo = (amt, unit, A, coA, Pf, coP, mmA, mmP) => unit === 'mol'
+    ? fl([amt, 'mol ' + A], [[[String(coP), 'mol ' + Pf], [String(coA), 'mol ' + A]]], [null, 'mol ' + Pf])
+    : fl([amt, 'g ' + A], [[['1', 'mol ' + A], [mmA, 'g ' + A]], [[String(coP), 'mol ' + Pf], [String(coA), 'mol ' + A]], [[mmP, 'g ' + Pf], ['1', 'mol ' + Pf]]], [null, 'g ' + Pf]);
+  const flRes = (html, v) => html.replace(/<b>null /, `<b>${v} `).replace(/= null /, `= ${v} `);
+  function lrSetup(unit) {   // two reactants, amounts chosen so the two chains differ by at least 8 %
+    for (;;) {
+      const [re, pr, co] = pick(TWO), p = pr.findIndex(f => Object.keys(parse(f)).length > 1), pi = p < 0 ? 0 : p;
+      const fa = re[0], fb = re[1], Pf = pr[pi], coP = co[2 + pi], mmA = mmStr(fa), mmB = mmStr(fb), mmP = mmStr(Pf);
+      const a = unit === 'mol' ? (R(10, 95) / 100).toFixed(2) : String(v3(2, 60)), b = unit === 'mol' ? (R(10, 95) / 100).toFixed(2) : String(v3(2, 60));
+      const pa = unit === 'mol' ? +a * coP / co[0] : +a / +mmA * coP / co[0] * +mmP, pb = unit === 'mol' ? +b * coP / co[1] : +b / +mmB * coP / co[1] * +mmP;
+      if (Math.abs(pa - pb) / Math.max(pa, pb) < 0.08) continue;
+      return { re, pr, co, fa, fb, A: sub(fa), Bf: sub(fb), Pf: sub(Pf), coA: co[0], coB: co[1], coP, mmA, mmB, mmP, a, b, pa, pb, limA: pa < pb };
+    }
+  }
+  function lrSteps(S, unit) {
+    const dp = unit === 'mol' ? 3 : 2;
+    return [[M, `<b>Limiting reactant</b> = the one that makes the <b>least product</b>. Run a factor-label chain from <b>each</b> reactant to the same product (${S.Pf}).`],
+      [W, flRes(chainTo(S.a, unit, S.A, S.coA, S.Pf, S.coP, S.mmA, S.mmP), S.pa.toFixed(dp))],
+      [W, flRes(chainTo(S.b, unit, S.Bf, S.coB, S.Pf, S.coP, S.mmB, S.mmP), S.pb.toFixed(dp))],
+      [M, `Smaller amount wins: <b>${S.limA ? S.A : S.Bf}</b> is the <b>limiting reactant</b>; ${S.limA ? S.Bf : S.A} is in <b>excess</b>.`]];
+  }
+  function g18lr() {
+    if (Math.random() < 0.15) {
+      const opts = shuffle(['the reactant that makes the least amount of product', 'the reactant with the lowest coefficient in the balanced equation', 'the reactant with the fewest moles', 'the reactant with the least amount in grams']);
+      const right = 'the reactant that makes the least amount of product';
+      return { key: 'lrdef', prompt: 'The limiting reactant in a reaction is…', kind: 'mc', opts, correct: opts.indexOf(right), display: right,
+        steps: [[M, 'The limiting reactant <b>runs out first</b>, so it decides how much product forms: it is the one that makes the <b>least product</b>.'],
+          [M, 'Fewest moles, fewest grams or the smallest coefficient can all <b>fool you</b>; you have to account for the <b>mole ratio</b>. (On eLearn this showed up as <b>none of these</b>.)']] };
+    }
+    const S = lrSetup('mol'), all = S.re.concat(S.pr).map(sub), right = S.limA ? S.A : S.Bf;
+    return { key: 'lr:' + S.a + S.b, prompt: `${eqBal(S.re, S.pr, S.co)}. If ${S.a} mol of ${S.A} react with ${S.b} mol of ${S.Bf}, what is the limiting reactant?`, kind: 'mc', opts: all, correct: all.indexOf(right), display: right,
+      steps: lrSteps(S, 'mol').concat([[M, 'A <b>product</b> can never be the limiting reactant.']]) };
+  }
+  function g18lrg() {
+    const S = lrSetup('g'), v = Math.min(S.pa, S.pb);
+    return numQ('lrg', `${eqBal(S.re, S.pr, S.co)}. If ${S.a} g of ${S.A} react with ${S.b} g of ${S.Bf}, how many grams of ${S.Pf} can be produced?`, v, 'g', 3,
+      lrSteps(S, 'g').concat([[M, `The <b>smaller</b> amount is the theoretical yield: <b>${v.toFixed(2)} g ${S.Pf}</b>. The bigger number is impossible; that reactant runs out first.`]]),
+      `Molar masses: ${S.A} = ${S.mmA}, ${S.Bf} = ${S.mmB}, ${S.Pf} = ${S.mmP} g/mol.`);
+  }
+  function g18excess() {
+    const S = lrSetup('g'), L = S.limA ? [S.A, S.a, S.mmA, S.coA] : [S.Bf, S.b, S.mmB, S.coB], X = S.limA ? [S.Bf, S.b, S.mmB, S.coB] : [S.A, S.a, S.mmA, S.coA];
+    const used = +L[1] / +L[2] * X[3] / L[3] * +X[2], left = +X[1] - used;
+    return { key: 'xs:' + S.a + S.b, prompt: `${eqBal(S.re, S.pr, S.co)}. ${S.a} g of ${S.A} react with ${S.b} g of ${S.Bf}, and ${L[0]} is the limiting reactant. How many grams of ${X[0]} are left over? Round to the hundredths place.`,
+      given: `Molar masses: ${S.A} = ${S.mmA}, ${S.Bf} = ${S.mmB} g/mol.`, kind: 'num', value: left, tol: 0.011, abs: true, unit: 'g', display: left.toFixed(2) + ' g',
+      steps: [[M, `Leftover = <b>what you started with − what got used</b>. The <b>limiting</b> reactant (${L[0]}) is used up completely, so start the chain with it.`],
+        [W, fl([L[1], 'g ' + L[0]], [[['1', 'mol ' + L[0]], [L[2], 'g ' + L[0]]], [[String(X[3]), 'mol ' + X[0]], [String(L[3]), 'mol ' + L[0]]], [[X[2], 'g ' + X[0]], ['1', 'mol ' + X[0]]]], [used.toFixed(3), 'g ' + X[0] + ' used'])],
+        [W, `${X[1]} g − ${used.toFixed(3)} g = <b>${left.toFixed(2)} g ${X[0]}</b> left over.`],
+        [M, 'Check: the leftover must be <b>positive</b>. If it\'s negative you started from the wrong (excess) reactant.']] };
+  }
+  const PPT = [  // [eqn, reactant, coR, precipitate, coP]
+    ['Pb(NO₃)₂(aq) + 2 NaCl(aq) → 2 NaNO₃(aq) + PbCl₂(s)', 'NaCl', 2, 'PbCl2', 1], ['Pb(NO₃)₂(aq) + 2 NaCl(aq) → 2 NaNO₃(aq) + PbCl₂(s)', 'Pb(NO3)2', 1, 'PbCl2', 1],
+    ['CuBr₂(aq) + 2 AgCH₃CO₂(aq) → 2 AgBr(s) + Cu(CH₃CO₂)₂(aq)', 'CuBr2', 1, 'AgBr', 2], ['CuBr₂(aq) + 2 AgCH₃CO₂(aq) → 2 AgBr(s) + Cu(CH₃CO₂)₂(aq)', 'AgCH3CO2', 2, 'AgBr', 2],
+    ['AgNO₃(aq) + NaCl(aq) → AgCl(s) + NaNO₃(aq)', 'AgNO3', 1, 'AgCl', 1], ['BaCl₂(aq) + Na₂SO₄(aq) → BaSO₄(s) + 2 NaCl(aq)', 'BaCl2', 1, 'BaSO4', 1],
+    ['CaCl₂(aq) + Na₂CO₃(aq) → CaCO₃(s) + 2 NaCl(aq)', 'Na2CO3', 1, 'CaCO3', 1], ['3 CaCl₂(aq) + 2 Na₃PO₄(aq) → Ca₃(PO₄)₂(s) + 6 NaCl(aq)', 'CaCl2', 3, 'Ca3(PO4)2', 1]];
+  function g18soln() {
+    const [eq, fr, cr, fp, cp] = pick(PPT), Rr = sub(fr), Pp = sub(fp), mmP = mmStr(fp), mL = String(v3(20, 95));
+    if (Math.random() < 0.5) {
+      const Mv = String(v3(0.1, 0.5)), v = +mL / 1000 * +Mv * cp / cr * +mmP;
+      return numQ('solg', `${eq}. How many grams of ${Pp} will form from ${mL} mL of ${Mv} M ${Rr} reacting with an excess of the other reactant?`, v, 'g', 3,
+        [[M, `<b>Start with the one-unit number</b> (the volume). Rewrite ${Mv} M as <b>(${Mv} mol ${Rr} / 1 L)</b>.`],
+         [W, fl([mL, 'mL ' + Rr], [[['1', 'L ' + Rr], ['1000', 'mL ' + Rr]], [[Mv, 'mol ' + Rr], ['1', 'L ' + Rr]], [[String(cp), 'mol ' + Pp], [String(cr), 'mol ' + Rr]], [[mmP, 'g ' + Pp], ['1', 'mol ' + Pp]]], [v.toFixed(3), 'g ' + Pp])]],
+        `Molar mass of ${Pp} = ${mmP} g/mol.`);
+    }
+    const g = String(v3(1, 15)), mol = +g / +mmP * cr / cp, v = mol / (+mL / 1000);
+    return numQ('solM', `${eq}. What is the molarity of the ${Rr} solution if ${mL} mL of it produces ${g} g of ${Pp}?`, v, 'M', 3,
+      [[M, `Plan: <b>M = mol ÷ L</b> of ${Rr}. Get the moles by factor label from the <b>grams of ${Pp}</b> (the one-unit number).`],
+       [W, fl([g, 'g ' + Pp], [[['1', 'mol ' + Pp], [mmP, 'g ' + Pp]], [[String(cr), 'mol ' + Rr], [String(cp), 'mol ' + Pp]]], [mol.toPrecision(4), 'mol ' + Rr])],
+       [W, 'Volume to liters: ' + fl([mL, 'mL'], [ML2L], [(+mL / 1000).toPrecision(3), 'L'])],
+       [W, `M = ${mol.toPrecision(4)} mol ÷ ${(+mL / 1000).toPrecision(3)} L = <b>${v.toFixed(4)} M</b>.`]],
+      `Molar mass of ${Pp} = ${mmP} g/mol.`);
+  }
+
   const TOPICS = [
     { id: 'id', hw: 13, label: 'Empirical or molecular?', gen: g13id },
     { id: 'pct', hw: 13, label: 'Percent composition', gen: g13pct },
@@ -575,6 +649,10 @@
     { id: 'stoich', hw: 17, label: 'Grams to grams (stoichiometry)', gen: g17stoich },
     { id: 'yield', hw: 17, label: 'Percent yield', gen: g17yield },
     { id: 'titr', hw: 17, label: 'Solution stoichiometry (titration)', gen: g17titr },
+    { id: 'soln', hw: 18, label: 'Solution stoichiometry (M, mL → grams)', gen: g18soln },
+    { id: 'lr', hw: 18, label: 'Limiting reactant', gen: g18lr },
+    { id: 'lrg', hw: 18, label: 'Theoretical yield with a limiting reactant', gen: g18lrg },
+    { id: 'excess', hw: 18, label: 'Excess reactant left over', gen: g18excess },
   ];
   function make(topicId) { const t = TOPICS.find(x => x.id === topicId); const q = t.gen(); q.topic = t.id; q.key = t.id + '|' + q.prompt; return q; }
 

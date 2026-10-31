@@ -56,7 +56,7 @@
   {
    "id": "T3",
    "title": "Test 3",
-   "sub": "HW 13–17",
+   "sub": "HW 13–18",
    "items": [
     {
      "num": "13",
@@ -123,6 +123,20 @@
        "slug": "hw17",
        "label": "Quiz",
        "count": 25
+      }
+     ],
+     "qa": null,
+     "walk": true
+    },
+    {
+     "num": "18",
+     "title": "HW 18",
+     "subtitle": "Solution Stoichiometry, Limiting & Excess Reactant",
+     "quizzes": [
+      {
+       "slug": "hw18",
+       "label": "Quiz",
+       "count": 22
       }
      ],
      "qa": null,

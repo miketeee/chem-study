@@ -74,7 +74,7 @@
     <a class="back-link" href="../index.html">&larr; Chem Study Hub</a>
     <p class="site-mark">CHEM STUDY HUB &middot; TEST 3</p>
     <h1 class="quiz-title">Test 3 Drill</h1>
-    <p class="quiz-sub">Endless new problems for every HW 13–17 topic. Misses come back three questions later and stay on your miss list until you get them right.</p>
+    <p class="quiz-sub">Endless new problems for every HW 13–18 topic. Misses come back three questions later and stay on your miss list until you get them right.</p>
   </div>
   <div id="app"><p class="note">Loading…</p></div>
 </div>
@@ -85,7 +85,7 @@
    per-topic accuracy and best streak are saved in this browser after every answer (chem-drill3-v1). */
 (function () {
   const KEY = 'chem-drill3-v1', D = Drill3, $ = id => document.getElementById(id), app = $('app');
-  const HWS = [[13, 'HW 13 · Formulas & percent composition'], [14, 'HW 14 · Solutions, molarity & dilution'], [15, 'HW 15 · Reactions & balancing'], [16, 'HW 16 · Solubility, ionic equations & redox'], [17, 'HW 17 · Stoichiometry & percent yield']];
+  const HWS = [[13, 'HW 13 · Formulas & percent composition'], [14, 'HW 14 · Solutions, molarity & dilution'], [15, 'HW 15 · Reactions & balancing'], [16, 'HW 16 · Solubility, ionic equations & redox'], [17, 'HW 17 · Stoichiometry & percent yield'], [18, 'HW 18 · Limiting & excess reactant']];
   const TAG = { mem: ['mem', '🧠 Memorize'], chart: ['chart', '📊 Chart'], both: ['both', '🧠📊 Both'], '': ['math', 'Work'] };
   const tag = t => { const [c, l] = TAG[t || '']; return `<span class="tag ${c}">${l}</span>`; };
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));

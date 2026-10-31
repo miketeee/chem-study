@@ -1,4 +1,4 @@
-/* Chem Navigator — Test 3 (HW 13–17). Conversions are shown as factor-label chains (how Dr. Bragg teaches). Loaded before the main Navigator script; it adds Test 3 groups, flowchart nodes
+/* Chem Navigator — Test 3 (HW 13–18). Conversions are shown as factor-label chains (how Dr. Bragg teaches). Loaded before the main Navigator script; it adds Test 3 groups, flowchart nodes
    and "Check my work" tools. The chemistry comes from ../drill3/engine.js (Drill3), the same engine as the Test 3 Drill,
    so the Navigator and the Drill always agree. */
 (function () {
@@ -13,7 +13,8 @@
     { test: 'T3', name: 'Solutions, molarity & dilution', tag: 's14', ids: ['t3_solnwords', 't3_molarity', 't3_dilution'] },
     { test: 'T3', name: 'Reactions & balancing', tag: 'r15', ids: ['t3_diatomic', 't3_rxntype', 't3_balance', 't3_predict', 't3_names', 't3_conserve'] },
     { test: 'T3', name: 'Solubility, ionic equations & redox', tag: 'i16', ids: ['t3_solub', 't3_goes', 't3_ionic', 't3_ox', 't3_redox', 't3_activity'] },
-    { test: 'T3', name: 'Stoichiometry & percent yield', tag: 'y17', ids: ['t3_mm', 't3_ratio', 't3_gg', 't3_yield', 't3_titr'] }
+    { test: 'T3', name: 'Stoichiometry & percent yield', tag: 'y17', ids: ['t3_mm', 't3_ratio', 't3_gg', 't3_yield', 't3_titr'] },
+    { test: 'T3', name: 'Limiting & excess reactant', tag: 'l18', ids: ['t3_solnst', 't3_lr', 't3_excess'] }
   ];
 
   var nodes = {
@@ -254,7 +255,42 @@
         MEM('Asked for the other molarity? <b>M = mol ÷ L</b> of that solution: 0.008808 mol ÷ 0.05000 L = 0.176 M.'),
         MEM('Sig figs here come from the shortest measured number (often the molarity).')],
       watch: ['H₂SO₄ is the classic 1 : 2 acid (H₂SO₄ + 2 NaOH). Check the coefficients before using 1 : 1.'],
-      tool: 't3stoich', preset: { eq: 'HCl + NaOH -> NaCl + H2O', amt: '35.23', gu: 'mL', MA: '0.250', A: 'NaOH', B: 'HCl', fu: 'M', VB: '50.00' } }
+      tool: 't3stoich', preset: { eq: 'HCl + NaOH -> NaCl + H2O', amt: '35.23', gu: 'mL', MA: '0.250', A: 'NaOH', B: 'HCl', fu: 'M', VB: '50.00' } },
+    /* ---------- HW 18 ---------- */
+    t3_solnst: { title: 'Solution stoichiometry (mL + molarity → grams, or grams → molarity)', hint: '45.0 mL of 0.149 M CuBr₂ → ? g AgBr', walk: 'hw18-q04',
+      steps: [MEM('<b>Balance first</b>. eLearn often gives it UNBALANCED (HW 18 #4–7).'),
+        MEM('<b>Start with the one-unit number</b> (mL, or grams of the solid). Molarity is only a factor: <b>(0.149 mol / 1 L)</b>.'),
+        WK(D.fl(['45.0', 'mL CuBr₂'], [[['1', 'L CuBr₂'], ['1000', 'mL CuBr₂']], [['0.149', 'mol CuBr₂'], ['1', 'L CuBr₂']], [['2', 'mol AgBr'], ['1', 'mol CuBr₂']], [['187.77', 'g AgBr'], ['1', 'mol AgBr']]], ['2.52', 'g AgBr'], false)),
+        MEM('Asked for a <b>molarity</b>? Chain grams → mol of the solution\'s substance, then <b>M = mol ÷ L</b> (HW 18 #2–3).')],
+      watch: ['Forgot to balance CuBr₂ + 2 AgCH₃CO₂? Your answer comes out exactly half.'],
+      tool: 't3stoich', preset: { eq: 'CuBr2 + AgCH3CO2 -> AgBr + Cu(CH3CO2)2', amt: '45.0', gu: 'mL', MA: '0.149', A: 'CuBr2', B: 'AgBr', fu: 'g', mmB: '187.77' } },
+    t3_lr: { title: 'Limiting reactant (two amounts given)', hint: 'which runs out first?', q: 'What does the problem give you?', opts: ['t3_lr_mol', 't3_lr_g', 't3_lr_pic'] },
+    t3_lr_mol: { title: 'Moles of both reactants', walk: 'hw18-q10',
+      steps: [MEM('The <b>limiting reactant</b> runs out first, so it makes the <b>least product</b>.'),
+        MEM('Chain <b>each reactant</b> to the <b>same product</b> with the coefficients.'),
+        WK(D.fl(['0.15', 'mol C₂H₅OH'], [[['2', 'mol CO₂'], ['1', 'mol C₂H₅OH']]], ['0.30', 'mol CO₂'], false) + '<br>' + D.fl(['0.40', 'mol O₂'], [[['2', 'mol CO₂'], ['3', 'mol O₂']]], ['0.27', 'mol CO₂'], false)),
+        MEM('<b>Smaller amount wins</b> → O₂ is limiting. That smaller amount is also the theoretical yield (HW 18 #13–14).')],
+      watch: ['Fewer moles doesn\'t mean limiting: ethanol needs 3 O₂ each.', 'A product can never be the limiting reactant.'],
+      tool: 't3limit', preset: { eq: 'C2H5OH + 3 O2 -> 2 CO2 + 3 H2O', a: '0.15', A: 'C2H5OH', b: '0.40', B: 'O2', u: 'mol', P: 'CO2' } },
+    t3_lr_g: { title: 'Grams of both reactants (how much product?)', walk: 'hw18-q15',
+      steps: [MEM('Run a <b>grams-to-grams chain from each reactant</b> to grams of the product.'),
+        CH('Molar masses from the chart (or given): the number goes with grams, over 1 mol.'),
+        MEM('<b>Smaller amount = the answer</b> (the theoretical yield). The bigger number is the trap answer.')],
+      watch: ['HW 18 #15: 27.7 g is what H₂ <b>could</b> make; N₂ runs out first, so 7.52 g.'],
+      tool: 't3limit', preset: { eq: '3 H2 + N2 -> 2 NH3', a: '4.93', A: 'H2', b: '6.18', B: 'N2', u: 'g', P: 'NH3', mA: '2.02', mB: '28.02', mP: '17.04' } },
+    t3_lr_pic: { title: 'A picture of particles in a box', walk: 'hw18-q09',
+      steps: [WK('<b>Count</b> each kind of particle in the start box (O₂ counts as one molecule).'),
+        MEM('Use the coefficients to see which <b>runs out first</b>: 6 O₂ × (2 S / 3 O₂) = 4 S needed.'),
+        WK('Draw the products it makes (4 SO₃) and <b>keep the leftovers</b> of the other reactant (2 S).'),
+        MEM('Atoms are conserved: the answer box has the same atoms as the start box.')],
+      tool: 't3limit', preset: { eq: '2 S + 3 O2 -> 2 SO3', a: '6', A: 'S', b: '6', B: 'O2', u: 'mol', P: 'SO3' } },
+    t3_excess: { title: 'How much excess reactant is left over?', hint: 'started − used', walk: 'hw18-q20',
+      steps: [MEM('<b>Left over = started with − used</b>.'),
+        MEM('Find "used" with a chain that <b>starts with the limiting reactant</b> (it\'s used up) and ends in grams of the excess one.'),
+        WK(D.fl(['3.16', 'g O₂'], [[['1', 'mol O₂'], ['32.00', 'g O₂']], [['2', 'mol H₂'], ['1', 'mol O₂']], [['2.02', 'g H₂'], ['1', 'mol H₂']]], ['0.399', 'g H₂ used'], false)),
+        WK('3.16 g − 0.399 g = <b>2.76 g H₂</b> left. eLearn wants the hundredths place.')],
+      watch: ['A negative leftover means you started the chain from the excess reactant.'],
+      tool: 't3limit', preset: { eq: '2 H2 + O2 -> 2 H2O', a: '3.16', A: 'H2', b: '3.16', B: 'O2', u: 'g', P: 'H2O', mA: '2.02', mB: '32.00' } }
   };
 
   /* ---------- tools (they use the main Navigator's field/inp/sel/val/wire/box/bad/bigAns/list helpers) ---------- */
@@ -393,6 +429,47 @@
         if (fu === 'g' && ib >= E.nre) steps.push(MEM(Bs + ' is a product, so grams of it = the <b>theoretical yield</b>.'));
         steps.push(MEM('Sig figs: <b>' + sf + '</b> (mole ratios are exact; molar masses usually have extra).'));
         return box(bigAns('Answer', D.sig(ans, sf) + ' ' + unit.split(' ')[0], 'unrounded ' + ans.toPrecision(6) + ' ' + unit) + tagList(steps), 'res-ok');
+      });
+    };
+    TOOLS.t3limit = function (root, p) {
+      root.innerHTML = field('Equation (coefficients optional; I balance it if they\'re missing)', inp('eq', p.eq, '3 H2 + N2 -> 2 NH3')) +
+        '<div class="grid2">' + field('Reactant 1', inp('A', p.A, 'H2')) + field('Amount of reactant 1', inp('a', p.a, 'e.g. 4.93')) + field('Reactant 2', inp('B', p.B, 'N2')) + field('Amount of reactant 2', inp('b', p.b, 'e.g. 6.18')) +
+        field('Both amounts are in', sel('u', [['g', 'grams'], ['mol', 'moles']], p.u)) + field('Product to compare', inp('P', p.P, 'NH3')) +
+        field('Molar mass 1 (blank = chart)', inp('mA', p.mA, 'g/mol')) + field('Molar mass 2 (blank = chart)', inp('mB', p.mB, 'g/mol')) + field('Product molar mass (blank = chart)', inp('mP', p.mP, 'g/mol')) + '</div><div class="out"></div>';
+      wire(root, function () {
+        var E = eqParts(val(root, 'eq')); if (!E) return ''; if (E.error) return bad(esc(E.error));
+        var ks = E.all.map(function (x) { return x.k; }), co;
+        if (ks.every(function (k) { return k === null; })) co = D.balance(E.all.slice(0, E.nre).map(function (x) { return x.f; }), E.all.slice(E.nre).map(function (x) { return x.f; }));
+        else co = ks.map(function (k) { return k || 1; });
+        if (!co) return bad('That equation can\'t be balanced as written.');
+        var fA = val(root, 'A').trim(), fB = val(root, 'B').trim(), fP = val(root, 'P').trim(), cA = parseOrNull(fA), cB = parseOrNull(fB), cP = parseOrNull(fP);
+        if (!cA || !cB || !cP) return '';
+        var find = function (c) { return E.all.findIndex(function (x) { return sameC(x.c, c); }); }, iA = find(cA), iB = find(cB), iP = find(cP);
+        if (iA < 0 || iB < 0 || iP < 0) return bad('All three substances have to appear in the equation.');
+        if (iA >= E.nre || iB >= E.nre) return bad('Both of the first two have to be <b>reactants</b>. A product can never be limiting.');
+        if (iP < E.nre) return bad('Pick a <b>product</b> to compare.');
+        var aS = val(root, 'a').trim(), bS = val(root, 'b').trim(), a = num(aS), b = num(bS), u = val(root, 'u'); if (a === null || b === null) return '';
+        var A = fmtF(fA), Bs = fmtF(fB), Ps = fmtF(fP), g = u === 'g';
+        var mA = val(root, 'mA').trim() || D.molar(cA).toFixed(2), mB = val(root, 'mB').trim() || D.molar(cB).toFixed(2), mP = val(root, 'mP').trim() || D.molar(cP).toFixed(2);
+        var eqTxt = E.all.map(function (x, i) { return (co[i] > 1 ? co[i] + ' ' : '') + fmtF(x.f); }), eqStr = eqTxt.slice(0, E.nre).join(' + ') + ' → ' + eqTxt.slice(E.nre).join(' + ');
+        var chain = function (amtS, amt, X, coX, mX) {
+          var fs = (g ? [[['1', 'mol ' + X], [mX, 'g ' + X]]] : []).concat([[[String(co[iP]), 'mol ' + Ps], [String(coX), 'mol ' + X]]]).concat(g ? [[[mP, 'g ' + Ps], ['1', 'mol ' + Ps]]] : []);
+          var v = (g ? amt / +mX : amt) * co[iP] / coX * (g ? +mP : 1);
+          return { v: v, html: D.fl([amtS, (g ? 'g ' : 'mol ') + X], fs, [v.toPrecision(4), (g ? 'g ' : 'mol ') + Ps]) };
+        };
+        var cAc = chain(aS, a, A, co[iA], mA), cBc = chain(bS, b, Bs, co[iB], mB);
+        if (Math.abs(cAc.v - cBc.v) < 1e-9 * Math.max(cAc.v, cBc.v)) return box(tagList([MEM('Balanced: <b>' + eqStr + '</b>.'), WK(cAc.html), WK(cBc.html), MEM('They come out <b>equal</b>: neither is limiting; both run out together.')]), 'res-ok');
+        var limA = cAc.v < cBc.v, L = limA ? [A, aS, a, co[iA], mA] : [Bs, bS, b, co[iB], mB], X = limA ? [Bs, bS, b, co[iB], mB] : [A, aS, a, co[iA], mA];
+        var sf = Math.min(D.sfOf(aS), D.sfOf(bS)); if (!isFinite(sf) || sf < 1) sf = 2;
+        var y = Math.min(cAc.v, cBc.v), unit = g ? 'g' : 'mol';
+        var steps = [MEM('Balanced: <b>' + eqStr + '</b>.'), MEM('Chain <b>each reactant</b> to the same product (' + Ps + '); the <b>smaller</b> amount wins.'), WK(cAc.html), WK(cBc.html),
+          MEM('<b>' + L[0] + '</b> makes less → it is the <b>limiting reactant</b>; ' + X[0] + ' is in <b>excess</b>. Theoretical yield: <b>' + D.sig(y, sf) + ' ' + unit + ' ' + Ps + '</b>.')];
+        var fs2 = (g ? [[['1', 'mol ' + L[0]], [L[4], 'g ' + L[0]]]] : []).concat([[[String(X[3]), 'mol ' + X[0]], [String(L[3]), 'mol ' + L[0]]]]).concat(g ? [[[X[4], 'g ' + X[0]], ['1', 'mol ' + X[0]]]] : []);
+        var used = (g ? L[2] / +L[4] : L[2]) * X[3] / L[3] * (g ? +X[4] : 1), left = X[2] - used;
+        steps.push(MEM('Left over = started − used. Start the "used" chain with the <b>limiting</b> reactant:'));
+        steps.push(WK(D.fl([L[1], unit + ' ' + L[0]], fs2, [used.toPrecision(4), unit + ' ' + X[0] + ' used'])));
+        steps.push(WK(X[1] + ' ' + unit + ' − ' + used.toPrecision(4) + ' ' + unit + ' = <b>' + left.toFixed(2) + ' ' + unit + ' ' + X[0] + '</b> left over.'));
+        return box(bigAns('Limiting reactant', L[0], 'makes ' + D.sig(y, sf) + ' ' + unit + ' ' + Ps + ' · ' + left.toFixed(2) + ' ' + unit + ' ' + X[0] + ' left over') + tagList(steps), 'res-ok');
       });
     };
     TOOLS.t3yield = function (root, p) {

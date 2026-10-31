@@ -26,6 +26,11 @@
    "hw": 17,
    "title": "HW 17",
    "subtitle": "Stoichiometry (Mole Ratios, Grams to Grams) & Percent Yield"
+  },
+  {
+   "hw": 18,
+   "title": "HW 18",
+   "subtitle": "Solution Stoichiometry, Limiting & Excess Reactant"
   }
  ],
  "methods": {
@@ -590,6 +595,94 @@
     {
      "tag": "mem",
      "html": "Over 100 % usually means the product is still wet (or contaminated); exactly 100 % is unrealistic."
+    }
+   ]
+  },
+  "soln-stoich": {
+   "title": "Solution stoichiometry (mL and M in a reaction)",
+   "hw": 18,
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "<b>Balance the reaction first</b>; the coefficients are your mole ratio."
+    },
+    {
+     "tag": "mem",
+     "html": "<b>Start with the one-unit number</b> (mL or g). Rewrite every molarity as <b>(___ mol / 1 L)</b>; it is only a conversion factor."
+    },
+    {
+     "tag": "mem",
+     "html": "Head toward moles: mL → L <b>(1 L / 1000 mL)</b> → mol (molarity) → <b>mole ratio</b> → mol of the other substance."
+    },
+    {
+     "tag": "chart",
+     "html": "Finish in grams with the molar mass <b>(___ g / 1 mol)</b>, or in liters by flipping the molarity <b>(1 L / ___ mol)</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Finding a <b>molarity</b>? Get mol by factor label, then <b>M = mol ÷ L</b> of that same solution."
+    }
+   ]
+  },
+  "limiting": {
+   "title": "Limiting reactant",
+   "hw": 18,
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "The <b>limiting reactant</b> runs out first, so it decides how much product forms. The other one is in <b>excess</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Run a factor-label chain from <b>each reactant</b> to the <b>same product</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "<b>Smaller amount of product wins</b>: that reactant is limiting, and that amount is the <b>theoretical yield</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Don't pick by fewest grams, fewest moles or smallest coefficient; only the chain (with the <b>mole ratio</b>) tells you."
+    },
+    {
+     "tag": "mem",
+     "html": "A <b>product</b> can never be the limiting reactant."
+    }
+   ]
+  },
+  "lr-picture": {
+   "title": "Limiting reactant from a picture",
+   "hw": 18,
+   "steps": [
+    {
+     "tag": "",
+     "html": "<b>Count</b> each kind of particle in the starting box (molecules, not atoms, for diatomics)."
+    },
+    {
+     "tag": "mem",
+     "html": "Use the coefficients to see which one <b>runs out first</b>; that sets how many product molecules form."
+    },
+    {
+     "tag": "",
+     "html": "Whatever is left of the other reactant <b>stays in the box</b> as leftovers. Atoms are conserved: count them in the answer."
+    }
+   ]
+  },
+  "excess": {
+   "title": "Excess reactant left over",
+   "hw": 18,
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "<b>Left over = started with − used</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Find \"used\" with a factor-label chain that <b>starts with the limiting reactant</b> (it is used up completely) and ends in grams of the excess reactant."
+    },
+    {
+     "tag": "mem",
+     "html": "Subtract. The answer must be <b>positive</b>; if not, you started from the wrong reactant."
     }
    ]
   }
@@ -4095,6 +4188,658 @@
     {
      "tag": "",
      "html": "Your PDF cuts off before this question's helpful info and answer, so this one is <b>worked from the class molar masses</b>, not checked against eLearn."
+    }
+   ]
+  },
+  {
+   "id": "hw18-q01",
+   "hw": 18,
+   "n": 1,
+   "section": "Solution Stoichiometry",
+   "method": "molarity",
+   "q": "FLASHBACK: What is the molarity of a solution of NaCl if 0.401 moles is dissolved in enough water to make 842.4 mL of solution? (Watch the volume unit; correct sig figs.)",
+   "choices": null,
+   "img": null,
+   "answer": "0.476 M",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Molarity formula: <b>M = mol ÷ L</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Volume to liters by factor label: <span class=\"fl\">842.4 <s>mL</s> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">1 L</span><span class=\"sl\"> / </span><span class=\"fb\">1000 <s>mL</s></span><span class=\"po\">)</span></span> = <b>0.8424 L</b></span>"
+    },
+    {
+     "tag": "",
+     "html": "0.401 mol ÷ 0.8424 L = <b>0.4760 M</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Sig figs: <b>0.401 has 3 → 0.476 M</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw18-q02",
+   "hw": 18,
+   "n": 2,
+   "section": "Solution Stoichiometry",
+   "method": "soln-stoich",
+   "q": "Pb(NO₃)₂(aq) + 2 NaCl(aq) → 2 NaNO₃(aq) + PbCl₂(s). What is the molarity of the sodium chloride solution if 78.0 mL of it will produce 7.17 g of the lead(II) chloride? (PbCl₂ = 278.10 g/mol)",
+   "choices": null,
+   "img": null,
+   "answer": "0.661 M",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Plan: <b>M = mol NaCl ÷ L NaCl</b>. Get the moles from the <b>grams of PbCl₂</b> (the one-unit number); ratio <b>2 NaCl : 1 PbCl₂</b>."
+    },
+    {
+     "tag": "",
+     "html": "<span class=\"fl\">7.17 <s>g PbCl₂</s> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">1 <s>mol PbCl₂</s></span><span class=\"sl\"> / </span><span class=\"fb\">278.10 <s>g PbCl₂</s></span><span class=\"po\">)</span></span> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">2 mol NaCl</span><span class=\"sl\"> / </span><span class=\"fb\">1 <s>mol PbCl₂</s></span><span class=\"po\">)</span></span> = <b>0.05156 mol NaCl</b></span>"
+    },
+    {
+     "tag": "mem",
+     "html": "Volume to liters: <span class=\"fl\">78.0 <s>mL</s> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">1 L</span><span class=\"sl\"> / </span><span class=\"fb\">1000 <s>mL</s></span><span class=\"po\">)</span></span> = <b>0.0780 L</b></span>"
+    },
+    {
+     "tag": "",
+     "html": "M = 0.05156 mol ÷ 0.0780 L = <b>0.661 M</b> (3 sig figs)."
+    }
+   ]
+  },
+  {
+   "id": "hw18-q03",
+   "hw": 18,
+   "n": 3,
+   "section": "Solution Stoichiometry",
+   "method": "soln-stoich",
+   "q": "Pb(NO₃)₂(aq) + 2 NaCl(aq) → 2 NaNO₃(aq) + PbCl₂(s). What is the molarity of the sodium chloride solution if 83.0 mL of it will produce 8.01 g of the lead(II) chloride? (PbCl₂ = 278.10 g/mol)",
+   "choices": null,
+   "img": null,
+   "answer": "0.694 M",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Plan: <b>M = mol NaCl ÷ L NaCl</b>. Get the moles from the <b>grams of PbCl₂</b> (the one-unit number); ratio <b>2 NaCl : 1 PbCl₂</b>."
+    },
+    {
+     "tag": "",
+     "html": "<span class=\"fl\">8.01 <s>g PbCl₂</s> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">1 <s>mol PbCl₂</s></span><span class=\"sl\"> / </span><span class=\"fb\">278.10 <s>g PbCl₂</s></span><span class=\"po\">)</span></span> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">2 mol NaCl</span><span class=\"sl\"> / </span><span class=\"fb\">1 <s>mol PbCl₂</s></span><span class=\"po\">)</span></span> = <b>0.05761 mol NaCl</b></span>"
+    },
+    {
+     "tag": "mem",
+     "html": "Volume to liters: <span class=\"fl\">83.0 <s>mL</s> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">1 L</span><span class=\"sl\"> / </span><span class=\"fb\">1000 <s>mL</s></span><span class=\"po\">)</span></span> = <b>0.0830 L</b></span>"
+    },
+    {
+     "tag": "",
+     "html": "M = 0.05761 mol ÷ 0.0830 L = <b>0.694 M</b> (3 sig figs)."
+    }
+   ]
+  },
+  {
+   "id": "hw18-q04",
+   "hw": 18,
+   "n": 4,
+   "section": "Solution Stoichiometry",
+   "method": "soln-stoich",
+   "q": "CuBr₂(aq) + AgCH₃CO₂(aq) → AgBr(s) + Cu(CH₃CO₂)₂(aq) (UNBALANCED). How many grams of silver(I) bromide will form if 45.0 mL of 0.149 M copper(II) bromide react with excess silver(I) acetate? (AgBr = 187.77 g/mol)",
+   "choices": null,
+   "img": null,
+   "answer": "2.52 g",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Balance first: <b>CuBr₂ + 2 AgCH₃CO₂ → 2 AgBr + Cu(CH₃CO₂)₂</b> (2 Br on the left → 2 AgBr)."
+    },
+    {
+     "tag": "mem",
+     "html": "<b>Start with the volume</b>; rewrite 0.149 M as (0.149 mol CuBr₂ / 1 L). Ratio <b>2 AgBr : 1 CuBr₂</b>."
+    },
+    {
+     "tag": "",
+     "html": "<span class=\"fl\">45.0 <s>mL CuBr₂</s> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">1 <s>L CuBr₂</s></span><span class=\"sl\"> / </span><span class=\"fb\">1000 <s>mL CuBr₂</s></span><span class=\"po\">)</span></span> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">0.149 <s>mol CuBr₂</s></span><span class=\"sl\"> / </span><span class=\"fb\">1 <s>L CuBr₂</s></span><span class=\"po\">)</span></span> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">2 <s>mol AgBr</s></span><span class=\"sl\"> / </span><span class=\"fb\">1 <s>mol CuBr₂</s></span><span class=\"po\">)</span></span> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">187.77 g AgBr</span><span class=\"sl\"> / </span><span class=\"fb\">1 <s>mol AgBr</s></span><span class=\"po\">)</span></span> = <b>2.52 g AgBr</b></span>"
+    },
+    {
+     "tag": "mem",
+     "html": "Sig figs: <b>3</b>. Forgetting to balance gives exactly half the answer."
+    }
+   ]
+  },
+  {
+   "id": "hw18-q05",
+   "hw": 18,
+   "n": 5,
+   "section": "Solution Stoichiometry",
+   "method": "soln-stoich",
+   "q": "CuBr₂(aq) + AgCH₃CO₂(aq) → AgBr(s) + Cu(CH₃CO₂)₂(aq) (UNBALANCED). How many grams of silver(I) bromide will form if 25.0 mL of 0.395 M copper(II) bromide react with excess silver(I) acetate? (AgBr = 187.77 g/mol)",
+   "choices": null,
+   "img": null,
+   "answer": "3.71 g",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Balance first: <b>CuBr₂ + 2 AgCH₃CO₂ → 2 AgBr + Cu(CH₃CO₂)₂</b> (2 Br on the left → 2 AgBr)."
+    },
+    {
+     "tag": "mem",
+     "html": "<b>Start with the volume</b>; rewrite 0.395 M as (0.395 mol CuBr₂ / 1 L). Ratio <b>2 AgBr : 1 CuBr₂</b>."
+    },
+    {
+     "tag": "",
+     "html": "<span class=\"fl\">25.0 <s>mL CuBr₂</s> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">1 <s>L CuBr₂</s></span><span class=\"sl\"> / </span><span class=\"fb\">1000 <s>mL CuBr₂</s></span><span class=\"po\">)</span></span> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">0.395 <s>mol CuBr₂</s></span><span class=\"sl\"> / </span><span class=\"fb\">1 <s>L CuBr₂</s></span><span class=\"po\">)</span></span> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">2 <s>mol AgBr</s></span><span class=\"sl\"> / </span><span class=\"fb\">1 <s>mol CuBr₂</s></span><span class=\"po\">)</span></span> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">187.77 g AgBr</span><span class=\"sl\"> / </span><span class=\"fb\">1 <s>mol AgBr</s></span><span class=\"po\">)</span></span> = <b>3.71 g AgBr</b></span>"
+    },
+    {
+     "tag": "mem",
+     "html": "Sig figs: <b>3</b>. Forgetting to balance gives exactly half the answer."
+    }
+   ]
+  },
+  {
+   "id": "hw18-q06",
+   "hw": 18,
+   "n": 6,
+   "section": "Solution Stoichiometry",
+   "method": "soln-stoich",
+   "q": "How many milliliters of 0.173 M hydroiodic acid are required to neutralize 12.0 mL of 0.369 M strontium hydroxide? HI + Sr(OH)₂ → SrI₂ + H₂O (UNBALANCED; the numbers change on each eLearn try)",
+   "choices": null,
+   "img": null,
+   "answer": "51.2 mL",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Balance: <b>2 HI + Sr(OH)₂ → SrI₂ + 2 H₂O</b>. Ratio <b>2 HI : 1 Sr(OH)₂</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "<b>Start with the one-unit number</b> (12.0 mL of the base), go to moles, switch, then flip the HI molarity to get liters:"
+    },
+    {
+     "tag": "",
+     "html": "<span class=\"fl\">12.0 <s>mL Sr(OH)₂</s> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">1 <s>L Sr(OH)₂</s></span><span class=\"sl\"> / </span><span class=\"fb\">1000 <s>mL Sr(OH)₂</s></span><span class=\"po\">)</span></span> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">0.369 <s>mol Sr(OH)₂</s></span><span class=\"sl\"> / </span><span class=\"fb\">1 <s>L Sr(OH)₂</s></span><span class=\"po\">)</span></span> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">2 <s>mol HI</s></span><span class=\"sl\"> / </span><span class=\"fb\">1 <s>mol Sr(OH)₂</s></span><span class=\"po\">)</span></span> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">1 <s>L HI</s></span><span class=\"sl\"> / </span><span class=\"fb\">0.173 <s>mol HI</s></span><span class=\"po\">)</span></span> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">1000 mL HI</span><span class=\"sl\"> / </span><span class=\"fb\">1 <s>L HI</s></span><span class=\"po\">)</span></span> = <b>51.2 mL HI</b></span>"
+    }
+   ]
+  },
+  {
+   "id": "hw18-q07",
+   "hw": 18,
+   "n": 7,
+   "section": "Solution Stoichiometry",
+   "method": "soln-stoich",
+   "q": "How many milliliters of 0.249 M sulfuric acid are required to neutralize 40.1 mL of 0.433 M sodium hydroxide? H₂SO₄ + NaOH → Na₂SO₄ + H₂O (UNBALANCED)",
+   "choices": null,
+   "img": null,
+   "answer": "34.9 mL",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Balance: <b>H₂SO₄ + 2 NaOH → Na₂SO₄ + 2 H₂O</b>. Ratio <b>1 H₂SO₄ : 2 NaOH</b>."
+    },
+    {
+     "tag": "",
+     "html": "<span class=\"fl\">40.1 <s>mL NaOH</s> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">1 <s>L NaOH</s></span><span class=\"sl\"> / </span><span class=\"fb\">1000 <s>mL NaOH</s></span><span class=\"po\">)</span></span> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">0.433 <s>mol NaOH</s></span><span class=\"sl\"> / </span><span class=\"fb\">1 <s>L NaOH</s></span><span class=\"po\">)</span></span> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">1 <s>mol H₂SO₄</s></span><span class=\"sl\"> / </span><span class=\"fb\">2 <s>mol NaOH</s></span><span class=\"po\">)</span></span> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">1 <s>L H₂SO₄</s></span><span class=\"sl\"> / </span><span class=\"fb\">0.249 <s>mol H₂SO₄</s></span><span class=\"po\">)</span></span> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">1000 mL H₂SO₄</span><span class=\"sl\"> / </span><span class=\"fb\">1 <s>L H₂SO₄</s></span><span class=\"po\">)</span></span> = <b>34.9 mL H₂SO₄</b></span>"
+    },
+    {
+     "tag": "",
+     "html": "Skipping the balance (1 : 1) would give <b>69.7 mL</b>, double the real answer."
+    }
+   ]
+  },
+  {
+   "id": "hw18-q08",
+   "hw": 18,
+   "n": 8,
+   "section": "Limiting Reactant",
+   "method": "limiting",
+   "q": "The limiting reactant in a reaction is…",
+   "choices": [
+    "the reactant which has the lowest coefficient in the balanced equation.",
+    "the reactant for which there is the fewest number of moles.",
+    "the reactant for which there is the most amount in grams.",
+    "none of these.",
+    "the reactant for which there is the least amount in grams."
+   ],
+   "img": null,
+   "answer": "none of these.",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "The limiting reactant <b>runs out first</b>, so it is the one that makes the <b>least product</b>."
+    },
+    {
+     "tag": "",
+     "html": "Lowest coefficient, fewest moles, most grams, least grams: none of those decide it by themselves (the <b>mole ratio</b> matters) → <b>none of these</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw18-q09",
+   "hw": 18,
+   "n": 9,
+   "section": "Limiting Reactant",
+   "method": "lr-picture",
+   "q": "The diagram shows S atoms and O₂ molecules in a closed container. Which diagram best represents the results after the mixture reacts as completely as possible according to 2 S + 3 O₂ → 2 SO₃, including anything left over?",
+   "choices": [
+    "Diagram 1",
+    "Diagram 2",
+    "Diagram 3",
+    "Diagram 4",
+    "Diagram 5"
+   ],
+   "img": "hw18-s-o2.png",
+   "answer": "Diagram 2",
+   "steps": [
+    {
+     "tag": "",
+     "html": "Count the start box: <b>6 S atoms</b> and <b>6 O₂ molecules</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Which runs out first? <span class=\"fl\">6 <s>O₂</s> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">2 S</span><span class=\"sl\"> / </span><span class=\"fb\">3 <s>O₂</s></span><span class=\"po\">)</span></span> = <b>4 S needed</b></span> and you have 6, so <b>O₂ is limiting</b>."
+    },
+    {
+     "tag": "",
+     "html": "<span class=\"fl\">6 <s>O₂</s> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">2 SO₃</span><span class=\"sl\"> / </span><span class=\"fb\">3 <s>O₂</s></span><span class=\"po\">)</span></span> = <b>4 SO₃</b></span>"
+    },
+    {
+     "tag": "",
+     "html": "Leftover: 6 − 4 = <b>2 S atoms</b>. Look for four SO₃ (1 square + 3 circles) and two lone squares → <b>Diagram 2</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw18-q10",
+   "hw": 18,
+   "n": 10,
+   "section": "Limiting Reactant",
+   "method": "limiting",
+   "q": "For C₂H₅OH + 3 O₂ → 2 CO₂ + 3 H₂O, if 0.15 mol of ethanol reacts with 0.40 mol of oxygen, what is the limiting reactant?",
+   "choices": [
+    "ethanol, C₂H₅OH",
+    "oxygen, O₂",
+    "carbon dioxide, CO₂",
+    "water, H₂O"
+   ],
+   "img": null,
+   "answer": "oxygen, O₂",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Chain each reactant to the <b>same product</b> (CO₂); you start in moles, so the molar masses aren't needed."
+    },
+    {
+     "tag": "",
+     "html": "<span class=\"fl\">0.15 <s>mol C₂H₅OH</s> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">2 mol CO₂</span><span class=\"sl\"> / </span><span class=\"fb\">1 <s>mol C₂H₅OH</s></span><span class=\"po\">)</span></span> = <b>0.30 mol CO₂</b></span>"
+    },
+    {
+     "tag": "",
+     "html": "<span class=\"fl\">0.40 <s>mol O₂</s> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">2 mol CO₂</span><span class=\"sl\"> / </span><span class=\"fb\">3 <s>mol O₂</s></span><span class=\"po\">)</span></span> = <b>0.27 mol CO₂</b></span>"
+    },
+    {
+     "tag": "mem",
+     "html": "O₂ makes less → <b>oxygen, O₂</b> is limiting."
+    }
+   ]
+  },
+  {
+   "id": "hw18-q11",
+   "hw": 18,
+   "n": 11,
+   "section": "Limiting Reactant",
+   "method": "limiting",
+   "q": "For C₂H₅OH + 3 O₂ → 2 CO₂ + 3 H₂O, if 0.40 mol of ethanol reacts with 0.30 mol of oxygen, what is the limiting reactant?",
+   "choices": [
+    "ethanol, C₂H₅OH",
+    "oxygen, O₂",
+    "carbon dioxide, CO₂",
+    "water, H₂O"
+   ],
+   "img": null,
+   "answer": "oxygen, O₂",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Chain each reactant to the <b>same product</b> (CO₂); you start in moles, so the molar masses aren't needed."
+    },
+    {
+     "tag": "",
+     "html": "<span class=\"fl\">0.40 <s>mol C₂H₅OH</s> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">2 mol CO₂</span><span class=\"sl\"> / </span><span class=\"fb\">1 <s>mol C₂H₅OH</s></span><span class=\"po\">)</span></span> = <b>0.80 mol CO₂</b></span>"
+    },
+    {
+     "tag": "",
+     "html": "<span class=\"fl\">0.30 <s>mol O₂</s> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">2 mol CO₂</span><span class=\"sl\"> / </span><span class=\"fb\">3 <s>mol O₂</s></span><span class=\"po\">)</span></span> = <b>0.20 mol CO₂</b></span>"
+    },
+    {
+     "tag": "mem",
+     "html": "O₂ makes less → <b>oxygen, O₂</b> is limiting."
+    }
+   ]
+  },
+  {
+   "id": "hw18-q12",
+   "hw": 18,
+   "n": 12,
+   "section": "Limiting Reactant",
+   "method": "limiting",
+   "q": "For C₂H₅OH + 3 O₂ → 2 CO₂ + 3 H₂O, if 0.25 mol of ethanol reacts with 0.40 mol of oxygen, what is the limiting reactant?",
+   "choices": [
+    "ethanol, C₂H₅OH",
+    "oxygen, O₂",
+    "carbon dioxide, CO₂",
+    "water, H₂O"
+   ],
+   "img": null,
+   "answer": "oxygen, O₂",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Chain each reactant to the <b>same product</b> (CO₂); you start in moles, so the molar masses aren't needed."
+    },
+    {
+     "tag": "",
+     "html": "<span class=\"fl\">0.25 <s>mol C₂H₅OH</s> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">2 mol CO₂</span><span class=\"sl\"> / </span><span class=\"fb\">1 <s>mol C₂H₅OH</s></span><span class=\"po\">)</span></span> = <b>0.50 mol CO₂</b></span>"
+    },
+    {
+     "tag": "",
+     "html": "<span class=\"fl\">0.40 <s>mol O₂</s> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">2 mol CO₂</span><span class=\"sl\"> / </span><span class=\"fb\">3 <s>mol O₂</s></span><span class=\"po\">)</span></span> = <b>0.27 mol CO₂</b></span>"
+    },
+    {
+     "tag": "mem",
+     "html": "O₂ makes less → <b>oxygen, O₂</b> is limiting."
+    },
+    {
+     "tag": "",
+     "html": "Fewer moles of ethanol doesn't make it limiting: each ethanol needs <b>3</b> O₂."
+    }
+   ]
+  },
+  {
+   "id": "hw18-q13",
+   "hw": 18,
+   "n": 13,
+   "section": "Limiting Reactant",
+   "method": "limiting",
+   "q": "If 1.3618 moles of AsF₃ react with 1.0000 mole of C₂Cl₆, what is the theoretical yield of AsCl₃, in moles? 4 AsF₃ + 3 C₂Cl₆ → 4 AsCl₃ + 3 C₂Cl₂F₄ (Correct sig figs; number only.)",
+   "choices": null,
+   "img": null,
+   "answer": "1.3333",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Theoretical yield = what the <b>limiting</b> reactant makes. Chain both to mol AsCl₃:"
+    },
+    {
+     "tag": "",
+     "html": "<span class=\"fl\">1.3618 <s>mol AsF₃</s> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">4 mol AsCl₃</span><span class=\"sl\"> / </span><span class=\"fb\">4 <s>mol AsF₃</s></span><span class=\"po\">)</span></span> = <b>1.3618 mol AsCl₃</b></span>"
+    },
+    {
+     "tag": "",
+     "html": "<span class=\"fl\">1.0000 <s>mol C₂Cl₆</s> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">4 mol AsCl₃</span><span class=\"sl\"> / </span><span class=\"fb\">3 <s>mol C₂Cl₆</s></span><span class=\"po\">)</span></span> = <b>1.3333 mol AsCl₃</b></span>"
+    },
+    {
+     "tag": "mem",
+     "html": "Smaller wins → <b>1.3333 mol (C₂Cl₆ is limiting)</b>. Sig figs: both numbers have <b>5</b> → 1.3333."
+    }
+   ]
+  },
+  {
+   "id": "hw18-q14",
+   "hw": 18,
+   "n": 14,
+   "section": "Limiting Reactant",
+   "method": "limiting",
+   "q": "If 0.18 moles of AsF₃ react with 0.81 mole of C₂Cl₆, what is the theoretical yield of AsCl₃, in moles? 4 AsF₃ + 3 C₂Cl₆ → 4 AsCl₃ + 3 C₂Cl₂F₄ (Correct sig figs; number only.)",
+   "choices": null,
+   "img": null,
+   "answer": "0.18",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Theoretical yield = what the <b>limiting</b> reactant makes. Chain both to mol AsCl₃:"
+    },
+    {
+     "tag": "",
+     "html": "<span class=\"fl\">0.18 <s>mol AsF₃</s> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">4 mol AsCl₃</span><span class=\"sl\"> / </span><span class=\"fb\">4 <s>mol AsF₃</s></span><span class=\"po\">)</span></span> = <b>0.18 mol AsCl₃</b></span>"
+    },
+    {
+     "tag": "",
+     "html": "<span class=\"fl\">0.81 <s>mol C₂Cl₆</s> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">4 mol AsCl₃</span><span class=\"sl\"> / </span><span class=\"fb\">3 <s>mol C₂Cl₆</s></span><span class=\"po\">)</span></span> = <b>1.08 mol AsCl₃</b></span>"
+    },
+    {
+     "tag": "mem",
+     "html": "Smaller wins → <b>0.18 mol (AsF₃ is limiting)</b>. Sig figs: <b>2</b> → 0.18."
+    }
+   ]
+  },
+  {
+   "id": "hw18-q15",
+   "hw": 18,
+   "n": 15,
+   "section": "Limiting Reactant",
+   "method": "limiting",
+   "q": "If 4.93 g of hydrogen react with 6.18 g of nitrogen to produce ammonia, how many grams of ammonia can be produced? 3 H₂(g) + N₂(g) → 2 NH₃(g)",
+   "choices": [
+    "27.7 g",
+    "3.76 g",
+    "55.5 g",
+    "15.0 g",
+    "7.52 g"
+   ],
+   "img": null,
+   "answer": "7.52 g",
+   "steps": [
+    {
+     "tag": "chart",
+     "html": "Molar masses (class chart): H₂ = <b>2.02</b>, N₂ = <b>28.02</b>, NH₃ = 14.01 + 3(1.01) = <b>17.04</b> g/mol."
+    },
+    {
+     "tag": "mem",
+     "html": "Run a chain from <b>each</b> reactant to grams of NH₃; the smaller amount wins."
+    },
+    {
+     "tag": "",
+     "html": "<span class=\"fl\">4.93 <s>g H₂</s> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">1 <s>mol H₂</s></span><span class=\"sl\"> / </span><span class=\"fb\">2.02 <s>g H₂</s></span><span class=\"po\">)</span></span> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">2 <s>mol NH₃</s></span><span class=\"sl\"> / </span><span class=\"fb\">3 <s>mol H₂</s></span><span class=\"po\">)</span></span> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">17.04 g NH₃</span><span class=\"sl\"> / </span><span class=\"fb\">1 <s>mol NH₃</s></span><span class=\"po\">)</span></span> = <b>27.7 g NH₃</b></span>"
+    },
+    {
+     "tag": "",
+     "html": "<span class=\"fl\">6.18 <s>g N₂</s> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">1 <s>mol N₂</s></span><span class=\"sl\"> / </span><span class=\"fb\">28.02 <s>g N₂</s></span><span class=\"po\">)</span></span> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">2 <s>mol NH₃</s></span><span class=\"sl\"> / </span><span class=\"fb\">1 <s>mol N₂</s></span><span class=\"po\">)</span></span> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">17.04 g NH₃</span><span class=\"sl\"> / </span><span class=\"fb\">1 <s>mol NH₃</s></span><span class=\"po\">)</span></span> = <b>7.52 g NH₃</b></span>"
+    },
+    {
+     "tag": "mem",
+     "html": "Smaller → <b>7.52 g NH₃ (N₂ is limiting)</b>."
+    },
+    {
+     "tag": "",
+     "html": "27.7 g is the trap: it's what the H₂ <b>could</b> make if it didn't run out of N₂."
+    }
+   ]
+  },
+  {
+   "id": "hw18-q16",
+   "hw": 18,
+   "n": 16,
+   "section": "Limiting Reactant",
+   "method": "limiting",
+   "q": "If 1.84 g of hydrogen react with 1.84 g of nitrogen to produce ammonia, how many grams of ammonia can be produced? 3 H₂(g) + N₂(g) → 2 NH₃(g)",
+   "choices": null,
+   "img": null,
+   "answer": "2.24 g",
+   "steps": [
+    {
+     "tag": "chart",
+     "html": "Molar masses (class chart): H₂ = <b>2.02</b>, N₂ = <b>28.02</b>, NH₃ = 14.01 + 3(1.01) = <b>17.04</b> g/mol."
+    },
+    {
+     "tag": "mem",
+     "html": "Run a chain from <b>each</b> reactant to grams of NH₃; the smaller amount wins."
+    },
+    {
+     "tag": "",
+     "html": "<span class=\"fl\">1.84 <s>g H₂</s> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">1 <s>mol H₂</s></span><span class=\"sl\"> / </span><span class=\"fb\">2.02 <s>g H₂</s></span><span class=\"po\">)</span></span> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">2 <s>mol NH₃</s></span><span class=\"sl\"> / </span><span class=\"fb\">3 <s>mol H₂</s></span><span class=\"po\">)</span></span> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">17.04 g NH₃</span><span class=\"sl\"> / </span><span class=\"fb\">1 <s>mol NH₃</s></span><span class=\"po\">)</span></span> = <b>10.3 g NH₃</b></span>"
+    },
+    {
+     "tag": "",
+     "html": "<span class=\"fl\">1.84 <s>g N₂</s> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">1 <s>mol N₂</s></span><span class=\"sl\"> / </span><span class=\"fb\">28.02 <s>g N₂</s></span><span class=\"po\">)</span></span> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">2 <s>mol NH₃</s></span><span class=\"sl\"> / </span><span class=\"fb\">1 <s>mol N₂</s></span><span class=\"po\">)</span></span> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">17.04 g NH₃</span><span class=\"sl\"> / </span><span class=\"fb\">1 <s>mol NH₃</s></span><span class=\"po\">)</span></span> = <b>2.24 g NH₃</b></span>"
+    },
+    {
+     "tag": "mem",
+     "html": "Smaller → <b>2.24 g NH₃ (N₂ is limiting)</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw18-q17",
+   "hw": 18,
+   "n": 17,
+   "section": "Limiting Reactant",
+   "method": "limiting",
+   "q": "What mass of potassium chloride can be produced directly from 5.2 g potassium and 7.9 g chlorine? 2 K + Cl₂ → 2 KCl",
+   "choices": [
+    "4.9 g KCl",
+    "9.9 g KCl",
+    "5.2 g KCl",
+    "10 g KCl",
+    "13 g KCl"
+   ],
+   "img": null,
+   "answer": "9.9 g KCl",
+   "steps": [
+    {
+     "tag": "chart",
+     "html": "Molar masses: K = <b>39.10</b>, Cl₂ = 2(35.45) = <b>70.90</b>, KCl = <b>74.55</b> g/mol."
+    },
+    {
+     "tag": "mem",
+     "html": "Run a chain from <b>each</b> reactant to grams of KCl; the smaller amount wins."
+    },
+    {
+     "tag": "",
+     "html": "<span class=\"fl\">5.2 <s>g K</s> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">1 <s>mol K</s></span><span class=\"sl\"> / </span><span class=\"fb\">39.10 <s>g K</s></span><span class=\"po\">)</span></span> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">2 <s>mol KCl</s></span><span class=\"sl\"> / </span><span class=\"fb\">2 <s>mol K</s></span><span class=\"po\">)</span></span> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">74.55 g KCl</span><span class=\"sl\"> / </span><span class=\"fb\">1 <s>mol KCl</s></span><span class=\"po\">)</span></span> = <b>9.9 g KCl</b></span>"
+    },
+    {
+     "tag": "",
+     "html": "<span class=\"fl\">7.9 <s>g Cl₂</s> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">1 <s>mol Cl₂</s></span><span class=\"sl\"> / </span><span class=\"fb\">70.90 <s>g Cl₂</s></span><span class=\"po\">)</span></span> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">2 <s>mol KCl</s></span><span class=\"sl\"> / </span><span class=\"fb\">1 <s>mol Cl₂</s></span><span class=\"po\">)</span></span> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">74.55 g KCl</span><span class=\"sl\"> / </span><span class=\"fb\">1 <s>mol KCl</s></span><span class=\"po\">)</span></span> = <b>16.6 g KCl</b></span>"
+    },
+    {
+     "tag": "mem",
+     "html": "Smaller → <b>9.9 g KCl (K is limiting; 2 sig figs)</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw18-q18",
+   "hw": 18,
+   "n": 18,
+   "section": "Limiting Reactant",
+   "method": "limiting",
+   "q": "What mass of rubidium chloride can be produced directly from 7.60 g rubidium and 7.60 g chlorine? 2 Rb + Cl₂ → 2 RbCl",
+   "choices": null,
+   "img": null,
+   "answer": "10.8 g",
+   "steps": [
+    {
+     "tag": "chart",
+     "html": "Molar masses: Rb = <b>85.47</b>, Cl₂ = <b>70.90</b>, RbCl = 85.47 + 35.45 = <b>120.92</b> g/mol."
+    },
+    {
+     "tag": "mem",
+     "html": "Run a chain from <b>each</b> reactant to grams of RbCl; the smaller amount wins."
+    },
+    {
+     "tag": "",
+     "html": "<span class=\"fl\">7.60 <s>g Rb</s> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">1 <s>mol Rb</s></span><span class=\"sl\"> / </span><span class=\"fb\">85.47 <s>g Rb</s></span><span class=\"po\">)</span></span> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">2 <s>mol RbCl</s></span><span class=\"sl\"> / </span><span class=\"fb\">2 <s>mol Rb</s></span><span class=\"po\">)</span></span> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">120.92 g RbCl</span><span class=\"sl\"> / </span><span class=\"fb\">1 <s>mol RbCl</s></span><span class=\"po\">)</span></span> = <b>10.8 g RbCl</b></span>"
+    },
+    {
+     "tag": "",
+     "html": "<span class=\"fl\">7.60 <s>g Cl₂</s> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">1 <s>mol Cl₂</s></span><span class=\"sl\"> / </span><span class=\"fb\">70.90 <s>g Cl₂</s></span><span class=\"po\">)</span></span> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">2 <s>mol RbCl</s></span><span class=\"sl\"> / </span><span class=\"fb\">1 <s>mol Cl₂</s></span><span class=\"po\">)</span></span> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">120.92 g RbCl</span><span class=\"sl\"> / </span><span class=\"fb\">1 <s>mol RbCl</s></span><span class=\"po\">)</span></span> = <b>25.9 g RbCl</b></span>"
+    },
+    {
+     "tag": "mem",
+     "html": "Smaller → <b>10.8 g RbCl (Rb is limiting)</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw18-q19",
+   "hw": 18,
+   "n": 19,
+   "section": "Limiting Reactant",
+   "method": "limiting",
+   "q": "36.7 g of A₂ are mixed with 36.7 g of T₂. How many grams of product are produced? 2 A₂ + 3 T₂ → 2 A₂T₃ (A₂ = 28.02, T₂ = 32.00, A₂T₃ = 76.02 g/mol; correct sig figs and unit)",
+   "choices": null,
+   "img": null,
+   "answer": "58.1 g",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Run a chain from <b>each</b> reactant to grams of A₂T₃; the smaller amount wins."
+    },
+    {
+     "tag": "",
+     "html": "<span class=\"fl\">36.7 <s>g A₂</s> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">1 <s>mol A₂</s></span><span class=\"sl\"> / </span><span class=\"fb\">28.02 <s>g A₂</s></span><span class=\"po\">)</span></span> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">2 <s>mol A₂T₃</s></span><span class=\"sl\"> / </span><span class=\"fb\">2 <s>mol A₂</s></span><span class=\"po\">)</span></span> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">76.02 g A₂T₃</span><span class=\"sl\"> / </span><span class=\"fb\">1 <s>mol A₂T₃</s></span><span class=\"po\">)</span></span> = <b>99.6 g A₂T₃</b></span>"
+    },
+    {
+     "tag": "",
+     "html": "<span class=\"fl\">36.7 <s>g T₂</s> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">1 <s>mol T₂</s></span><span class=\"sl\"> / </span><span class=\"fb\">32.00 <s>g T₂</s></span><span class=\"po\">)</span></span> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">2 <s>mol A₂T₃</s></span><span class=\"sl\"> / </span><span class=\"fb\">3 <s>mol T₂</s></span><span class=\"po\">)</span></span> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">76.02 g A₂T₃</span><span class=\"sl\"> / </span><span class=\"fb\">1 <s>mol A₂T₃</s></span><span class=\"po\">)</span></span> = <b>58.1 g A₂T₃</b></span>"
+    },
+    {
+     "tag": "mem",
+     "html": "Smaller → <b>58.1 g (T₂ is limiting)</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Type the unit: <b>58.1 g</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw18-q20",
+   "hw": 18,
+   "n": 20,
+   "section": "Excess Reactant",
+   "method": "excess",
+   "q": "BONUS: If 3.16 g of hydrogen react with 3.16 g of oxygen by 2 H₂ + O₂ → 2 H₂O, and oxygen is the limiting reactant, how much hydrogen is left over? (H₂ = 2.02, O₂ = 32.00 g/mol; round to the hundredths.)",
+   "choices": null,
+   "img": null,
+   "answer": "2.76 g",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Left over = <b>started − used</b>. O₂ is limiting (used up), so <b>start the chain with O₂</b> to find how much H₂ got used."
+    },
+    {
+     "tag": "",
+     "html": "<span class=\"fl\">3.16 <s>g O₂</s> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">1 <s>mol O₂</s></span><span class=\"sl\"> / </span><span class=\"fb\">32.00 <s>g O₂</s></span><span class=\"po\">)</span></span> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">2 <s>mol H₂</s></span><span class=\"sl\"> / </span><span class=\"fb\">1 <s>mol O₂</s></span><span class=\"po\">)</span></span> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">2.02 g H₂</span><span class=\"sl\"> / </span><span class=\"fb\">1 <s>mol H₂</s></span><span class=\"po\">)</span></span> = <b>0.399 g H₂ used</b></span>"
+    },
+    {
+     "tag": "",
+     "html": "3.16 g − 0.399 g = <b>2.76 g H₂</b> left over (hundredths place)."
+    }
+   ]
+  },
+  {
+   "id": "hw18-q21",
+   "hw": 18,
+   "n": 21,
+   "section": "Excess Reactant",
+   "method": "excess",
+   "q": "If 8.44 g of hydrogen react with 8.44 g of oxygen by 2 H₂ + O₂ → 2 H₂O, and oxygen is the limiting reactant, how much hydrogen is left over? (H₂ = 2.02, O₂ = 32.00 g/mol; round to the hundredths.)",
+   "choices": null,
+   "img": null,
+   "answer": "7.37 g",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Left over = <b>started − used</b>. O₂ is limiting (used up), so <b>start the chain with O₂</b> to find how much H₂ got used."
+    },
+    {
+     "tag": "",
+     "html": "<span class=\"fl\">8.44 <s>g O₂</s> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">1 <s>mol O₂</s></span><span class=\"sl\"> / </span><span class=\"fb\">32.00 <s>g O₂</s></span><span class=\"po\">)</span></span> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">2 <s>mol H₂</s></span><span class=\"sl\"> / </span><span class=\"fb\">1 <s>mol O₂</s></span><span class=\"po\">)</span></span> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">2.02 g H₂</span><span class=\"sl\"> / </span><span class=\"fb\">1 <s>mol H₂</s></span><span class=\"po\">)</span></span> = <b>1.066 g H₂ used</b></span>"
+    },
+    {
+     "tag": "",
+     "html": "8.44 g − 1.066 g = <b>7.37 g H₂</b> left over (hundredths place)."
     }
    ]
   }
