@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Balancing Workbench — Chem Study Hub</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/core.css">
+<style>
+  .panel{background:#F8FAFA;border:1px solid var(--rule);border-radius:12px;padding:16px;margin:0 0 14px}
+  .lbl{font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--sage);margin:0 0 8px}
+  .seg{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}
+  .seg button{font:500 14px 'IBM Plex Sans',sans-serif;border:1px solid var(--rule);background:#fff;color:var(--ink);padding:7px 12px;border-radius:999px;cursor:pointer}
+  .seg button[aria-pressed="true"]{background:var(--violet);border-color:var(--violet);color:#fff}
+  .row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+  .btn{font:600 15px 'IBM Plex Sans',sans-serif;border:1px solid var(--violet);background:var(--violet);color:#fff;padding:10px 16px;border-radius:9px;cursor:pointer;text-decoration:none}
+  .btn.ghost{background:#fff;color:var(--violet)}
+  .btn.small{font-size:13px;padding:6px 10px}
+  .btn:disabled{opacity:.45;cursor:default}
+  .hwlist{display:grid;gap:6px}
+  .hwq{display:flex;justify-content:space-between;gap:10px;align-items:center;text-align:left;width:100%;background:#fff;border:1px solid var(--rule);border-radius:10px;padding:9px 12px;font:15px 'IBM Plex Sans',sans-serif;color:var(--ink);cursor:pointer}
+  .hwq:hover{border-color:var(--violet)}
+  .hwq .n{font:600 12px 'IBM Plex Mono',monospace;color:var(--sage);min-width:3.2em}
+  .hwq .ok{color:var(--good);font-weight:700}
+  .own{display:flex;gap:8px;flex-wrap:wrap}
+  .own input{flex:1 1 240px;font:16px 'IBM Plex Mono',monospace;padding:10px 12px;border:1.5px solid var(--rule);border-radius:9px;background:#fff;color:var(--ink)}
+  .note{font-size:14px;color:var(--ink-soft);margin:8px 0 0}
+  .err{color:var(--red);font-size:14px;margin:8px 0 0}
+  .eq{font:500 19px/1.6 'IBM Plex Sans',sans-serif;margin:4px 0 10px}
+  .bar{height:8px;border-radius:99px;background:var(--paper-raised);overflow:hidden;margin:6px 0 4px}
+  .bar i{display:block;height:100%;background:var(--good);transition:width .3s}
+  .barlbl{font:500 13px 'IBM Plex Mono',monospace;color:var(--ink-soft)}
+  .pass{background:#fff;border:1.5px solid var(--rule);border-radius:12px;padding:14px;margin:0 0 12px}
+  .pass.done{border-color:var(--good)}
+  .pass h3{font:600 16px 'IBM Plex Sans',sans-serif;margin:0 0 2px}
+  .pass .how{font-size:14px;color:var(--ink-soft);margin:0 0 10px}
+  .ceq{display:flex;flex-wrap:wrap;align-items:center;gap:6px;font:500 18px 'IBM Plex Sans',sans-serif;margin:0 0 12px}
+  .ceq input,.tally input{width:3.2em;font:600 16px 'IBM Plex Mono',monospace;text-align:center;padding:6px 4px;border:1.5px solid var(--rule);border-radius:7px;background:#fff;color:var(--ink)}
+  .ceq input:focus,.tally input:focus{outline:none;border-color:var(--violet)}
+  .ceq input:disabled,.tally input:disabled{background:var(--paper-raised);color:var(--ink)}
+  input.bad{border-color:var(--red)!important;background:var(--red-wash)!important}
+  input.good{border-color:var(--good)!important;background:var(--good-wash)!important}
+  .ceq .arrow{margin:0 4px}
+  table.tally{border-collapse:collapse;margin:0 0 10px}
+  .tally th{font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--sage);text-align:left;padding:4px 10px 6px 0}
+  .tally td{padding:4px 10px 4px 0;font:500 16px 'IBM Plex Sans',sans-serif}
+  .tally .st{font:600 13px 'IBM Plex Mono',monospace}
+  .st.y{color:var(--good)} .st.n{color:var(--red)}
+  .fb{margin:10px 0 0;padding:11px 13px;border-radius:10px;font-size:15px}
+  .fb.ok{background:var(--good-wash);color:#1C4D31}
+  .fb.no{background:var(--red-wash);color:#5E2222}
+  .fb.tip{background:var(--violet-wash);color:var(--violet-deep)}
+  .next{background:#F8FAFA;border:1.5px dashed var(--violet);border-radius:12px;padding:14px;margin:0 0 12px}
+  .next h3{font:600 16px 'IBM Plex Sans',sans-serif;margin:0 0 6px}
+  .next p{margin:0 0 10px;font-size:15px}
+  .yn{display:flex;gap:8px;margin:0 0 6px}
+  .win{font:600 26px 'Fraunces',serif;margin:2px 0 6px}
+  details.help{margin:0 0 14px}
+  details.help summary{cursor:pointer;font:600 14px 'IBM Plex Sans',sans-serif;color:var(--violet)}
+  details.help ul{margin:8px 0 0;padding-left:20px;font-size:14px;line-height:1.55}
+  .stats{display:flex;flex-wrap:wrap;gap:6px 18px;font:500 13px 'IBM Plex Mono',monospace;color:var(--ink-soft);margin:0 0 12px}
+  .stats b{color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="quiz-head">
+    <a class="back-link" href="../index.html">&larr; Chem Study Hub</a>
+    <p class="site-mark">CHEM STUDY HUB &middot; TEST 3</p>
+    <h1 class="quiz-title">Balancing Workbench</h1>
+    <p class="quiz-sub">Balance an equation one pass at a time. Fill in a tally for each pass, check it, and the workbench tells you which row to fix next, when to use the odd-oxygen trick, and when you're done.</p>
+  </div>
+  <details class="help">
+    <summary>How to count and the order to fix rows</summary>
+    <ul>
+      <li>A subscript belongs to the element right before it. No subscript = 1.</li>
+      <li>A subscript outside parentheses multiplies everything inside.</li>
+      <li>A coefficient multiplies the whole formula, on top of the subscripts. Add up every formula on that side.</li>
+      <li>A polyatomic ion that is unchanged on both sides (like SO₄) gets its own row and counts as one unit. Its atoms are not counted again in the element rows.</li>
+      <li>Fix order: everything except H and O first, then H, then O last. Elements standing alone (Al, Cu, O₂) are set last.</li>
+      <li>A 2 on one side and a 3 on the other? Swap them as coefficients.</li>
+      <li>Odd oxygen with O₂? Double every coefficient you have, recount, then set O₂ = O needed ÷ 2.</li>
+      <li>Change coefficients only, never subscripts. Blank coefficient boxes count as 1.</li>
+    </ul>
+  </details>
+  <div id="app"><p class="note">Loading…</p></div>
+</div>
+<script src="../drill3/engine.js"></script>
+<script>
+/* Balancing Workbench. Checkpoint/resume: the chosen source, the problem on screen, every pass (coefficients, tally entries,
+   check results, odd-oxygen answers) and the solved list are saved in this browser after every keystroke (chem-balance-v1),
+   so a reload or crash picks up exactly where you left off. */
+(function () {
+  const KEY = 'chem-balance-v1', D = Drill3, $ = id => document.getElementById(id), app = $('app');
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
+  const sub = f => D.sub(f);
+
+  /* ---------- problems ---------- */
+  const HW = [
+    ['hw15-q14', 'Q14', ['Li', 'O2'], ['Li2O']], ['hw15-q15', 'Q15', ['Al', 'O2'], ['Al2O3']],
+    ['hw15-q16', 'Q16', ['Al2O3', 'H2SO4'], ['Al2(SO4)3', 'H2O']], ['hw15-q17', 'Q17', ['Br2', 'KI'], ['I2', 'KBr']],
+    ['hw15-q18', 'Q18', ['H3PO4', 'NaOH'], ['Na3PO4', 'H2O']], ['hw15-q19', 'Q19', ['Na', 'I2'], ['NaI']],
+    ['hw15-q20', 'Q20', ['P4', 'O2'], ['P2O3']], ['hw15-q21', 'Q21', ['N4', 'F2'], ['NF3']],
+    ['hw15-q22', 'Q22', ['C2H6', 'O2'], ['H2O', 'CO2']], ['hw15-q23', 'Q23', ['C', 'SO2'], ['CS2', 'CO']],
+    ['hw15-q24', 'Q24', ['C3H6O', 'O2'], ['H2O', 'CO2']], ['hw15-q26', 'Q26', ['Pb(NO3)2', 'K2CrO4'], ['PbCrO4', 'KNO3']],
+    ['hw15-q03', 'Q3', ['Cu(ClO2)2', 'Li2S'], ['CuS', 'LiClO2']]
+  ].map(([id, n, re, pr]) => ({ id, label: 'HW 15 ' + n, re, pr }));
+  const DIATOMIC = ['H2', 'N2', 'O2', 'F2', 'Cl2', 'Br2', 'I2'];
+  const IONS = ['C2H3O2', 'CH3CO2', 'Cr2O7', 'HCO3', 'HSO4', 'H2PO4', 'HPO4', 'MnO4', 'ClO4', 'ClO3', 'ClO2', 'CrO4', 'PO4', 'PO3', 'SO4', 'SO3', 'NO3', 'NO2', 'CO3', 'NH4', 'OH', 'CN'];
+
+  function prep(p) {   // rows, coefficient answer, per-species row counts
+    const all = p.re.concat(p.pr), n = all.length, nre = p.re.length;
+    const parsed = all.map(f => D.parse(f));
+    const groups = all.map(f => ionGroups(f));
+    const ionStats = {};
+    IONS.forEach(ion => {
+      const per = groups.map(g => g[ion] || 0);
+      if (!per.some((c, i) => c && i < nre) || !per.some((c, i) => c && i >= nre)) return;
+      const ic = D.parse(ion), core = Object.keys(ic).filter(e => e !== 'O' && e !== 'H'), chk = core.length ? core : Object.keys(ic);
+      const ok = chk.every(e => parsed.every((c, i) => (c[e] || 0) === per[i] * ic[e]));
+      if (ok) ionStats[ion] = per;
+    });
+    const units = Object.keys(ionStats);
+    const rest = parsed.map((c, i) => { const r = Object.assign({}, c); units.forEach(u => { const ic = D.parse(u); for (const e in ic) r[e] -= ionStats[u][i] * ic[e]; }); return r; });
+    const order = [];
+    all.forEach((f, i) => { Object.keys(rest[i]).forEach(e => { if (rest[i][e] > 0 && !order.includes('e:' + e)) order.push('e:' + e); }); units.forEach(u => { if (ionStats[u][i] && !order.includes('u:' + u)) order.push('u:' + u); }); });
+    const rank = k => k === 'e:H' ? 1 : k === 'e:O' ? 2 : 0;
+    const rows = order.sort((a, b) => rank(a) - rank(b)).map(k => {
+      const [t, s] = k.split(':');
+      return { key: k, label: t === 'u' ? sub(s) + ' (unit)' : s, el: t === 'e' ? s : null, per: all.map((f, i) => t === 'u' ? ionStats[s][i] : (rest[i][s] || 0)) };
+    });
+    const lone = all.map((f, i) => units.every(u => !ionStats[u][i]) && Object.keys(parsed[i]).length === 1);
+    rows.forEach(r => { r.lone = !!r.el && all.some((f, i) => lone[i] && parsed[i][r.el]); });
+    return { all, n, nre, rows, lone, ans: D.balance(p.re, p.pr) };
+  }
+  function ionGroups(f) {   // polyatomic ions written in a formula: {ion: how many}
+    const out = {}; let s = f;
+    IONS.forEach(ion => {
+      const re = new RegExp('\\(' + ion + '\\)(\\d*)', 'g');
+      s = s.replace(re, (m, k) => { out[ion] = (out[ion] || 0) + (k ? +k : 1); return '#'; });
+    });
+    IONS.forEach(ion => {
+      if (s === ion) return;
+      if (s.endsWith(ion) && !out[ion]) { out[ion] = 1; s = s.slice(0, -ion.length) + '#'; }
+      else if (ion === 'NH4' && s.startsWith('NH4') && !out[ion]) { out[ion] = 1; s = '#' + s.slice(3); }
+    });
+    return out;
+  }
+  function genProblem() {
+    for (let t = 0; t < 50; t++) {
+      const b = D.BAL[Math.floor(Math.random() * D.BAL.length)];
+      if (!D.balance(b[0], b[1])) continue;
+      if (st.prob && st.prob.re.join() === b[0].join() && st.prob.pr.join() === b[1].join()) continue;
+      return { id: 'gen:' + b[0].join('+') + '>' + b[1].join('+'), label: 'Random · ' + b[3], re: b[0].slice(), pr: b[1].slice() };
+    }
+  }
+  function parseOwn(txt) {
+    const t = txt.replace(/[₀-₉]/g, c => '₀₁₂₃₄₅₆₇₈₉'.indexOf(c)).replace(/\((aq|s|l|g)\)/g, '');
+    const parts = t.split(/→|-+>|=+>|⟶|=/); if (parts.length !== 2) return { error: 'Use an arrow between the sides, like  C3H8 + O2 -> CO2 + H2O' };
+    const side = x => x.split('+').map(y => y.trim().replace(/^\d+\s*/, '').replace(/\s/g, '')).filter(Boolean);
+    const re = side(parts[0]), pr = side(parts[1]);
+    if (!re.length || !pr.length) return { error: 'Each side needs at least one formula.' };
+    for (const f of re.concat(pr)) { try { const c = D.parse(f); if (!Object.keys(c).length) throw 0; } catch (e) { return { error: 'I can\'t read "' + f + '". Use element symbols and plain numbers (C3H8, Al2(SO4)3).' }; } }
+    if (!D.balance(re, pr)) return { error: 'That equation can\'t be balanced as written. Check the formulas.' };
+    return { id: 'own:' + re.join('+') + '>' + pr.join('+'), label: 'Your equation', re, pr };
+  }
+
+  /* ---------- state (checkpoint/resume) ---------- */
+  let st;
+  try { st = JSON.parse(localStorage.getItem(KEY)); } catch (e) { st = null; }
+  if (!st || st.v !== 1) st = { v: 1, src: 'gen', prob: null, passes: [], solved: {}, count: 0, own: '' };
+  const save = () => { try { localStorage.setItem(KEY, JSON.stringify(st)); } catch (e) { } };
+  let P = st.prob ? prep(st.prob) : null;
+
+  function start(prob) {
+    st.prob = prob; P = prep(prob);
+    st.passes = [newPass('start')]; save(); render(); window.scrollTo(0, 0);
+  }
+  function newPass(kind, from) {
+    const n = P.n, prev = from ? from.coefs.slice() : Array(n).fill('1');
+    return { kind, coefs: kind === 'start' ? Array(n).fill('1') : prev, tally: {}, res: null, odd: null };
+  }
+  const cnum = s => { s = String(s == null ? '' : s).trim(); if (s === '') return 1; return /^\d+$/.test(s) && +s > 0 ? +s : null; };
+  const counts = co => P.rows.map(r => [r.per.reduce((a, c, i) => a + (i < P.nre ? c * co[i] : 0), 0), r.per.reduce((a, c, i) => a + (i >= P.nre ? c * co[i] : 0), 0)]);
+  const fmtEq = co => P.all.map((f, i) => (co && co[i] > 1 ? co[i] + ' ' : '') + sub(f)).reduce((s, x, i) => s + (i === 0 ? '' : i === P.nre ? ' → ' : ' + ') + x, '');
+
+  /* ---------- checking ---------- */
+  function check(pi) {
+    const ps = st.passes[pi], prev = st.passes[pi - 1];
+    const co = ps.coefs.map(cnum), coefBad = co.map(v => v === null);
+    if (ps.kind === 'double' && prev) {
+      const pc = prev.coefs.map(cnum);
+      P.all.forEach((f, i) => { if (!(P.lone[i] && DIATOMIC.includes(f)) && co[i] !== null && co[i] !== 2 * pc[i]) coefBad[i] = true; });
+    }
+    if (ps.kind === 'reduce' && prev) {
+      const pc = prev.coefs.map(cnum), g = D.gcdAll(pc);
+      P.all.forEach((f, i) => { if (co[i] !== pc[i] / g) coefBad[i] = true; });
+    }
+    let cells = {}, okAll = !coefBad.some(Boolean);
+    if (okAll) {
+      const exp = counts(co);
+      P.rows.forEach((r, k) => {
+        const t = ps.tally[r.key] || ['', ''];
+        const c = [0, 1].map(j => /^\s*\d+\s*$/.test(t[j] || '') && +t[j] === exp[k][j]);
+        cells[r.key] = c; if (!c[0] || !c[1]) okAll = false;
+      });
+    }
+    ps.res = { ok: okAll, coefBad, cells, at: Date.now() };
+    save(); render();
+  }
+
+  /* ---------- rendering ---------- */
+  function render() {
+    const hwDone = HW.filter(h => st.solved[h.id]).length;
+    let h = `<div class="stats"><span>Balanced so far <b>${st.count}</b></span><span>HW 15 <b>${hwDone}/${HW.length}</b></span></div>`;
+    h += `<div class="panel"><p class="lbl">Pick a problem</p><div class="seg" id="src">${[['gen', 'Random equation'], ['hw', 'HW 15 problems'], ['own', 'Type my own']].map(([k, l]) => `<button type="button" data-src="${k}" aria-pressed="${st.src === k}">${l}</button>`).join('')}</div>`;
+    if (st.src === 'gen') h += `<div class="row"><button class="btn" id="gen" type="button">${st.prob ? 'New random equation' : 'Start a random equation'}</button></div>`;
+    if (st.src === 'hw') h += `<details class="help" style="margin:0"${P && st.prob.id.startsWith('hw') ? '' : ' open'}><summary>Choose a HW 15 problem</summary><div class="hwlist" style="margin-top:8px">${HW.map((q, i) => `<button type="button" class="hwq" data-hw="${i}"><span class="n">${q.label.replace('HW 15 ', '')}</span><span style="flex:1">${esc(fmtPlain(q))}</span><span class="ok">${st.solved[q.id] ? '✓' : ''}</span></button>`).join('')}</div></details>`;
+    if (st.src === 'own') h += `<div class="own"><input id="ownIn" placeholder="C3H8 + O2 -> CO2 + H2O" value="${esc(st.own || '')}" autocomplete="off" autocapitalize="off" spellcheck="false"><button class="btn" id="ownGo" type="button">Start</button></div><p class="note">Plain numbers for subscripts are fine. Any coefficients you type are ignored.</p><p class="err" id="ownErr"></p>`;
+    h += '</div>';
+    if (P) h += problemHTML();
+    app.innerHTML = h;
+    wire();
+  }
+  function fmtPlain(q) { return q.re.map(sub).join(' + ') + ' → ' + q.pr.map(sub).join(' + '); }
+
+  function problemHTML() {
+    const last = st.passes[st.passes.length - 1], lastOk = [...st.passes].reverse().find(p => p.res && p.res.ok);
+    let matched = 0;
+    if (lastOk) { const c = counts(lastOk.coefs.map(cnum)); matched = c.filter(x => x[0] === x[1]).length; }
+    const tot = P.rows.length, solved = lastOk && matched === tot && D.gcdAll(lastOk.coefs.map(cnum)) === 1;
+    const pct = solved ? 100 : Math.round(matched / tot * 90);
+    let h = `<div class="panel"><p class="lbl">${esc(st.prob.label)}</p><div class="eq">${fmtPlain(st.prob)}</div>
+      <div class="bar"><i style="width:${pct}%"></i></div><div class="barlbl">${solved ? 'Balanced ✓' : `Rows matching: ${matched}/${tot}${lastOk ? '' : ' (check a pass to update)'}`} · pass ${st.passes.length}</div>
+      <div class="row" style="margin-top:10px"><button class="btn ghost small" id="restart" type="button">Restart this problem</button><button class="btn ghost small" id="reveal" type="button">Show the answer</button></div>
+      ${st.reveal ? `<p class="fb tip">Answer: <b>${fmtEq(P.ans)}</b> (eLearn: ${P.ans.join(', ')})</p>` : ''}</div>`;
+    st.passes.forEach((ps, i) => { h += passHTML(ps, i, i === st.passes.length - 1); });
+    if (last.res && last.res.ok) h += nextHTML(last, st.passes.length - 1);
+    return h;
+  }
+  const TITLE = { start: 'Starting count', pass: 'Next pass', double: 'Doubled pass', setdi: 'Set the diatomic', reduce: 'Reduce' };
+  function howText(ps, i) {
+    const prev = st.passes[i - 1];
+    if (ps.kind === 'start') return 'Every coefficient is 1. Count each row on both sides.';
+    if (ps.kind === 'double') return `Multiply every coefficient from pass ${i} by 2 (the ${sub(prev && prev.di || 'O2')} box can wait), then recount every row.`;
+    if (ps.kind === 'setdi') return `Set ${sub(prev && prev.di || 'O2')} so its atoms cover what's still needed (needed ÷ 2), then recount.`;
+    if (ps.kind === 'reduce') return 'Every coefficient shares a factor. Divide them all by it, then recount.';
+    return 'Change the coefficients you need (blank = 1), then recount every row.';
+  }
+  function passHTML(ps, i, isLast) {
+    const locked = !isLast || (ps.res && ps.res.ok), r = ps.res;
+    let h = `<div class="pass${locked && r && r.ok ? ' done' : ''}" data-pass="${i}"><h3>Pass ${i + 1} · ${ps.kind === 'setdi' && st.passes[i - 1] && st.passes[i - 1].di ? 'Set ' + sub(st.passes[i - 1].di) : TITLE[ps.kind]}</h3><p class="how">${howText(ps, i)}</p><div class="ceq">`;
+    P.all.forEach((f, k) => {
+      if (k === P.nre) h += '<span class="arrow">→</span>'; else if (k > 0) h += '<span>+</span>';
+      const cls = r && !r.ok && r.coefBad[k] ? ' class="bad"' : '';
+      h += `<input inputmode="numeric" data-co="${k}" value="${esc(ps.coefs[k])}"${cls}${locked || ps.kind === 'start' ? ' disabled' : ''} aria-label="coefficient for ${f}"><span>${sub(f)}</span>`;
+    });
+    h += '</div><table class="tally"><tr><th>Row</th><th>Left</th><th>Right</th><th></th></tr>';
+    P.rows.forEach(rw => {
+      const t = ps.tally[rw.key] || ['', ''], c = r && r.cells[rw.key];
+      const cl = j => c ? (c[j] ? ' class="good"' : ' class="bad"') : '';
+      let stc = '';
+      if (r && r.ok) { const ok = t[0].trim() === t[1].trim(); stc = `<span class="st ${ok ? 'y' : 'n'}">${ok ? '✓ match' : '✗ not equal'}</span>`; }
+      h += `<tr><td>${rw.label}</td><td><input inputmode="numeric" data-t="${rw.key}" data-j="0" value="${esc(t[0])}"${cl(0)}${locked ? ' disabled' : ''}></td><td><input inputmode="numeric" data-t="${rw.key}" data-j="1" value="${esc(t[1])}"${cl(1)}${locked ? ' disabled' : ''}></td><td class="st">${stc}</td></tr>`;
+    });
+    h += '</table>';
+    if (!locked) h += `<button class="btn" type="button" data-check="${i}">Check pass ${i + 1}</button>`;
+    if (r && !r.ok) h += `<div class="fb no">${failText(ps, r, i)}</div>`;
+    h += '</div>';
+    return h;
+  }
+  function failText(ps, r, i) {
+    if (r.coefBad.some(Boolean)) {
+      if (ps.kind === 'double') return 'The red coefficient boxes aren\'t double what you had in the last pass. Multiply each one by 2.';
+      if (ps.kind === 'reduce') return 'Divide every coefficient by the same factor they all share.';
+      return 'Coefficients have to be whole numbers 1 or higher (leave a box blank for 1).';
+    }
+    const badRows = P.rows.filter(rw => r.cells[rw.key] && !(r.cells[rw.key][0] && r.cells[rw.key][1])).map(rw => rw.label);
+    return `Recount the red boxes (${badRows.join(', ')}). Remember: coefficient × subscript, and a subscript outside parentheses multiplies everything inside. Add every formula on that side.`;
+  }
+  function nextHTML(ps, i) {
+    const co = ps.coefs.map(cnum), c = counts(co), un = P.rows.filter((r, k) => c[k][0] !== c[k][1]);
+    if (!un.length) {
+      const g = D.gcdAll(co);
+      if (g > 1) return `<div class="next"><h3>Every row matches, but it isn't in lowest terms</h3><p>All your coefficients share a factor of <b>${g}</b>. Divide them all by ${g}.</p><button class="btn" type="button" data-new="reduce">Start the reduce pass</button></div>`;
+      return `<div class="next" style="border-color:var(--good)"><p class="win">Balanced ✓</p><p><b>${fmtEq(co)}</b></p><p>eLearn entry: <b>${co.join(', ')}</b> (a 1 in every blank that needs it).</p><div class="row"><button class="btn" type="button" id="nextProb">${st.src === 'hw' ? 'Next HW problem' : st.src === 'own' ? 'Type another' : 'New random equation'}</button></div></div>`;
+    }
+    // odd-diatomic question: only when every unbalanced row is backed by a lone element, and one of them is a lone diatomic
+    const allLone = un.every(r => r.lone);
+    const diIdx = P.all.findIndex((f, k) => P.lone[k] && DIATOMIC.includes(f) && un.some(r => r.el === Object.keys(D.parse(f))[0]));
+    if (allLone && diIdx >= 0) {
+      const f = P.all[diIdx], el = Object.keys(D.parse(f))[0], row = P.rows.find(r => r.el === el), onLeft = diIdx < P.nre;
+      const opp = row.per.reduce((a, v, k) => a + ((k >= P.nre) === onLeft ? v * co[k] : 0), 0);
+      const same = row.per.reduce((a, v, k) => a + ((k < P.nre) === onLeft && k !== diIdx ? v * co[k] : 0), 0);
+      const need = opp - same, odd = need % 2 !== 0;
+      ps.di = f;
+      const sideW = onLeft ? 'right' : 'left';
+      const qtxt = same ? `How many ${el} does ${sub(f)} have to supply? That's the ${el} on the ${sideW} minus the ${el} already on the ${onLeft ? 'left' : 'right'} outside ${sub(f)}. Is that number odd?` : `Is the ${el} count on the ${sideW} side odd?`;
+      let h = `<div class="next"><h3>Only the ${sub(f)} row is left. Check the odd-${el} trick</h3><p>${qtxt}</p>`;
+      if (!ps.odd || !ps.odd.right) {
+        h += `<div class="yn"><button class="btn ghost" type="button" data-odd="yes">Yes, it's odd</button><button class="btn ghost" type="button" data-odd="no">No, it's even</button></div>`;
+        if (ps.odd && !ps.odd.right) h += `<p class="fb no">Not quite. Look at your ${el} row: the ${sideW} side has ${opp}${same ? `, and ${same} is already on the ${onLeft ? 'left' : 'right'}` : ''}.</p>`;
+      } else if (odd) {
+        h += `<p class="fb ok">Right: ${need} is odd, and ${sub(f)} can only add ${el} in pairs. Double every coefficient you have and recount.</p><button class="btn" type="button" data-new="double">Start the doubled pass</button>`;
+      } else {
+        h += `<p class="fb ok">Right: ${need} is even, so ${sub(f)} = ${need} ÷ 2. Put that in the ${sub(f)} box and recount.</p><button class="btn" type="button" data-new="setdi">Start the next pass</button>`;
+      }
+      return h + '</div>';
+    }
+    const target = un.find(r => !r.lone) || un.find(r => !(r.el && DIATOMIC.some(d => D.parse(d)[r.el]))) || un[0];
+    const k = P.rows.indexOf(target), [L, R] = c[k];
+    let tip = '';
+    if ((L === 2 && R === 3) || (L === 3 && R === 2)) tip = ' It\'s a 2 and a 3: swap them as coefficients.';
+    else if (Math.max(L, R) % Math.min(L, R) === 0) tip = ` ${Math.max(L, R)} is a multiple of ${Math.min(L, R)}: multiply the smaller side up.`;
+    else tip = ' Find the smallest number both sides can reach (their least common multiple).';
+    const why = target.lone ? 'Only rows with lone elements are left; set those now.' : target.el === 'H' ? 'Everything except H and O matches, so H is next.' : target.el === 'O' ? 'O goes last.' : 'Fix everything except H and O first, top to bottom.';
+    return `<div class="next"><h3>Next: fix the ${target.label} row</h3><p>${why} Left has <b>${L}</b>, right has <b>${R}</b>.${tip}</p><button class="btn" type="button" data-new="pass">Start pass ${i + 2}</button></div>`;
+  }
+
+  /* ---------- events ---------- */
+  function wire() {
+    app.querySelectorAll('[data-src]').forEach(b => b.onclick = () => { st.src = b.dataset.src; save(); render(); });
+    const g = $('gen'); if (g) g.onclick = () => start(genProblem());
+    app.querySelectorAll('[data-hw]').forEach(b => b.onclick = () => start(Object.assign({}, HW[+b.dataset.hw])));
+    const oi = $('ownIn'); if (oi) { oi.oninput = () => { st.own = oi.value; save(); }; oi.onkeydown = e => { if (e.key === 'Enter') $('ownGo').click(); }; }
+    const og = $('ownGo'); if (og) og.onclick = () => { const r = parseOwn($('ownIn').value); if (r.error) { $('ownErr').textContent = r.error; return; } start(r); };
+    const rs = $('restart'); if (rs) rs.onclick = () => { st.reveal = false; start(st.prob); };
+    const rv = $('reveal'); if (rv) rv.onclick = () => { st.reveal = !st.reveal; save(); render(); };
+    app.querySelectorAll('input[data-co]').forEach(inp => inp.oninput = () => { const ps = st.passes[+inp.closest('.pass').dataset.pass]; ps.coefs[+inp.dataset.co] = inp.value; ps.res = null; save(); inp.classList.remove('bad'); });
+    app.querySelectorAll('input[data-t]').forEach(inp => {
+      inp.oninput = () => { const ps = st.passes[+inp.closest('.pass').dataset.pass]; const t = ps.tally[inp.dataset.t] || (ps.tally[inp.dataset.t] = ['', '']); t[+inp.dataset.j] = inp.value; save(); inp.classList.remove('bad', 'good'); };
+      inp.onkeydown = e => { if (e.key === 'Enter') { const b = inp.closest('.pass').querySelector('[data-check]'); if (b) b.click(); } };
+    });
+    app.querySelectorAll('[data-check]').forEach(b => b.onclick = () => check(+b.dataset.check));
+    app.querySelectorAll('[data-odd]').forEach(b => b.onclick = () => {
+      const ps = st.passes[st.passes.length - 1], co = ps.coefs.map(cnum), f = ps.di, diIdx = P.all.indexOf(f), el = Object.keys(D.parse(f))[0], row = P.rows.find(r => r.el === el), onLeft = diIdx < P.nre;
+      const need = row.per.reduce((a, v, k) => a + ((k >= P.nre) === onLeft ? v * co[k] : 0), 0) - row.per.reduce((a, v, k) => a + ((k < P.nre) === onLeft && k !== diIdx ? v * co[k] : 0), 0);
+      ps.odd = { ans: b.dataset.odd, right: (b.dataset.odd === 'yes') === (need % 2 !== 0) }; save(); render();
+    });
+    app.querySelectorAll('[data-new]').forEach(b => b.onclick = () => {
+      const last = st.passes[st.passes.length - 1]; st.passes.push(newPass(b.dataset.new, last)); save(); render();
+      const el = app.querySelector(`.pass[data-pass="${st.passes.length - 1}"]`); if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); const f = el.querySelector('input:not(:disabled)'); if (f) f.focus({ preventScroll: true }); }
+    });
+    const np = $('nextProb'); if (np) np.onclick = () => {
+      if (st.src === 'hw') { const i = HW.findIndex(q => q.id === st.prob.id); const nx = HW.slice(i + 1).concat(HW.slice(0, i + 1)).find(q => !st.solved[q.id]) || HW[(i + 1) % HW.length]; start(Object.assign({}, nx)); }
+      else if (st.src === 'own') { st.prob = null; P = null; st.passes = []; save(); render(); const x = $('ownIn'); if (x) { x.value = ''; x.focus(); } }
+      else start(genProblem());
+    };
+    // record a solve once
+    if (P && st.passes.length) {
+      const last = st.passes[st.passes.length - 1];
+      if (last.res && last.res.ok && !last.counted) {
+        const co = last.coefs.map(cnum), c = counts(co);
+        if (c.every(x => x[0] === x[1]) && D.gcdAll(co) === 1) { last.counted = true; st.count++; st.solved[st.prob.id] = true; save(); render(); }
+      }
+    }
+  }
+  render();
+})();
+</script>
+</body>
+</html>

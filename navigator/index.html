@@ -1577,6 +1577,7 @@ function renderNode(id) {
     html += '<ol class="steps">' + n.steps.map(function (s) { return '<li>' + s + '</li>'; }).join('') + '</ol>';
     if (n.watch) html += '<div class="watch"><strong>Watch out</strong>' + n.watch.map(function (w) { return '<p>' + w + '</p>'; }).join('') + '</div>';
     if (n.notes) html += '<p class="notes-link"><a href="#/notes/' + n.notes + '">Open this part of your notes →</a></p>';
+    if (n.practice) html += '<p class="notes-link"><a href="' + n.practice + '">Practice this in the Balancing Workbench (tally each pass, step by step) →</a></p>';
     if (n.walk) html += '<p class="notes-link"><a href="../walkthrough/index.html#' + n.walk + '">See this worked on a homework problem →</a> &nbsp;·&nbsp; <a href="../walkthrough/index.html#hw' + n.walk.slice(2, 4) + '">' + 'All HW ' + n.walk.slice(2, 4) + ' walkthroughs</a></p>';
   }
   html += '</div>';
