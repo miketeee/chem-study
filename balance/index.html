@@ -79,7 +79,7 @@
       <li>A polyatomic ion that is unchanged on both sides (like SO₄) gets its own row and counts as one unit. Its atoms are not counted again in the element rows.</li>
       <li>Fix order: everything except H and O first, then H, then O last. Elements standing alone (Al, Cu, O₂) are set last.</li>
       <li>A 2 on one side and a 3 on the other? Swap them as coefficients.</li>
-      <li>Odd oxygen with O₂? Double every coefficient you have, recount, then set O₂ = O needed ÷ 2.</li>
+      <li>Odd oxygen with O₂? Double every coefficient you've already set (not O₂; it's set last), recount, then set O₂ = O needed ÷ 2.</li>
       <li>Change coefficients only, never subscripts. Blank coefficient boxes count as 1.</li>
     </ul>
   </details>
@@ -242,7 +242,7 @@
   function howText(ps, i) {
     const prev = st.passes[i - 1];
     if (ps.kind === 'start') return 'Every coefficient is 1. Count each row on both sides.';
-    if (ps.kind === 'double') return `Multiply every coefficient from pass ${i} by 2 (the ${sub(prev && prev.di || 'O2')} box can wait), then recount every row.`;
+    if (ps.kind === 'double') { const d = sub(prev && prev.di || 'O2'); return `Double every coefficient you've already set from pass ${i}. Leave ${d} alone: it isn't set yet (its 1 is just a placeholder), and you'll set it in the next pass from what's needed. Then recount every row.`; }
     if (ps.kind === 'setdi') return `Set ${sub(prev && prev.di || 'O2')} so its atoms cover what's still needed (needed ÷ 2), then recount.`;
     if (ps.kind === 'reduce') return 'Every coefficient shares a factor. Divide them all by it, then recount.';
     return 'Change the coefficients you need (blank = 1), then recount every row.';
@@ -276,6 +276,9 @@
       return 'Coefficients have to be whole numbers 1 or higher (leave a box blank for 1).';
     }
     const badRows = P.rows.filter(rw => r.cells[rw.key] && !(r.cells[rw.key][0] && r.cells[rw.key][1])).map(rw => rw.label);
+    const prev = st.passes[i - 1];
+    if (prev && ps.kind === 'pass' && ps.coefs.map(cnum).join() === prev.coefs.map(cnum).join())
+      return `You haven't changed any coefficients yet, so the counts can't change either. The tally only reports what the coefficients give you. Put the number you need in a <b>coefficient box</b> (in front of a formula), then recount every row.`;
     return `Recount the red boxes (${badRows.join(', ')}). Remember: coefficient × subscript, and a subscript outside parentheses multiplies everything inside. Add every formula on that side.`;
   }
   function nextHTML(ps, i) {
