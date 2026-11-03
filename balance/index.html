@@ -184,6 +184,12 @@
   const counts = co => P.rows.map(r => [r.per.reduce((a, c, i) => a + (i < P.nre ? c * co[i] : 0), 0), r.per.reduce((a, c, i) => a + (i >= P.nre ? c * co[i] : 0), 0)]);
   const fmtEq = co => P.all.map((f, i) => (co && co[i] > 1 ? co[i] + ' ' : '') + sub(f)).reduce((s, x, i) => s + (i === 0 ? '' : i === P.nre ? ' → ' : ' + ') + x, '');
 
+  function diNeed(f, co) {   // atoms of f's element that the lone diatomic f has to supply, with coefficients co
+    const el = Object.keys(D.parse(f))[0], di = P.all.indexOf(f), onLeft = di < P.nre, row = P.rows.find(r => r.el === el);
+    const opp = row.per.reduce((a, v, k) => a + ((k >= P.nre) === onLeft ? v * co[k] : 0), 0);
+    const same = row.per.reduce((a, v, k) => a + ((k < P.nre) === onLeft && k !== di ? v * co[k] : 0), 0);
+    return opp - same;
+  }
   /* ---------- checking ---------- */
   function check(pi) {
     const ps = st.passes[pi], prev = st.passes[pi - 1];
@@ -192,6 +198,12 @@
       const pc = prev.coefs.map(cnum);
       P.all.forEach((f, i) => { if (!(P.lone[i] && DIATOMIC.includes(f)) && co[i] !== null && co[i] !== 2 * pc[i]) coefBad[i] = true; });
     }
+    if (ps.kind === 'setdi' && prev && prev.di) {
+      const di = P.all.indexOf(prev.di), need = diNeed(prev.di, prev.coefs.map(cnum));
+      if (co[di] !== need / 2) coefBad[di] = true;
+    }
+    if ((ps.kind === 'pass' || ps.kind === 'setdi') && prev && co.join() === prev.coefs.map(cnum).join()) ps.same = true; else ps.same = false;
+    if (ps.same) coefBad.forEach((v, k) => { if (ps.kind === 'pass') coefBad[k] = true; });
     if (ps.kind === 'reduce' && prev) {
       const pc = prev.coefs.map(cnum), g = D.gcdAll(pc);
       P.all.forEach((f, i) => { if (co[i] !== pc[i] / g) coefBad[i] = true; });
@@ -277,14 +289,13 @@
   }
   function failText(ps, r, i) {
     if (r.coefBad.some(Boolean)) {
+      if (ps.kind === 'setdi' && st.passes[i - 1] && st.passes[i - 1].di) { const f = st.passes[i - 1].di, need = diNeed(f, st.passes[i - 1].coefs.map(cnum)); return `The ${sub(f)} box (red) isn't set yet. ${sub(f)} has to supply ${need} atoms, and each ${sub(f)} brings 2, so put ${need} ÷ 2 in that box, then recount.`; }
+      if (ps.same) return 'You haven\'t changed any coefficients from the last pass, so nothing can change. Put the number you need in a <b>coefficient box</b> (in front of a formula), then recount every row.';
       if (ps.kind === 'double') return 'The red coefficient boxes aren\'t double what you had in the last pass. Multiply each one by 2.';
       if (ps.kind === 'reduce') return 'Divide every coefficient by the same factor they all share.';
       return 'Coefficients have to be whole numbers 1 or higher (leave a box blank for 1).';
     }
     const badRows = P.rows.filter(rw => r.cells[rw.key] && !(r.cells[rw.key][0] && r.cells[rw.key][1])).map(rw => rw.label);
-    const prev = st.passes[i - 1];
-    if (prev && ps.kind === 'pass' && ps.coefs.map(cnum).join() === prev.coefs.map(cnum).join())
-      return `You haven't changed any coefficients yet, so the counts can't change either. The tally only reports what the coefficients give you. Put the number you need in a <b>coefficient box</b> (in front of a formula), then recount every row.`;
     return `Recount the red boxes (${badRows.join(', ')}). Remember: coefficient × subscript, and a subscript outside parentheses multiplies everything inside. Add every formula on that side.`;
   }
   function nextHTML(ps, i) {
