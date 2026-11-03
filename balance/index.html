@@ -316,7 +316,9 @@
       ps.di = f;
       const sideW = onLeft ? 'right' : 'left';
       const qtxt = same ? `How many ${el} does ${sub(f)} have to supply? That's the ${el} on the ${sideW} minus the ${el} already on the ${onLeft ? 'left' : 'right'} outside ${sub(f)}. Is that number odd?` : `Is the ${el} count on the ${sideW} side odd?`;
-      let h = `<div class="next"><h3>Only the ${sub(f)} row is left. Check the odd-${el} trick</h3><p>${qtxt}</p>`;
+      const others = un.filter(r => r.el !== el).map(r => r.label);
+      const head = others.length ? `Rows left: ${un.map(r => r.label).join(' and ')}. All come from elements standing alone, so set them one at a time, starting with ${sub(f)}` : `Only the ${el} row is left. Check the odd-${el} trick`;
+      let h = `<div class="next"><h3>${head}</h3>${others.length ? `<p>First, the odd-${el} trick for ${sub(f)}. ${others.join(' and ')} come${others.length === 1 ? 's' : ''} after.</p>` : ''}<p>${qtxt}</p>`;
       if (!ps.odd || !ps.odd.right) {
         h += `<div class="yn"><button class="btn ghost" type="button" data-odd="yes">Yes, it's odd</button><button class="btn ghost" type="button" data-odd="no">No, it's even</button></div>`;
         if (ps.odd && !ps.odd.right) h += `<p class="fb no">Not quite. Look at your ${el} row: the ${sideW} side has ${opp}${same ? `, and ${same} is already on the ${onLeft ? 'left' : 'right'}` : ''}.</p>`;
