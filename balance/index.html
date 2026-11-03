@@ -243,7 +243,13 @@
     const prev = st.passes[i - 1];
     if (ps.kind === 'start') return 'Every coefficient is 1. Count each row on both sides.';
     if (ps.kind === 'double') { const d = sub(prev && prev.di || 'O2'); return `Double every coefficient you've already set from pass ${i}. Leave ${d} alone: it isn't set yet (its 1 is just a placeholder), and you'll set it in the next pass from what's needed. Then recount every row.`; }
-    if (ps.kind === 'setdi') return `Set ${sub(prev && prev.di || 'O2')} so its atoms cover what's still needed (needed ÷ 2), then recount.`;
+    if (ps.kind === 'setdi' && prev && prev.di) {
+      const f = prev.di, el = Object.keys(D.parse(f))[0], di = P.all.indexOf(f), onLeft = di < P.nre, row = P.rows.find(r => r.el === el), co = prev.coefs.map(cnum);
+      const opp = row.per.reduce((a, v, k) => a + ((k >= P.nre) === onLeft ? v * co[k] : 0), 0), same = row.per.reduce((a, v, k) => a + ((k < P.nre) === onLeft && k !== di ? v * co[k] : 0), 0), need = opp - same;
+      const whereW = onLeft ? 'right' : 'left';
+      return `${sub(f)} has to supply the ${el} that the ${whereW} side has${same ? ` minus the ${same} ${el} already on the ${onLeft ? 'left' : 'right'}` : ''}: ${same ? `${opp} − ${same} = ` : ''}<b>${need} ${el}</b> (from your pass ${i} tally). Each ${sub(f)} brings 2 ${el}, so its coefficient = ${need} ÷ 2. Put that in the ${sub(f)} box, then recount every row.`;
+    }
+    if (ps.kind === 'setdi') return `Set ${sub(prev && prev.di || 'O2')} = the atoms it has to supply ÷ 2, then recount.`;
     if (ps.kind === 'reduce') return 'Every coefficient shares a factor. Divide them all by it, then recount.';
     return 'Change the coefficients you need (blank = 1), then recount every row.';
   }
