@@ -16,6 +16,9 @@
   .wt-tabs{display:flex;flex-wrap:wrap;gap:6px;margin:18px 0 6px}
   .wt-tabs button{font:500 14px 'IBM Plex Sans',sans-serif;border:1px solid var(--rule);background:#F8FAFA;color:var(--ink);padding:7px 12px;border-radius:999px;cursor:pointer}
   .wt-tabs button[aria-pressed="true"]{background:var(--violet);border-color:var(--violet);color:#fff}
+  .wt-tests{margin:18px 0 0}
+  .wt-tests button{font-weight:600}
+  .wt-tests button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink)}
   .wt-sec{font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--sage);margin:26px 0 8px}
   details.wt{background:#F8FAFA;border:1px solid var(--rule);border-radius:12px;margin:0 0 10px;overflow:hidden}
   details.wt[open]{border-color:var(--violet)}
@@ -62,9 +65,9 @@
 <div class="wrap">
   <div class="quiz-head">
     <a class="back-link" href="../index.html">&larr; Chem Study Hub</a>
-    <p class="site-mark">CHEM STUDY HUB &middot; TEST 3</p>
+    <p class="site-mark" id="mark">CHEM STUDY HUB</p>
     <h1 class="quiz-title">Walkthroughs</h1>
-    <p class="quiz-sub" id="sub">Every HW 13–18 problem worked step by step</p>
+    <p class="quiz-sub" id="sub">Every homework problem worked step by step</p>
   </div>
   <div class="wt-legend">
     <span><span class="tag mem">🧠 Memorize</span> a rule you need in your head</span>
@@ -77,18 +80,22 @@
     <div class="progress-track" role="progressbar" aria-label="Walkthrough progress"><div class="progress-fill" id="pf"></div></div>
   </div>
   <div id="resume"></div>
+  <div class="wt-tabs wt-tests" id="tests"></div>
   <div class="wt-tabs" id="tabs"></div>
   <div id="list"><p class="note">Loading…</p></div>
 </div>
 <script src="../assets/chem-core.js"></script>
 <script>
-/* Walkthroughs: reads data/walkthroughs.json. Checkpoint/resume: "Got it" marks and the last problem you opened are
-   saved in this browser right away (chem-hub-walkthrough-v1), so a reload or closed tab brings you back to it. */
+/* Walkthroughs: reads data/walkthroughs.json (Test 3) and data/walkthroughs-t4.json (Test 4). Checkpoint/resume: "Got it"
+   marks, the test and tab you were on, and the last problem you opened are saved in this browser right away
+   (chem-hub-walkthrough-v1), so a reload or closed tab brings you back to it. */
 (function () {
   const KEY = 'chem-hub-walkthrough-v1';
   const WRITE_URL = 'https://miketeee.github.io/chem-write-bank/';
+  const FILES = { T3: '../data/walkthroughs.json', T4: '../data/walkthroughs-t4.json' };
   const load = () => { try { return JSON.parse(localStorage.getItem(KEY) || 'null') || {}; } catch (e) { return {}; } };
-  const st = Object.assign({ done: {}, last: null, tab: 'all' }, load());
+  const st = Object.assign({ done: {}, last: null, tab: 'all', test: 'T3', tabs: {} }, load());
+  if (!st.tabs.T3) st.tabs.T3 = st.tab || 'all';
   const save = () => { try { localStorage.setItem(KEY, JSON.stringify(st)); } catch (e) {} };
   const esc = Chem.esc, $ = id => document.getElementById(id);
   const TAG = { mem: ['mem', '🧠 Memorize'], chart: ['chart', '📊 Chart'], both: ['both', '🧠📊 Both'], '': ['math', 'Work'] };
@@ -96,21 +103,33 @@
   const stepsHtml = ss => `<ol class="steps">${ss.map(s => `<li>${tag(s.tag)}${s.html}</li>`).join('')}</ol>`;
   Chem.resources('../assets/');
 
-  fetch('../data/walkthroughs.json').then(r => r.json()).then(render)
+  Promise.all(Object.entries(FILES).map(([t, u]) => fetch(u).then(r => r.ok ? r.json() : null).catch(() => null).then(d => [t, d])))
+    .then(list => { const DATA = Object.fromEntries(list.filter(([, d]) => d)); if (!Object.keys(DATA).length) throw 0; start(DATA); })
     .catch(() => { $('list').innerHTML = '<p class="empty">Could not load the walkthroughs. Open this site from GitHub Pages or a local web server.</p>'; });
 
-  function render(D) {
-    const P = D.problems, BY = Object.fromEntries(P.map(p => [p.id, p]));
-    $('totN').textContent = P.length;
-    const tabs = [['all', 'All'], ...D.hws.map(h => ['hw' + h.hw, h.title]), ['memo', '🧠 Memorize list']];
+  function start(DATA) {
+    const TESTS = Object.keys(DATA);
+    const ALL = Object.fromEntries(TESTS.flatMap(t => DATA[t].problems.map(p => [p.id, [t, p]])));
+    const testOfHw = n => TESTS.find(t => DATA[t].hws.some(h => 'hw' + h.hw === n));
     const hashId = location.hash.slice(1);
-    if (/^hw\d+$/.test(hashId)) st.tab = hashId;
-    if (BY[hashId]) st.tab = 'hw' + BY[hashId].hw;
-    function drawTabs() {
-      $('tabs').innerHTML = tabs.map(([v, t]) => `<button type="button" data-v="${v}" aria-pressed="${st.tab === v}">${esc(t)}</button>`).join('');
-    }
-    $('tabs').onclick = e => { const b = e.target.closest('button'); if (!b) return; st.tab = b.dataset.v; save(); drawTabs(); drawList(); };
+    if (/^hw\d+$/.test(hashId) && testOfHw(hashId)) { st.test = testOfHw(hashId); st.tabs[st.test] = hashId; }
+    if (ALL[hashId]) { st.test = ALL[hashId][0]; st.tabs[st.test] = 'hw' + ALL[hashId][1].hw; }
+    if (!DATA[st.test]) st.test = TESTS[0];
+    let D, P, BY;
+    const tabOf = () => st.tabs[st.test] || 'all';
 
+    function useTest(t) {
+      st.test = t; D = DATA[t]; P = D.problems; BY = Object.fromEntries(P.map(p => [p.id, p]));
+      const hs = D.hws.map(h => h.hw);
+      $('mark').innerHTML = `CHEM STUDY HUB &middot; ${esc(D.title.toUpperCase())}`;
+      $('sub').textContent = `Every HW ${hs[0]}–${hs[hs.length - 1]} problem worked step by step`;
+      $('totN').textContent = P.length;
+      $('tests').innerHTML = TESTS.map(k => { const d = DATA[k], h = d.hws.map(x => x.hw);
+        return `<button type="button" data-test="${k}" aria-pressed="${k === st.test}">${esc(d.title)} &middot; HW ${h[0]}–${h[h.length - 1]}</button>`; }).join('');
+      drawTabs(); drawList(); progress(); resumeNote();
+    }
+    function tabs() { return [['all', 'All'], ...D.hws.map(h => ['hw' + h.hw, h.title]), ['memo', '🧠 Memorize list']]; }
+    function drawTabs() { $('tabs').innerHTML = tabs().map(([v, t]) => `<button type="button" data-v="${v}" aria-pressed="${tabOf() === v}">${esc(t)}</button>`).join(''); }
     function progress() {
       const n = P.filter(p => st.done[p.id]).length, pct = Math.round(100 * n / P.length);
       $('doneN').textContent = n; $('pct').textContent = pct + '%'; $('pf').style.width = pct + '%';
@@ -131,12 +150,12 @@
     function memo() {
       const ms = Object.entries(D.methods);
       const pick = t => ms.map(([k, m]) => [m, m.steps.filter(s => t.includes(s.tag))]).filter(([, s]) => s.length);
-      const block = (title, rows) => `<div class="memo">${rows.map(([m, ss]) => `<h3>HW ${m.hw} · ${esc(m.title)}</h3><ul>${ss.map(s => `<li>${tag(s.tag)}${s.html}</li>`).join('')}</ul>`).join('')}</div>`;
-      return `<p class="wt-sec">Commit to memory</p>${block('', pick(['mem', 'both']))}<p class="wt-sec">Look up on a chart or in the problem</p>${block('', pick(['chart', 'both']))}`;
+      const block = rows => `<div class="memo">${rows.map(([m, ss]) => `<h3>HW ${m.hw} · ${esc(m.title)}</h3><ul>${ss.map(s => `<li>${tag(s.tag)}${s.html}</li>`).join('')}</ul>`).join('')}</div>`;
+      return `<p class="wt-sec">Commit to memory</p>${block(pick(['mem', 'both']))}<p class="wt-sec">Look up on a chart or in the problem</p>${block(pick(['chart', 'both']))}`;
     }
     function drawList() {
-      if (st.tab === 'memo') { $('list').innerHTML = memo(); return; }
-      const hws = D.hws.filter(h => st.tab === 'all' || st.tab === 'hw' + h.hw);
+      if (tabOf() === 'memo') { $('list').innerHTML = memo(); return; }
+      const hws = D.hws.filter(h => tabOf() === 'all' || tabOf() === 'hw' + h.hw);
       $('list').innerHTML = hws.map(h => {
         const ps = P.filter(p => p.hw === h.hw); let sec = '';
         return `<p class="section-label">${esc(h.title)} &mdash; ${esc(h.subtitle)}</p>` + ps.map(p => {
@@ -145,6 +164,17 @@
         }).join('');
       }).join('');
     }
+    function resumeNote() {
+      const L = st.last && ALL[st.last];
+      $('resume').innerHTML = L && !BY[hashId] ? `<p class="resume-note">Last time you were on <a href="#${st.last}" id="resumeLink">${esc(DATA[L[0]].title)} &middot; HW ${L[1].hw} Q${L[1].n}</a>.</p>` : '';
+      const rl = $('resumeLink'); if (rl) rl.onclick = e => { e.preventDefault(); openTo(st.last); };
+    }
+    function openTo(id) {
+      const [t, p] = ALL[id]; st.tabs[t] = 'hw' + p.hw; save(); useTest(t);
+      const d = $(id); if (d) { d.open = true; d.scrollIntoView({ block: 'start' }); }
+    }
+    $('tests').onclick = e => { const b = e.target.closest('[data-test]'); if (!b) return; useTest(b.dataset.test); save(); };
+    $('tabs').onclick = e => { const b = e.target.closest('button'); if (!b) return; st.tabs[st.test] = b.dataset.v; save(); drawTabs(); drawList(); };
     $('list').addEventListener('toggle', e => {
       const d = e.target; if (!d.classList || !d.classList.contains('wt') || !d.open) return;
       st.last = d.dataset.id; save(); history.replaceState(null, '', '#' + d.dataset.id);
@@ -155,12 +185,8 @@
       b.classList.toggle('on', !!st.done[id]); b.textContent = st.done[id] ? '✓ Got it' : 'Mark "got it"';
       b.closest('details').querySelector('.wt-ok').textContent = st.done[id] ? '✓' : ''; progress();
     });
-    drawTabs(); drawList(); progress();
-    const target = BY[hashId] ? hashId : null;
-    if (!target && st.last && BY[st.last]) $('resume').innerHTML = `<p class="resume-note">Last time you were on <a href="#${st.last}" id="resumeLink">HW ${BY[st.last].hw} Q${BY[st.last].n}</a>.</p>`;
-    const openTo = id => { st.tab = 'hw' + BY[id].hw; save(); drawTabs(); drawList(); const d = $(id); if (d) { d.open = true; d.scrollIntoView({ block: 'start' }); } };
-    if (target) openTo(target);
-    const rl = $('resumeLink'); if (rl) rl.onclick = e => { e.preventDefault(); openTo(st.last); };
+    useTest(st.test); save();
+    if (ALL[hashId]) openTo(hashId);
   }
 })();
 </script>

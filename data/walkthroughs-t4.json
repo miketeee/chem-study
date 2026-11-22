@@ -1,0 +1,2990 @@
+{
+ "test": "T4",
+ "title": "Test 4",
+ "hws": [
+  {
+   "hw": 19,
+   "title": "HW 19",
+   "subtitle": "Ch. 8 — Kinetic Molecular Theory, Gas Units & Combined Gas Law"
+  },
+  {
+   "hw": 20,
+   "title": "HW 20",
+   "subtitle": "Ch. 8 — Ideal Gas Law, Molar Mass, Density & Gas Stoichiometry"
+  },
+  {
+   "hw": 21,
+   "title": "HW 21",
+   "subtitle": "Ch. 8–9 — Partial Pressure, Mole Fraction, Specific Heat & Calorimetry"
+  },
+  {
+   "hw": 22,
+   "title": "HW 22",
+   "subtitle": "Ch. 9 — Enthalpy, Heats of Formation & Hess's Law"
+  }
+ ],
+ "methods": {
+  "kmt": {
+   "title": "Kinetic molecular theory",
+   "hw": 19,
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Gas particles are in <b>constant random motion</b>; collisions are <b>elastic</b> (no energy lost, so they never slow down and stop)."
+    },
+    {
+     "tag": "mem",
+     "html": "<b>Pressure</b> = particles colliding with the container walls."
+    },
+    {
+     "tag": "mem",
+     "html": "Average <b>kinetic energy ∝ temperature in Kelvin</b>; individual particles can still change speed."
+    },
+    {
+     "tag": "mem",
+     "html": "Particles are assumed to take up <b>no volume</b> and have <b>no attractions</b>, so gases behave best at <b>high T and low P</b>."
+    }
+   ]
+  },
+  "gas-speed": {
+   "title": "Which gas moves fastest?",
+   "hw": 19,
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Same temperature → same average kinetic energy. KE = ½mv², so <b>lighter = faster</b>."
+    },
+    {
+     "tag": "chart",
+     "html": "Compare molar masses from the periodic table; the smallest molar mass has the highest average velocity."
+    }
+   ]
+  },
+  "gas-laws": {
+   "title": "Gas law relationships",
+   "hw": 19,
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "<b>Boyle</b>: P and V are <b>inverse</b> (V up → P down) at constant T, n."
+    },
+    {
+     "tag": "mem",
+     "html": "<b>Charles</b>: V and T (K) are <b>direct</b> (T down → V down) at constant P, n."
+    },
+    {
+     "tag": "mem",
+     "html": "<b>Gay-Lussac</b>: P and T (K) are direct. <b>Avogadro</b>: V and n are direct; more moles in a fixed container → more pressure."
+    }
+   ]
+  },
+  "temp-conv": {
+   "title": "Temperature conversions",
+   "hw": 19,
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "<b>°C = (°F − 32) × 5/9</b>"
+    },
+    {
+     "tag": "mem",
+     "html": "<b>K = °C + 273.15</b> (and °C = K − 273.15)."
+    }
+   ]
+  },
+  "p-units": {
+   "title": "Pressure and volume units",
+   "hw": 19,
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "<b>1 atm = 760 mmHg = 760 torr = 101.325 kPa</b> (exact, so they don't limit sig figs)."
+    },
+    {
+     "tag": "mem",
+     "html": "<b>1 L = 1000 mL</b>. Set it up by factor label so the old unit cancels."
+    }
+   ]
+  },
+  "gas-rules": {
+   "title": "Units rules for gas problems",
+   "hw": 19,
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Any gas equation with a temperature in it needs <b>Kelvin</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Combined gas law: P and V units only have to <b>match each other</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "PV = nRT: P must be <b>atm</b> and V must be <b>L</b> (because R = 0.0821 L·atm/(mol·K))."
+    }
+   ]
+  },
+  "combined": {
+   "title": "Combined gas law (Boyle, Charles, both)",
+   "hw": 19,
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "<b>P₁V₁/T₁ = P₂V₂/T₂</b>. Cross out anything held constant (same T → Boyle P₁V₁ = P₂V₂; same P → Charles V₁/T₁ = V₂/T₂)."
+    },
+    {
+     "tag": "mem",
+     "html": "Temperatures in <b>Kelvin</b> (°C + 273.15). P and V just need matching units."
+    },
+    {
+     "tag": "",
+     "html": "Rearrange for the unknown, plug in everything at once, don't round early."
+    },
+    {
+     "tag": "mem",
+     "html": "Asked for °C? Convert your Kelvin answer back (− 273.15). The Kelvin number is usually a trap choice."
+    },
+    {
+     "tag": "mem",
+     "html": "Sanity check: smaller volume → higher pressure; hotter → bigger volume or pressure."
+    }
+   ]
+  },
+  "effusion": {
+   "title": "Effusion and diffusion",
+   "hw": 19,
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "<b>Lighter gases move faster</b>, so they escape a pinhole (effuse) and spread (diffuse) faster."
+    },
+    {
+     "tag": "chart",
+     "html": "Compare molar masses: the smallest one escapes in the largest amount."
+    }
+   ]
+  },
+  "avogadro": {
+   "title": "Avogadro: equal moles, equal volumes",
+   "hw": 19,
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "At the same T and P, <b>equal moles occupy equal volumes</b>, whatever the gas."
+    },
+    {
+     "tag": "mem",
+     "html": "Volume ∝ moles: twice the moles → twice the volume; 1 mol + 1 mol → twice the volume of 1 mol."
+    },
+    {
+     "tag": "chart",
+     "html": "Equal <b>grams</b> are NOT equal moles (different molar masses). One molar mass of each = 1 mol each."
+    }
+   ]
+  },
+  "ideal-real": {
+   "title": "Ideal vs real gases",
+   "hw": 20,
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "PV = nRT is an approximation. It works best at <b>low pressure and high temperature</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Real gases deviate because the particles <b>attract each other</b> and <b>occupy some volume</b>."
+    }
+   ]
+  },
+  "ideal-gas": {
+   "title": "Ideal gas law (PV = nRT)",
+   "hw": 20,
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "<b>PV = nRT</b>, R = <b>0.0821 L·atm/(mol·K)</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Convert first: P → <b>atm</b> (÷ 760 from mmHg), V → <b>L</b> (÷ 1000 from mL), T → <b>K</b> (+ 273.15), grams → <b>moles</b>."
+    },
+    {
+     "tag": "both",
+     "html": "Grams of an element gas? Check if it's <b>diatomic</b> (H₂, N₂, O₂, F₂, Cl₂, Br₂, I₂) before using the molar mass."
+    },
+    {
+     "tag": "",
+     "html": "Rearrange: P = nRT/V, V = nRT/P, n = PV/RT, T = PV/nR. A T answer comes out in Kelvin."
+    }
+   ]
+  },
+  "stp": {
+   "title": "STP and molar volume",
+   "hw": 20,
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Gas <b>STP = 0 °C (273.15 K) and 1 atm</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "At STP, <b>1 mol of any gas = 22.4 L</b>; use it as a factor (22.4 L / 1 mol)."
+    }
+   ]
+  },
+  "molar-density": {
+   "title": "Molar mass and density of a gas",
+   "hw": 20,
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "<b>Molar mass = grams ÷ moles</b>; get the moles from n = PV/RT (or M = mRT/PV in one step)."
+    },
+    {
+     "tag": "mem",
+     "html": "<b>Density d = PM/(RT)</b> in g/L."
+    }
+   ]
+  },
+  "gas-stoich": {
+   "title": "Gas stoichiometry",
+   "hw": 20,
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Write and <b>balance</b> the reaction; the coefficients are the mole ratio."
+    },
+    {
+     "tag": "",
+     "html": "Factor label: grams → moles (molar mass) → <b>mole ratio</b> → moles of the gas."
+    },
+    {
+     "tag": "mem",
+     "html": "Then <b>PV = nRT</b> for V or P, or <b>22.4 L/mol</b> if it's at STP."
+    }
+   ]
+  },
+  "vol-ratio": {
+   "title": "Volume shortcut (all gases)",
+   "hw": 20,
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "When every substance is a gas at the same T and P, <b>liters follow the coefficient ratio</b> just like moles."
+    },
+    {
+     "tag": "",
+     "html": "Given L × (coefficient wanted / coefficient given) = L wanted."
+    }
+   ]
+  },
+  "dalton": {
+   "title": "Dalton's law of partial pressures",
+   "hw": 21,
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "<b>P_total = P_A + P_B + P_C + …</b>"
+    },
+    {
+     "tag": "mem",
+     "html": "Every pressure must be in the <b>same unit</b> before you add (1 atm = 760 mmHg)."
+    },
+    {
+     "tag": "mem",
+     "html": "Mixture in one container: add the moles and use PV = n_total RT."
+    },
+    {
+     "tag": "mem",
+     "html": "Gases mixing into a bigger volume: each one expands first (P₁V₁ = P₂V₂), then add."
+    }
+   ]
+  },
+  "mole-frac": {
+   "title": "Mole fraction",
+   "hw": 21,
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "<b>X_A = mol A ÷ total mol</b> (no unit; all the X's add to 1)."
+    },
+    {
+     "tag": "mem",
+     "html": "<b>P_A = X_A × P_total</b>."
+    }
+   ]
+  },
+  "energy-basics": {
+   "title": "Energy basics",
+   "hw": 21,
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "<b>Kinetic</b> = energy of motion. <b>Potential</b> = stored, due to position or composition."
+    },
+    {
+     "tag": "mem",
+     "html": "<b>q</b> = heat. <b>First law</b>: energy can't be created or destroyed; it transfers or changes form."
+    },
+    {
+     "tag": "mem",
+     "html": "Heat flows <b>hot → cold</b>. The object gaining heat is <b>+q</b>; the one losing heat is <b>−q</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Some reactions absorb energy (endothermic) and some release it (exothermic); phase changes always involve energy."
+    },
+    {
+     "tag": "mem",
+     "html": "Course key: \"Temperature measures heat energy\" is graded <b>true</b>."
+    }
+   ]
+  },
+  "specific-heat": {
+   "title": "Specific heat concepts",
+   "hw": 21,
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Specific heat c = J needed to warm 1 g by 1 °C. <b>Higher c → smaller temperature change</b> for the same heat."
+    },
+    {
+     "tag": "mem",
+     "html": "Higher c also means it takes in <b>more</b> heat to warm up and gives off <b>more</b> heat as it cools."
+    },
+    {
+     "tag": "chart",
+     "html": "Values from the problem or table: water 4.184, Al 0.897, Fe 0.449, Cu 0.385, Au 0.129, Pb ≈ 0.128 J/(g·°C)."
+    }
+   ]
+  },
+  "q-mcdt": {
+   "title": "q = m·c·ΔT",
+   "hw": 21,
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "<b>q = m · c · ΔT</b>, with <b>ΔT = T_final − T_initial</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Heat absorbed: +q. Heat released (cooled): put q in as <b>negative</b>; ΔT is also negative, so they cancel."
+    },
+    {
+     "tag": "",
+     "html": "Rearrange for what's missing: m = q/(cΔT), c = q/(mΔT), ΔT = q/(mc)."
+    },
+    {
+     "tag": "mem",
+     "html": "Mass and specific heat are <b>never negative</b>; a negative answer means a sign slipped."
+    }
+   ]
+  },
+  "calorimetry": {
+   "title": "Calorimetry (metal in water)",
+   "hw": 21,
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "<b>Heat lost by the hot object = heat gained by the cold one</b>: m·c·ΔT (metal) = m·c·ΔT (water)."
+    },
+    {
+     "tag": "chart",
+     "html": "Water c = <b>4.184 J/(g·°C)</b>; the metal's c is given."
+    },
+    {
+     "tag": "",
+     "html": "Each ΔT is from its own start to the shared <b>final (equilibrium) temperature</b>. Use the sizes (positive) on both sides."
+    },
+    {
+     "tag": "",
+     "html": "Solve the one unknown: a mass, a specific heat or a starting temperature."
+    }
+   ]
+  },
+  "enthalpy-terms": {
+   "title": "Enthalpy vs heat energy",
+   "hw": 22,
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "<b>Enthalpy (ΔH)</b>: heat for a specific number of moles (the reaction as written), in <b>kJ</b> or <b>kJ/mol</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "<b>Heat energy (q)</b>: total heat in and out of a system, usually in <b>J</b>."
+    }
+   ]
+  },
+  "exo-endo": {
+   "title": "Exothermic vs endothermic",
+   "hw": 22,
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "<b>Exothermic</b>: releases heat, <b>ΔH negative</b>, heat written as a <b>product</b> (right side)."
+    },
+    {
+     "tag": "mem",
+     "html": "<b>Endothermic</b>: absorbs heat, <b>ΔH positive</b>, heat written as a <b>reactant</b> (left side)."
+    },
+    {
+     "tag": "mem",
+     "html": "Energy written inside an equation is always <b>added (+)</b>, never subtracted."
+    }
+   ]
+  },
+  "std-conditions": {
+   "title": "Standard conditions",
+   "hw": 22,
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Thermodynamic standard state: <b>25 °C and 1 atm</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Gas STP: <b>0 °C and 1 atm</b>. The temperatures are different."
+    }
+   ]
+  },
+  "dh-per-mol": {
+   "title": "ΔH from grams and heat",
+   "hw": 22,
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "<b>ΔH = heat (kJ) ÷ moles</b> of the substance with coefficient 1 in the reaction."
+    },
+    {
+     "tag": "mem",
+     "html": "Heat in J? Divide by 1000 first."
+    },
+    {
+     "tag": "mem",
+     "html": "Sign: <b>released → negative</b>, <b>absorbed → positive</b>."
+    }
+   ]
+  },
+  "enthalpy-stoich": {
+   "title": "Enthalpy stoichiometry",
+   "hw": 22,
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "ΔH is a conversion factor: <b>(|ΔH| kJ / coefficient mol of that substance)</b>."
+    },
+    {
+     "tag": "",
+     "html": "grams → moles (molar mass) → kJ, or kJ → moles → grams, by factor label."
+    },
+    {
+     "tag": "mem",
+     "html": "The sign tells direction: negative = heat produced/released."
+    }
+   ]
+  },
+  "std-state": {
+   "title": "ΔH_f° = 0 for standard-state elements",
+   "hw": 22,
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "<b>ΔH_f° = 0</b> only for an element in its <b>standard state</b> at 25 °C (O₂ g, H₂ g, N₂ g, Br₂ l, Hg l, metals s)."
+    },
+    {
+     "tag": "mem",
+     "html": "Compounds, lone atoms of diatomic elements and other phases are not zero."
+    }
+   ]
+  },
+  "formation-rxn": {
+   "title": "Formation reactions",
+   "hw": 22,
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Makes exactly <b>1 mole</b> of the compound."
+    },
+    {
+     "tag": "mem",
+     "html": "From its <b>elements in their standard states</b> (diatomic gases as X₂; no ions, no lone atoms)."
+    },
+    {
+     "tag": "",
+     "html": "Use fractions (½ O₂, 3/2 H₂) to keep the product at 1 mol."
+    }
+   ]
+  },
+  "hf-calc": {
+   "title": "ΔH_rxn from heats of formation",
+   "hw": 22,
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "<b>ΔH_rxn = Σ n·ΔH_f(products) − Σ n·ΔH_f(reactants)</b> (\"products minus reactants\")."
+    },
+    {
+     "tag": "mem",
+     "html": "Multiply each ΔH_f by its <b>coefficient</b>; standard-state elements are <b>0</b>."
+    },
+    {
+     "tag": "",
+     "html": "Solving for an unknown ΔH_f? Plug in ΔH_rxn and solve the same equation for it."
+    }
+   ]
+  },
+  "hess": {
+   "title": "Hess's law",
+   "hw": 22,
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "<b>Reverse</b> an equation → <b>flip the sign</b> of ΔH."
+    },
+    {
+     "tag": "mem",
+     "html": "<b>Multiply</b> an equation (×2, ×½…) → multiply ΔH by the same number."
+    },
+    {
+     "tag": "",
+     "html": "Arrange the given equations so the target's reactants are on the left and products on the right; anything on both sides cancels; add the ΔH's."
+    }
+   ]
+  }
+ },
+ "problems": [
+  {
+   "id": "hw19-q01",
+   "hw": 19,
+   "n": 1,
+   "section": "Kinetic Molecular Theory",
+   "method": "kmt",
+   "q": "Which statements are true about the Kinetic Molecular Theory?",
+   "choices": null,
+   "img": null,
+   "answer": "Individual gas molecules may change speeds over time.; Pressure is a result of the collisions of gas particles hitting the sides of the container in which they are housed.; The kinetic energy of a sample of gas is proportional to the temperature in Kelvin. This means that gas molecules in a sample that is hot will move faster than gas molecules in a sample that is cooler.; Gases are assumed to not take up any space relative to size of the container.",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "True: molecules <b>can change speed</b> (collisions trade energy), <b>pressure comes from wall collisions</b>, <b>KE ∝ T in Kelvin</b>, and particles are assumed to take <b>no space</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "False: collisions are elastic, so they <b>never slow down and stop</b>; gases are most ideal at <b>high</b> temperature, not low."
+    }
+   ]
+  },
+  {
+   "id": "hw19-q02",
+   "hw": 19,
+   "n": 2,
+   "section": "Kinetic Molecular Theory",
+   "method": "gas-speed",
+   "q": "Select the gas with the highest average velocity at 298 K.",
+   "choices": [
+    "carbon dioxide",
+    "water",
+    "All have the same velocity",
+    "oxygen",
+    "hydrogen"
+   ],
+   "img": null,
+   "answer": "hydrogen",
+   "steps": [
+    {
+     "tag": "chart",
+     "html": "Molar masses: H₂ = 2.02, H₂O = 18.02, O₂ = 32.00, CO₂ = 44.01 g/mol."
+    },
+    {
+     "tag": "mem",
+     "html": "Same temperature (298 K) → same average KE, so the <b>lightest</b> gas is fastest → <b>hydrogen</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw19-q03",
+   "hw": 19,
+   "n": 3,
+   "section": "Kinetic Molecular Theory",
+   "method": "kmt",
+   "q": "On the left is a magnified view of a very small portion of liquid water in a closed container. Which magnified view would best represent what it looks like after the water evaporates?",
+   "choices": null,
+   "img": "hw19-evaporation.png",
+   "answer": "Picture 5",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Evaporation is a <b>physical change</b>: the H₂O molecules stay intact (one O with two H)."
+    },
+    {
+     "tag": "mem",
+     "html": "As a gas the molecules are <b>far apart</b>, so there are only a few in the magnified circle."
+    },
+    {
+     "tag": "",
+     "html": "Picture 2 shows H₂ and O₂ (water broke apart: wrong), Picture 4 is still packed like a liquid, Picture 3 is empty → <b>Picture 5</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw19-q04",
+   "hw": 19,
+   "n": 4,
+   "section": "Gas Units and Constants",
+   "method": "temp-conv",
+   "q": "What would 26.4 ºF be in ºC?",
+   "choices": [
+    "15.5 ºC",
+    "79.5 ºC",
+    "–3.1 ºC",
+    "–18.2 ºC",
+    "32.4 ºC"
+   ],
+   "img": null,
+   "answer": "–3.1 ºC",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "°C = (°F − 32) × 5/9"
+    },
+    {
+     "tag": "",
+     "html": "(26.4 − 32) × 5/9 = (−5.6) × 5/9 = <b>−3.1 °C</b>"
+    }
+   ]
+  },
+  {
+   "id": "hw19-q05",
+   "hw": 19,
+   "n": 5,
+   "section": "Gas Units and Constants",
+   "method": "temp-conv",
+   "q": "FLASHBACK: Convert 197.1 °F to Celsius. Round your answer to 1 decimal.",
+   "choices": null,
+   "img": null,
+   "answer": "91.7 °C",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "°C = (°F − 32) × 5/9"
+    },
+    {
+     "tag": "",
+     "html": "(197.1 − 32) × 5/9 = 165.1 × 5/9 = <b>91.7 °C</b>"
+    }
+   ]
+  },
+  {
+   "id": "hw19-q06",
+   "hw": 19,
+   "n": 6,
+   "section": "Gas Units and Constants",
+   "method": "temp-conv",
+   "q": "Convert 50.77 °C to Kelvin. Round your answer to 2 decimal places.",
+   "choices": null,
+   "img": null,
+   "answer": "323.92 K",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "K = °C + 273.15"
+    },
+    {
+     "tag": "",
+     "html": "50.77 + 273.15 = <b>323.92 K</b>"
+    }
+   ]
+  },
+  {
+   "id": "hw19-q07",
+   "hw": 19,
+   "n": 7,
+   "section": "Gas Units and Constants",
+   "method": "temp-conv",
+   "q": "Convert 49.91 °C to Kelvin. Round your answer to 2 decimal places.",
+   "choices": null,
+   "img": null,
+   "answer": "323.06 K",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "K = °C + 273.15"
+    },
+    {
+     "tag": "",
+     "html": "49.91 + 273.15 = <b>323.06 K</b>"
+    }
+   ]
+  },
+  {
+   "id": "hw19-q08",
+   "hw": 19,
+   "n": 8,
+   "section": "Gas Units and Constants",
+   "method": "gas-laws",
+   "q": "Which statements are true?",
+   "choices": null,
+   "img": null,
+   "answer": "As volume increases pressure will decrease.; As you decrease the temperature of a gas, the volume will decrease.; Volume of a gas is directly proportional to temperature in Kelvin at constant pressure and number of moles.",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "True: volume up → pressure down (Boyle); temperature down → volume down (Charles); V ∝ T in Kelvin."
+    },
+    {
+     "tag": "mem",
+     "html": "False: V is <b>inversely</b> (not directly) proportional to P; more moles → <b>more</b> pressure, not less."
+    }
+   ]
+  },
+  {
+   "id": "hw19-q09",
+   "hw": 19,
+   "n": 9,
+   "section": "Gas Units and Constants",
+   "method": "p-units",
+   "q": "If a gas is measured to be 980.5 torr (980.5 mmHg), what would the pressure be in atm? (Don't lose any sig figs!)",
+   "choices": null,
+   "img": null,
+   "answer": "1.290 atm",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "1 atm = 760 torr (exact)."
+    },
+    {
+     "tag": "",
+     "html": "<span class=\"fl\">980.5 <s>torr</s> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">1 atm</span><span class=\"sl\"> / </span><span class=\"fb\">760 <s>torr</s></span><span class=\"po\">)</span></span> = <b>1.290 atm</b></span>"
+    },
+    {
+     "tag": "mem",
+     "html": "980.5 has 4 sig figs → keep 4: <b>1.290 atm</b> (the trailing 0 counts)."
+    }
+   ]
+  },
+  {
+   "id": "hw19-q10",
+   "hw": 19,
+   "n": 10,
+   "section": "Gas Units and Constants",
+   "method": "p-units",
+   "q": "If a gas is measured to be 329 kPa, what would the pressure be in atm? (Don't lose any sig figs!)",
+   "choices": null,
+   "img": null,
+   "answer": "3.25 atm",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "1 atm = 101.325 kPa."
+    },
+    {
+     "tag": "",
+     "html": "<span class=\"fl\">329 <s>kPa</s> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">1 atm</span><span class=\"sl\"> / </span><span class=\"fb\">101.325 <s>kPa</s></span><span class=\"po\">)</span></span> = <b>3.25 atm</b></span>"
+    }
+   ]
+  },
+  {
+   "id": "hw19-q11",
+   "hw": 19,
+   "n": 11,
+   "section": "Gas Units and Constants",
+   "method": "p-units",
+   "q": "FLASHBACK: If a gas is measured to be 302.1 mL, what would the volume be in L? (Don't lose any sig figs!)",
+   "choices": null,
+   "img": null,
+   "answer": "0.3021 L",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "1 L = 1000 mL."
+    },
+    {
+     "tag": "",
+     "html": "<span class=\"fl\">302.1 <s>mL</s> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">1 L</span><span class=\"sl\"> / </span><span class=\"fb\">1000 <s>mL</s></span><span class=\"po\">)</span></span> = <b>0.3021 L</b></span>"
+    }
+   ]
+  },
+  {
+   "id": "hw19-q12",
+   "hw": 19,
+   "n": 12,
+   "section": "Gas Units and Constants",
+   "method": "gas-rules",
+   "q": "Answer yes or no for each.",
+   "choices": null,
+   "img": null,
+   "answer": "yes; no; no",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Temperature always in Kelvin → <b>yes</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Combined gas law: P units only have to match → <b>no</b>; V units only have to match → <b>no</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw19-q13",
+   "hw": 19,
+   "n": 13,
+   "section": "Combined Gas Law",
+   "method": "combined",
+   "q": "A 12.4 L cylinder contains a sample of gas at 2.54 atm. What pressure would the gas be in a 10.6 L cylinder at this same temperature?",
+   "choices": [
+    "0.337 atm",
+    "51.7 atm",
+    "2.97 atm",
+    "2.17 atm",
+    "0.461 atm"
+   ],
+   "img": null,
+   "answer": "2.97 atm",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Same temperature → Boyle: <b>P₁V₁ = P₂V₂</b>."
+    },
+    {
+     "tag": "",
+     "html": "P₂ = P₁V₁ ÷ V₂ = (2.54 × 12.4) ÷ 10.6 = <b>2.97 atm</b>"
+    },
+    {
+     "tag": "mem",
+     "html": "Check: the volume shrank, so the pressure should go up (2.97 > 2.54). ✓"
+    }
+   ]
+  },
+  {
+   "id": "hw19-q14",
+   "hw": 19,
+   "n": 14,
+   "section": "Combined Gas Law",
+   "method": "combined",
+   "q": "A 13.3 L cylinder contains a sample of gas at 14.5 atm. What pressure would the gas be in a 7.3 L cylinder at this same temperature? Report your answer in atmospheres to the ones position.",
+   "choices": null,
+   "img": null,
+   "answer": "26 atm",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Same temperature → P₁V₁ = P₂V₂."
+    },
+    {
+     "tag": "",
+     "html": "P₂ = (14.5 × 13.3) ÷ 7.3 = 26.4 → ones place: <b>26 atm</b>"
+    }
+   ]
+  },
+  {
+   "id": "hw19-q15",
+   "hw": 19,
+   "n": 15,
+   "section": "Combined Gas Law",
+   "method": "combined",
+   "q": "A gas with a pressure of 435 mmHg and a volume of 25.1 mL has a pressure change to 401.1 mmHg at constant temperature. What is the new volume of the gas?",
+   "choices": [
+    "27.2 mL",
+    "45.0 mL",
+    "11.2 mL",
+    "595 mL",
+    "100. mL"
+   ],
+   "img": null,
+   "answer": "27.2 mL",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Constant temperature → P₁V₁ = P₂V₂. Both pressures are mmHg, so no conversion."
+    },
+    {
+     "tag": "",
+     "html": "V₂ = (435 × 25.1) ÷ 401.1 = <b>27.2 mL</b>"
+    }
+   ]
+  },
+  {
+   "id": "hw19-q16",
+   "hw": 19,
+   "n": 16,
+   "section": "Combined Gas Law",
+   "method": "combined",
+   "q": "A gas volume is 64.91 L at 8.747 atm. The pressure of the gas changed to 1.409 atm at the same temperature. What is the final volume of the gas? (For full credit: correct sig figs and the unit.)",
+   "choices": null,
+   "img": null,
+   "answer": "403.0 L",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Same temperature → P₁V₁ = P₂V₂."
+    },
+    {
+     "tag": "",
+     "html": "V₂ = (8.747 × 64.91) ÷ 1.409 = 402.96 → 4 sig figs: <b>403.0 L</b>"
+    }
+   ]
+  },
+  {
+   "id": "hw19-q17",
+   "hw": 19,
+   "n": 17,
+   "section": "Combined Gas Law",
+   "method": "combined",
+   "q": "A gas with a temperature of 28 ºC and a volume of 23.5 mL is contracted to 14.6 mL at constant pressure. What is the new temperature of the gas?",
+   "choices": [
+    "211 ºC",
+    "17 ºC",
+    "–86 ºC",
+    "45 ºC",
+    "187 ºC"
+   ],
+   "img": null,
+   "answer": "–86 ºC",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Constant pressure → Charles: <b>V₁/T₁ = V₂/T₂</b>, T in Kelvin."
+    },
+    {
+     "tag": "",
+     "html": "T₁ = 28 + 273.15 = 301.15 K"
+    },
+    {
+     "tag": "",
+     "html": "T₂ = T₁ × V₂/V₁ = 301.15 × 14.6/23.5 = 187.1 K"
+    },
+    {
+     "tag": "mem",
+     "html": "Back to °C: 187.1 − 273.15 = <b>−86 °C</b> (187 is the Kelvin trap)."
+    }
+   ]
+  },
+  {
+   "id": "hw19-q18",
+   "hw": 19,
+   "n": 18,
+   "section": "Combined Gas Law",
+   "method": "combined",
+   "q": "A sample of gas initially at 160.0 mmHg and occupying 25.0 mL at 307.15 K is cooled to 299.15 K and expanded to 160.0 mL. What is the final pressure of the sample of gas?",
+   "choices": [
+    "0.0390 mmHg",
+    "19.1 mmHg",
+    "25.7 mmHg",
+    "1050 mmHg",
+    "24.3 mmHg"
+   ],
+   "img": null,
+   "answer": "24.3 mmHg",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "All three change → P₁V₁/T₁ = P₂V₂/T₂ → P₂ = P₁ × (V₁/V₂) × (T₂/T₁). Temperatures are already Kelvin."
+    },
+    {
+     "tag": "",
+     "html": "P₂ = 160.0 × (25.0/160.0) × (299.15/307.15) = <b>24.3 mmHg</b>"
+    }
+   ]
+  },
+  {
+   "id": "hw19-q19",
+   "hw": 19,
+   "n": 19,
+   "section": "Combined Gas Law",
+   "method": "combined",
+   "q": "A sample of gas initially at 160.0 mmHg and occupying 25.0 mL at 34 °C is cooled to 26.0 °C and expanded to 160.0 mL. What is the final pressure of the sample of gas?",
+   "choices": [
+    "25.7 mmHg",
+    "24.3 mmHg",
+    "0.0390 mmHg",
+    "19.1 mmHg",
+    "1050 mmHg"
+   ],
+   "img": null,
+   "answer": "24.3 mmHg",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Convert to Kelvin: 34 + 273.15 = 307.15 K; 26.0 + 273.15 = 299.15 K."
+    },
+    {
+     "tag": "",
+     "html": "Same numbers as the previous problem: P₂ = 160.0 × (25.0/160.0) × (299.15/307.15) = <b>24.3 mmHg</b>"
+    }
+   ]
+  },
+  {
+   "id": "hw19-q20",
+   "hw": 19,
+   "n": 20,
+   "section": "Combined Gas Law",
+   "method": "combined",
+   "q": "A 43.17 mL container holds gas initially at 11.65 °C and 253.7 torr. If the volume changes to 57.07 mL and the temperature changes to 26.3 °C, what is the final pressure of this gas in torr? Don't round early! Report your answer to four significant figures.",
+   "choices": null,
+   "img": null,
+   "answer": "201.8 torr",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "P₂ = P₁ × (V₁/V₂) × (T₂/T₁); mL and torr can stay."
+    },
+    {
+     "tag": "",
+     "html": "T₁ = 11.65 + 273.15 = 284.80 K; T₂ = 26.3 + 273.15 = 299.45 K"
+    },
+    {
+     "tag": "",
+     "html": "P₂ = 253.7 × (43.17/57.07) × (299.45/284.80) = <b>201.8 torr</b>"
+    }
+   ]
+  },
+  {
+   "id": "hw19-q21",
+   "hw": 19,
+   "n": 21,
+   "section": "Combined Gas Law",
+   "method": "combined",
+   "q": "A sample of gas initially occupies 238 mL at 126 °C and 946 mmHg. What is the volume if the gas is cooled to 94 °C and the pressure is decreased to 547 mmHg?",
+   "choices": [
+    "379 mL",
+    "2.64 mL",
+    "307 mL",
+    "184 mL",
+    "150 mL"
+   ],
+   "img": null,
+   "answer": "379 mL",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "V₂ = V₁ × (P₁/P₂) × (T₂/T₁)."
+    },
+    {
+     "tag": "",
+     "html": "T₁ = 126 + 273.15 = 399.15 K; T₂ = 94 + 273.15 = 367.15 K"
+    },
+    {
+     "tag": "",
+     "html": "V₂ = 238 × (946/547) × (367.15/399.15) = <b>379 mL</b>"
+    }
+   ]
+  },
+  {
+   "id": "hw19-q22",
+   "hw": 19,
+   "n": 22,
+   "section": "Combined Gas Law",
+   "method": "combined",
+   "q": "A sample of gas in a 28.5 L container is initially at 15 °C and 701 mmHg. If the pressure is reduced to 479 mmHg and the temperature is increased to 75 °C, what is the final volume? Add 273 to convert to Kelvin. Report your answer in liters to three significant figures.",
+   "choices": null,
+   "img": null,
+   "answer": "50.4 L",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "V₂ = V₁ × (P₁/P₂) × (T₂/T₁). The problem says add 273."
+    },
+    {
+     "tag": "",
+     "html": "T₁ = 15 + 273 = 288 K; T₂ = 75 + 273 = 348 K"
+    },
+    {
+     "tag": "",
+     "html": "V₂ = 28.5 × (701/479) × (348/288) = <b>50.4 L</b>"
+    }
+   ]
+  },
+  {
+   "id": "hw19-q23",
+   "hw": 19,
+   "n": 23,
+   "section": "Combined Gas Law",
+   "method": "combined",
+   "q": "A sample of gas occupies 459 mL at 44.5 °C and 658 torr. What is the temperature if the gas is compressed to 250 mL and the pressure is changed to 759 torr?",
+   "choices": [
+    "–70.8 °C",
+    "232 °C",
+    "28.0 °C",
+    "199.5 °C",
+    "–73.5 °C"
+   ],
+   "img": null,
+   "answer": "–73.5 °C",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "T₂ = T₁ × (P₂V₂)/(P₁V₁), with T₁ in Kelvin. The answer choices were built with 273."
+    },
+    {
+     "tag": "",
+     "html": "T₁ = 44.5 + 273 = 317.5 K"
+    },
+    {
+     "tag": "",
+     "html": "T₂ = 317.5 × (759 × 250)/(658 × 459) = 199.5 K"
+    },
+    {
+     "tag": "mem",
+     "html": "Back to °C: 199.5 − 273 = <b>−73.5 °C</b> (199.5 is the Kelvin trap; 273.15 gives −73.6, closest choice is still −73.5)."
+    }
+   ]
+  },
+  {
+   "id": "hw19-q24",
+   "hw": 19,
+   "n": 24,
+   "section": "Diffusion and Effusion",
+   "method": "effusion",
+   "q": "If a mixture with equal moles of helium gas and neon gas is allowed to escape through a pinhole in a container, the escaping gas would contain more neon than helium.",
+   "choices": null,
+   "img": null,
+   "answer": "False",
+   "steps": [
+    {
+     "tag": "chart",
+     "html": "He = 4.00 g/mol, Ne = 20.18 g/mol."
+    },
+    {
+     "tag": "mem",
+     "html": "Lighter escapes faster, so the escaping gas has <b>more helium</b> → statement is <b>False</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw19-q25",
+   "hw": 19,
+   "n": 25,
+   "section": "Diffusion and Effusion",
+   "method": "avogadro",
+   "q": "Which of the following is NOT true about helium gas and argon gas samples at the same temperature and pressure?",
+   "choices": [
+    "4.00 grams of helium will occupy the same volume as 39.95 grams of argon.",
+    "The same number of moles of each will occupy the same volume.",
+    "If you have twice as many moles of argon as helium, the volume of argon will be twice as large.",
+    "The same number of grams of each will occupy the same volume.",
+    "One mole each of helium and argon in a container will take up twice the volume of 1 mole of helium by itself."
+   ],
+   "img": null,
+   "answer": "The same number of grams of each will occupy the same volume.",
+   "steps": [
+    {
+     "tag": "chart",
+     "html": "4.00 g He = 1 mol and 39.95 g Ar = 1 mol, so those occupy the same volume (true)."
+    },
+    {
+     "tag": "mem",
+     "html": "Equal moles → equal volume; twice the moles → twice the volume; 1 + 1 mol → twice 1 mol (all true)."
+    },
+    {
+     "tag": "",
+     "html": "Equal <b>grams</b> are different numbers of moles → \"<b>The same number of grams of each will occupy the same volume</b>\" is NOT true."
+    }
+   ]
+  },
+  {
+   "id": "hw20-q01",
+   "hw": 20,
+   "n": 1,
+   "section": "Ideal Gas Law",
+   "method": "ideal-real",
+   "q": "The ideal gas law equation is an approximation of a more complicated equation. It has the best results for molecules that are at low pressure and high temperature.",
+   "choices": null,
+   "img": null,
+   "answer": "True",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Low pressure (particles far apart) and high temperature (fast, attractions matter less) → <b>True</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw20-q02",
+   "hw": 20,
+   "n": 2,
+   "section": "Ideal Gas Law",
+   "method": "ideal-real",
+   "q": "Gases do not obey the ideal gas law perfectly because the gas particles do interact and they also do occupy a small portion of the volume of the container.",
+   "choices": null,
+   "img": null,
+   "answer": "True",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Real particles <b>do attract</b> and <b>do take up space</b>, the two things the ideal model ignores → <b>True</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw20-q03",
+   "hw": 20,
+   "n": 3,
+   "section": "Ideal Gas Law",
+   "method": "ideal-gas",
+   "q": "What pressure is exerted by 3.25 grams of nitrogen gas in a 1.50 L container at 52.0 °C? (Hint: Will you use N or N₂?)",
+   "choices": [
+    "0.485 atm",
+    "0.330 atm",
+    "1.29 atm",
+    "2.06 atm",
+    "57.8 atm"
+   ],
+   "img": null,
+   "answer": "2.06 atm",
+   "steps": [
+    {
+     "tag": "both",
+     "html": "Nitrogen gas is <b>diatomic</b>: N₂ = 2 × 14.01 = <b>28.02 g/mol</b>."
+    },
+    {
+     "tag": "",
+     "html": "<span class=\"fl\">3.25 <s>g N₂</s> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">1 mol N₂</span><span class=\"sl\"> / </span><span class=\"fb\">28.02 <s>g N₂</s></span><span class=\"po\">)</span></span> = <b>0.1160 mol N₂</b></span>"
+    },
+    {
+     "tag": "",
+     "html": "T = 52.0 + 273.15 = 325.15 K"
+    },
+    {
+     "tag": "",
+     "html": "P = nRT/V = 0.1160 × 0.0821 × 325.15 ÷ 1.50 = <b>2.06 atm</b>"
+    }
+   ]
+  },
+  {
+   "id": "hw20-q04",
+   "hw": 20,
+   "n": 4,
+   "section": "Ideal Gas Law",
+   "method": "ideal-gas",
+   "q": "What is the correct value of R as well as temperature for GASES?",
+   "choices": [
+    "R = 0.0821 L*atm/(mol*K) and T should be in Kelvin ALWAYS.",
+    "R = 0.821 L*atm/(mol*K) and T should be in Kelvin ALWAYS.",
+    "R = 8.314 L*atm/(mol*K) and T should be in Kelvin ALWAYS.",
+    "R = 8.314 L*atm/(mol*K) and T should be in Celsius ALWAYS.",
+    "R = 0.0821 L*atm/(mol*K) and T should be in Celsius ALWAYS."
+   ],
+   "img": null,
+   "answer": "R = 0.0821 L*atm/(mol*K) and T should be in Kelvin ALWAYS.",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "R = <b>0.0821 L·atm/(mol·K)</b> and T in <b>Kelvin always</b>. (8.314 is R in J/(mol·K).)"
+    }
+   ]
+  },
+  {
+   "id": "hw20-q05",
+   "hw": 20,
+   "n": 5,
+   "section": "Ideal Gas Law",
+   "method": "gas-rules",
+   "q": "Fill in each blank.",
+   "choices": null,
+   "img": null,
+   "answer": "0.00, 273.15; 1.0; yes; no; no; yes",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Gas STP: <b>0.00 °C = 273.15 K</b> and <b>1.0 atm</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Temperature in Kelvin for every gas calculation → <b>yes</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Combined gas law: P and V units just match → <b>no</b>, <b>no</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "PV = nRT needs atm and L (because of R) → <b>yes</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw20-q06",
+   "hw": 20,
+   "n": 6,
+   "section": "Ideal Gas Law",
+   "method": "ideal-gas",
+   "q": "What pressure in atm will 0.125 moles of a gas occupy at 231 mL and 195 °C? (R = 0.0821 L·atm/(mol·K) · correct sig figs and units.)",
+   "choices": null,
+   "img": null,
+   "answer": "20.8 atm",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Convert: 231 mL ÷ 1000 = 0.231 L; 195 + 273.15 = 468.15 K."
+    },
+    {
+     "tag": "",
+     "html": "P = nRT/V = 0.125 × 0.0821 × 468.15 ÷ 0.231 = <b>20.8 atm</b> (3 sig figs)"
+    }
+   ]
+  },
+  {
+   "id": "hw20-q07",
+   "hw": 20,
+   "n": 7,
+   "section": "Ideal Gas Law",
+   "method": "ideal-gas",
+   "q": "What volume will 0.700 moles of helium gas occupy at 0.944 atm and 15.0 °C?",
+   "choices": [
+    "17.5 L",
+    "12.5 L",
+    "0.913 L",
+    "5.00 L",
+    "15.7 L"
+   ],
+   "img": null,
+   "answer": "17.5 L",
+   "steps": [
+    {
+     "tag": "",
+     "html": "T = 15.0 + 273.15 = 288.15 K"
+    },
+    {
+     "tag": "",
+     "html": "V = nRT/P = 0.700 × 0.0821 × 288.15 ÷ 0.944 = <b>17.5 L</b>"
+    }
+   ]
+  },
+  {
+   "id": "hw20-q08",
+   "hw": 20,
+   "n": 8,
+   "section": "Ideal Gas Law",
+   "method": "stp",
+   "q": "What size container (in L) will a gas occupy if 0.55 moles are added so that the gas is at STP? (Use the correct number of sig figs and the correct unit.)",
+   "choices": null,
+   "img": null,
+   "answer": "12 L",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "At STP, 1 mol = 22.4 L."
+    },
+    {
+     "tag": "",
+     "html": "<span class=\"fl\">0.55 <s>mol</s> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">22.4 L</span><span class=\"sl\"> / </span><span class=\"fb\">1 <s>mol</s></span><span class=\"po\">)</span></span> = <b>12.3 L</b></span>"
+    },
+    {
+     "tag": "mem",
+     "html": "0.55 has 2 sig figs → <b>12 L</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw20-q09",
+   "hw": 20,
+   "n": 9,
+   "section": "Ideal Gas Law",
+   "method": "ideal-gas",
+   "q": "A sample of nitrogen gas is confined to a 14.0 L container at 0.493 atm and 37 °C. How many moles of nitrogen are in the container?",
+   "choices": [
+    "3.69 mol",
+    "0.271 mol",
+    "227 mol",
+    "206 mol",
+    "2.27 mol"
+   ],
+   "img": null,
+   "answer": "0.271 mol",
+   "steps": [
+    {
+     "tag": "",
+     "html": "T = 37 + 273.15 = 310.15 K"
+    },
+    {
+     "tag": "",
+     "html": "n = PV/RT = 0.493 × 14.0 ÷ (0.0821 × 310.15) = <b>0.271 mol</b>"
+    }
+   ]
+  },
+  {
+   "id": "hw20-q10",
+   "hw": 20,
+   "n": 10,
+   "section": "Ideal Gas Law",
+   "method": "stp",
+   "q": "A gas fills a 22.4 L container and it is sealed when the gas measures being at STP. How many moles are in the container? The answer should have 1 decimal place.",
+   "choices": null,
+   "img": null,
+   "answer": "1.0 mol",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "At STP, 22.4 L is exactly 1 mol → <b>1.0 mol</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw20-q11",
+   "hw": 20,
+   "n": 11,
+   "section": "Ideal Gas Law",
+   "method": "ideal-gas",
+   "q": "1.95 moles of a gas will occupy 41.2 L. The pressure is measured to be 2.45 atm. What is the temperature in °C? Round to the ones position. (R = 0.0821 L·atm/(mol·K))",
+   "choices": null,
+   "img": null,
+   "answer": "357 °C",
+   "steps": [
+    {
+     "tag": "",
+     "html": "T = PV/(nR) = 2.45 × 41.2 ÷ (1.95 × 0.0821) = 630.5 K"
+    },
+    {
+     "tag": "mem",
+     "html": "PV = nRT gives Kelvin. °C = 630.5 − 273.15 = <b>357 °C</b>"
+    }
+   ]
+  },
+  {
+   "id": "hw20-q12",
+   "hw": 20,
+   "n": 12,
+   "section": "Molar Mass and Density",
+   "method": "molar-density",
+   "q": "What is the molar mass of a gas if a flask with a volume of 3.16 L contains 9.33 grams of the gas at 32.0 °C and 1.00 atm?",
+   "choices": [
+    "144 g/mol",
+    "81.4 g/mol",
+    "7.76 g/mol",
+    "74.0 g/mol",
+    "66.1 g/mol"
+   ],
+   "img": null,
+   "answer": "74.0 g/mol",
+   "steps": [
+    {
+     "tag": "",
+     "html": "n = PV/RT = 1.00 × 3.16 ÷ (0.0821 × 305.15) = 0.1261 mol"
+    },
+    {
+     "tag": "",
+     "html": "M = grams ÷ moles = 9.33 ÷ 0.1261 = <b>74.0 g/mol</b>"
+    }
+   ]
+  },
+  {
+   "id": "hw20-q13",
+   "hw": 20,
+   "n": 13,
+   "section": "Molar Mass and Density",
+   "method": "molar-density",
+   "q": "What is the molar mass of a gas if 1.89 grams of the gas in a 0.539 L flask at 299 K has a pressure of 1.151 atm? Report to three significant figures. (Use R = 0.08206 L·atm/(mol·K).)",
+   "choices": null,
+   "img": null,
+   "answer": "74.7 g/mol",
+   "steps": [
+    {
+     "tag": "",
+     "html": "n = PV/RT = 1.151 × 0.539 ÷ (0.08206 × 299) = 0.02528 mol"
+    },
+    {
+     "tag": "",
+     "html": "M = 1.89 ÷ 0.02528 = <b>74.7 g/mol</b>"
+    }
+   ]
+  },
+  {
+   "id": "hw20-q14",
+   "hw": 20,
+   "n": 14,
+   "section": "Molar Mass and Density",
+   "method": "molar-density",
+   "q": "Determine the density in g/L of a gas with a molar mass of 65.17 g/mol at 319 K and 15.5 atm. (R = 0.0821 L·atm/(mol·K))",
+   "choices": null,
+   "img": null,
+   "answer": "38.6 g/L",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "d = PM/(RT)."
+    },
+    {
+     "tag": "",
+     "html": "d = 15.5 × 65.17 ÷ (0.0821 × 319) = <b>38.6 g/L</b>"
+    }
+   ]
+  },
+  {
+   "id": "hw20-q15",
+   "hw": 20,
+   "n": 15,
+   "section": "Gas Stoichiometry",
+   "method": "gas-stoich",
+   "q": "Potassium chlorate decomposes to produce potassium chloride and oxygen. What volume of oxygen would be collected at 22.0 °C and 728 mmHg by the decomposition of 8.15 g of potassium chlorate? (Write and balance the reaction first.)",
+   "choices": [
+    "2.52 L",
+    "2.23 L",
+    "1.68 L",
+    "1.48 L",
+    "1.12 L"
+   ],
+   "img": null,
+   "answer": "2.52 L",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Balanced: <b>2 KClO₃ → 2 KCl + 3 O₂</b>."
+    },
+    {
+     "tag": "chart",
+     "html": "KClO₃ = 39.10 + 35.45 + 3(16.00) = 122.55 g/mol."
+    },
+    {
+     "tag": "",
+     "html": "<span class=\"fl\">8.15 <s>g KClO₃</s> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">1 <s>mol KClO₃</s></span><span class=\"sl\"> / </span><span class=\"fb\">122.55 <s>g KClO₃</s></span><span class=\"po\">)</span></span> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">3 mol O₂</span><span class=\"sl\"> / </span><span class=\"fb\">2 <s>mol KClO₃</s></span><span class=\"po\">)</span></span> = <b>0.09976 mol O₂</b></span>"
+    },
+    {
+     "tag": "mem",
+     "html": "P = 728 ÷ 760 = 0.9579 atm; T = 22.0 + 273.15 = 295.15 K."
+    },
+    {
+     "tag": "",
+     "html": "V = nRT/P = 0.09976 × 0.0821 × 295.15 ÷ 0.9579 = <b>2.52 L</b>"
+    }
+   ]
+  },
+  {
+   "id": "hw20-q16",
+   "hw": 20,
+   "n": 16,
+   "section": "Gas Stoichiometry",
+   "method": "gas-stoich",
+   "q": "Nitrogen reacts with oxygen to form dinitrogen trioxide: 2 N₂ + 3 O₂ → 2 N₂O₃. What pressure of oxygen is required to produce 1.648 grams of dinitrogen trioxide in a 2.64 L container at 274 K?",
+   "choices": [
+    "0.382 atm",
+    "0.340 atm",
+    "0.277 atm",
+    "0.185 atm",
+    "0.658 atm"
+   ],
+   "img": null,
+   "answer": "0.277 atm",
+   "steps": [
+    {
+     "tag": "chart",
+     "html": "N₂O₃ = 2(14.01) + 3(16.00) = 76.02 g/mol."
+    },
+    {
+     "tag": "",
+     "html": "<span class=\"fl\">1.648 <s>g N₂O₃</s> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">1 <s>mol N₂O₃</s></span><span class=\"sl\"> / </span><span class=\"fb\">76.02 <s>g N₂O₃</s></span><span class=\"po\">)</span></span> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">3 mol O₂</span><span class=\"sl\"> / </span><span class=\"fb\">2 <s>mol N₂O₃</s></span><span class=\"po\">)</span></span> = <b>0.03252 mol O₂</b></span>"
+    },
+    {
+     "tag": "",
+     "html": "P = nRT/V = 0.03252 × 0.0821 × 274 ÷ 2.64 = <b>0.277 atm</b>"
+    }
+   ]
+  },
+  {
+   "id": "hw20-q17",
+   "hw": 20,
+   "n": 17,
+   "section": "Gas Stoichiometry",
+   "method": "gas-stoich",
+   "q": "2 N₂ + 3 O₂ → 2 N₂O₃. What pressure of oxygen is required to produce 3.3 grams of dinitrogen trioxide in a 7.7 L container at 321.00 K? (R = 0.0821 L·atm/(mol·K) · molar mass of N₂O₃ = 76.01 g/mol)",
+   "choices": null,
+   "img": null,
+   "answer": "0.22 atm",
+   "steps": [
+    {
+     "tag": "",
+     "html": "<span class=\"fl\">3.3 <s>g N₂O₃</s> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">1 <s>mol N₂O₃</s></span><span class=\"sl\"> / </span><span class=\"fb\">76.01 <s>g N₂O₃</s></span><span class=\"po\">)</span></span> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">3 mol O₂</span><span class=\"sl\"> / </span><span class=\"fb\">2 <s>mol N₂O₃</s></span><span class=\"po\">)</span></span> = <b>0.06512 mol O₂</b></span>"
+    },
+    {
+     "tag": "",
+     "html": "P = nRT/V = 0.06512 × 0.0821 × 321.00 ÷ 7.7 = 0.2229"
+    },
+    {
+     "tag": "mem",
+     "html": "3.3 and 7.7 have 2 sig figs → <b>0.22 atm</b>"
+    }
+   ]
+  },
+  {
+   "id": "hw20-q18",
+   "hw": 20,
+   "n": 18,
+   "section": "Gas Stoichiometry",
+   "method": "gas-stoich",
+   "q": "At STP, this reaction occurred: XY (g) + 3 AB (aq) → A₃Y (g) + B₃X (s). How many liters of gas are produced from 2.6 grams of AB? (You may or may not need all of this: molar mass AB = 58.21 g/mol · correct sig figs and unit.)",
+   "choices": null,
+   "img": null,
+   "answer": "0.33 L",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "At STP, 1 mol gas = 22.4 L. The only gas <b>produced</b> is A₃Y (1 per 3 AB)."
+    },
+    {
+     "tag": "",
+     "html": "<span class=\"fl\">2.6 <s>g AB</s> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">1 <s>mol AB</s></span><span class=\"sl\"> / </span><span class=\"fb\">58.21 <s>g AB</s></span><span class=\"po\">)</span></span> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">1 <s>mol A₃Y</s></span><span class=\"sl\"> / </span><span class=\"fb\">3 <s>mol AB</s></span><span class=\"po\">)</span></span> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">22.4 L</span><span class=\"sl\"> / </span><span class=\"fb\">1 <s>mol A₃Y</s></span><span class=\"po\">)</span></span> = <b>0.33 L</b></span>"
+    }
+   ]
+  },
+  {
+   "id": "hw20-q19",
+   "hw": 20,
+   "n": 19,
+   "section": "Gas Stoichiometry",
+   "method": "vol-ratio",
+   "q": "A gas phase reaction at constant temperature and pressure in a flexible container: A₂Z (g) + 2 X (g) → 2 AX (g) + Z (g). If 2.29 L of A₂Z react with excess X, how many liters of AX will form?",
+   "choices": null,
+   "img": null,
+   "answer": "4.58 L",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "All gases at constant T and P → liters follow the coefficients."
+    },
+    {
+     "tag": "",
+     "html": "<span class=\"fl\">2.29 <s>L A₂Z</s> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">2 L AX</span><span class=\"sl\"> / </span><span class=\"fb\">1 <s>L A₂Z</s></span><span class=\"po\">)</span></span> = <b>4.58 L AX</b></span>"
+    }
+   ]
+  },
+  {
+   "id": "hw21-q01",
+   "hw": 21,
+   "n": 1,
+   "section": "Partial Pressure",
+   "method": "dalton",
+   "q": "Five gases are mixed into one container. The partial pressures are A = 0.78 atm, B = 1.20 atm, C = 2.43 atm, D = 0.46 atm, E = 1.57 atm. What is the total pressure in atm? Round to the hundredths place.",
+   "choices": null,
+   "img": null,
+   "answer": "6.44 atm",
+   "steps": [
+    {
+     "tag": "",
+     "html": "0.78 + 1.20 + 2.43 + 0.46 + 1.57 = <b>6.44 atm</b>"
+    }
+   ]
+  },
+  {
+   "id": "hw21-q02",
+   "hw": 21,
+   "n": 2,
+   "section": "Partial Pressure",
+   "method": "dalton",
+   "q": "Three gases are mixed into one container. Partial pressures: A = 880.1 mmHg, B = 0.59 atm, C = 3.66 atm. What is the total pressure in atm? Round to the hundredths place.",
+   "choices": null,
+   "img": null,
+   "answer": "5.41 atm",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Units first: 880.1 mmHg ÷ 760 = 1.158 atm."
+    },
+    {
+     "tag": "",
+     "html": "1.158 + 0.59 + 3.66 = <b>5.41 atm</b>"
+    }
+   ]
+  },
+  {
+   "id": "hw21-q03",
+   "hw": 21,
+   "n": 3,
+   "section": "Partial Pressure",
+   "method": "dalton",
+   "q": "Three gases, A, B and C, are in one container with a total pressure of 739.1 mmHg. A = 135.1 mmHg and B = 385.3 mmHg. What is the partial pressure of gas C in mmHg? Round to the tenths place.",
+   "choices": null,
+   "img": null,
+   "answer": "218.7 mmHg",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "P_C = P_total − P_A − P_B"
+    },
+    {
+     "tag": "",
+     "html": "739.1 − 135.1 − 385.3 = <b>218.7 mmHg</b>"
+    }
+   ]
+  },
+  {
+   "id": "hw21-q04",
+   "hw": 21,
+   "n": 4,
+   "section": "Partial Pressure",
+   "method": "dalton",
+   "q": "If 0.56 moles of radon and 0.73 moles of hydrogen are placed in a 3.7 L container at 235 °C, what pressure does the mixture exert?",
+   "choices": [
+    "6.7 atm",
+    "14.5 atm",
+    "2.0 atm",
+    "6.3 atm",
+    "7.2 atm"
+   ],
+   "img": null,
+   "answer": "14.5 atm",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Mixture: add the moles, then PV = nRT."
+    },
+    {
+     "tag": "",
+     "html": "n = 0.56 + 0.73 = 1.29 mol; T = 235 + 273.15 = 508.15 K"
+    },
+    {
+     "tag": "",
+     "html": "P = 1.29 × 0.0821 × 508.15 ÷ 3.7 = <b>14.5 atm</b>"
+    }
+   ]
+  },
+  {
+   "id": "hw21-q05",
+   "hw": 21,
+   "n": 5,
+   "section": "Partial Pressure",
+   "method": "dalton",
+   "q": "If 1.79 moles of argon and 1.15 moles of oxygen are placed in a 4.31 L container at 39.3 °C, what is the total pressure of the mixture? (R = 0.0821 L·atm/(mol·K) · correct sig figs and units.)",
+   "choices": null,
+   "img": null,
+   "answer": "17.5 atm",
+   "steps": [
+    {
+     "tag": "",
+     "html": "n = 1.79 + 1.15 = 2.94 mol; T = 39.3 + 273.15 = 312.45 K"
+    },
+    {
+     "tag": "",
+     "html": "P = 2.94 × 0.0821 × 312.45 ÷ 4.31 = <b>17.5 atm</b>"
+    }
+   ]
+  },
+  {
+   "id": "hw21-q06",
+   "hw": 21,
+   "n": 6,
+   "section": "Partial Pressure",
+   "method": "dalton",
+   "q": "What is the total pressure of this mixture? Helium at 145 mmHg is in a 3.00 L container at 28 ºC, and argon at 355 mmHg is in a 2.00 L container at 28 ºC. The two containers are connected and opened to each other at constant temperature, so the total volume is now 5.00 L.",
+   "choices": [
+    "145 mmHg",
+    "500 mmHg",
+    "355 mmHg",
+    "229 mmHg",
+    "100 mmHg"
+   ],
+   "img": null,
+   "answer": "229 mmHg",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Each gas expands into the full 5.00 L (P₁V₁ = P₂V₂), then add."
+    },
+    {
+     "tag": "",
+     "html": "He: 145 × 3.00/5.00 = 87 mmHg"
+    },
+    {
+     "tag": "",
+     "html": "Ar: 355 × 2.00/5.00 = 142 mmHg"
+    },
+    {
+     "tag": "",
+     "html": "Total = 87 + 142 = <b>229 mmHg</b>"
+    }
+   ]
+  },
+  {
+   "id": "hw21-q07",
+   "hw": 21,
+   "n": 7,
+   "section": "Mole Fraction",
+   "method": "mole-frac",
+   "q": "A mixture of gas contains 3.00 g of element A and 3.00 g of element B. A has a molar mass of 39.1 g/mol and B has a molar mass of 45.1 g/mol. What is the mole fraction of element A?",
+   "choices": null,
+   "img": null,
+   "answer": "0.536",
+   "steps": [
+    {
+     "tag": "",
+     "html": "n_A = 3.00 ÷ 39.1 = 0.0767 mol; n_B = 3.00 ÷ 45.1 = 0.0665 mol"
+    },
+    {
+     "tag": "",
+     "html": "X_A = 0.0767 ÷ (0.0767 + 0.0665) = <b>0.536</b>"
+    }
+   ]
+  },
+  {
+   "id": "hw21-q08",
+   "hw": 21,
+   "n": 8,
+   "section": "Mole Fraction",
+   "method": "mole-frac",
+   "q": "Four gases, A, B, C and D, are mixed into a sealed container with a total pressure of 3.06 atm. The mole fractions are A = 0.10, B = 0.20, C = 0.30, D = 0.40. What is the partial pressure of gas A? Report the correct number of sig figs.",
+   "choices": null,
+   "img": null,
+   "answer": "0.31 atm",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "P_A = X_A × P_total"
+    },
+    {
+     "tag": "",
+     "html": "0.10 × 3.06 = 0.306 → 2 sig figs (0.10): <b>0.31 atm</b>"
+    }
+   ]
+  },
+  {
+   "id": "hw21-q09",
+   "hw": 21,
+   "n": 9,
+   "section": "Mole Fraction",
+   "method": "ideal-gas",
+   "q": "BONUS: Hydrochloric acid is prepared by bubbling hydrogen chloride gas through water. What is the concentration of a solution prepared by dissolving 225 L of HCl(g) at 37 °C and 0.884 atm in enough water to make a 5.25 L solution?",
+   "choices": [
+    "1.49 M",
+    "12.5 M",
+    "7.82 M",
+    "1.66 M",
+    "16.6 M"
+   ],
+   "img": null,
+   "answer": "1.49 M",
+   "steps": [
+    {
+     "tag": "",
+     "html": "n HCl = PV/RT = 0.884 × 225 ÷ (0.0821 × 310.15) = 7.81 mol"
+    },
+    {
+     "tag": "mem",
+     "html": "Molarity = mol ÷ L of <b>solution</b>."
+    },
+    {
+     "tag": "",
+     "html": "M = 7.81 ÷ 5.25 = <b>1.49 M</b> (7.82 is the moles, a trap)"
+    }
+   ]
+  },
+  {
+   "id": "hw21-q11",
+   "hw": 21,
+   "n": 11,
+   "section": "Energy Explained",
+   "method": "energy-basics",
+   "q": "Mark the true statements below.",
+   "choices": null,
+   "img": null,
+   "answer": "The symbol 'q' represents heat energy.; Energy cannot be created or destroyed.; Some chemical reactions will absorb energy while others release energy.; Temperature measures heat energy.; Energy can change forms such as when it changes from heat energy to chemical energy.",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "True: q is heat; energy can't be created or destroyed; some reactions absorb and some release energy; energy changes forms; and (course key) temperature measures heat energy."
+    },
+    {
+     "tag": "mem",
+     "html": "False: kinetic energy is energy of <b>motion</b>; thermodynamics isn't about \"changing volume\"; phase changes <b>do</b> transfer energy."
+    }
+   ]
+  },
+  {
+   "id": "hw21-q12",
+   "hw": 21,
+   "n": 12,
+   "section": "Energy Explained",
+   "method": "energy-basics",
+   "q": "The first law of thermodynamics tells us that the amount of energy in the universe is constant and can neither be destroyed nor created. It can be transferred or change form.",
+   "choices": null,
+   "img": null,
+   "answer": "True",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "That's the first law of thermodynamics (conservation of energy) → <b>True</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw21-q13",
+   "hw": 21,
+   "n": 13,
+   "section": "Energy Explained",
+   "method": "energy-basics",
+   "q": "A cold piece of metal is placed in boiling water. Which statement is true?",
+   "choices": [
+    "The metal has a relative +q value and the water has a −q value. Heat will flow from the hot water to the cold metal.",
+    "The metal has a relative −q value and the water has a +q value. Heat will flow from the hot water to the cold metal.",
+    "The metal has a relative +q value and the water has a −q value. Heat will flow from the cold metal to hot water.",
+    "The metal has a relative −q value and the water has a +q value. Heat will flow from the cold metal to hot water."
+   ],
+   "img": null,
+   "answer": "The metal has a relative +q value and the water has a −q value. Heat will flow from the hot water to the cold metal.",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Heat flows <b>hot → cold</b>: from the boiling water into the cold metal."
+    },
+    {
+     "tag": "",
+     "html": "The metal gains heat (<b>+q</b>), the water loses heat (<b>−q</b>) → first choice."
+    }
+   ]
+  },
+  {
+   "id": "hw21-q14",
+   "hw": 21,
+   "n": 14,
+   "section": "Energy Explained",
+   "method": "energy-basics",
+   "q": "Kinetic energy is energy due to composition or position.",
+   "choices": null,
+   "img": null,
+   "answer": "False",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Composition or position is <b>potential</b> energy; kinetic is motion → <b>False</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw21-q15",
+   "hw": 21,
+   "n": 15,
+   "section": "Specific Heat",
+   "method": "specific-heat",
+   "q": "Select the true statement(s):",
+   "choices": null,
+   "img": null,
+   "answer": "Water has a higher specific heat capacity than lead and both start at the same temperature. That means the water will need to absorb more heat energy than the lead to increase by the same temperature.",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Statement 1: higher c needs more heat for the same ΔT → <b>true</b>."
+    },
+    {
+     "tag": "mem",
+     "html": "Statement 2: higher c releases <b>more</b> heat cooling the same amount → false."
+    },
+    {
+     "tag": "chart",
+     "html": "Statement 3: Al c = 0.897, Fe c = 0.449. Same 100 J → iron (lower c) warms more, so iron is hotter → false."
+    }
+   ]
+  },
+  {
+   "id": "hw21-q16",
+   "hw": 21,
+   "n": 16,
+   "section": "Specific Heat",
+   "method": "q-mcdt",
+   "q": "You have a 17.0 gram sample of gold at 20.0 °C. How much heat does it take to raise the temperature to 101.0 °C? (Specific heat of gold = 0.129 J/(g·°C) · 3 sig figs, unit abbreviation.)",
+   "choices": null,
+   "img": null,
+   "answer": "178 J",
+   "steps": [
+    {
+     "tag": "",
+     "html": "ΔT = 101.0 − 20.0 = 81.0 °C"
+    },
+    {
+     "tag": "",
+     "html": "q = 17.0 × 0.129 × 81.0 = <b>178 J</b>"
+    }
+   ]
+  },
+  {
+   "id": "hw21-q17",
+   "hw": 21,
+   "n": 17,
+   "section": "Specific Heat",
+   "method": "q-mcdt",
+   "q": "An unknown mass of gold at 12.0 °C absorbs 7.83 J of energy. The final temperature is 25.0 °C. What mass of gold, in grams, is required to do this? (Specific heat of gold = 0.129 J/(g·°C). ΔT = 13.0 (3 sig figs).)",
+   "choices": null,
+   "img": null,
+   "answer": "4.67 g",
+   "steps": [
+    {
+     "tag": "",
+     "html": "ΔT = 25.0 − 12.0 = 13.0 °C"
+    },
+    {
+     "tag": "",
+     "html": "m = q ÷ (cΔT) = 7.83 ÷ (0.129 × 13.0) = <b>4.67 g</b>"
+    }
+   ]
+  },
+  {
+   "id": "hw21-q18",
+   "hw": 21,
+   "n": 18,
+   "section": "Specific Heat",
+   "method": "specific-heat",
+   "q": "Two specific heat values: 0.689 J/g·°C and 0.341 J/g·°C. Type the specific heat value that will let the substance undergo a SMALL change in temperature when absorbing the same amount of heat as the other.",
+   "choices": null,
+   "img": null,
+   "answer": "0.689; J/(g*C)",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "ΔT = q ÷ (mc): the <b>larger</b> c gives the smaller ΔT → <b>0.689 J/(g*C)</b>"
+    }
+   ]
+  },
+  {
+   "id": "hw21-q19",
+   "hw": 21,
+   "n": 19,
+   "section": "Calorimetry Level 1",
+   "method": "q-mcdt",
+   "q": "18.0 grams of a metal at 29.5 °C was heated to 116.9 °C. Determine the amount of heat (in J) absorbed or released if the specific heat capacity of the metal is 0.185 J/(g·°C).",
+   "choices": null,
+   "img": null,
+   "answer": "291 J",
+   "steps": [
+    {
+     "tag": "",
+     "html": "ΔT = 116.9 − 29.5 = 87.4 °C"
+    },
+    {
+     "tag": "",
+     "html": "q = 18.0 × 0.185 × 87.4 = <b>291 J</b> (absorbed)"
+    }
+   ]
+  },
+  {
+   "id": "hw21-q20",
+   "hw": 21,
+   "n": 20,
+   "section": "Calorimetry Level 1",
+   "method": "q-mcdt",
+   "q": "11.0 grams of a metal at 25.9 °C was heated to 110.9 °C. Determine the amount of heat (in J) absorbed or released if the specific heat capacity of the metal is 0.167 J/(g·°C).",
+   "choices": null,
+   "img": null,
+   "answer": "156 J",
+   "steps": [
+    {
+     "tag": "",
+     "html": "ΔT = 110.9 − 25.9 = 85.0 °C"
+    },
+    {
+     "tag": "",
+     "html": "q = 11.0 × 0.167 × 85.0 = <b>156 J</b>"
+    }
+   ]
+  },
+  {
+   "id": "hw21-q21",
+   "hw": 21,
+   "n": 21,
+   "section": "Calorimetry Level 1",
+   "method": "q-mcdt",
+   "q": "A metal with a specific heat of 0.157 J/(g·°C) was heated from 39.7 °C to 109.3 °C. If 395 J were absorbed, what was the mass of the metal?",
+   "choices": null,
+   "img": null,
+   "answer": "36.1 g",
+   "steps": [
+    {
+     "tag": "",
+     "html": "ΔT = 109.3 − 39.7 = 69.6 °C"
+    },
+    {
+     "tag": "",
+     "html": "m = 395 ÷ (0.157 × 69.6) = <b>36.1 g</b>"
+    }
+   ]
+  },
+  {
+   "id": "hw21-q22",
+   "hw": 21,
+   "n": 22,
+   "section": "Calorimetry Level 1",
+   "method": "q-mcdt",
+   "q": "A metal with a specific heat of 0.165 J/(g·°C) was COOLED from 117.7 °C to 34.5 °C. If 349 J were released, what was the mass of the metal?",
+   "choices": null,
+   "img": null,
+   "answer": "25.4 g",
+   "steps": [
+    {
+     "tag": "",
+     "html": "ΔT = 34.5 − 117.7 = −83.2 °C; heat released → q = −349 J"
+    },
+    {
+     "tag": "",
+     "html": "m = (−349) ÷ (0.165 × −83.2) = <b>25.4 g</b> (negatives cancel)"
+    }
+   ]
+  },
+  {
+   "id": "hw21-q23",
+   "hw": 21,
+   "n": 23,
+   "section": "Calorimetry Level 1",
+   "method": "q-mcdt",
+   "q": "202.7 J of heat were released when 13.5 grams of the substance at 114.3 °C was cooled to 20.1 °C. Determine the specific heat capacity of the metal in J/(g·°C).",
+   "choices": null,
+   "img": null,
+   "answer": "0.159 J/(g·°C)",
+   "steps": [
+    {
+     "tag": "",
+     "html": "ΔT = 20.1 − 114.3 = −94.2 °C; released → q = −202.7 J"
+    },
+    {
+     "tag": "",
+     "html": "c = (−202.7) ÷ (13.5 × −94.2) = <b>0.159 J/(g·°C)</b>"
+    }
+   ]
+  },
+  {
+   "id": "hw21-q24",
+   "hw": 21,
+   "n": 24,
+   "section": "Calorimetry Level 1",
+   "method": "q-mcdt",
+   "q": "A 20.0 g sample of aluminum absorbs 150 J of energy. If the initial temperature of the Al is 75.0 °C, what is the final temperature?",
+   "choices": [
+    "8.36 °C",
+    "77.7 °C",
+    "72.3 °C",
+    "83.4 °C",
+    "66.6 °C"
+   ],
+   "img": null,
+   "answer": "83.4 °C",
+   "steps": [
+    {
+     "tag": "chart",
+     "html": "Aluminum c = 0.897 J/(g·°C)."
+    },
+    {
+     "tag": "",
+     "html": "ΔT = q ÷ (mc) = 150 ÷ (20.0 × 0.897) = 8.36 °C"
+    },
+    {
+     "tag": "",
+     "html": "Absorbed → warmer: 75.0 + 8.36 = <b>83.4 °C</b> (8.36 alone is the ΔT trap)"
+    }
+   ]
+  },
+  {
+   "id": "hw21-q25",
+   "hw": 21,
+   "n": 25,
+   "section": "Calorimetry Level 1",
+   "method": "q-mcdt",
+   "q": "A 13.0 gram sample of iron is initially at 414.0 °C. It loses 169.0 J of heat to its surroundings. What is its final temperature? Enter your answer in °C with one decimal place. (Specific heat of iron = 0.449 J/(g·°C))",
+   "choices": null,
+   "img": null,
+   "answer": "385.0 °C",
+   "steps": [
+    {
+     "tag": "",
+     "html": "ΔT = (−169.0) ÷ (13.0 × 0.449) = −28.95 °C"
+    },
+    {
+     "tag": "",
+     "html": "T_final = 414.0 − 28.95 = <b>385.0 °C</b>"
+    }
+   ]
+  },
+  {
+   "id": "hw21-q26",
+   "hw": 21,
+   "n": 26,
+   "section": "Calorimetry Level 2",
+   "method": "calorimetry",
+   "q": "A piece of copper at 98.3 °C is placed in a calorimeter containing 32.3 grams of water at 23.1 °C. If the temperature at equilibrium is 28.1 °C, what is the mass of the copper? Report two sig figs. (Specific heat of copper = 0.385 J/(g·°C) · water = 4.184 J/(g·°C))",
+   "choices": null,
+   "img": null,
+   "answer": "25 g",
+   "steps": [
+    {
+     "tag": "",
+     "html": "Water gains 32.3 × 4.184 × (28.1 − 23.1) = 32.3 × 4.184 × 5.0 = 675.7 J"
+    },
+    {
+     "tag": "",
+     "html": "Copper loses the same: m × 0.385 × (98.3 − 28.1) = m × 0.385 × 70.2"
+    },
+    {
+     "tag": "",
+     "html": "m = 675.7 ÷ 27.03 = <b>25 g</b> (2 sig figs)"
+    }
+   ]
+  },
+  {
+   "id": "hw21-q27",
+   "hw": 21,
+   "n": 27,
+   "section": "Calorimetry Level 2",
+   "method": "calorimetry",
+   "q": "A 34.7 gram piece of lead at 97.7 °C is placed in a calorimeter containing water at 21.9 °C. If the temperature at equilibrium is 27.6 °C, what is the mass of the water? Report two sig figs. (Specific heat of lead = 0.130 J/(g·°C))",
+   "choices": null,
+   "img": null,
+   "answer": "13 g",
+   "steps": [
+    {
+     "tag": "",
+     "html": "Lead loses 34.7 × 0.130 × (97.7 − 27.6) = 34.7 × 0.130 × 70.1 = 316.2 J"
+    },
+    {
+     "tag": "",
+     "html": "Water gains it: m × 4.184 × (27.6 − 21.9) = m × 4.184 × 5.7"
+    },
+    {
+     "tag": "",
+     "html": "m = 316.2 ÷ 23.85 = <b>13 g</b>"
+    }
+   ]
+  },
+  {
+   "id": "hw21-q28",
+   "hw": 21,
+   "n": 28,
+   "section": "Calorimetry Level 2",
+   "method": "calorimetry",
+   "q": "A 34.6 gram piece of lead at 104.6 °C is placed in a calorimeter containing 30.4 grams of an unknown liquid at 22.4 °C. If the temperature at equilibrium is 29.7 °C, what is the specific heat capacity of the liquid? (Specific heat of lead = 0.129 J/(g·°C))",
+   "choices": [
+    "1.51 J/g°C",
+    "0.605 J/g°C",
+    "0.358 J/g°C",
+    "1.65 J/g°C",
+    "0.664 J/g°C"
+   ],
+   "img": null,
+   "answer": "1.51 J/g°C",
+   "steps": [
+    {
+     "tag": "",
+     "html": "Lead loses 34.6 × 0.129 × (104.6 − 29.7) = 34.6 × 0.129 × 74.9 = 334.3 J"
+    },
+    {
+     "tag": "",
+     "html": "Liquid gains it: 30.4 × c × (29.7 − 22.4) = 30.4 × c × 7.3"
+    },
+    {
+     "tag": "",
+     "html": "c = 334.3 ÷ 221.9 = <b>1.51 J/(g·°C)</b>"
+    }
+   ]
+  },
+  {
+   "id": "hw21-q29",
+   "hw": 21,
+   "n": 29,
+   "section": "Calorimetry Level 2",
+   "method": "calorimetry",
+   "q": "A 70.7 g piece of metal at 164.3 °C is placed in a calorimeter containing 171 grams of water at 26.2 °C. If the temperature at equilibrium is 31.5 °C, what was the specific heat of the metal in J/(g·°C)? Round to three decimal places.",
+   "choices": null,
+   "img": null,
+   "answer": "0.404 J/(g·°C)",
+   "steps": [
+    {
+     "tag": "",
+     "html": "Water gains 171 × 4.184 × (31.5 − 26.2) = 171 × 4.184 × 5.3 = 3792 J"
+    },
+    {
+     "tag": "",
+     "html": "Metal loses it: 70.7 × c × (164.3 − 31.5) = 70.7 × c × 132.8"
+    },
+    {
+     "tag": "",
+     "html": "c = 3792 ÷ 9389 = <b>0.404 J/(g·°C)</b>"
+    }
+   ]
+  },
+  {
+   "id": "hw21-q30",
+   "hw": 21,
+   "n": 30,
+   "section": "Calorimetry Level 2",
+   "method": "calorimetry",
+   "q": "A 66.1 g piece of metal at 164.7 °C is placed in a calorimeter containing 171 grams of water. If the temperature at equilibrium is 30.7 °C, what was the initial temperature of the water? Round to the tenths position. (Specific heat of the metal = 0.677 J/(g·°C))",
+   "choices": null,
+   "img": null,
+   "answer": "22.3 °C",
+   "steps": [
+    {
+     "tag": "",
+     "html": "Metal loses 66.1 × 0.677 × (164.7 − 30.7) = 66.1 × 0.677 × 134.0 = 5996 J"
+    },
+    {
+     "tag": "",
+     "html": "Water ΔT = 5996 ÷ (171 × 4.184) = 8.38 °C"
+    },
+    {
+     "tag": "",
+     "html": "The water warmed up to 30.7, so it started at 30.7 − 8.38 = <b>22.3 °C</b>"
+    }
+   ]
+  },
+  {
+   "id": "hw22-q01",
+   "hw": 22,
+   "n": 1,
+   "section": "Enthalpy",
+   "method": "enthalpy-terms",
+   "q": "Match the terms.",
+   "choices": null,
+   "img": null,
+   "answer": "describes heat energy transfer for a specific number of moles in a system → enthalpy; symbol is ΔH → enthalpy; typically has a unit of joules → heat energy; describes the sum of all heat transferred into and out of a system → heat energy; symbol is q → heat energy; typically has a unit of kJ or kJ/mol → enthalpy",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "<b>Enthalpy</b>: heat for a specific number of moles, symbol ΔH, unit kJ or kJ/mol."
+    },
+    {
+     "tag": "mem",
+     "html": "<b>Heat energy</b>: sum of all heat in and out, symbol q, unit joules."
+    }
+   ]
+  },
+  {
+   "id": "hw22-q02",
+   "hw": 22,
+   "n": 2,
+   "section": "Enthalpy",
+   "method": "exo-endo",
+   "q": "Which of the following is a correct statement for a chemical reaction that absorbs heat?",
+   "choices": [
+    "The reaction is exothermic with a positive ΔH.",
+    "The reaction is endothermic with a negative ΔH.",
+    "The reaction is endothermic with ΔH = 0.",
+    "The reaction is endothermic with a positive ΔH.",
+    "The reaction is exothermic with a negative ΔH."
+   ],
+   "img": null,
+   "answer": "The reaction is endothermic with a positive ΔH.",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Absorbs heat = <b>endothermic</b> = <b>positive ΔH</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw22-q03",
+   "hw": 22,
+   "n": 3,
+   "section": "Enthalpy",
+   "method": "exo-endo",
+   "q": "Where would you write the word 'heat' in these equations?",
+   "choices": null,
+   "img": null,
+   "answer": "H₂ (g) + Cl₂ (g) → 2 HCl (g)   ΔH = −184.6 kJ → to the RIGHT of the arrow; C₃H₈ (g) + 5 O₂ (g) → 3 CO₂ (g) + 4 H₂O (l)   ΔH = 2219.2 kJ → to the LEFT of the arrow; 2 CO₂ (g) → 2 CO (g) + O₂ (g)   ΔH = 566.0 kJ → to the LEFT of the arrow; 4 HCl (g) + O₂ (g) → 2 H₂O + 2 Cl₂ (g)   ΔH = −202.5 kJ → to the RIGHT of the arrow",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Negative ΔH → heat is a product (<b>right</b>); positive ΔH → heat is a reactant (<b>left</b>)."
+    },
+    {
+     "tag": "",
+     "html": "H₂ + Cl₂ (−184.6): right. C₃H₈ (+2219.2 as written): left. 2 CO₂ (+566.0): left. 4 HCl (−202.5): right."
+    }
+   ]
+  },
+  {
+   "id": "hw22-q04",
+   "hw": 22,
+   "n": 4,
+   "section": "Enthalpy",
+   "method": "exo-endo",
+   "q": "Label each reaction exothermic or endothermic.",
+   "choices": null,
+   "img": null,
+   "answer": "H₂ (g) + Cl₂ (g) → 2 HCl (g)   ΔH = −184.6 kJ → exothermic; 2 CO₂ (g) → 2 CO (g) + O₂ (g)   ΔH = 566.0 kJ → endothermic; C₃H₈ (g) + 5 O₂ (g) → 3 CO₂ (g) + 4 H₂O (l)   ΔH = 2219.2 kJ → endothermic; 4 HCl (g) + O₂ (g) → 2 H₂O + 2 Cl₂ (g)   ΔH = −202.5 kJ → exothermic",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Negative ΔH = exothermic; positive ΔH = endothermic."
+    },
+    {
+     "tag": "",
+     "html": "H₂ + Cl₂: exo. 2 CO₂: endo. C₃H₈ (+2219.2 as written): endo. 4 HCl: exo."
+    }
+   ]
+  },
+  {
+   "id": "hw22-q05",
+   "hw": 22,
+   "n": 5,
+   "section": "Enthalpy",
+   "method": "exo-endo",
+   "q": "The energy has been written into each equation. Which are correctly written?",
+   "choices": null,
+   "img": null,
+   "answer": "2 CO₂ (g) − 566.0 kJ → 2 CO (g) + O₂ (g)   ΔH = 566.0 kJ → incorrectly written; 4 HCl (g) + O₂ (g) → 2 H₂O + 2 Cl₂ (g) − 202.5 kJ   ΔH = −202.5 kJ → incorrectly written; H₂ (g) + Cl₂ (g) → 2 HCl (g) + 184.6 kJ   ΔH = −184.6 kJ → correctly written; C₃H₈ (g) + 5 O₂ (g) + 2219.2 kJ → 3 CO₂ (g) + 4 H₂O (l)   ΔH = 2219.2 kJ → correctly written",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Energy inside an equation is always <b>+</b>, on the left for endothermic and on the right for exothermic."
+    },
+    {
+     "tag": "",
+     "html": "\"2 CO₂ − 566.0 kJ\" and \"… − 202.5 kJ\" use minus signs → <b>incorrect</b>."
+    },
+    {
+     "tag": "",
+     "html": "\"… → 2 HCl + 184.6 kJ\" (exo, right) and \"C₃H₈ + … + 2219.2 kJ →\" (endo, left) → <b>correct</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw22-q06",
+   "hw": 22,
+   "n": 6,
+   "section": "Enthalpy",
+   "method": "std-conditions",
+   "q": "Flashback: standard conditions for thermodynamics.",
+   "choices": null,
+   "img": null,
+   "answer": "25; 1; no",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Thermodynamic standard: <b>25</b> °C and <b>1</b> atm."
+    },
+    {
+     "tag": "mem",
+     "html": "Gas STP is 0 °C, so the temperatures are <b>not</b> the same → <b>no</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw22-q07",
+   "hw": 22,
+   "n": 7,
+   "section": "Enthalpy",
+   "method": "dh-per-mol",
+   "q": "If 163.2 g of a new chemical 'ACO₂' is produced by AC + O₂ → ACO₂ and that reaction releases 517.2 kJ of energy, what is the enthalpy change (kJ)? (ACO₂ molar mass = 184.2 g/mol)",
+   "choices": null,
+   "img": null,
+   "answer": "-583.8 kJ",
+   "steps": [
+    {
+     "tag": "",
+     "html": "<span class=\"fl\">163.2 <s>g ACO₂</s> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">1 mol ACO₂</span><span class=\"sl\"> / </span><span class=\"fb\">184.2 <s>g ACO₂</s></span><span class=\"po\">)</span></span> = <b>0.8860 mol ACO₂</b></span>"
+    },
+    {
+     "tag": "",
+     "html": "ΔH = −517.2 kJ ÷ 0.8860 mol = <b>−583.8 kJ</b> (negative: released)"
+    }
+   ]
+  },
+  {
+   "id": "hw22-q08",
+   "hw": 22,
+   "n": 8,
+   "section": "Enthalpy",
+   "method": "dh-per-mol",
+   "q": "If 0.9781 g of 'XY₂' is produced by X + 2Y → XY₂ and that reaction absorbs 736.2 J of energy, what is the enthalpy change in kJ (correct sig figs)? (XY₂ molar mass = 308.21 g/mol · watch the J → kJ unit!)",
+   "choices": null,
+   "img": null,
+   "answer": "232.0 kJ",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Heat to kJ: 736.2 J ÷ 1000 = 0.7362 kJ."
+    },
+    {
+     "tag": "",
+     "html": "<span class=\"fl\">0.9781 <s>g XY₂</s> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">1 mol XY₂</span><span class=\"sl\"> / </span><span class=\"fb\">308.21 <s>g XY₂</s></span><span class=\"po\">)</span></span> = <b>0.003173 mol XY₂</b></span>"
+    },
+    {
+     "tag": "",
+     "html": "ΔH = +0.7362 kJ ÷ 0.003173 mol = <b>232.0 kJ</b> (positive: absorbed)"
+    }
+   ]
+  },
+  {
+   "id": "hw22-q09",
+   "hw": 22,
+   "n": 9,
+   "section": "Enthalpy Stoichiometry",
+   "method": "enthalpy-stoich",
+   "q": "2 SO₃ (g) → 2 SO₂ (g) + O₂ (g) has an enthalpy change of 198 kJ. How many grams of sulfur dioxide are produced when 564 kJ is absorbed?",
+   "choices": [
+    "365 g",
+    "182 g",
+    "730 g",
+    "273 g",
+    "456 g"
+   ],
+   "img": null,
+   "answer": "365 g",
+   "steps": [
+    {
+     "tag": "chart",
+     "html": "SO₂ = 32.06 + 2(16.00) = 64.06 g/mol; 198 kJ goes with 2 mol SO₂."
+    },
+    {
+     "tag": "",
+     "html": "<span class=\"fl\">564 <s>kJ</s> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">2 <s>mol SO₂</s></span><span class=\"sl\"> / </span><span class=\"fb\">198 <s>kJ</s></span><span class=\"po\">)</span></span> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">64.06 g SO₂</span><span class=\"sl\"> / </span><span class=\"fb\">1 <s>mol SO₂</s></span><span class=\"po\">)</span></span> = <b>365 g SO₂</b></span>"
+    }
+   ]
+  },
+  {
+   "id": "hw22-q10",
+   "hw": 22,
+   "n": 10,
+   "section": "Enthalpy Stoichiometry",
+   "method": "enthalpy-stoich",
+   "q": "4 NO + 6 H₂O → 4 NH₃ + 5 O₂ has an enthalpy change of 46.72 kJ. How many grams of ammonia can be produced if 32.5 kJ of heat energy are provided? Three sig figs. (NH₃ molar mass = 17.04 g/mol)",
+   "choices": null,
+   "img": null,
+   "answer": "47.4 g",
+   "steps": [
+    {
+     "tag": "",
+     "html": "<span class=\"fl\">32.5 <s>kJ</s> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">4 <s>mol NH₃</s></span><span class=\"sl\"> / </span><span class=\"fb\">46.72 <s>kJ</s></span><span class=\"po\">)</span></span> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">17.04 g NH₃</span><span class=\"sl\"> / </span><span class=\"fb\">1 <s>mol NH₃</s></span><span class=\"po\">)</span></span> = <b>47.4 g NH₃</b></span>"
+    }
+   ]
+  },
+  {
+   "id": "hw22-q11",
+   "hw": 22,
+   "n": 11,
+   "section": "Enthalpy Stoichiometry",
+   "method": "enthalpy-stoich",
+   "q": "2 H₂ (g) + O₂ (g) → 2 H₂O (l) has ΔH_rxn = −571 kJ. What is the enthalpy change if 1.00 gram of hydrogen reacts in this manner?",
+   "choices": [
+    "–283 kJ",
+    "–571 kJ",
+    "–141 kJ",
+    "141 kJ",
+    "283 kJ"
+   ],
+   "img": null,
+   "answer": "–141 kJ",
+   "steps": [
+    {
+     "tag": "",
+     "html": "<span class=\"fl\">1.00 <s>g H₂</s> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">1 <s>mol H₂</s></span><span class=\"sl\"> / </span><span class=\"fb\">2.02 <s>g H₂</s></span><span class=\"po\">)</span></span> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">−571 kJ</span><span class=\"sl\"> / </span><span class=\"fb\">2 <s>mol H₂</s></span><span class=\"po\">)</span></span> = <b>−141 kJ</b></span>"
+    }
+   ]
+  },
+  {
+   "id": "hw22-q12",
+   "hw": 22,
+   "n": 12,
+   "section": "Enthalpy Stoichiometry",
+   "method": "enthalpy-stoich",
+   "q": "2 AB + 5/2 O₂ → 2 AO₂ + B₂O has ΔH = −465.8 kJ. How many kJ of heat are produced when 6.27 grams of AB combust? Three sig figs. (AB molar mass = 65.0 g/mol)",
+   "choices": null,
+   "img": null,
+   "answer": "22.5 kJ",
+   "steps": [
+    {
+     "tag": "",
+     "html": "<span class=\"fl\">6.27 <s>g AB</s> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">1 <s>mol AB</s></span><span class=\"sl\"> / </span><span class=\"fb\">65.0 <s>g AB</s></span><span class=\"po\">)</span></span> × <span class=\"frac\"><span class=\"po\">(</span><span class=\"ft\">465.8 kJ</span><span class=\"sl\"> / </span><span class=\"fb\">2 <s>mol AB</s></span><span class=\"po\">)</span></span> = <b>22.5 kJ</b></span>"
+    },
+    {
+     "tag": "mem",
+     "html": "ΔH is negative, so 22.5 kJ is <b>produced</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw22-q13",
+   "hw": 22,
+   "n": 13,
+   "section": "Heats of Formation",
+   "method": "formation-rxn",
+   "q": "Which of the following is a correctly written formation reaction for CaO (s)?",
+   "choices": [
+    "Ca²⁺ (aq) + O²⁻ (aq) → CaO (s)",
+    "2 Ca (s) + O₂ (g) → 2 CaO (s)",
+    "2 CaO (s) → 2 Ca (s) + O₂ (g)",
+    "Ca (s) + 2 O (g) → CaO (s)",
+    "Ca (s) + 1/2 O₂ (g) → CaO (s)"
+   ],
+   "img": null,
+   "answer": "Ca (s) + 1/2 O₂ (g) → CaO (s)",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "1 mol CaO from Ca (s) and O₂ (g) → use ½ O₂."
+    },
+    {
+     "tag": "",
+     "html": "<b>Ca (s) + 1/2 O₂ (g) → CaO (s)</b>. The others make 2 mol, use ions or O atoms, or run backwards."
+    }
+   ]
+  },
+  {
+   "id": "hw22-q14",
+   "hw": 22,
+   "n": 14,
+   "section": "Heats of Formation",
+   "method": "formation-rxn",
+   "q": "Which of the following is a correctly written formation reaction for NH₃ (g)?",
+   "choices": [
+    "N₂ (g) + 3 H₂ (g) → 2 NH₃ (g)",
+    "N³⁺ (g) + 3 H⁻ (g) → NH₃ (g)",
+    "1/2 N₂ (g) + 3/2 H₂ (g) → NH₃ (g)",
+    "N³⁻ (g) + 3 H⁺ (g) → NH₃ (g)",
+    "N (g) + H₃ (g) → NH₃ (g)"
+   ],
+   "img": null,
+   "answer": "1/2 N₂ (g) + 3/2 H₂ (g) → NH₃ (g)",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "1 mol NH₃ from N₂ (g) and H₂ (g)."
+    },
+    {
+     "tag": "",
+     "html": "<b>1/2 N₂ (g) + 3/2 H₂ (g) → NH₃ (g)</b>"
+    }
+   ]
+  },
+  {
+   "id": "hw22-q15",
+   "hw": 22,
+   "n": 15,
+   "section": "Heats of Formation",
+   "method": "std-state",
+   "q": "Select the ΔH_f values that would be zero.",
+   "choices": null,
+   "img": null,
+   "answer": "O₂ (g); H₂ (g); Zn (s)",
+   "steps": [
+    {
+     "tag": "chart",
+     "html": "Standard states at 25 °C: oxygen gas, hydrogen gas, zinc solid, bromine <b>liquid</b>, neon <b>gas</b>, nitrogen <b>gas</b>, calcium <b>solid</b>."
+    },
+    {
+     "tag": "",
+     "html": "Zero: <b>O₂ (g), H₂ (g), Zn (s)</b>. N₂ (l), Br₂ (s), Ca (l), Ne (s) are the wrong phase."
+    }
+   ]
+  },
+  {
+   "id": "hw22-q16",
+   "hw": 22,
+   "n": 16,
+   "section": "Heats of Formation",
+   "method": "hf-calc",
+   "q": "Which two answers show correct set-ups for C₂H₄ (g) + 3 O₂ (g) → 2 H₂O (l) + 2 CO₂ (g)?",
+   "choices": null,
+   "img": null,
+   "answer": "Hrxn = 2·Hf H₂O + 2·Hf CO₂ − (Hf C₂H₄ + 3·Hf O₂); Hrxn = 2·Hf H₂O + 2·Hf CO₂ − (Hf C₂H₄ + 0)",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Products minus reactants, each × coefficient: 2·H₂O + 2·CO₂ − (C₂H₄ + 3·O₂)."
+    },
+    {
+     "tag": "mem",
+     "html": "O₂ is a standard-state element (ΔH_f = 0), so writing 0 for it is the same set-up → the <b>first two</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw22-q17",
+   "hw": 22,
+   "n": 17,
+   "section": "Heats of Formation",
+   "method": "hf-calc",
+   "q": "Using enthalpies of formation, which is closest to the enthalpy change for CH₄ (g) + Cl₂ (g) → CH₃Cl (g) + HCl (g)? (ΔH_f: CH₄ (g) = −74.6 · CH₃Cl (g) = −81.9 · HCl (g) = −92.307 kJ/mol)",
+   "choices": [
+    "–249.148 kJ",
+    "99.452 kJ",
+    "–85.148 kJ",
+    "–99.452 kJ",
+    "249.148 kJ"
+   ],
+   "img": null,
+   "answer": "–99.452 kJ",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Cl₂ (g) is an element → 0."
+    },
+    {
+     "tag": "",
+     "html": "(−81.9 + −92.307) − (−74.6 + 0) = −174.207 + 74.6 = −99.6 → closest <b>−99.452 kJ</b>"
+    }
+   ]
+  },
+  {
+   "id": "hw22-q18",
+   "hw": 22,
+   "n": 18,
+   "section": "Heats of Formation",
+   "method": "hf-calc",
+   "q": "Using enthalpies of formation, which is closest to the enthalpy change for 3 CH₄ (g) + 2 H₂O (l) + CO₂ (g) → 4 CO (g) + 8 H₂ (g)? (ΔH_f: CH₄ (g) = −74.6 · H₂O (l) = −285.83 · CO₂ (g) = −393.51 · CO (g) = −110.52 kJ/mol)",
+   "choices": [
+    "747.68 kJ",
+    "–1631.52 kJ",
+    "–747.68 kJ",
+    "643.64 kJ",
+    "–643.64 kJ"
+   ],
+   "img": null,
+   "answer": "747.68 kJ",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "H₂ (g) is an element → 0."
+    },
+    {
+     "tag": "",
+     "html": "Products: 4(−110.52) + 8(0) = −442.08"
+    },
+    {
+     "tag": "",
+     "html": "Reactants: 3(−74.6) + 2(−285.83) + (−393.51) = −1188.97"
+    },
+    {
+     "tag": "",
+     "html": "−442.08 − (−1188.97) = +746.9 → <b>747.68 kJ</b>"
+    }
+   ]
+  },
+  {
+   "id": "hw22-q19",
+   "hw": 22,
+   "n": 19,
+   "section": "Heats of Formation",
+   "method": "hf-calc",
+   "q": "Using the ΔH_f° values given, determine the enthalpy of AX₂ (g) + 2 Y₂ (g) → AX₂Y₄ (g). Round to the tenths place and include the unit. (ΔH_f°: AX₂ (g) = −262.1 · Y₂ (g) = 151.0 · AX₂Y₂ = 328.1 kJ/mol)",
+   "choices": null,
+   "img": null,
+   "answer": "288.2 kJ",
+   "steps": [
+    {
+     "tag": "",
+     "html": "328.1 − [−262.1 + 2(151.0)] = 328.1 − 39.9 = <b>288.2 kJ</b>"
+    },
+    {
+     "tag": "chart",
+     "html": "eLearn labels the product \"AX₂Y₂\"; use that 328.1 value."
+    }
+   ]
+  },
+  {
+   "id": "hw22-q20",
+   "hw": 22,
+   "n": 20,
+   "section": "Heats of Formation",
+   "method": "hf-calc",
+   "q": "Using the ΔH_f° values given, determine the enthalpy of A (g) + 3 B (g) → AB₃ (g). Round to the tenths place; unit kJ/mol. (ΔH_f°: A (g) = 276.4 · B (g) = −124.2 · AB₃ (g) = −395.2 kJ/mol)",
+   "choices": null,
+   "img": null,
+   "answer": "-299.0 kJ/mol",
+   "steps": [
+    {
+     "tag": "",
+     "html": "−395.2 − [276.4 + 3(−124.2)] = −395.2 − (−96.2) = <b>−299.0 kJ/mol</b>"
+    }
+   ]
+  },
+  {
+   "id": "hw22-q21",
+   "hw": 22,
+   "n": 21,
+   "section": "Heats of Formation",
+   "method": "hf-calc",
+   "q": "For A (g) + 2 B (g) → AB₂ (g), ΔH_rxn = 383.7 kJ. Using the ΔH_f° values given, determine ΔH_f of AB₂. Round to the tenths place; unit kJ/mol. (ΔH_f°: A (g) = 274.6 · B (g) = −128.5 kJ/mol)",
+   "choices": null,
+   "img": null,
+   "answer": "401.3 kJ/mol",
+   "steps": [
+    {
+     "tag": "",
+     "html": "383.7 = ΔH_f(AB₂) − [274.6 + 2(−128.5)] = ΔH_f(AB₂) − 17.6"
+    },
+    {
+     "tag": "",
+     "html": "ΔH_f(AB₂) = 383.7 + 17.6 = <b>401.3 kJ/mol</b>"
+    }
+   ]
+  },
+  {
+   "id": "hw22-q22",
+   "hw": 22,
+   "n": 22,
+   "section": "Hess's Law",
+   "method": "hess",
+   "q": "Reverse each reaction. Enter answers like \"35 kJ\" (space before kJ; negative sign if negative, no sign if positive).",
+   "choices": null,
+   "img": null,
+   "answer": "-60 kJ; 150 kJ; 50 kJ",
+   "steps": [
+    {
+     "tag": "mem",
+     "html": "Reversing flips the sign."
+    },
+    {
+     "tag": "",
+     "html": "B → A: <b>−60 kJ</b>. C → B: <b>150 kJ</b>. B + D → 2A: <b>50 kJ</b>."
+    }
+   ]
+  },
+  {
+   "id": "hw22-q23",
+   "hw": 22,
+   "n": 23,
+   "section": "Hess's Law",
+   "method": "hess",
+   "q": "Given A → B (ΔH = 70 kJ) and B → C (ΔH = −110 kJ), find each. Enter like \"35 kJ\".",
+   "choices": null,
+   "img": null,
+   "answer": "210 kJ; -55 kJ; -700 kJ",
+   "steps": [
+    {
+     "tag": "",
+     "html": "3 A → 3 B: 3 × 70 = <b>210 kJ</b>"
+    },
+    {
+     "tag": "",
+     "html": "½ B → ½ C: ½ × (−110) = <b>−55 kJ</b>"
+    },
+    {
+     "tag": "",
+     "html": "10 B → 10 A: reverse (−70) and × 10 = <b>−700 kJ</b>"
+    }
+   ]
+  },
+  {
+   "id": "hw22-q24",
+   "hw": 22,
+   "n": 24,
+   "section": "Hess's Law",
+   "method": "hess",
+   "q": "Given A → B (ΔH = −50 kJ) and B → C (ΔH = 20 kJ), combine them. Enter like \"35 kJ\".",
+   "choices": null,
+   "img": null,
+   "answer": "-30 kJ; -70 kJ",
+   "steps": [
+    {
+     "tag": "",
+     "html": "A → C = (A → B) + (B → C) = −50 + 20 = <b>−30 kJ</b>"
+    },
+    {
+     "tag": "",
+     "html": "A + C → 2 B = (A → B) + reverse(B → C) = −50 + (−20) = <b>−70 kJ</b>"
+    }
+   ]
+  },
+  {
+   "id": "hw22-q25",
+   "hw": 22,
+   "n": 25,
+   "section": "Hess's Law",
+   "method": "hess",
+   "q": "What is the enthalpy change for 2 Cr (s) + 3 O₂ (g) → 2 CrO₃ (s)? (4 Cr (s) + 3 O₂ (g) → 2 Cr₂O₃ (s), ΔH = −2256.8 kJ · 2 Cr₂O₃ (s) + 3 O₂ (g) → 4 CrO₃ (s), ΔH = −108.2 kJ)",
+   "choices": [
+    "– 4405.4 kJ",
+    "– 2365.0 kJ",
+    "– 1182.5 kJ",
+    "2365.0 kJ",
+    "1182.5 kJ"
+   ],
+   "img": null,
+   "answer": "– 1182.5 kJ",
+   "steps": [
+    {
+     "tag": "",
+     "html": "Add the two: 4 Cr + 6 O₂ → 4 CrO₃ (the 2 Cr₂O₃ cancels), ΔH = −2256.8 + (−108.2) = −2365.0 kJ"
+    },
+    {
+     "tag": "",
+     "html": "Target is half of that: −2365.0 ÷ 2 = <b>−1182.5 kJ</b>"
+    }
+   ]
+  },
+  {
+   "id": "hw22-q26",
+   "hw": 22,
+   "n": 26,
+   "section": "Hess's Law",
+   "method": "hess",
+   "q": "Determine the enthalpy change for 2 E + X₂ → 2 EX. Round to the ones position and include the unit. (E + X₂ → EX₂, ΔH = −544 kJ · 2 EX₂ → 2 EX + X₂, ΔH = 521 kJ)",
+   "choices": null,
+   "img": null,
+   "answer": "-567 kJ",
+   "steps": [
+    {
+     "tag": "",
+     "html": "×2 eq. 1: 2 E + 2 X₂ → 2 EX₂, ΔH = −1088 kJ"
+    },
+    {
+     "tag": "",
+     "html": "Keep eq. 2: 2 EX₂ → 2 EX + X₂, ΔH = 521 kJ"
+    },
+    {
+     "tag": "",
+     "html": "Add (2 EX₂ and one X₂ cancel): 2 E + X₂ → 2 EX, ΔH = −1088 + 521 = <b>−567 kJ</b>"
+    }
+   ]
+  },
+  {
+   "id": "hw22-q27",
+   "hw": 22,
+   "n": 27,
+   "section": "Hess's Law",
+   "method": "hess",
+   "q": "What is the enthalpy change for 4 NH₃ (g) + 5 O₂ (g) → 4 NO (g) + 6 H₂O (l)? (N₂ + 3 H₂ → 2 NH₃, ΔH = −922.22 kJ · N₂ + O₂ → 2 NO, ΔH = 180.5 kJ · 2 H₂ + O₂ → 2 H₂O (l), ΔH = −571.6 kJ)",
+   "choices": [
+    "–490.64 kJ",
+    "1313.32 kJ",
+    "–1313.32 kJ",
+    "170.12 kJ",
+    "490.64 kJ"
+   ],
+   "img": null,
+   "answer": "490.64 kJ",
+   "steps": [
+    {
+     "tag": "",
+     "html": "Reverse eq. 1, × 2: 4 NH₃ → 2 N₂ + 6 H₂, ΔH = +1844.44 kJ"
+    },
+    {
+     "tag": "",
+     "html": "Eq. 2 × 2: 2 N₂ + 2 O₂ → 4 NO, ΔH = +361.0 kJ"
+    },
+    {
+     "tag": "",
+     "html": "Eq. 3 × 3: 6 H₂ + 3 O₂ → 6 H₂O, ΔH = −1714.8 kJ"
+    },
+    {
+     "tag": "",
+     "html": "Add (N₂ and H₂ cancel): 1844.44 + 361.0 − 1714.8 = <b>490.64 kJ</b>"
+    }
+   ]
+  },
+  {
+   "id": "hw22-q28",
+   "hw": 22,
+   "n": 28,
+   "section": "Hess's Law",
+   "method": "hess",
+   "q": "Determine the enthalpy change for X + Y + 3/2 Z₂ → XYZ₃. Round to the ones position and include the unit. (XZ → X + ½ Z₂, ΔH = 549 kJ · Y + Z₂ → YZ₂, ΔH = −649 kJ · 2 XYZ₃ → 2 XZ + 2 YZ₂, ΔH = 639 kJ)",
+   "choices": null,
+   "img": null,
+   "answer": "-1518 kJ",
+   "steps": [
+    {
+     "tag": "",
+     "html": "Reverse eq. 1: X + ½ Z₂ → XZ, ΔH = −549 kJ"
+    },
+    {
+     "tag": "",
+     "html": "Keep eq. 2: Y + Z₂ → YZ₂, ΔH = −649 kJ"
+    },
+    {
+     "tag": "",
+     "html": "Reverse eq. 3 and × ½: XZ + YZ₂ → XYZ₃, ΔH = −319.5 kJ"
+    },
+    {
+     "tag": "",
+     "html": "Add: −549 − 649 − 319.5 = −1517.5 → <b>−1518 kJ</b>"
+    }
+   ]
+  }
+ ]
+}
