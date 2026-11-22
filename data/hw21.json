@@ -1,0 +1,442 @@
+{
+ "slug": "hw21",
+ "test": "T4",
+ "title": "HW 21",
+ "subtitle": "Ch. 8–9 — Partial Pressure, Mole Fraction, Specific Heat & Calorimetry",
+ "questions": [
+  {
+   "id": "hw21-q01",
+   "n": 1,
+   "type": "calc",
+   "q": "Five gases are mixed into one container. The partial pressures are A = 0.78 atm, B = 1.20 atm, C = 2.43 atm, D = 0.46 atm, E = 1.57 atm. What is the total pressure in atm? Round to the hundredths place.",
+   "answerValue": 6.44,
+   "answerDisplay": "6.44",
+   "unit": "atm",
+   "tolerance": 0.001,
+   "note": "Dalton's law: P_total = sum of partial pressures = 0.78 + 1.20 + 2.43 + 0.46 + 1.57 = 6.44 atm.",
+   "test": "T4"
+  },
+  {
+   "id": "hw21-q02",
+   "n": 2,
+   "type": "calc",
+   "q": "Three gases are mixed into one container. Partial pressures: A = 880.1 mmHg, B = 0.59 atm, C = 3.66 atm. What is the total pressure in atm? Round to the hundredths place.",
+   "answerValue": 5.41,
+   "answerDisplay": "5.41",
+   "unit": "atm",
+   "tolerance": 0.001,
+   "note": "Convert first: 880.1 ÷ 760 = 1.158 atm. 1.158 + 0.59 + 3.66 = 5.41 atm.",
+   "test": "T4"
+  },
+  {
+   "id": "hw21-q03",
+   "n": 3,
+   "type": "calc",
+   "q": "Three gases, A, B and C, are in one container with a total pressure of 739.1 mmHg. A = 135.1 mmHg and B = 385.3 mmHg. What is the partial pressure of gas C in mmHg? Round to the tenths place.",
+   "answerValue": 218.7,
+   "answerDisplay": "218.7",
+   "unit": "mmHg",
+   "tolerance": 0.0003,
+   "note": "P_C = 739.1 − 135.1 − 385.3 = 218.7 mmHg.",
+   "test": "T4"
+  },
+  {
+   "id": "hw21-q04",
+   "n": 4,
+   "type": "single",
+   "q": "If 0.56 moles of radon and 0.73 moles of hydrogen are placed in a 3.7 L container at 235 °C, what pressure does the mixture exert?",
+   "opts": [
+    "6.7 atm",
+    "14.5 atm",
+    "2.0 atm",
+    "6.3 atm",
+    "7.2 atm"
+   ],
+   "correct": 1,
+   "note": "Add the moles: 0.56 + 0.73 = 1.29 mol. P = nRT/V = 1.29 × 0.0821 × 508.15 ÷ 3.7 = 14.5 atm.",
+   "test": "T4"
+  },
+  {
+   "id": "hw21-q05",
+   "n": 5,
+   "type": "calc",
+   "q": "If 1.79 moles of argon and 1.15 moles of oxygen are placed in a 4.31 L container at 39.3 °C, what is the total pressure of the mixture?",
+   "answerValue": 17.5,
+   "answerDisplay": "17.5",
+   "unit": "atm",
+   "tolerance": 0.002,
+   "note": "n_total = 2.94 mol. P = 2.94 × 0.0821 × 312.45 ÷ 4.31 = 17.5 atm (3 sig figs).",
+   "given": "R = 0.0821 L·atm/(mol·K) · correct sig figs and units.",
+   "test": "T4"
+  },
+  {
+   "id": "hw21-q06",
+   "n": 6,
+   "type": "single",
+   "q": "What is the total pressure of this mixture? Helium at 145 mmHg is in a 3.00 L container at 28 ºC, and argon at 355 mmHg is in a 2.00 L container at 28 ºC. The two containers are connected and opened to each other at constant temperature, so the total volume is now 5.00 L.",
+   "opts": [
+    "145 mmHg",
+    "500 mmHg",
+    "355 mmHg",
+    "229 mmHg",
+    "100 mmHg"
+   ],
+   "correct": 3,
+   "note": "Each gas expands into 5.00 L (Boyle): He = 145 × 3.00/5.00 = 87 mmHg; Ar = 355 × 2.00/5.00 = 142 mmHg. Total = 87 + 142 = 229 mmHg.",
+   "test": "T4"
+  },
+  {
+   "id": "hw21-q07",
+   "n": 7,
+   "type": "calc",
+   "q": "A mixture of gas contains 3.00 g of element A and 3.00 g of element B. A has a molar mass of 39.1 g/mol and B has a molar mass of 45.1 g/mol. What is the mole fraction of element A?",
+   "answerValue": 0.536,
+   "answerDisplay": "0.536",
+   "unit": "",
+   "tolerance": 0.003,
+   "note": "n_A = 3.00/39.1 = 0.0767 mol; n_B = 3.00/45.1 = 0.0665 mol. X_A = 0.0767 ÷ (0.0767 + 0.0665) = 0.536 (no unit).",
+   "test": "T4"
+  },
+  {
+   "id": "hw21-q08",
+   "n": 8,
+   "type": "calc",
+   "q": "Four gases, A, B, C and D, are mixed into a sealed container with a total pressure of 3.06 atm. The mole fractions are A = 0.10, B = 0.20, C = 0.30, D = 0.40. What is the partial pressure of gas A? Report the correct number of sig figs.",
+   "answerValue": 0.31,
+   "answerDisplay": "0.31",
+   "unit": "atm",
+   "tolerance": 0.02,
+   "note": "P_A = X_A × P_total = 0.10 × 3.06 = 0.306 → 0.31 atm (0.10 has 2 sig figs).",
+   "test": "T4"
+  },
+  {
+   "id": "hw21-q09",
+   "n": 9,
+   "type": "single",
+   "q": "BONUS: Hydrochloric acid is prepared by bubbling hydrogen chloride gas through water. What is the concentration of a solution prepared by dissolving 225 L of HCl(g) at 37 °C and 0.884 atm in enough water to make a 5.25 L solution?",
+   "opts": [
+    "1.49 M",
+    "12.5 M",
+    "7.82 M",
+    "1.66 M",
+    "16.6 M"
+   ],
+   "correct": 0,
+   "note": "n = PV/RT = 0.884 × 225 ÷ (0.0821 × 310.15) = 7.81 mol HCl. M = mol ÷ L solution = 7.81 ÷ 5.25 = 1.49 M. (7.82 is the trap: that's moles, not molarity.)",
+   "tag": "Bonus",
+   "test": "T4"
+  },
+  {
+   "id": "hw21-q10",
+   "n": 10,
+   "type": "single",
+   "q": "I understand that if I need more practice I can go to OpenStax Chemistry: Atoms First 2e exercises and work odd problems 31–35, 49–53, 57, 65, 67, 73, 85, 87 and 91.",
+   "opts": [
+    "True",
+    "False"
+   ],
+   "correct": 0,
+   "note": "True.",
+   "test": "T4"
+  },
+  {
+   "id": "hw21-q11",
+   "n": 11,
+   "type": "multi",
+   "q": "Mark the true statements below.",
+   "opts": [
+    "Kinetic energy is the energy due to composition or position.",
+    "The symbol 'q' represents heat energy.",
+    "Energy cannot be created or destroyed.",
+    "Thermodynamics describes how energy changes volume.",
+    "Phase changes are when matter changes from one state to another. Phase changes do not involve energy transfer to/from the matter.",
+    "Some chemical reactions will absorb energy while others release energy.",
+    "Temperature measures heat energy.",
+    "Energy can change forms such as when it changes from heat energy to chemical energy."
+   ],
+   "correct": [
+    1,
+    2,
+    5,
+    6,
+    7
+   ],
+   "note": "Graded key: 'Temperature measures heat energy' counts as TRUE in this course (it was the one box that cost 1/8 when left unchecked). Kinetic energy is energy of MOTION (composition/position is potential energy), and phase changes always involve energy transfer.",
+   "test": "T4"
+  },
+  {
+   "id": "hw21-q12",
+   "n": 12,
+   "type": "single",
+   "q": "The first law of thermodynamics tells us that the amount of energy in the universe is constant and can neither be destroyed nor created. It can be transferred or change form.",
+   "opts": [
+    "True",
+    "False"
+   ],
+   "correct": 0,
+   "note": "True. That's the first law (conservation of energy).",
+   "test": "T4"
+  },
+  {
+   "id": "hw21-q13",
+   "n": 13,
+   "type": "single",
+   "q": "A cold piece of metal is placed in boiling water. Which statement is true?",
+   "opts": [
+    "The metal has a relative +q value and the water has a −q value. Heat will flow from the hot water to the cold metal.",
+    "The metal has a relative −q value and the water has a +q value. Heat will flow from the hot water to the cold metal.",
+    "The metal has a relative +q value and the water has a −q value. Heat will flow from the cold metal to hot water.",
+    "The metal has a relative −q value and the water has a +q value. Heat will flow from the cold metal to hot water."
+   ],
+   "correct": 0,
+   "note": "Heat flows hot → cold. The metal GAINS heat (+q) and the water LOSES heat (−q).",
+   "test": "T4"
+  },
+  {
+   "id": "hw21-q14",
+   "n": 14,
+   "type": "single",
+   "q": "Kinetic energy is energy due to composition or position.",
+   "opts": [
+    "True",
+    "False"
+   ],
+   "correct": 1,
+   "note": "False. Kinetic energy is energy of motion. Energy due to composition or position is POTENTIAL energy.",
+   "test": "T4"
+  },
+  {
+   "id": "hw21-q15",
+   "n": 15,
+   "type": "multi",
+   "q": "Select the true statement(s):",
+   "opts": [
+    "Water has a higher specific heat capacity than lead and both start at the same temperature. That means the water will need to absorb more heat energy than the lead to increase by the same temperature.",
+    "Water has a higher specific heat capacity than lead and both start at the same high temperature and are allowed to cool. The item with the higher specific heat capacity will release less heat energy than the other as they both decrease to the same temperature.",
+    "One gram of aluminum and 1 gram of iron (both at the same temperature) were dropped into separate containers of hot water. After they each absorb 100 J of heat from the water, the aluminum is at the higher temperature."
+   ],
+   "correct": [
+    0
+   ],
+   "note": "Higher c means more heat per degree in AND out, so the second statement is backwards. Al (0.897) has a higher c than Fe (0.449), so the same 100 J raises IRON more; iron ends hotter.",
+   "test": "T4"
+  },
+  {
+   "id": "hw21-q16",
+   "n": 16,
+   "type": "calc",
+   "q": "You have a 17.0 gram sample of gold at 20.0 °C. How much heat does it take to raise the temperature to 101.0 °C?",
+   "answerValue": 178,
+   "answerDisplay": "178",
+   "unit": "J",
+   "tolerance": 0.003,
+   "note": "q = mcΔT = 17.0 × 0.129 × (101.0 − 20.0) = 17.0 × 0.129 × 81.0 = 178 J.",
+   "given": "Specific heat of gold = 0.129 J/(g·°C) · 3 sig figs, unit abbreviation.",
+   "test": "T4"
+  },
+  {
+   "id": "hw21-q17",
+   "n": 17,
+   "type": "calc",
+   "q": "An unknown mass of gold at 12.0 °C absorbs 7.83 J of energy. The final temperature is 25.0 °C. What mass of gold, in grams, is required to do this?",
+   "answerValue": 4.67,
+   "answerDisplay": "4.67",
+   "unit": "g",
+   "tolerance": 0.002,
+   "note": "m = q ÷ (cΔT) = 7.83 ÷ (0.129 × 13.0) = 4.67 g.",
+   "given": "Specific heat of gold = 0.129 J/(g·°C). ΔT = 13.0 (3 sig figs).",
+   "test": "T4"
+  },
+  {
+   "id": "hw21-q18",
+   "n": 18,
+   "type": "fill",
+   "q": "Two specific heat values: 0.689 J/g·°C and 0.341 J/g·°C. Type the specific heat value that will let the substance undergo a SMALL change in temperature when absorbing the same amount of heat as the other.",
+   "blanks": [
+    {
+     "label": "Value (type it exactly as shown)",
+     "answer": "0.689"
+    },
+    {
+     "label": "Units (type J/(g*C))",
+     "answer": [
+      "J/(g*C)",
+      "J/(g*c)"
+     ]
+    }
+   ],
+   "note": "The HIGHER specific heat changes temperature less for the same heat: ΔT = q ÷ (mc).",
+   "test": "T4"
+  },
+  {
+   "id": "hw21-q19",
+   "n": 19,
+   "type": "calc",
+   "q": "18.0 grams of a metal at 29.5 °C was heated to 116.9 °C. Determine the amount of heat (in J) absorbed or released if the specific heat capacity of the metal is 0.185 J/(g·°C).",
+   "answerValue": 291,
+   "answerDisplay": "291",
+   "unit": "J",
+   "tolerance": 0.003,
+   "note": "q = 18.0 × 0.185 × (116.9 − 29.5) = 18.0 × 0.185 × 87.4 = 291 J (positive = absorbed).",
+   "test": "T4"
+  },
+  {
+   "id": "hw21-q20",
+   "n": 20,
+   "type": "calc",
+   "q": "11.0 grams of a metal at 25.9 °C was heated to 110.9 °C. Determine the amount of heat (in J) absorbed or released if the specific heat capacity of the metal is 0.167 J/(g·°C).",
+   "answerValue": 156,
+   "answerDisplay": "156",
+   "unit": "J",
+   "tolerance": 0.003,
+   "note": "q = 11.0 × 0.167 × 85.0 = 156 J.",
+   "test": "T4"
+  },
+  {
+   "id": "hw21-q21",
+   "n": 21,
+   "type": "calc",
+   "q": "A metal with a specific heat of 0.157 J/(g·°C) was heated from 39.7 °C to 109.3 °C. If 395 J were absorbed, what was the mass of the metal?",
+   "answerValue": 36.1,
+   "answerDisplay": "36.1",
+   "unit": "g",
+   "tolerance": 0.002,
+   "note": "m = q ÷ (cΔT) = 395 ÷ (0.157 × 69.6) = 36.1 g.",
+   "test": "T4"
+  },
+  {
+   "id": "hw21-q22",
+   "n": 22,
+   "type": "calc",
+   "q": "A metal with a specific heat of 0.165 J/(g·°C) was COOLED from 117.7 °C to 34.5 °C. If 349 J were released, what was the mass of the metal?",
+   "answerValue": 25.4,
+   "answerDisplay": "25.4",
+   "unit": "g",
+   "tolerance": 0.002,
+   "note": "m = (−349) ÷ (0.165 × (34.5 − 117.7)) = (−349) ÷ (0.165 × −83.2) = 25.4 g. The negatives cancel.",
+   "test": "T4"
+  },
+  {
+   "id": "hw21-q23",
+   "n": 23,
+   "type": "calc",
+   "q": "202.7 J of heat were released when 13.5 grams of the substance at 114.3 °C was cooled to 20.1 °C. Determine the specific heat capacity of the metal in J/(g·°C).",
+   "answerValue": 0.159,
+   "answerDisplay": "0.159",
+   "unit": "J/(g·°C)",
+   "tolerance": 0.003,
+   "note": "c = q ÷ (mΔT) = (−202.7) ÷ (13.5 × (20.1 − 114.3)) = 0.159 J/(g·°C). A c value is never negative.",
+   "test": "T4"
+  },
+  {
+   "id": "hw21-q24",
+   "n": 24,
+   "type": "single",
+   "q": "A 20.0 g sample of aluminum absorbs 150 J of energy. If the initial temperature of the Al is 75.0 °C, what is the final temperature?",
+   "opts": [
+    "8.36 °C",
+    "77.7 °C",
+    "72.3 °C",
+    "83.4 °C",
+    "66.6 °C"
+   ],
+   "correct": 3,
+   "note": "c(Al) = 0.897 J/(g·°C). ΔT = 150 ÷ (20.0 × 0.897) = 8.36 °C. Absorbing heat → warmer: 75.0 + 8.36 = 83.4 °C.",
+   "test": "T4"
+  },
+  {
+   "id": "hw21-q25",
+   "n": 25,
+   "type": "calc",
+   "q": "A 13.0 gram sample of iron is initially at 414.0 °C. It loses 169.0 J of heat to its surroundings. What is its final temperature? Enter your answer in °C with one decimal place.",
+   "answerValue": 385.0,
+   "answerDisplay": "385.0",
+   "unit": "°C",
+   "tolerance": 0.0002,
+   "note": "ΔT = −169.0 ÷ (13.0 × 0.449) = −28.95 °C. 414.0 − 28.95 = 385.0 °C.",
+   "given": "Specific heat of iron = 0.449 J/(g·°C)",
+   "test": "T4"
+  },
+  {
+   "id": "hw21-q26",
+   "n": 26,
+   "type": "calc",
+   "q": "A piece of copper at 98.3 °C is placed in a calorimeter containing 32.3 grams of water at 23.1 °C. If the temperature at equilibrium is 28.1 °C, what is the mass of the copper? Report two sig figs.",
+   "answerValue": 25,
+   "answerDisplay": "25",
+   "unit": "g",
+   "tolerance": 0.02,
+   "note": "Heat lost by Cu = heat gained by water: m × 0.385 × 70.2 = 32.3 × 4.184 × 5.0 → m = 675.7 ÷ 27.03 = 25 g.",
+   "given": "Specific heat of copper = 0.385 J/(g·°C) · water = 4.184 J/(g·°C)",
+   "test": "T4"
+  },
+  {
+   "id": "hw21-q27",
+   "n": 27,
+   "type": "calc",
+   "q": "A 34.7 gram piece of lead at 97.7 °C is placed in a calorimeter containing water at 21.9 °C. If the temperature at equilibrium is 27.6 °C, what is the mass of the water? Report two sig figs.",
+   "answerValue": 13,
+   "answerDisplay": "13",
+   "unit": "g",
+   "tolerance": 0.03,
+   "note": "34.7 × 0.130 × 70.1 = 316.2 J lost by lead = m × 4.184 × 5.7 → m = 13 g.",
+   "given": "Specific heat of lead = 0.130 J/(g·°C)",
+   "test": "T4"
+  },
+  {
+   "id": "hw21-q28",
+   "n": 28,
+   "type": "single",
+   "q": "A 34.6 gram piece of lead at 104.6 °C is placed in a calorimeter containing 30.4 grams of an unknown liquid at 22.4 °C. If the temperature at equilibrium is 29.7 °C, what is the specific heat capacity of the liquid?",
+   "opts": [
+    "1.51 J/g°C",
+    "0.605 J/g°C",
+    "0.358 J/g°C",
+    "1.65 J/g°C",
+    "0.664 J/g°C"
+   ],
+   "correct": 0,
+   "note": "Lead loses 34.6 × 0.129 × 74.9 = 334.3 J. c(liquid) = 334.3 ÷ (30.4 × 7.3) = 1.51 J/(g·°C).",
+   "given": "Specific heat of lead = 0.129 J/(g·°C)",
+   "test": "T4"
+  },
+  {
+   "id": "hw21-q29",
+   "n": 29,
+   "type": "calc",
+   "q": "A 70.7 g piece of metal at 164.3 °C is placed in a calorimeter containing 171 grams of water at 26.2 °C. If the temperature at equilibrium is 31.5 °C, what was the specific heat of the metal in J/(g·°C)? Round to three decimal places.",
+   "answerValue": 0.404,
+   "answerDisplay": "0.404",
+   "unit": "J/(g·°C)",
+   "tolerance": 0.003,
+   "note": "Water gains 171 × 4.184 × 5.3 = 3792 J. c(metal) = 3792 ÷ (70.7 × 132.8) = 0.404 J/(g·°C).",
+   "test": "T4"
+  },
+  {
+   "id": "hw21-q30",
+   "n": 30,
+   "type": "calc",
+   "q": "A 66.1 g piece of metal at 164.7 °C is placed in a calorimeter containing 171 grams of water. If the temperature at equilibrium is 30.7 °C, what was the initial temperature of the water? Round to the tenths position.",
+   "answerValue": 22.3,
+   "answerDisplay": "22.3",
+   "unit": "°C",
+   "tolerance": 0.002,
+   "note": "Metal loses 66.1 × 0.677 × 134.0 = 5996 J. Water ΔT = 5996 ÷ (171 × 4.184) = 8.38 °C. Initial = 30.7 − 8.38 = 22.3 °C.",
+   "given": "Specific heat of the metal = 0.677 J/(g·°C)",
+   "test": "T4"
+  },
+  {
+   "id": "hw21-q31",
+   "n": 31,
+   "type": "single",
+   "q": "I understand that if I need additional practice I can go to Ch. 9 Exercises, Chemistry: Atoms First 2e (OpenStax), and work odd problems 1–13 and 19–23.",
+   "opts": [
+    "True",
+    "False"
+   ],
+   "correct": 0,
+   "note": "True.",
+   "test": "T4"
+  }
+ ]
+}

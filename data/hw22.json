@@ -1,0 +1,553 @@
+{
+ "slug": "hw22",
+ "test": "T4",
+ "title": "HW 22",
+ "subtitle": "Ch. 9 — Enthalpy, Heats of Formation & Hess's Law",
+ "questions": [
+  {
+   "id": "hw22-q01",
+   "n": 1,
+   "type": "match",
+   "q": "Match the terms.",
+   "items": [
+    "describes heat energy transfer for a specific number of moles in a system",
+    "symbol is ΔH",
+    "typically has a unit of joules",
+    "describes the sum of all heat transferred into and out of a system",
+    "symbol is q",
+    "typically has a unit of kJ or kJ/mol"
+   ],
+   "opts": [
+    "enthalpy",
+    "heat energy"
+   ],
+   "correct": [
+    0,
+    0,
+    1,
+    1,
+    1,
+    0
+   ],
+   "note": "Enthalpy (ΔH) = heat per reaction as written (specific moles), in kJ or kJ/mol. Heat energy (q) = total heat in/out, usually in J.",
+   "test": "T4"
+  },
+  {
+   "id": "hw22-q02",
+   "n": 2,
+   "type": "single",
+   "q": "Which of the following is a correct statement for a chemical reaction that absorbs heat?",
+   "opts": [
+    "The reaction is exothermic with a positive ΔH.",
+    "The reaction is endothermic with a negative ΔH.",
+    "The reaction is endothermic with ΔH = 0.",
+    "The reaction is endothermic with a positive ΔH.",
+    "The reaction is exothermic with a negative ΔH."
+   ],
+   "correct": 3,
+   "note": "Absorbs heat = endothermic = +ΔH.",
+   "test": "T4"
+  },
+  {
+   "id": "hw22-q03",
+   "n": 3,
+   "type": "match",
+   "q": "Where would you write the word 'heat' in these equations?",
+   "items": [
+    "H₂ (g) + Cl₂ (g) → 2 HCl (g)   ΔH = −184.6 kJ",
+    "C₃H₈ (g) + 5 O₂ (g) → 3 CO₂ (g) + 4 H₂O (l)   ΔH = 2219.2 kJ",
+    "2 CO₂ (g) → 2 CO (g) + O₂ (g)   ΔH = 566.0 kJ",
+    "4 HCl (g) + O₂ (g) → 2 H₂O + 2 Cl₂ (g)   ΔH = −202.5 kJ"
+   ],
+   "opts": [
+    "to the RIGHT of the arrow",
+    "to the LEFT of the arrow"
+   ],
+   "correct": [
+    0,
+    1,
+    1,
+    0
+   ],
+   "note": "Negative ΔH (exothermic) → heat is a product (right side). Positive ΔH (endothermic) → heat is a reactant (left side).",
+   "test": "T4"
+  },
+  {
+   "id": "hw22-q04",
+   "n": 4,
+   "type": "match",
+   "q": "Label each reaction exothermic or endothermic.",
+   "items": [
+    "H₂ (g) + Cl₂ (g) → 2 HCl (g)   ΔH = −184.6 kJ",
+    "2 CO₂ (g) → 2 CO (g) + O₂ (g)   ΔH = 566.0 kJ",
+    "C₃H₈ (g) + 5 O₂ (g) → 3 CO₂ (g) + 4 H₂O (l)   ΔH = 2219.2 kJ",
+    "4 HCl (g) + O₂ (g) → 2 H₂O + 2 Cl₂ (g)   ΔH = −202.5 kJ"
+   ],
+   "opts": [
+    "exothermic",
+    "endothermic"
+   ],
+   "correct": [
+    0,
+    1,
+    1,
+    0
+   ],
+   "note": "Negative ΔH = exothermic; positive ΔH = endothermic.",
+   "test": "T4"
+  },
+  {
+   "id": "hw22-q05",
+   "n": 5,
+   "type": "match",
+   "q": "The energy has been written into each equation. Which are correctly written?",
+   "items": [
+    "2 CO₂ (g) − 566.0 kJ → 2 CO (g) + O₂ (g)   ΔH = 566.0 kJ",
+    "4 HCl (g) + O₂ (g) → 2 H₂O + 2 Cl₂ (g) − 202.5 kJ   ΔH = −202.5 kJ",
+    "H₂ (g) + Cl₂ (g) → 2 HCl (g) + 184.6 kJ   ΔH = −184.6 kJ",
+    "C₃H₈ (g) + 5 O₂ (g) + 2219.2 kJ → 3 CO₂ (g) + 4 H₂O (l)   ΔH = 2219.2 kJ"
+   ],
+   "opts": [
+    "correctly written",
+    "incorrectly written"
+   ],
+   "correct": [
+    1,
+    1,
+    0,
+    0
+   ],
+   "note": "Energy written inside an equation is always ADDED (+) on the correct side, never subtracted. Endothermic → + kJ on the left; exothermic → + kJ on the right.",
+   "test": "T4"
+  },
+  {
+   "id": "hw22-q06",
+   "n": 6,
+   "type": "fill",
+   "q": "Flashback: standard conditions for thermodynamics.",
+   "blanks": [
+    {
+     "label": "Standard temperature for thermodynamics in °C (number only)",
+     "answer": [
+      "25",
+      "25.0"
+     ]
+    },
+    {
+     "label": "Standard pressure for thermodynamics in atm (number only)",
+     "answer": [
+      "1",
+      "1.0",
+      "1.00"
+     ]
+    },
+    {
+     "label": "Is the enthalpy standard temperature the same as gas STP temperature? (yes/no)",
+     "answer": "no"
+    }
+   ],
+   "note": "Thermodynamic standard state = 25 °C and 1 atm. Gas STP = 0 °C and 1 atm, so the temperatures are different.",
+   "tag": "Flashback",
+   "test": "T4"
+  },
+  {
+   "id": "hw22-q07",
+   "n": 7,
+   "type": "calc",
+   "q": "If 163.2 g of a new chemical 'ACO₂' is produced by AC + O₂ → ACO₂ and that reaction releases 517.2 kJ of energy, what is the enthalpy change (kJ)?",
+   "answerValue": -583.8,
+   "answerDisplay": "-583.8",
+   "unit": "kJ",
+   "tolerance": 0.0003,
+   "note": "163.2 g ÷ 184.2 g/mol = 0.8860 mol ACO₂. ΔH = −517.2 kJ ÷ 0.8860 mol = −583.8 kJ (per 1 mol, as written). Negative because heat is released.",
+   "given": "ACO₂ molar mass = 184.2 g/mol",
+   "test": "T4"
+  },
+  {
+   "id": "hw22-q08",
+   "n": 8,
+   "type": "calc",
+   "q": "If 0.9781 g of 'XY₂' is produced by X + 2Y → XY₂ and that reaction absorbs 736.2 J of energy, what is the enthalpy change in kJ (correct sig figs)?",
+   "answerValue": 232.0,
+   "answerDisplay": "232.0",
+   "unit": "kJ",
+   "tolerance": 0.0003,
+   "note": "736.2 J = 0.7362 kJ. 0.9781 g ÷ 308.21 g/mol = 0.003173 mol. ΔH = +0.7362 ÷ 0.003173 = 232.0 kJ. Positive because heat is absorbed.",
+   "given": "XY₂ molar mass = 308.21 g/mol · watch the J → kJ unit!",
+   "test": "T4"
+  },
+  {
+   "id": "hw22-q09",
+   "n": 9,
+   "type": "single",
+   "q": "2 SO₃ (g) → 2 SO₂ (g) + O₂ (g) has an enthalpy change of 198 kJ. How many grams of sulfur dioxide are produced when 564 kJ is absorbed?",
+   "opts": [
+    "365 g",
+    "182 g",
+    "730 g",
+    "273 g",
+    "456 g"
+   ],
+   "correct": 0,
+   "note": "564 kJ × (2 mol SO₂ / 198 kJ) × (64.07 g SO₂ / 1 mol) = 365 g.",
+   "test": "T4"
+  },
+  {
+   "id": "hw22-q10",
+   "n": 10,
+   "type": "calc",
+   "q": "4 NO + 6 H₂O → 4 NH₃ + 5 O₂ has an enthalpy change of 46.72 kJ. How many grams of ammonia can be produced if 32.5 kJ of heat energy are provided? Three sig figs.",
+   "answerValue": 47.4,
+   "answerDisplay": "47.4",
+   "unit": "g",
+   "tolerance": 0.002,
+   "note": "32.5 kJ × (4 mol NH₃ / 46.72 kJ) × (17.04 g / 1 mol) = 47.4 g.",
+   "given": "NH₃ molar mass = 17.04 g/mol",
+   "test": "T4"
+  },
+  {
+   "id": "hw22-q11",
+   "n": 11,
+   "type": "single",
+   "q": "2 H₂ (g) + O₂ (g) → 2 H₂O (l) has ΔH_rxn = −571 kJ. What is the enthalpy change if 1.00 gram of hydrogen reacts in this manner?",
+   "opts": [
+    "–283 kJ",
+    "–571 kJ",
+    "–141 kJ",
+    "141 kJ",
+    "283 kJ"
+   ],
+   "correct": 2,
+   "note": "1.00 g H₂ ÷ 2.016 g/mol = 0.496 mol × (−571 kJ / 2 mol H₂) = −141 kJ.",
+   "test": "T4"
+  },
+  {
+   "id": "hw22-q12",
+   "n": 12,
+   "type": "calc",
+   "q": "2 AB + 5/2 O₂ → 2 AO₂ + B₂O has ΔH = −465.8 kJ. How many kJ of heat are produced when 6.27 grams of AB combust? Three sig figs.",
+   "answerValue": 22.5,
+   "answerDisplay": "22.5",
+   "unit": "kJ",
+   "tolerance": 0.003,
+   "note": "6.27 g ÷ 65.0 g/mol = 0.09646 mol AB × (465.8 kJ / 2 mol AB) = 22.5 kJ produced.",
+   "given": "AB molar mass = 65.0 g/mol",
+   "test": "T4"
+  },
+  {
+   "id": "hw22-q13",
+   "n": 13,
+   "type": "single",
+   "q": "Which of the following is a correctly written formation reaction for CaO (s)?",
+   "opts": [
+    "Ca²⁺ (aq) + O²⁻ (aq) → CaO (s)",
+    "2 Ca (s) + O₂ (g) → 2 CaO (s)",
+    "2 CaO (s) → 2 Ca (s) + O₂ (g)",
+    "Ca (s) + 2 O (g) → CaO (s)",
+    "Ca (s) + 1/2 O₂ (g) → CaO (s)"
+   ],
+   "correct": 4,
+   "note": "A formation reaction makes exactly 1 mole of product from elements in their standard states (O₂ gas, not O atoms or ions), using fractions if needed.",
+   "test": "T4"
+  },
+  {
+   "id": "hw22-q14",
+   "n": 14,
+   "type": "single",
+   "q": "Which of the following is a correctly written formation reaction for NH₃ (g)?",
+   "opts": [
+    "N₂ (g) + 3 H₂ (g) → 2 NH₃ (g)",
+    "N³⁺ (g) + 3 H⁻ (g) → NH₃ (g)",
+    "1/2 N₂ (g) + 3/2 H₂ (g) → NH₃ (g)",
+    "N³⁻ (g) + 3 H⁺ (g) → NH₃ (g)",
+    "N (g) + H₃ (g) → NH₃ (g)"
+   ],
+   "correct": 2,
+   "note": "Exactly 1 mol NH₃ from N₂ (g) and H₂ (g), so the coefficients become fractions.",
+   "test": "T4"
+  },
+  {
+   "id": "hw22-q15",
+   "n": 15,
+   "type": "multi",
+   "q": "Select the ΔH_f values that would be zero.",
+   "opts": [
+    "O₂ (g)",
+    "N₂ (l)",
+    "H₂ (g)",
+    "Br₂ (s)",
+    "Zn (s)",
+    "Ca (l)",
+    "Ne (s)"
+   ],
+   "correct": [
+    0,
+    2,
+    4
+   ],
+   "note": "ΔH_f = 0 only for an element in its STANDARD STATE at 25 °C: O₂ gas, H₂ gas, Zn solid. Bromine is a liquid, neon a gas, calcium a solid and nitrogen a gas, so the other phases aren't zero.",
+   "test": "T4"
+  },
+  {
+   "id": "hw22-q16",
+   "n": 16,
+   "type": "multi",
+   "q": "Which two answers show correct set-ups for C₂H₄ (g) + 3 O₂ (g) → 2 H₂O (l) + 2 CO₂ (g)?",
+   "opts": [
+    "Hrxn = 2·Hf H₂O + 2·Hf CO₂ − (Hf C₂H₄ + 3·Hf O₂)",
+    "Hrxn = 2·Hf H₂O + 2·Hf CO₂ − (Hf C₂H₄ + 0)",
+    "Hrxn = 2·Hf H₂O + 2·Hf CO₂ − (0 + 3·Hf O₂)",
+    "Hrxn = Hf H₂O + Hf CO₂ − (Hf C₂H₄ + Hf O₂)",
+    "Hrxn = Hf C₂H₄ + 3·Hf O₂ − (2·Hf H₂O + 2·Hf CO₂)",
+    "Hrxn = Hf C₂H₄ + 0 − (2·Hf H₂O + 2·Hf CO₂)",
+    "Hrxn = 0 + 0 − (0 + 0)"
+   ],
+   "correct": [
+    0,
+    1
+   ],
+   "note": "ΔH_rxn = Σ n·ΔH_f(products) − Σ n·ΔH_f(reactants), with coefficients. The second one is the same set-up with ΔH_f of O₂ already written as 0.",
+   "test": "T4"
+  },
+  {
+   "id": "hw22-q17",
+   "n": 17,
+   "type": "single",
+   "q": "Using enthalpies of formation, which is closest to the enthalpy change for CH₄ (g) + Cl₂ (g) → CH₃Cl (g) + HCl (g)?",
+   "opts": [
+    "–249.148 kJ",
+    "99.452 kJ",
+    "–85.148 kJ",
+    "–99.452 kJ",
+    "249.148 kJ"
+   ],
+   "correct": 3,
+   "note": "Products − reactants = (−81.9 + −92.307) − (−74.6 + 0) = −99.6 kJ → closest is −99.452 kJ. Cl₂ is an element, so its ΔH_f = 0.",
+   "given": "ΔH_f: CH₄ (g) = −74.6 · CH₃Cl (g) = −81.9 · HCl (g) = −92.307 kJ/mol",
+   "test": "T4"
+  },
+  {
+   "id": "hw22-q18",
+   "n": 18,
+   "type": "single",
+   "q": "Using enthalpies of formation, which is closest to the enthalpy change for 3 CH₄ (g) + 2 H₂O (l) + CO₂ (g) → 4 CO (g) + 8 H₂ (g)?",
+   "opts": [
+    "747.68 kJ",
+    "–1631.52 kJ",
+    "–747.68 kJ",
+    "643.64 kJ",
+    "–643.64 kJ"
+   ],
+   "correct": 0,
+   "note": "4(−110.52) − [3(−74.6) + 2(−285.83) + (−393.51)] = −442.08 − (−1188.97) = +746.9 kJ → 747.68 kJ.",
+   "given": "ΔH_f: CH₄ (g) = −74.6 · H₂O (l) = −285.83 · CO₂ (g) = −393.51 · CO (g) = −110.52 kJ/mol",
+   "test": "T4"
+  },
+  {
+   "id": "hw22-q19",
+   "n": 19,
+   "type": "calc",
+   "q": "Using the ΔH_f° values given, determine the enthalpy of AX₂ (g) + 2 Y₂ (g) → AX₂Y₄ (g). Round to the tenths place and include the unit.",
+   "answerValue": 288.2,
+   "answerDisplay": "288.2",
+   "unit": "kJ",
+   "tolerance": 0.0003,
+   "note": "Products − reactants = 328.1 − [(−262.1) + 2(151.0)] = 328.1 − 39.9 = 288.2 kJ. (eLearn labels the product 'AX₂Y₂'; use that 328.1 value.)",
+   "given": "ΔH_f°: AX₂ (g) = −262.1 · Y₂ (g) = 151.0 · AX₂Y₂ = 328.1 kJ/mol",
+   "test": "T4"
+  },
+  {
+   "id": "hw22-q20",
+   "n": 20,
+   "type": "calc",
+   "q": "Using the ΔH_f° values given, determine the enthalpy of A (g) + 3 B (g) → AB₃ (g). Round to the tenths place; unit kJ/mol.",
+   "answerValue": -299.0,
+   "answerDisplay": "-299.0",
+   "unit": "kJ/mol",
+   "tolerance": 0.0003,
+   "note": "−395.2 − [276.4 + 3(−124.2)] = −395.2 − (−96.2) = −299.0 kJ/mol.",
+   "given": "ΔH_f°: A (g) = 276.4 · B (g) = −124.2 · AB₃ (g) = −395.2 kJ/mol",
+   "test": "T4"
+  },
+  {
+   "id": "hw22-q21",
+   "n": 21,
+   "type": "calc",
+   "q": "For A (g) + 2 B (g) → AB₂ (g), ΔH_rxn = 383.7 kJ. Using the ΔH_f° values given, determine ΔH_f of AB₂. Round to the tenths place; unit kJ/mol.",
+   "answerValue": 401.3,
+   "answerDisplay": "401.3",
+   "unit": "kJ/mol",
+   "tolerance": 0.0003,
+   "note": "383.7 = ΔH_f(AB₂) − [274.6 + 2(−128.5)] → ΔH_f(AB₂) = 383.7 + 17.6 = 401.3 kJ/mol.",
+   "given": "ΔH_f°: A (g) = 274.6 · B (g) = −128.5 kJ/mol",
+   "test": "T4"
+  },
+  {
+   "id": "hw22-q22",
+   "n": 22,
+   "type": "fill",
+   "q": "Reverse each reaction. Enter answers like \"35 kJ\" (space before kJ; negative sign if negative, no sign if positive).",
+   "blanks": [
+    {
+     "label": "A → B is 60 kJ. B → A =",
+     "answer": [
+      "-60 kJ",
+      "-60kJ",
+      "-60"
+     ]
+    },
+    {
+     "label": "B → C is −150 kJ. C → B =",
+     "answer": [
+      "150 kJ",
+      "150kJ",
+      "150"
+     ]
+    },
+    {
+     "label": "2A → B + D is −50 kJ. B + D → 2A =",
+     "answer": [
+      "50 kJ",
+      "50kJ",
+      "50"
+     ]
+    }
+   ],
+   "note": "Reversing a reaction flips the sign of ΔH.",
+   "test": "T4"
+  },
+  {
+   "id": "hw22-q23",
+   "n": 23,
+   "type": "fill",
+   "q": "Given A → B (ΔH = 70 kJ) and B → C (ΔH = −110 kJ), find each. Enter like \"35 kJ\".",
+   "blanks": [
+    {
+     "label": "3 A → 3 B",
+     "answer": [
+      "210 kJ",
+      "210kJ",
+      "210"
+     ]
+    },
+    {
+     "label": "1/2 B → 1/2 C",
+     "answer": [
+      "-55 kJ",
+      "-55kJ",
+      "-55"
+     ]
+    },
+    {
+     "label": "10 B → 10 A",
+     "answer": [
+      "-700 kJ",
+      "-700kJ",
+      "-700"
+     ]
+    }
+   ],
+   "note": "Multiply ΔH by the same factor as the equation; reversing flips the sign. 3 × 70 = 210; ½ × (−110) = −55; reverse and ×10: 10 × (−70) = −700.",
+   "test": "T4"
+  },
+  {
+   "id": "hw22-q24",
+   "n": 24,
+   "type": "fill",
+   "q": "Given A → B (ΔH = −50 kJ) and B → C (ΔH = 20 kJ), combine them. Enter like \"35 kJ\".",
+   "blanks": [
+    {
+     "label": "A → C",
+     "answer": [
+      "-30 kJ",
+      "-30kJ",
+      "-30"
+     ]
+    },
+    {
+     "label": "A + C → 2 B",
+     "answer": [
+      "-70 kJ",
+      "-70kJ",
+      "-70"
+     ]
+    }
+   ],
+   "note": "A → C: add both, −50 + 20 = −30 kJ. A + C → 2 B: A → B (−50) plus C → B (reverse of B → C, −20) = −70 kJ.",
+   "test": "T4"
+  },
+  {
+   "id": "hw22-q25",
+   "n": 25,
+   "type": "single",
+   "q": "What is the enthalpy change for 2 Cr (s) + 3 O₂ (g) → 2 CrO₃ (s)?",
+   "opts": [
+    "– 4405.4 kJ",
+    "– 2365.0 kJ",
+    "– 1182.5 kJ",
+    "2365.0 kJ",
+    "1182.5 kJ"
+   ],
+   "correct": 2,
+   "note": "Add the two equations: 4 Cr + 6 O₂ → 4 CrO₃, ΔH = −2256.8 + (−108.2) = −2365.0 kJ. Divide by 2 for the target: −1182.5 kJ.",
+   "given": "4 Cr (s) + 3 O₂ (g) → 2 Cr₂O₃ (s), ΔH = −2256.8 kJ · 2 Cr₂O₃ (s) + 3 O₂ (g) → 4 CrO₃ (s), ΔH = −108.2 kJ",
+   "test": "T4"
+  },
+  {
+   "id": "hw22-q26",
+   "n": 26,
+   "type": "calc",
+   "q": "Determine the enthalpy change for 2 E + X₂ → 2 EX. Round to the ones position and include the unit.",
+   "answerValue": -567,
+   "answerDisplay": "-567",
+   "unit": "kJ",
+   "tolerance": 0.001,
+   "note": "2 × (E + X₂ → EX₂) = −1088 kJ, then add 2 EX₂ → 2 EX + X₂ (521 kJ): −1088 + 521 = −567 kJ.",
+   "given": "E + X₂ → EX₂, ΔH = −544 kJ · 2 EX₂ → 2 EX + X₂, ΔH = 521 kJ",
+   "test": "T4"
+  },
+  {
+   "id": "hw22-q27",
+   "n": 27,
+   "type": "single",
+   "q": "What is the enthalpy change for 4 NH₃ (g) + 5 O₂ (g) → 4 NO (g) + 6 H₂O (l)?",
+   "opts": [
+    "–490.64 kJ",
+    "1313.32 kJ",
+    "–1313.32 kJ",
+    "170.12 kJ",
+    "490.64 kJ"
+   ],
+   "correct": 4,
+   "note": "Reverse eq. 1 ×2: +1844.44. Eq. 2 ×2: +361.0. Eq. 3 ×3: −1714.8. Sum = +490.64 kJ.",
+   "given": "N₂ + 3 H₂ → 2 NH₃, ΔH = −922.22 kJ · N₂ + O₂ → 2 NO, ΔH = 180.5 kJ · 2 H₂ + O₂ → 2 H₂O (l), ΔH = −571.6 kJ",
+   "test": "T4"
+  },
+  {
+   "id": "hw22-q28",
+   "n": 28,
+   "type": "calc",
+   "q": "Determine the enthalpy change for X + Y + 3/2 Z₂ → XYZ₃. Round to the ones position and include the unit.",
+   "answerValue": -1518,
+   "answerDisplay": "-1518",
+   "unit": "kJ",
+   "tolerance": 0.0004,
+   "note": "Reverse eq. 1: X + ½ Z₂ → XZ, −549. Keep eq. 2: −649. Reverse eq. 3 and halve: XZ + YZ₂ → XYZ₃, −319.5. Sum = −1517.5 → −1518 kJ.",
+   "given": "XZ → X + ½ Z₂, ΔH = 549 kJ · Y + Z₂ → YZ₂, ΔH = −649 kJ · 2 XYZ₃ → 2 XZ + 2 YZ₂, ΔH = 639 kJ",
+   "test": "T4"
+  },
+  {
+   "id": "hw22-q29",
+   "n": 29,
+   "type": "single",
+   "q": "I understand that if I need additional practice I can go to Ch. 9 Exercises, Chemistry: Atoms First 2e (OpenStax), and work odd problems 41–43 and 63–69.",
+   "opts": [
+    "True",
+    "False"
+   ],
+   "correct": 0,
+   "note": "True.",
+   "test": "T4"
+  }
+ ]
+}

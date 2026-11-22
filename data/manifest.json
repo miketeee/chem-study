@@ -143,6 +143,65 @@
      "walk": true
     }
    ]
+  },
+  {
+   "id": "T4",
+   "title": "Test 4",
+   "sub": "HW 19–22",
+   "items": [
+    {
+     "num": "19",
+     "title": "HW 19",
+     "subtitle": "Ch. 8 — Kinetic Molecular Theory, Gas Units & Combined Gas Law",
+     "quizzes": [
+      {
+       "slug": "hw19",
+       "label": "Quiz",
+       "count": 26
+      }
+     ],
+     "qa": null
+    },
+    {
+     "num": "20",
+     "title": "HW 20",
+     "subtitle": "Ch. 8 — Ideal Gas Law, Molar Mass, Density & Gas Stoichiometry",
+     "quizzes": [
+      {
+       "slug": "hw20",
+       "label": "Quiz",
+       "count": 19
+      }
+     ],
+     "qa": null
+    },
+    {
+     "num": "21",
+     "title": "HW 21",
+     "subtitle": "Ch. 8–9 — Partial Pressure, Mole Fraction, Specific Heat & Calorimetry",
+     "quizzes": [
+      {
+       "slug": "hw21",
+       "label": "Quiz",
+       "count": 31
+      }
+     ],
+     "qa": null
+    },
+    {
+     "num": "22",
+     "title": "HW 22",
+     "subtitle": "Ch. 9 — Enthalpy, Heats of Formation & Hess's Law",
+     "quizzes": [
+      {
+       "slug": "hw22",
+       "label": "Quiz",
+       "count": 29
+      }
+     ],
+     "qa": null
+    }
+   ]
   }
  ]
 }

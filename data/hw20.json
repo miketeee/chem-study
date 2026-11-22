@@ -1,0 +1,299 @@
+{
+ "slug": "hw20",
+ "test": "T4",
+ "title": "HW 20",
+ "subtitle": "Ch. 8 — Ideal Gas Law, Molar Mass, Density & Gas Stoichiometry",
+ "questions": [
+  {
+   "id": "hw20-q01",
+   "n": 1,
+   "type": "single",
+   "q": "The ideal gas law equation is an approximation of a more complicated equation. It has the best results for molecules that are at low pressure and high temperature.",
+   "opts": [
+    "True",
+    "False"
+   ],
+   "correct": 0,
+   "note": "True. At low pressure the molecules are far apart (their volume matters less) and at high temperature they move fast enough that attractions matter less.",
+   "test": "T4"
+  },
+  {
+   "id": "hw20-q02",
+   "n": 2,
+   "type": "single",
+   "q": "Gases do not obey the ideal gas law perfectly because the gas particles do interact and they also do occupy a small portion of the volume of the container.",
+   "opts": [
+    "True",
+    "False"
+   ],
+   "correct": 0,
+   "note": "True. Those are exactly the two assumptions of the ideal gas model that real gases break.",
+   "test": "T4"
+  },
+  {
+   "id": "hw20-q03",
+   "n": 3,
+   "type": "single",
+   "q": "What pressure is exerted by 3.25 grams of nitrogen gas in a 1.50 L container at 52.0 °C? (Hint: Will you use N or N₂?)",
+   "opts": [
+    "0.485 atm",
+    "0.330 atm",
+    "1.29 atm",
+    "2.06 atm",
+    "57.8 atm"
+   ],
+   "correct": 3,
+   "note": "Nitrogen gas is diatomic, N₂ = 28.02 g/mol. n = 3.25 ÷ 28.02 = 0.1160 mol. P = nRT/V = 0.1160 × 0.0821 × 325.15 ÷ 1.50 = 2.06 atm.",
+   "test": "T4"
+  },
+  {
+   "id": "hw20-q04",
+   "n": 4,
+   "type": "single",
+   "q": "What is the correct value of R as well as temperature for GASES?",
+   "opts": [
+    "R = 0.0821 L*atm/(mol*K) and T should be in Kelvin ALWAYS.",
+    "R = 0.821 L*atm/(mol*K) and T should be in Kelvin ALWAYS.",
+    "R = 8.314 L*atm/(mol*K) and T should be in Kelvin ALWAYS.",
+    "R = 8.314 L*atm/(mol*K) and T should be in Celsius ALWAYS.",
+    "R = 0.0821 L*atm/(mol*K) and T should be in Celsius ALWAYS."
+   ],
+   "correct": 0,
+   "note": "R = 0.0821 L·atm/(mol·K) and Kelvin always. (8.314 is R in J/(mol·K), not L·atm.)",
+   "test": "T4"
+  },
+  {
+   "id": "hw20-q05",
+   "n": 5,
+   "type": "fill",
+   "q": "Fill in each blank.",
+   "blanks": [
+    {
+     "label": "Standard temperature for gases in °C and K (format: 50.15, 100.15, both to the hundredths)",
+     "answer": [
+      "0.00, 273.15",
+      "0.00,273.15"
+     ]
+    },
+    {
+     "label": "Standard pressure for gases in atm (2 sig figs, no units)",
+     "answer": "1.0"
+    },
+    {
+     "label": "Does every gas calculation with a temperature variable require temperature in Kelvin? (yes/no)",
+     "answer": "yes"
+    },
+    {
+     "label": "Combined gas law: do both pressure units have to be atm? (yes/no)",
+     "answer": "no"
+    },
+    {
+     "label": "Combined gas law: do both volume units have to be liters? (yes/no)",
+     "answer": "no"
+    },
+    {
+     "label": "Ideal gas law: do pressure and volume have to be in atm and L? (yes/no)",
+     "answer": "yes"
+    }
+   ],
+   "note": "STP for gases = 0 °C (273.15 K) and 1 atm. The combined gas law only needs matching units, but PV = nRT needs atm and L because R = 0.0821 L·atm/(mol·K).",
+   "test": "T4"
+  },
+  {
+   "id": "hw20-q06",
+   "n": 6,
+   "type": "calc",
+   "q": "What pressure in atm will 0.125 moles of a gas occupy at 231 mL and 195 °C?",
+   "answerValue": 20.8,
+   "answerDisplay": "20.8",
+   "unit": "atm",
+   "tolerance": 0.004,
+   "note": "V = 0.231 L, T = 468.15 K. P = nRT/V = 0.125 × 0.0821 × 468.15 ÷ 0.231 = 20.8 atm (3 sig figs).",
+   "given": "R = 0.0821 L·atm/(mol·K) · correct sig figs and units.",
+   "test": "T4"
+  },
+  {
+   "id": "hw20-q07",
+   "n": 7,
+   "type": "single",
+   "q": "What volume will 0.700 moles of helium gas occupy at 0.944 atm and 15.0 °C?",
+   "opts": [
+    "17.5 L",
+    "12.5 L",
+    "0.913 L",
+    "5.00 L",
+    "15.7 L"
+   ],
+   "correct": 0,
+   "note": "V = nRT/P = 0.700 × 0.0821 × 288.15 ÷ 0.944 = 17.5 L.",
+   "test": "T4"
+  },
+  {
+   "id": "hw20-q08",
+   "n": 8,
+   "type": "calc",
+   "q": "What size container (in L) will a gas occupy if 0.55 moles are added so that the gas is at STP?",
+   "answerValue": 12,
+   "answerDisplay": "12",
+   "unit": "L",
+   "tolerance": 0.03,
+   "note": "At STP 1 mol = 22.4 L. 0.55 mol × 22.4 L/mol = 12.3 → 12 L (2 sig figs).",
+   "given": "Use the correct number of sig figs and the correct unit.",
+   "test": "T4"
+  },
+  {
+   "id": "hw20-q09",
+   "n": 9,
+   "type": "single",
+   "q": "A sample of nitrogen gas is confined to a 14.0 L container at 0.493 atm and 37 °C. How many moles of nitrogen are in the container?",
+   "opts": [
+    "3.69 mol",
+    "0.271 mol",
+    "227 mol",
+    "206 mol",
+    "2.27 mol"
+   ],
+   "correct": 1,
+   "note": "n = PV/RT = 0.493 × 14.0 ÷ (0.0821 × 310.15) = 0.271 mol.",
+   "test": "T4"
+  },
+  {
+   "id": "hw20-q10",
+   "n": 10,
+   "type": "calc",
+   "q": "A gas fills a 22.4 L container and it is sealed when the gas measures being at STP. How many moles are in the container? The answer should have 1 decimal place.",
+   "answerValue": 1.0,
+   "answerDisplay": "1.0",
+   "unit": "mol",
+   "tolerance": 0.01,
+   "note": "At STP, 22.4 L = 1 mol exactly → 1.0 mol.",
+   "test": "T4"
+  },
+  {
+   "id": "hw20-q11",
+   "n": 11,
+   "type": "calc",
+   "q": "1.95 moles of a gas will occupy 41.2 L. The pressure is measured to be 2.45 atm. What is the temperature in °C? Round to the ones position.",
+   "answerValue": 357,
+   "answerDisplay": "357",
+   "unit": "°C",
+   "tolerance": 0.002,
+   "note": "T = PV/(nR) = 2.45 × 41.2 ÷ (1.95 × 0.0821) = 630.5 K → 630.5 − 273.15 = 357 °C.",
+   "given": "R = 0.0821 L·atm/(mol·K)",
+   "test": "T4"
+  },
+  {
+   "id": "hw20-q12",
+   "n": 12,
+   "type": "single",
+   "q": "What is the molar mass of a gas if a flask with a volume of 3.16 L contains 9.33 grams of the gas at 32.0 °C and 1.00 atm?",
+   "opts": [
+    "144 g/mol",
+    "81.4 g/mol",
+    "7.76 g/mol",
+    "74.0 g/mol",
+    "66.1 g/mol"
+   ],
+   "correct": 3,
+   "note": "Molar mass = mRT/(PV) = 9.33 × 0.0821 × 305.15 ÷ (1.00 × 3.16) = 74.0 g/mol.",
+   "test": "T4"
+  },
+  {
+   "id": "hw20-q13",
+   "n": 13,
+   "type": "calc",
+   "q": "What is the molar mass of a gas if 1.89 grams of the gas in a 0.539 L flask at 299 K has a pressure of 1.151 atm? Report to three significant figures.",
+   "answerValue": 74.7,
+   "answerDisplay": "74.7",
+   "unit": "g/mol",
+   "tolerance": 0.002,
+   "note": "Molar mass = mRT/(PV) = 1.89 × 0.08206 × 299 ÷ (1.151 × 0.539) = 74.7 g/mol.",
+   "given": "Use R = 0.08206 L·atm/(mol·K).",
+   "test": "T4"
+  },
+  {
+   "id": "hw20-q14",
+   "n": 14,
+   "type": "calc",
+   "q": "Determine the density in g/L of a gas with a molar mass of 65.17 g/mol at 319 K and 15.5 atm.",
+   "answerValue": 38.6,
+   "answerDisplay": "38.6",
+   "unit": "g/L",
+   "tolerance": 0.002,
+   "note": "d = PM/(RT) = 15.5 × 65.17 ÷ (0.0821 × 319) = 38.6 g/L.",
+   "given": "R = 0.0821 L·atm/(mol·K)",
+   "test": "T4"
+  },
+  {
+   "id": "hw20-q15",
+   "n": 15,
+   "type": "single",
+   "q": "Potassium chlorate decomposes to produce potassium chloride and oxygen. What volume of oxygen would be collected at 22.0 °C and 728 mmHg by the decomposition of 8.15 g of potassium chlorate?",
+   "opts": [
+    "2.52 L",
+    "2.23 L",
+    "1.68 L",
+    "1.48 L",
+    "1.12 L"
+   ],
+   "correct": 0,
+   "note": "2 KClO₃ → 2 KCl + 3 O₂. 8.15 g ÷ 122.55 g/mol = 0.06650 mol KClO₃ × (3 mol O₂ / 2 mol KClO₃) = 0.09976 mol O₂. P = 728/760 = 0.9579 atm. V = nRT/P = 0.09976 × 0.0821 × 295.15 ÷ 0.9579 = 2.52 L.",
+   "given": "Write and balance the reaction first.",
+   "test": "T4"
+  },
+  {
+   "id": "hw20-q16",
+   "n": 16,
+   "type": "single",
+   "q": "Nitrogen reacts with oxygen to form dinitrogen trioxide: 2 N₂ + 3 O₂ → 2 N₂O₃. What pressure of oxygen is required to produce 1.648 grams of dinitrogen trioxide in a 2.64 L container at 274 K?",
+   "opts": [
+    "0.382 atm",
+    "0.340 atm",
+    "0.277 atm",
+    "0.185 atm",
+    "0.658 atm"
+   ],
+   "correct": 2,
+   "note": "1.648 g ÷ 76.02 g/mol = 0.02168 mol N₂O₃ × (3 mol O₂ / 2 mol N₂O₃) = 0.03252 mol O₂. P = nRT/V = 0.03252 × 0.0821 × 274 ÷ 2.64 = 0.277 atm.",
+   "test": "T4"
+  },
+  {
+   "id": "hw20-q17",
+   "n": 17,
+   "type": "calc",
+   "q": "2 N₂ + 3 O₂ → 2 N₂O₃. What pressure of oxygen is required to produce 3.3 grams of dinitrogen trioxide in a 7.7 L container at 321.00 K?",
+   "answerValue": 0.22,
+   "answerDisplay": "0.22",
+   "unit": "atm",
+   "tolerance": 0.03,
+   "note": "3.3 g ÷ 76.01 g/mol = 0.04342 mol N₂O₃ × (3/2) = 0.06512 mol O₂. P = 0.06512 × 0.0821 × 321.00 ÷ 7.7 = 0.22 atm (2 sig figs).",
+   "given": "R = 0.0821 L·atm/(mol·K) · molar mass of N₂O₃ = 76.01 g/mol",
+   "test": "T4"
+  },
+  {
+   "id": "hw20-q18",
+   "n": 18,
+   "type": "calc",
+   "q": "At STP, this reaction occurred: XY (g) + 3 AB (aq) → A₃Y (g) + B₃X (s). How many liters of gas are produced from 2.6 grams of AB?",
+   "answerValue": 0.33,
+   "answerDisplay": "0.33",
+   "unit": "L",
+   "tolerance": 0.03,
+   "note": "2.6 g AB × (1 mol / 58.21 g) × (1 mol A₃Y / 3 mol AB) × (22.4 L / 1 mol) = 0.33 L. The only gas PRODUCT is A₃Y.",
+   "given": "You may or may not need all of this: molar mass AB = 58.21 g/mol · correct sig figs and unit.",
+   "test": "T4"
+  },
+  {
+   "id": "hw20-q19",
+   "n": 19,
+   "type": "calc",
+   "q": "A gas phase reaction at constant temperature and pressure in a flexible container: A₂Z (g) + 2 X (g) → 2 AX (g) + Z (g). If 2.29 L of A₂Z react with excess X, how many liters of AX will form?",
+   "answerValue": 4.58,
+   "answerDisplay": "4.58",
+   "unit": "L",
+   "tolerance": 0.002,
+   "note": "When everything is a gas at the same T and P, volumes follow the mole ratio: 2.29 L A₂Z × (2 L AX / 1 L A₂Z) = 4.58 L.",
+   "test": "T4"
+  }
+ ]
+}

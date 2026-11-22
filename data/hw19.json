@@ -1,0 +1,398 @@
+{
+ "slug": "hw19",
+ "test": "T4",
+ "title": "HW 19",
+ "subtitle": "Ch. 8 — Kinetic Molecular Theory, Gas Units & Combined Gas Law",
+ "questions": [
+  {
+   "id": "hw19-q01",
+   "n": 1,
+   "type": "multi",
+   "q": "Which statements are true about the Kinetic Molecular Theory?",
+   "opts": [
+    "Individual gas molecules may change speeds over time.",
+    "Pressure is a result of the collisions of gas particles hitting the sides of the container in which they are housed.",
+    "As gas atoms collide, they will slow down over time and eventually stop moving.",
+    "Gases obey the kinetic molecular theory best at low temperatures.",
+    "The kinetic energy of a sample of gas is proportional to the temperature in Kelvin. This means that gas molecules in a sample that is hot will move faster than gas molecules in a sample that is cooler.",
+    "Gases are assumed to not take up any space relative to size of the container."
+   ],
+   "correct": [
+    0,
+    1,
+    4,
+    5
+   ],
+   "note": "Collisions are elastic, so molecules never slow down and stop. Gases behave most ideally at HIGH temperature and low pressure, not low temperature.",
+   "test": "T4"
+  },
+  {
+   "id": "hw19-q02",
+   "n": 2,
+   "type": "single",
+   "q": "Select the gas with the highest average velocity at 298 K.",
+   "opts": [
+    "carbon dioxide",
+    "water",
+    "All have the same velocity",
+    "oxygen",
+    "hydrogen"
+   ],
+   "correct": 4,
+   "note": "Same temperature = same average kinetic energy. KE = ½mv², so the lightest molecule (H₂, 2.02 g/mol) moves fastest.",
+   "test": "T4"
+  },
+  {
+   "id": "hw19-q03",
+   "n": 3,
+   "type": "single",
+   "q": "On the left is a magnified view of a very small portion of liquid water in a closed container. Which magnified view would best represent what it looks like after the water evaporates?",
+   "opts": [
+    "Picture 1",
+    "Picture 2",
+    "Picture 3",
+    "Picture 4",
+    "Picture 5"
+   ],
+   "correct": 4,
+   "note": "Evaporation is a physical change: the H₂O molecules stay intact (one O bonded to two H) and simply spread far apart. Picture 2 shows H₂ and O₂ (the water broke apart), Picture 4 is still packed like a liquid, and the empty circle is not the answer.",
+   "given": "<img src=\"../assets/hw19-evaporation.png\" alt=\"Liquid water container with packed water molecules, an evaporated-water container with a question mark, and five numbered answer circles below.\" style=\"width:100%;max-width:520px\">",
+   "test": "T4"
+  },
+  {
+   "id": "hw19-q04",
+   "n": 4,
+   "type": "single",
+   "q": "What would 26.4 ºF be in ºC?",
+   "opts": [
+    "15.5 ºC",
+    "79.5 ºC",
+    "–3.1 ºC",
+    "–18.2 ºC",
+    "32.4 ºC"
+   ],
+   "correct": 2,
+   "note": "°C = (°F − 32) × 5/9 = (26.4 − 32) × 5/9 = −3.1 °C.",
+   "test": "T4"
+  },
+  {
+   "id": "hw19-q05",
+   "n": 5,
+   "type": "calc",
+   "q": "FLASHBACK: Convert 197.1 °F to Celsius. Round your answer to 1 decimal.",
+   "answerValue": 91.7,
+   "answerDisplay": "91.7",
+   "unit": "°C",
+   "tolerance": 0.001,
+   "note": "°C = (197.1 − 32) × 5/9 = 91.7 °C.",
+   "tag": "Flashback",
+   "test": "T4"
+  },
+  {
+   "id": "hw19-q06",
+   "n": 6,
+   "type": "calc",
+   "q": "Convert 50.77 °C to Kelvin. Round your answer to 2 decimal places.",
+   "answerValue": 323.92,
+   "answerDisplay": "323.92",
+   "unit": "K",
+   "tolerance": 2e-05,
+   "note": "K = °C + 273.15 = 50.77 + 273.15 = 323.92 K.",
+   "test": "T4"
+  },
+  {
+   "id": "hw19-q07",
+   "n": 7,
+   "type": "calc",
+   "q": "Convert 49.91 °C to Kelvin. Round your answer to 2 decimal places.",
+   "answerValue": 323.06,
+   "answerDisplay": "323.06",
+   "unit": "K",
+   "tolerance": 2e-05,
+   "note": "K = 49.91 + 273.15 = 323.06 K.",
+   "test": "T4"
+  },
+  {
+   "id": "hw19-q08",
+   "n": 8,
+   "type": "multi",
+   "q": "Which statements are true?",
+   "opts": [
+    "As volume increases pressure will decrease.",
+    "As you decrease the temperature of a gas, the volume will decrease.",
+    "Volume of a gas is directly proportional to pressure at constant temperature and number of moles.",
+    "As moles in a container increase, pressure will decrease.",
+    "Volume of a gas is directly proportional to temperature in Kelvin at constant pressure and number of moles."
+   ],
+   "correct": [
+    0,
+    1,
+    4
+   ],
+   "note": "Boyle: V and P are INVERSELY proportional. Charles: V and T (K) are directly proportional. More moles in the same container means MORE pressure.",
+   "test": "T4"
+  },
+  {
+   "id": "hw19-q09",
+   "n": 9,
+   "type": "calc",
+   "q": "If a gas is measured to be 980.5 torr (980.5 mmHg), what would the pressure be in atm? (Don't lose any sig figs!)",
+   "answerValue": 1.29,
+   "answerDisplay": "1.290",
+   "unit": "atm",
+   "tolerance": 0.0005,
+   "note": "1 atm = 760 torr (exact). 980.5 ÷ 760 = 1.290 atm (4 sig figs).",
+   "test": "T4"
+  },
+  {
+   "id": "hw19-q10",
+   "n": 10,
+   "type": "calc",
+   "q": "If a gas is measured to be 329 kPa, what would the pressure be in atm? (Don't lose any sig figs!)",
+   "answerValue": 3.25,
+   "answerDisplay": "3.25",
+   "unit": "atm",
+   "tolerance": 0.002,
+   "note": "1 atm = 101.325 kPa. 329 ÷ 101.325 = 3.25 atm.",
+   "test": "T4"
+  },
+  {
+   "id": "hw19-q11",
+   "n": 11,
+   "type": "calc",
+   "q": "FLASHBACK: If a gas is measured to be 302.1 mL, what would the volume be in L? (Don't lose any sig figs!)",
+   "answerValue": 0.3021,
+   "answerDisplay": "0.3021",
+   "unit": "L",
+   "tolerance": 0.0005,
+   "note": "302.1 mL × (1 L / 1000 mL) = 0.3021 L.",
+   "tag": "Flashback",
+   "test": "T4"
+  },
+  {
+   "id": "hw19-q12",
+   "n": 12,
+   "type": "fill",
+   "q": "Answer yes or no for each.",
+   "blanks": [
+    {
+     "label": "Does every gas calculation with a temperature variable require temperature be given or converted to Kelvin?",
+     "answer": "yes"
+    },
+    {
+     "label": "Combined gas law: do the pressure units both have to be in atm?",
+     "answer": "no"
+    },
+    {
+     "label": "Combined gas law: do the volume units both have to be in liters?",
+     "answer": "no"
+    }
+   ],
+   "note": "Temperature must ALWAYS be in Kelvin. In the combined gas law P and V just have to match each other (both mmHg, both mL, etc.).",
+   "test": "T4"
+  },
+  {
+   "id": "hw19-q13",
+   "n": 13,
+   "type": "single",
+   "q": "A 12.4 L cylinder contains a sample of gas at 2.54 atm. What pressure would the gas be in a 10.6 L cylinder at this same temperature?",
+   "opts": [
+    "0.337 atm",
+    "51.7 atm",
+    "2.97 atm",
+    "2.17 atm",
+    "0.461 atm"
+   ],
+   "correct": 2,
+   "note": "Boyle's law: P₁V₁ = P₂V₂ → P₂ = (2.54 × 12.4) ÷ 10.6 = 2.97 atm. Smaller volume → higher pressure.",
+   "test": "T4"
+  },
+  {
+   "id": "hw19-q14",
+   "n": 14,
+   "type": "calc",
+   "q": "A 13.3 L cylinder contains a sample of gas at 14.5 atm. What pressure would the gas be in a 7.3 L cylinder at this same temperature? Report your answer in atmospheres to the ones position.",
+   "answerValue": 26,
+   "answerDisplay": "26",
+   "unit": "atm",
+   "tolerance": 0.01,
+   "note": "P₂ = (14.5 × 13.3) ÷ 7.3 = 26.4 → 26 atm.",
+   "test": "T4"
+  },
+  {
+   "id": "hw19-q15",
+   "n": 15,
+   "type": "single",
+   "q": "A gas with a pressure of 435 mmHg and a volume of 25.1 mL has a pressure change to 401.1 mmHg at constant temperature. What is the new volume of the gas?",
+   "opts": [
+    "27.2 mL",
+    "45.0 mL",
+    "11.2 mL",
+    "595 mL",
+    "100. mL"
+   ],
+   "correct": 0,
+   "note": "V₂ = (435 × 25.1) ÷ 401.1 = 27.2 mL. Units don't need converting because both pressures are mmHg.",
+   "test": "T4"
+  },
+  {
+   "id": "hw19-q16",
+   "n": 16,
+   "type": "calc",
+   "q": "A gas volume is 64.91 L at 8.747 atm. The pressure of the gas changed to 1.409 atm at the same temperature. What is the final volume of the gas?",
+   "answerValue": 403.0,
+   "answerDisplay": "403.0",
+   "unit": "L",
+   "tolerance": 0.0003,
+   "note": "V₂ = (8.747 × 64.91) ÷ 1.409 = 403.0 L (4 sig figs).",
+   "given": "For full credit: correct sig figs and the unit.",
+   "test": "T4"
+  },
+  {
+   "id": "hw19-q17",
+   "n": 17,
+   "type": "single",
+   "q": "A gas with a temperature of 28 ºC and a volume of 23.5 mL is contracted to 14.6 mL at constant pressure. What is the new temperature of the gas?",
+   "opts": [
+    "211 ºC",
+    "17 ºC",
+    "–86 ºC",
+    "45 ºC",
+    "187 ºC"
+   ],
+   "correct": 2,
+   "note": "Charles's law in KELVIN: T₂ = 301.15 K × (14.6 ÷ 23.5) = 187.1 K → 187.1 − 273.15 = −86 °C. (187 is the trap: that's Kelvin, not °C.)",
+   "test": "T4"
+  },
+  {
+   "id": "hw19-q18",
+   "n": 18,
+   "type": "single",
+   "q": "A sample of gas initially at 160.0 mmHg and occupying 25.0 mL at 307.15 K is cooled to 299.15 K and expanded to 160.0 mL. What is the final pressure of the sample of gas?",
+   "opts": [
+    "0.0390 mmHg",
+    "19.1 mmHg",
+    "25.7 mmHg",
+    "1050 mmHg",
+    "24.3 mmHg"
+   ],
+   "correct": 4,
+   "note": "P₂ = P₁ × (V₁/V₂) × (T₂/T₁) = 160.0 × (25.0/160.0) × (299.15/307.15) = 24.3 mmHg.",
+   "test": "T4"
+  },
+  {
+   "id": "hw19-q19",
+   "n": 19,
+   "type": "single",
+   "q": "A sample of gas initially at 160.0 mmHg and occupying 25.0 mL at 34 °C is cooled to 26.0 °C and expanded to 160.0 mL. What is the final pressure of the sample of gas?",
+   "opts": [
+    "25.7 mmHg",
+    "24.3 mmHg",
+    "0.0390 mmHg",
+    "19.1 mmHg",
+    "1050 mmHg"
+   ],
+   "correct": 1,
+   "note": "Same problem as the one before with °C: 34 + 273.15 = 307.15 K and 26.0 + 273.15 = 299.15 K → 24.3 mmHg.",
+   "test": "T4"
+  },
+  {
+   "id": "hw19-q20",
+   "n": 20,
+   "type": "calc",
+   "q": "A 43.17 mL container holds gas initially at 11.65 °C and 253.7 torr. If the volume changes to 57.07 mL and the temperature changes to 26.3 °C, what is the final pressure of this gas in torr? Don't round early! Report your answer to four significant figures.",
+   "answerValue": 201.8,
+   "answerDisplay": "201.8",
+   "unit": "torr",
+   "tolerance": 0.0003,
+   "note": "P₂ = P₁V₁T₂ ÷ (T₁V₂) = 253.7 × 43.17 × 299.45 ÷ (284.80 × 57.07) = 201.8 torr.",
+   "test": "T4"
+  },
+  {
+   "id": "hw19-q21",
+   "n": 21,
+   "type": "single",
+   "q": "A sample of gas initially occupies 238 mL at 126 °C and 946 mmHg. What is the volume if the gas is cooled to 94 °C and the pressure is decreased to 547 mmHg?",
+   "opts": [
+    "379 mL",
+    "2.64 mL",
+    "307 mL",
+    "184 mL",
+    "150 mL"
+   ],
+   "correct": 0,
+   "note": "V₂ = 238 × (946/547) × (367.15/399.15) = 379 mL.",
+   "test": "T4"
+  },
+  {
+   "id": "hw19-q22",
+   "n": 22,
+   "type": "calc",
+   "q": "A sample of gas in a 28.5 L container is initially at 15 °C and 701 mmHg. If the pressure is reduced to 479 mmHg and the temperature is increased to 75 °C, what is the final volume? Add 273 to convert to Kelvin. Report your answer in liters to three significant figures.",
+   "answerValue": 50.4,
+   "answerDisplay": "50.4",
+   "unit": "L",
+   "tolerance": 0.002,
+   "note": "V₂ = 28.5 × (701/479) × (348/288) = 50.4 L.",
+   "test": "T4"
+  },
+  {
+   "id": "hw19-q23",
+   "n": 23,
+   "type": "single",
+   "q": "A sample of gas occupies 459 mL at 44.5 °C and 658 torr. What is the temperature if the gas is compressed to 250 mL and the pressure is changed to 759 torr?",
+   "opts": [
+    "–70.8 °C",
+    "232 °C",
+    "28.0 °C",
+    "199.5 °C",
+    "–73.5 °C"
+   ],
+   "correct": 4,
+   "note": "T₂ = T₁ × (P₂V₂)/(P₁V₁) = 317.5 K × (759 × 250)/(658 × 459) = 199.5 K → −73.5 °C. (199.5 is the Kelvin trap.)",
+   "test": "T4"
+  },
+  {
+   "id": "hw19-q24",
+   "n": 24,
+   "type": "single",
+   "q": "If a mixture with equal moles of helium gas and neon gas is allowed to escape through a pinhole in a container, the escaping gas would contain more neon than helium.",
+   "opts": [
+    "True",
+    "False"
+   ],
+   "correct": 1,
+   "note": "False. Lighter gases effuse faster (Graham's law), so the escaping gas has MORE helium (4.00 g/mol) than neon (20.18 g/mol).",
+   "test": "T4"
+  },
+  {
+   "id": "hw19-q25",
+   "n": 25,
+   "type": "single",
+   "q": "Which of the following is NOT true about helium gas and argon gas samples at the same temperature and pressure?",
+   "opts": [
+    "4.00 grams of helium will occupy the same volume as 39.95 grams of argon.",
+    "The same number of moles of each will occupy the same volume.",
+    "If you have twice as many moles of argon as helium, the volume of argon will be twice as large.",
+    "The same number of grams of each will occupy the same volume.",
+    "One mole each of helium and argon in a container will take up twice the volume of 1 mole of helium by itself."
+   ],
+   "correct": 3,
+   "note": "Avogadro's law: volume depends on MOLES, not grams. 4.00 g He and 39.95 g Ar are each 1 mole, so those match; equal grams are different mole amounts.",
+   "test": "T4"
+  },
+  {
+   "id": "hw19-q26",
+   "n": 26,
+   "type": "single",
+   "q": "I understand that if I need more practice I can go to Chapter 8 Exercises, Chemistry: Atoms First 2e (OpenStax), odd problems 29–31.",
+   "opts": [
+    "True",
+    "False"
+   ],
+   "correct": 0,
+   "note": "True.",
+   "test": "T4"
+  }
+ ]
+}
